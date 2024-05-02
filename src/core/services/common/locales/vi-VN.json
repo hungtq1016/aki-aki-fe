@@ -1,0 +1,17 @@
+{
+  "navigation": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "service": "Dịch vụ",
+    "specialist": "Chuyên khoa",
+    "blogs": "Kiến thức",
+    "contact": "Liên hệ"
+  },
+  "contact": {
+    "phone": "ĐT"
+  },
+  "about": {
+    "title": "PHÒNG KHÁM <br/> TIÊU CHUẨN Y KHOA THẾ GIỚI",
+    "content": "Hệ thống phòng khám AKIKI được thành lập từ năm 1998 với 4 bệnh viên phủ rộng khắp khu vực thành phố Hồ Chí Minh. Phòng khám AKIAKI là phòng khám tư nhân dành riêng cho bạn tiên tại Việt Nam, và là phòng khám duy nhất ở Việt Nam đến thời điểm hiện tại nhận được chứng nhận ISO 9001:2015 từ hiệp hội NQA Vương Quốc Anh cho dịch vụ khám chữa bệnh."
+  }
+}

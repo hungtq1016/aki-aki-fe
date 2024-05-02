@@ -1,0 +1,30 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "service": "Service",
+    "specialist": "Medical specialist",
+    "blogs": "Blogs",
+    "contact": "Contact"
+  },
+  "contact": {
+    "phone": "Phone"
+  },
+  "about": {
+    "title": "CLINIC <br/> WORLD MEDICAL STANDARD",
+    "content": "The AKIKI clinic system was established in 1998 with 4 hospitals covering various areas in Ho Chi Minh City. AKIAKI Clinic is the first private clinic dedicated to you in Vietnam, and it is the only clinic in Vietnam up to the present time to receive ISO 9001:2015 certification from the NQA UK Association for medical examination and treatment services."
+  },
+  "route": {
+    "home": "Home",
+    "about": "About",
+    "service": "Service",
+    "specialist":"Medical specialist",
+    "other":"Other Service",
+    "blogs":"All blogs",
+    "blogs-content":"Content for you",
+    "contact":"Contact"
+  },
+  "message":{
+    "notavailable":"Content not available"
+  }
+}
