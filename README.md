@@ -1,53 +1,61 @@
-# Tailwind CSS Playground
+# akiaki-fe
 
-A simple starter project for playing around with Tailwind in a proper PostCSS environment.
+This template should help get you started developing with Vue 3 in Vite.
 
-To get started:
+## Recommended IDE Setup
 
-1. Clone the repository:
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-    ```bash
-    git clone https://github.com/tailwindcss/playground.git tailwindcss-playground
+## Type Support for `.vue` Imports in TS
 
-    cd tailwindcss-playground
-    ```
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-2. Install the dependencies:
+## Customize configuration
 
-    ```bash
-    # Using npm
-    npm install
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-    # Using Yarn
-    yarn
-    ```
+## Project Setup
 
-3. Start the development server:
-
-    ```bash
-    # Using npm
-    npm run serve
-
-    # Using Yarn
-    yarn run serve
-    ```
-
-    Now you should be able to see the project running at localhost:8080.
-
-4. Open `public/index.html` in your editor and start experimenting!
-
-## Building for production
-
-Even though this isn't necessarily a starter kit for a proper project, we've included an example of setting up both [Purgecss](https://www.purgecss.com/) and [cssnano](https://cssnano.co/) to optimize your CSS for production.
-
-To build an optimized version of your CSS, simply run:
-
-```bash
-# Using npm
-npm run production
-
-# Using Yarn
-yarn run production
+```sh
+npm install
 ```
 
-After that's done, check out `./public/build/tailwind.css` to see the optimized output.
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
+
+### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+
+```sh
+npm run test:e2e:dev
+```
+
+This runs the end-to-end tests against the Vite development server.
+It is much faster than the production build.
+
+But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
+
+```sh
+npm run build
+npm run test:e2e
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```

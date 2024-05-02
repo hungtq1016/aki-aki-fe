@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+iframe {
+    @apply min-h-[400px]
+}
