@@ -8,7 +8,7 @@ const adminRoute: RouteRecordRaw[] = [
             {
                 path: '',
                 name:'admin',
-                component: () => import('@/core/views/AboutView.vue'),
+                component: () => import('@/modules/admin/views/MainView.vue'),
             }
         ]
     }

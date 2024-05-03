@@ -20,3 +20,19 @@ export type TOption = {
 export type TAsideItem = {
     label: string
 }
+
+export type TChat = {
+    avatar: string;
+    name: string;
+    text: string;
+    time: number;
+    textCount: number;
+    color: string;
+}
+
+export type TStat = {
+    icon: string;
+    title: string;
+    total: string;
+    growthRate: number;
+}
