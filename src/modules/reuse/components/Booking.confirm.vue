@@ -23,14 +23,14 @@
             <div class="modal-body">
                 <div class="text-center">
                     <!-- <img class="w-[88px] h-[88px] block mx-auto" src="assets/booking.d552112e.svg" alt=""> -->
-                    <h3 class="mt-5 text-xl font-medium leading-6 text-blue-200">Xác Nhận Đặt Lịch Hẹn</h3>
+                    <h3 class="mt-5 text-xl font-medium leading-6 text-cerulean-400">Xác Nhận Đặt Lịch Hẹn</h3>
                     <p class="mt-4 text-sm leading-[22px]">
                         Bạn đã gửi yêu cầu thành công!
                         <br>Chúng tôi sẽ liên hệ với bạn để xác nhận thông tin trong thời gian sớm nhất
                     </p>
-                    <p class="inline-block mt-3 text-sm leading-5 text-blue-200">Hotline: 1800 5999 41</p>
+                    <p class="inline-block mt-3 text-sm leading-5 text-cerulean-400">Hotline: 1800 5999 41</p>
                     <p class="mt-5">
-                        <a class="inline-block py-3 text-lg leading-none text-white uppercase bg-blue-200 rounded-full px-18"
+                        <a class="inline-block py-3 text-lg leading-none text-white uppercase bg-cerulean-400 rounded-full px-18"
                             aria-close href="javascript:void(0)" onclick="submit()">ok</a>
                     </p>
                 </div>

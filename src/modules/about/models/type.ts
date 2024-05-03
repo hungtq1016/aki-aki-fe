@@ -7,3 +7,19 @@ export type TAboutThumb = {
     icon: BaseTypeIcon,
     imageUrl: string
 }
+
+export type TQuote = {
+    quote: string,
+    author: string
+}
+
+export type TCertificate = {
+    number: number,
+    label: string
+}
+
+export type TEquipment = {
+    title: string,
+    desc: string,
+    imageUrl: string
+}

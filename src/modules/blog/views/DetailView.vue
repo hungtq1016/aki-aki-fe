@@ -10,7 +10,7 @@
                 <li>
                     <a class="inline-block" :href="`https://www.facebook.com/sharer.php?u=${url}`" target="_blank"
                         onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes, width=SomeSize, height=SomeSize'); return false;">
-                        <SVGFacebook class="w-5 h-5 fill-blue-600" />
+                        <SVGFacebook class="w-5 h-5 fill-cerulean-400" />
                     </a>
                 </li>
                 <li>

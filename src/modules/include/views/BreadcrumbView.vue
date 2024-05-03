@@ -1,6 +1,6 @@
 <template>
     <!-- breadcrumb -->
-    <div class="relative w-full bg-gradient-to-r from-cerulean-50 from-10% via-cerulean-100 to-cerulean-600 mt-44">
+    <div class="relative w-full bg-gradient-to-r from-cerulean-50 from-10% via-cerulean-100 to-cerulean-600 mt-48">
         <div class="mx-auto max-w-screen-xl py-5">
             <div class="mb-4 text-sm md:text-lg flex gap-x-1 items-center">
                 <router-link to="/" class="text-gray-900 hover:text-gray-950">{{ $t('route.home') }}</router-link>

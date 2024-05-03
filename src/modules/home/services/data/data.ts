@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import type { TBanner, TBlog, TCertificate, TCustomer, TCount, TGallery } from "../../models/type";
+import type { TBanner, TBlog, TCertificate, TQuote, TCount, TGallery } from "../../models/type";
 
 const banners = ref<Array<TBanner>>([
     {
@@ -80,7 +80,7 @@ const certificates = ref<Array<TCertificate>>([
     },
 ])
 
-const customers = ref<Array<TCustomer>>([
+const customers = ref<Array<TQuote>>([
     {
         title: 'Hình ảnh trước và sau khi niềng răng',
         imageUrl: 'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'

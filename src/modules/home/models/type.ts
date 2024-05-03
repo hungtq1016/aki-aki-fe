@@ -4,7 +4,7 @@ export type TBanner = {
 }
 
 export type TCertificate = TBanner
-export type TCustomer = TBanner
+export type TQuote = TBanner
 export type TGallery = TBanner
 
 export type TCount = {

@@ -3,8 +3,8 @@
         <div class="relative w-full overflow-hidden bg-white">
             <div class="relative w-[830px] max-w-full pb-[45px] px-4 block mx-auto">
                 <!-- <img class="w-full" src="assets/pets.a13ce774.jpg" alt="Thú cưng Pet Pro"> -->
-                <div class="text-center pb-[25px]">
-                    <h2 class="text-[48px] text-cerulean-400 leading-[55px] md:leading-[72px] capitalize">Đặt lịch hẹn
+                <div class="text-center pb-6">
+                    <h2 class="text-5xl text-cerulean-400 leading-[55px] md:leading-[72px] capitalize">Đặt lịch hẹn
                     </h2>
                     <HeartIcon class="w-5 h-5 block mx-auto mt-3 text-cerulean-300" />
                 </div>
