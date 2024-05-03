@@ -19,7 +19,7 @@ const { isSidebarOpen, toggleSidebar } = useSidebarStore()
         <button
           class="z-50 block rounded-sm border border-stroke bg-white p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden"
           @click="() => toggleSidebar() ">
-          <span class="relative block h-5.5 w-5.5 cursor-pointer">
+          <span class="relative block h-[22px] w-[22px]  cursor-pointer">
             <span class="du-block absolute right-0 h-full w-full">
               <span
                 class="relative top-0 left-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-[0] duration-200 ease-in-out dark:bg-white"

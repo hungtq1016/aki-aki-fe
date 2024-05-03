@@ -4,7 +4,7 @@
     <RouterLink to="/" class="flex items-center gap-5 py-3 px-[30px] hover:bg-gray-3 dark:hover:bg-meta-4">
         <div class="relative h-14 w-14 rounded-full">
             <img :src="data.avatar" :alt="data.name" />
-            <span class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white"
+            <span class="absolute right-0 bottom-0 h-[14px] w-[14px] rounded-full border-2 border-white"
                 :style="{ backgroundColor: data.color }"></span>
         </div>
 
