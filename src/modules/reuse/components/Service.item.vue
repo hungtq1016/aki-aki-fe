@@ -15,7 +15,7 @@
                 {{ data.desc }}
             </div>
             <div class="text-center mt-20">
-                <router-link class="text-cerulean-400 underline" :to="data.slug">Xem thêm</router-link>
+                <router-link class="text-cerulean-400 underline" :to="data.slug">{{ $t('content.more') }}</router-link>
             </div>
         </div>
     </div>

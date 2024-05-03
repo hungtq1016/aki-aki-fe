@@ -37,25 +37,25 @@ const services = ref<Array<TService>>([
     {
         imageUrl: '/special1.png',
         name: 'Khám bệnh tại nhà',
-        slug: '/services/kham-benh-tai-nhâ',
+        slug: '/other/kham-benh-tai-nhâ',
         desc: 'Dịch vụ khám bệnh tại nhà'
     },
     {
         imageUrl: '/special2.png',
         name: 'Chăm sóc răng miệng',
-        slug: '/services/cham-soc-rang-mieng',
+        slug: '/other/cham-soc-rang-mieng',
         desc: 'Dịch vụ chăm sóc răng miệng'
     },
     {
         imageUrl: '/special1.png',
         name: 'Bảo hiểm',
-        slug: '/services/bao-hiem',
+        slug: '/other/bao-hiem',
         desc: 'Dịch vụ bảo hiểm cho khách hàng'
     },
     {
         imageUrl: '/special2.png',
         name: 'Xét nghiệm',
-        slug: '/services/xet-nghiem',
+        slug: '/other/xet-nghiem',
         desc: 'Dịch vụ xét nghiệm'
     }
 ])
