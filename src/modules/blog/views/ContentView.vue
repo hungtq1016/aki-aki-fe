@@ -1,6 +1,7 @@
 <template>
     <BlogList :list="updateData" :title="String(route.params.slug)"/>
     <BlogPagination/>
+    
 </template>
 
 <script setup lang="ts">

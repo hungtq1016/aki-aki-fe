@@ -20,7 +20,7 @@
                 <div class="flex-shrink-0 pt-3 text-center">
                     <router-link class="text-sm underline underline-offset-[4px] text-cerulean-400"
                         :to="data.slug">
-                        Đọc Thêm
+                        {{ $t('content.more') }}
                     </router-link>
                 </div>
             </div>

@@ -2,12 +2,12 @@
 <template>
     <div class="flex justify-between items-center">
         <div
-        class="uppercase bg-cerulean-600 text-base w-fit font-bold text-center rounded-md text-white py-3 px-6 mb-11 mt-12">
-        {{ title }}
+        class="uppercase bg-cerulean-600 text-base w-fit font-bold text-center rounded-md text-white py-3 px-6 my-5">
+        {{ $t(`route.${title}`) }}
     </div>
     <router-link v-if="route.name == 'blogs'"
     class="text-cerulean-400 hover:text-cerulean-600"
-    :to="`/blogs/${title}`">More</router-link>
+    :to="`/blogs/${title}`">{{ $t('content.more') }}</router-link>
     </div>
     <div class="grid gap-6 gap-y-[54px] md:grid-cols-2 lg:grid-cols-3">
         <BlogItem v-for="data in list" :key="data.title" :data="data"/>

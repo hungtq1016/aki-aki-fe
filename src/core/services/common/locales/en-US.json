@@ -22,7 +22,22 @@
     "other":"Other Service",
     "blogs":"All blogs",
     "blogs-content":"Content for you",
-    "contact":"Contact"
+    "blogs-detail":"Blog detail",
+    "contact":"Contact",
+    "healthcare":"Healthcare",
+    "sale":"Sale",
+    "information":"Information"
+  },
+  "content":{
+    "share":"Share",
+    "search-blog":"Search",
+    "branch":"Branch",
+    "category":"Category",
+    "search":"Search for articles",
+    "more": "See More",
+    "assistance-contact":"Need further assistance, please contact us via",
+    "directly-contact":"Or directly contact AKIAKI Clinic at the address:",
+    "related-articles":"Related articles"
   },
   "message":{
     "notavailable":"Content not available"

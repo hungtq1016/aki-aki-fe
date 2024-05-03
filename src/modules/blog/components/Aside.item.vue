@@ -3,7 +3,7 @@
     <li>
         <router-link :to="data.slug" class="flex py-4 gap-x-2">
             <ChevronRightIcon class="w-5 h-5 text-cerulean-600" />
-            <span class="text-gray-600">{{ data.title }}</span>
+            <span class="text-gray-600">{{ $t(data.title) }}</span>
         </router-link>
     </li>
 </template>
