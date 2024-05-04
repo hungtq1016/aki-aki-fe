@@ -3,15 +3,169 @@
     "home": "Trang chủ",
     "about": "Giới thiệu",
     "service": "Dịch vụ",
-    "specialist": "Chuyên khoa",
-    "blogs": "Kiến thức",
-    "contact": "Liên hệ"
+    "specialist": "Chuyên khoa y tế",
+    "blogs": "Thông tin",
+    "contact": "Liện hệ",
+    "all": "Tất cả",
+    "menu": "Menu",
+    "other": "Khác",
+    "chart": "Bảng thống kê",
+    "dashboard": "Bảng điều khiển",
+    "audio": "Âm Thanh",
+    "album": "Albums",
+    "setting": "Cài đặt",
+    "profile": "Hồ sơ cá nhân",
+    "contacts": "Liên hệ",
+    "collection": "Bộ sưu tập"
   },
   "contact": {
-    "phone": "ĐT"
+    "phone": "Số điện thoại"
   },
   "about": {
-    "title": "PHÒNG KHÁM <br/> TIÊU CHUẨN Y KHOA THẾ GIỚI",
-    "content": "Hệ thống phòng khám AKIKI được thành lập từ năm 1998 với 4 bệnh viên phủ rộng khắp khu vực thành phố Hồ Chí Minh. Phòng khám AKIAKI là phòng khám tư nhân dành riêng cho bạn tiên tại Việt Nam, và là phòng khám duy nhất ở Việt Nam đến thời điểm hiện tại nhận được chứng nhận ISO 9001:2015 từ hiệp hội NQA Vương Quốc Anh cho dịch vụ khám chữa bệnh."
+    "title": "CLINIC <br/> WORLD MEDICAL STANDARD",
+    "content": "The AKIKI là hệ thống nha khoa với 4 chi nhanh được thành lập vào năm 2024 tại thành phố Hồ Chí Minh. Akiki là hệ thống nha khoa dành riêng cho bạn tại Việt Nam, và là Nha Khoa đạt chuẩn ISO 9001:2015 từ NQA UK Association về dịch vụ chăm sóc và điều trị"
+  },
+  "form": {
+    "email": "Email",
+    "username": "Tên đăng nhập",
+    "fullname": "Tên đầy đủ",
+    "address": "Địa chỉ",
+    "gender": "Giới tính",
+    "birthday": "Ngày sinh",
+    "phone": "Số điện thoại",
+    "password": "Mật khẩu",
+    "re_password": "Xác nhận mật khẩu",
+    "old_password": "Mật khẩu cũ",
+    "new_password": "Mật khẩu mới",
+    "has_not_account": "Bạn chưa có tài khoản?",
+    "has_account": "Bạn đã có tài khoản",
+    "back": "Quay lại đăng nhập",
+    "place_holder": {
+      "email": "Nhập email",
+      "password": "Nhập mật khẩu",
+      "username": "Nhập tên đăng nhập",
+      "fullname": "Nhập tên đầy đủ",
+      "address": "Nhập địa chỉ",
+      "search": "Tìm kiếm..."
+    },
+    "validation": {
+      "required": "Vui lòng nhập đầy đủ thông tin",
+      "email": "Email không hợp lệ",
+      "password": "Mật khẩu không đúng",
+      "re_password": "Nhập lại mật khẩu không đúng",
+      "username": "Tên đăng nhập phải có ít nhất 6 kí tự",
+      "fullname": "Tên đầy đủ phải có ít nhất 6 kí tự",
+      "address": "Địa chỉ phải có ít nhất 6 kí tự",
+      "phone": "Số điện thoại không hợp lệ",
+      "birthday": "Ngày sinh không hợp lệ"
+    }
+  },
+  "error": {
+    "not_found": {
+      "title": "Không tìm thấy",
+      "message": "Không thể tìm thấy trang bạn muốn tìm"
+    },
+    "server_error": {
+      "title": "Server lỗi",
+      "message": "Đã có lỗi xảy ra khi thực hiện yêu cầu của bạn"
+    },
+    "unauthorized": {
+      "title": "Chưa được cấp quyền",
+      "message": "Bạn không đủ quyền hạn để truy cập vào đây"
+    }
+  },
+  "oauth2": {
+    "login": "Đăng nhập",
+    "signout": "Đăng xuất",
+    "register": "Đăng kí",
+    "change_password": "Đổi mật khâu",
+    "forgot_password": "Quên mật khẩu",
+    "reset_password": "Reset mật khẩu",
+    "change_email": "Thay đổi email",
+    "change_phone": "Thay đổi số điện thoại",
+    "change_avatar": "Thay đổi ảnh đại diện"
+  },
+  "button": {
+    "ok": "Ok",
+    "cancel": "Huỷ",
+    "close": "Đóng",
+    "save": "Lưu",
+    "delete": "Xoá",
+    "edit": "Chỉnh sửa",
+    "add": "Thêm",
+    "back": "Quay lại",
+    "confirm": "Xác nhận"
+  },
+  "route": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "service": "Dịch vụ",
+    "specialist": "Chuyên khoa y tế",
+    "other": "Những dịch vụ khác",
+    "blogs": "Trang thông tin",
+    "blogs-content": "Thông tin dành cho bạn",
+    "blogs-detail": "Chi tiết thông tin",
+    "contact": "Liên hệ",
+    "healthcare": "Chăm sóc sức khoẻ",
+    "sale": "Bán",
+    "information": "Thông tin",
+    "search": "Kết quả tìm kiếm",
+    "customer": "Khách hàng nói về AkiAki",
+    "team": "Đội ngũ y tế",
+    "equipment": "Trang thiết bị",
+    "introduction": "Chỉ tị từ bệnh viện"
+  },
+  "content": {
+    "share": "Chia sẻ",
+    "search-blog": "Tìm kiếm",
+    "branch": "Nhãn hàng",
+    "category": "Phân loại",
+    "search": "Tìm kiếm",
+    "search-result": "Kết quả tìm kiếm",
+    "more": "Hiển thị thêm",
+    "assistance-contact": "Hãy liên hệ chúng tôi để biết thêm thông tin",
+    "directly-contact": "Địa chỉ liên hệ trực tiếp với AkiAki:",
+    "related-articles": "Bài viết liên quan"
+  },
+  "message": {
+    "notavailable": "Không tìm thấy nội dung",
+    "welcome": "Chào mừng bạn!",
+    "greeting": "Xin chào, {name}!",
+    "farewell": "Tạm biệt, {name}!",
+    "loading": "Đang tải...",
+    "loginSuccess": "Đăng nhập thành công",
+    "copySuccess": "Sao chép {name} Thành công",
+    "deleteSuccess": "Xoá {name} Thành công",
+    "updateSuccess": "Thành công cập nhật",
+    "confirmDelete": "Bạn có chắc muốn xoá {name}?"
+  },
+  "table": {
+    "id": "ID",
+    "alt": "Alt",
+    "path": "Path",
+    "size": "Kích thước",
+    "extension": "Mở rộng",
+    "enable": "Enable",
+    "title": "Tiêu đề",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "action": "Action",
+    "selectHeader": "Chọn tiêu đề",
+    "selected": "{count} đã chọn",
+    "show": "Hiển thị từ {from} đến {to} của {total} thực thể",
+    "selectAction": "Chọn",
+    "selectedRows": "{count} dòng đã chọn",
+    "disableAll": "Tắt tất cả",
+    "deleteAll": "Xoá tất cả",
+    "enableAll": "Mở tất cả",
+    "name": "Name",
+    "slug": "Slug"
+  },
+  "status": {
+    "active": "Hoạt đọng",
+    "inactive": "Ngưng hoạt động"
+  },
+  "html": {
+    "browserNotSupport": "Trình duyệt của bạn không hỗ trợ {element}."
   }
 }
