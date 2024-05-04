@@ -6,7 +6,7 @@
             <div>
                 <h3 
                     class="uppercase text-[22px] mb-4 relative
-                    after:contents-[''] after:h-0.5 after:w-32 after:left-0 after:absolute after:-bottom-3 after:-translate-y-1/2 after:bg-white">
+                    after:contents-[''] after:h-px after:w-32 after:left-0 after:absolute after:-bottom-3 after:-translate-y-1/2 after:bg-white">
                     {{ data.name }}
                 </h3>
                 <div class="address">

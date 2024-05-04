@@ -57,7 +57,7 @@
                             class="w-full outline-none h-[44px] border-[1.5px] px-[12px] py-[10px] border-gray-130 rounded-[4px]  placeholder:text-gray-600"
                             placeholder="Số Điện Thoại" type="tel" id="phone" name="phone" pattern="[0-9]{9,13}">
                         <input
-                            class="w-full outline-none h-[44px] border-[1.5px] px-[12px] py-[10px] border-gray-130 rounded-[4px]  placeholder:text-gray-600 required:invalid:text-gray-220"
+                            class="w-full outline-none h-[44px] border-[1.5px] px-[12px] py-[10px] border-gray-130 rounded-[4px]  placeholder:text-gray-600 required:invalid:text-black-haze-5020"
                             type="date" id="date" name="date">
                     </div>
                     <div class="grid grid-cols-1 pb-[17px]">

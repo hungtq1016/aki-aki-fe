@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-    <div class="border border-gray-200 rounded-md h-full flex flex-col">
+    <div class="border border-black-haze-5000 rounded-md h-full flex flex-col">
             <router-link :to="data.slug">
                 <img class="w-full rounded-t-md flex-shrink-0 h-60 object-cover"
                     :src="data.imageUrl"

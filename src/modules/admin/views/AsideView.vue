@@ -15,7 +15,7 @@ onClickOutside(target, () => {
 
 <template>
     <aside
-        class="absolute left-0 top-0 z-50 flex h-screen w-[290px] flex-col justify-between py-5 overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
+        class="absolute left-0 top-0 z-50 flex h-screen w-[290px] flex-col justify-between py-5 overflow-y-hidden bg-ebony-clay-950 duration-300 ease-linear dark:bg-big-stone-950  lg:static lg:translate-x-0"
         :class="{
             'translate-x-0': sidebarStore.isSidebarOpen,
             '-translate-x-full': !sidebarStore.isSidebarOpen
@@ -25,7 +25,7 @@ onClickOutside(target, () => {
             <nav class="px-4 lg:px-6">
                 <template v-for="menuGroup in menus" :key="menuGroup.name">
                     <div>
-                        <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">{{ $t(menuGroup.name) }}</h3>
+                        <h3 class="mb-4 ml-4 text-sm font-medium text-regent-gray-600 ">{{ $t(menuGroup.name) }}</h3>
 
                         <ul class="mb-6 flex flex-col gap-1.5">
                             <AsideItem v-for="(menuItem, index) in menuGroup.menuItems" :item="menuItem" :key="index"

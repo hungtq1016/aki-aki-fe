@@ -5,7 +5,7 @@
                 <div class="grid grid-cols-2">
                     <div>
                         <h1 class="text-2xl leading-[45px] uppercase text-center font-semibold mb-10 text-white relative
-                            after:contents-[''] after:h-0.5 after:w-32 after:absolute after:left-1/2 after:-bottom-3 after:-translate-x-1/2 after:-translate-y-1/2 after:bg-white">
+                            after:contents-[''] after:h-pxafter:w-32 after:absolute after:left-1/2 after:-bottom-3 after:-translate-x-1/2 after:-translate-y-1/2 after:bg-white">
                             chuyên khoa của chúng tôi
                         </h1>
                         <p class="text-white text-justify">

@@ -44,8 +44,8 @@ onMounted(() => {
 
 <template>
     <div
-        class="col-span-12 rounded-sm border border-stroke bg-white py-6 px-[30px] shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-7">
-        <h4 class="mb-2 text-xl font-bold text-black dark:text-white">Region labels</h4>
+        class="col-span-12 rounded-sm border border-zumthor-100 bg-white py-6 px-[30px] shadow-default dark:border-oxford-blue-900 dark:bg-big-stone-950  xl:col-span-7">
+        <h4 class="mb-2 text-xl font-bold text-ebony-clay-950 dark:text-white">Region labels</h4>
         <div id="mapOne" class="mapOne map-btn !h-90"></div>
     </div>
 </template>

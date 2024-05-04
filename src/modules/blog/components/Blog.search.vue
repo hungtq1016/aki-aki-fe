@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <form @submit.prevent="submit" enctype="multipart/form-data">
-        <div class="w-[343px] max-w-full h-10 mb-9 flex items-center gap-x-2 border border-gray-300 rounded-md px-2">
+        <div class="w-[343px] max-w-full h-10 mb-9 flex items-center gap-x-2 border border-alabaster-5000 rounded-md px-2">
             <button type="submit">
                 <MagnifyingGlassIcon class="w-5 h-5 text-gray-600" />
             </button>

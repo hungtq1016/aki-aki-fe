@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 
 <template>
-    <RouterLink to="/" class="flex items-center gap-5 py-3 px-[30px] hover:bg-gray-3 dark:hover:bg-meta-4">
+    <RouterLink to="/" class="flex items-center gap-5 py-3 px-[30px] hover:bg-alabaster-50 dark:hover:bg-oxford-blue-900">
         <div class="relative h-14 w-14 rounded-full">
             <img :src="data.avatar" :alt="data.name" />
             <span class="absolute right-0 bottom-0 h-[14px] w-[14px] rounded-full border-2 border-white"
@@ -10,9 +10,9 @@
 
         <div class="flex flex-1 items-center justify-between">
             <div>
-                <h5 class="font-medium text-black dark:text-white">{{ data.name }}</h5>
+                <h5 class="font-medium text-ebony-clay-950 dark:text-white">{{ data.name }}</h5>
                 <p>
-                    <span class="text-sm text-black dark:text-white">{{ data.text }}</span>
+                    <span class="text-sm text-ebony-clay-950 dark:text-white">{{ data.text }}</span>
                     <span class="text-xs"> . {{ data.time }} min</span>
                 </p>
             </div>

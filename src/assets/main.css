@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply relative z-[1] bg-whiten font-sans text-base font-normal text-body dark:text-bodydark dark:bg-boxdark-2;
+    @apply relative z-1 bg-athens-gray-50  font-sans text-base font-normal text-lynch-500 dark:text-hit-gray-400 dark:bg-shark-950 ;
   }
 }
 
@@ -43,23 +43,23 @@ iframe {
 }
 
 .tableCheckbox:checked ~ div {
-  @apply border-primary bg-primary;
+  @apply border-cerulean-blue-600 bg-cerulean-blue-600;
 }
 
 .apexcharts-legend-text {
-  @apply !text-body dark:!text-bodydark;
+  @apply !text-lynch-500 dark:!text-hit-gray-400;
 }
 
 .apexcharts-text {
-  @apply !fill-body dark:!fill-bodydark;
+  @apply !fill-lynch-500 dark:!fill-hit-gray-400;
 }
 
 .apexcharts-xcrosshairs {
-  @apply !fill-stroke dark:!fill-strokedark;
+  @apply !fill-zumthor-100 dark:!fill-oxford-blue-900;
 }
 
 .apexcharts-gridline {
-  @apply !stroke-stroke dark:!stroke-strokedark;
+  @apply !stroke-zumthor-100 dark:!stroke-oxford-blue-900;
 }
 
 .apexcharts-series.apexcharts-pie-series path {
@@ -71,24 +71,24 @@ iframe {
 }
 
 .apexcharts-tooltip.apexcharts-theme-light {
-  @apply dark:!border-strokedark dark:!bg-boxdark;
+  @apply dark:!border-oxford-blue-900 dark:!bg-big-stone-950 ;
 }
 
 .apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
-  @apply dark:!border-strokedark dark:!bg-meta-4;
+  @apply dark:!border-oxford-blue-900 dark:!bg-oxford-blue-900;
 }
 
 .apexcharts-xaxistooltip,
 .apexcharts-yaxistooltip {
-  @apply dark:!border-meta-4 dark:!bg-meta-4 dark:!text-bodydark1;
+  @apply dark:!border-oxford-blue-900 dark:!bg-oxford-blue-900 dark:!text-link-water-200 ;
 }
 
 .apexcharts-xaxistooltip-bottom:after {
-  @apply dark:!border-b-meta-4;
+  @apply dark:!border-b-oxford-blue-900;
 }
 
 .apexcharts-xaxistooltip-bottom:before {
-  @apply dark:!border-b-meta-4;
+  @apply dark:!border-b-oxford-blue-900;
 }
 
 .apexcharts-tooltip-series-group {
@@ -101,23 +101,23 @@ iframe {
 
 .flatpickr-months .flatpickr-prev-month:hover svg,
 .flatpickr-months .flatpickr-next-month:hover svg {
-  @apply !fill-primary;
+  @apply !fill-cerulean-blue-600;
 }
 
 .flatpickr-calendar.arrowTop:before {
-  @apply dark:!border-b-boxdark;
+  @apply dark:!border-b-big-stone-950 ;
 }
 
 .flatpickr-calendar.arrowTop:after {
-  @apply dark:!border-b-boxdark;
+  @apply dark:!border-b-big-stone-950 ;
 }
 
 .flatpickr-calendar {
-  @apply !p-6 dark:!bg-boxdark dark:!text-bodydark dark:!shadow-[8] 2xsm:!w-auto;
+  @apply !p-6 dark:!bg-big-stone-950  dark:!text-hit-gray-400 dark:!shadow-[8] 2xsm:!w-auto;
 }
 
 .flatpickr-day {
-  @apply dark:!text-bodydark dark:hover:!bg-meta-4 dark:hover:!border-meta-4;
+  @apply dark:!text-hit-gray-400 dark:hover:!bg-oxford-blue-900 dark:hover:!border-oxford-blue-900;
 }
 
 .flatpickr-months .flatpickr-prev-month,
@@ -159,7 +159,7 @@ span.flatpickr-weekday,
 .flatpickr-day:focus,
 .flatpickr-day.prevMonthDay:focus,
 .flatpickr-day.nextMonthDay:focus {
-  @apply !border-[#F3F4F6] !bg-[#F3F4F6] dark:!border-meta-4 dark:!bg-meta-4;
+  @apply !border-[#F3F4F6] !bg-[#F3F4F6] dark:!border-oxford-blue-900 dark:!bg-oxford-blue-900;
 }
 
 .flatpickr-day.selected,
@@ -188,7 +188,7 @@ span.flatpickr-weekday,
 .flatpickr-day.startRange.nextMonthDay,
 .flatpickr-day.endRange.nextMonthDay {
   background: #3c50e0;
-  @apply !border-primary !bg-primary hover:!border-primary hover:!bg-primary;
+  @apply !border-cerulean-blue-600 !bg-cerulean-blue-600 hover:!border-cerulean-blue-600 hover:!bg-cerulean-blue-600;
 }
 
 .flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n + 1)),
@@ -198,7 +198,7 @@ span.flatpickr-weekday,
 }
 
 .map-btn .jvm-zoom-btn {
-  @apply flex h-['30px'] w-['30px'] items-center justify-center rounded border border-stroke bg-white px-0 pt-0 pb-0.5 text-2xl leading-none text-body hover:border-primary hover:bg-primary hover:text-white dark:border-strokedark dark:text-bodydark dark:bg-meta-4 dark:hover:border-primary dark:hover:text-white dark:hover:bg-primary;
+  @apply flex h-['30px'] w-['30px'] items-center justify-center rounded border border-zumthor-100 bg-white px-0 pt-0 pb-px text-2xl leading-none text-lynch-500 hover:border-cerulean-blue-600 hover:bg-cerulean-blue-600 hover:text-white dark:border-oxford-blue-900 dark:text-hit-gray-400 dark:bg-oxford-blue-900 dark:hover:border-cerulean-blue-600 dark:hover:text-white dark:hover:bg-cerulean-blue-600;
 }
 
 .mapOne .jvm-zoom-btn {
@@ -222,7 +222,7 @@ span.flatpickr-weekday,
 }
 
 .taskCheckbox:checked ~ .box {
-  @apply border-primary bg-primary dark:border-primary;
+  @apply border-cerulean-blue-600 bg-cerulean-blue-600 dark:border-cerulean-blue-600;
 }
 
 .custom-input-date::-webkit-calendar-picker-indicator {

@@ -6,8 +6,8 @@ import { chatData } from '../services/data/chat'
 
 <template>
     <div
-        class="col-span-12 rounded-sm border border-stroke bg-white py-6 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
-        <h4 class="mb-6 px-[30px] text-xl font-semibold text-black dark:text-white">Chats</h4>
+        class="col-span-12 rounded-sm border border-zumthor-100 bg-white py-6 shadow-default dark:border-oxford-blue-900 dark:bg-big-stone-950  xl:col-span-4">
+        <h4 class="mb-6 px-[30px] text-xl font-semibold text-ebony-clay-950 dark:text-white">Chats</h4>
 
         <div>
             <ChatItem v-for="data in chatData" :key="data.name" :data="data" />

@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div
-        :class="[data.mostPopular ? 'ring-2 ring-cerulean-600' : 'ring-1 ring-gray-200', 'rounded-3xl p-8 xl:p-10']">
+        :class="[data.mostPopular ? 'ring-2 ring-cerulean-600' : 'ring-1 ring-black-haze-5000', 'rounded-3xl p-8 xl:p-10']">
         <div class="flex items-center justify-between gap-x-4">
             <h3 :id="data.id"
                 :class="[data.mostPopular ? 'text-cerulean-600' : 'text-gray-900', 'text-lg font-semibold leading-8']">

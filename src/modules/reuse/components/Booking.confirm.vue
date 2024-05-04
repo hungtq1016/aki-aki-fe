@@ -6,21 +6,21 @@
                             <div class="modal-header">
                                 <b class="modal-title" style="font-size: 45px">Thông báo</b>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-lynch-500">
                                 <input id="notification" type="text" value="abc"
                                     style="border: 0px solid black; background-color:white; width:100%;"
                                     :disabled="true">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" style="border-radius: 5px; background-color: #008CDD"
-                                    class="btn btn-secondary" data-dismiss="modal" onclick="Close()">Đóng</button>
+                                    class="btn btn-seagull-300" data-dismiss="modal" onclick="Close()">Đóng</button>
                             </div>
                         </div>
                     </div>
                 </div>
     <div id="modalConfirmBooking" class="modal" role="dialog" aria-hidden="true" tabindex="-1">
         <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-lynch-500">
                 <div class="text-center">
                     <!-- <img class="w-[88px] h-[88px] block mx-auto" src="assets/booking.d552112e.svg" alt=""> -->
                     <h3 class="mt-5 text-xl font-medium leading-6 text-cerulean-400">Xác Nhận Đặt Lịch Hẹn</h3>

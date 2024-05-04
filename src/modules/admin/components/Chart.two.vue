@@ -81,11 +81,11 @@ const apexOptions = {
 
 <template>
   <div
-    class="col-span-12 rounded-sm border border-stroke bg-white p-[30px] shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4"
+    class="col-span-12 rounded-sm border border-zumthor-100 bg-white p-[30px] shadow-default dark:border-oxford-blue-900 dark:bg-big-stone-950  xl:col-span-4"
   >
     <div class="mb-4 justify-between gap-4 sm:flex">
       <div>
-        <h4 class="text-xl font-bold text-black dark:text-white">Profit this week</h4>
+        <h4 class="text-xl font-bold text-ebony-clay-950 dark:text-white">Profit this week</h4>
       </div>
       <div>
         <div class="relative z-20 inline-block">

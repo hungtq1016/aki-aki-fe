@@ -21,7 +21,7 @@
                 </router-link>
                 <ul
                     class="hidden lg:top-0 absolute z-20 left-0 top-16 h-screen max-h-screen w-[calc(100%+32px)] lg:relative lg:w-full lg:-ml-0 lg:flex lg:max-h-full items-center lg:justify-around flex-1 lg:h-full lg:px-10 lg:pt-0">
-                    <li class="w-full h-3 bg-gradient-to-b from-gray-300 to-white md:hidden"></li>
+                    <li class="w-full h-3 bg-gradient-to-b from-alabaster-5000 to-white md:hidden"></li>
                     <HeaderNavigation v-for="navigation in navigations" :key="navigation.title" :data="navigation"
                         :is-zero="isZero" />
                     <li class="flex items-center justify-center">

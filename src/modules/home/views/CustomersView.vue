@@ -1,6 +1,6 @@
 <template>
     <section class="pb-10">
-        <div class="bg-black h-10" style="clip-path: ellipse(48% 2% at 50% 50%);"></div>
+        <div class="bg-ebony-clay-950 h-10" style="clip-path: ellipse(48% 2% at 50% 50%);"></div>
         <div class="max-w-screen-xl m-auto mt-10">
             <CustomerFlick />
         </div>

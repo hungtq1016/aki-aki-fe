@@ -48,11 +48,11 @@ const apexOptions = {
 
 <template>
   <div
-    class="col-span-12 rounded-sm border border-stroke bg-white px-5 pt-[30px] pb-5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-[30px] xl:col-span-5"
+    class="col-span-12 rounded-sm border border-zumthor-100 bg-white px-5 pt-[30px] pb-5 shadow-default dark:border-oxford-blue-900 dark:bg-big-stone-950  sm:px-[30px] xl:col-span-5"
   >
     <div class="mb-3 justify-between gap-4 sm:flex">
       <div>
-        <h4 class="text-xl font-bold text-black dark:text-white">Visitors Analytics</h4>
+        <h4 class="text-xl font-bold text-ebony-clay-950 dark:text-white">Visitors Analytics</h4>
       </div>
       <div>
         <div class="relative z-20 inline-block">
@@ -101,8 +101,8 @@ const apexOptions = {
     <div class="-mx-8 flex flex-wrap items-center justify-center gap-y-3">
       <div class="w-full px-8 sm:w-1/2">
         <div class="flex w-full items-center">
-          <span class="mr-2 block h-3 w-full max-w-3 rounded-full bg-primary"></span>
-          <p class="flex w-full justify-between text-sm font-medium text-black dark:text-white">
+          <span class="mr-2 block h-3 w-full max-w-3 rounded-full bg-cerulean-blue-600"></span>
+          <p class="flex w-full justify-between text-sm font-medium text-ebony-clay-950 dark:text-white">
             <span> Desktop </span>
             <span> 65% </span>
           </p>
@@ -111,7 +111,7 @@ const apexOptions = {
       <div class="w-full px-8 sm:w-1/2">
         <div class="flex w-full items-center">
           <span class="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#6577F3]"></span>
-          <p class="flex w-full justify-between text-sm font-medium text-black dark:text-white">
+          <p class="flex w-full justify-between text-sm font-medium text-ebony-clay-950 dark:text-white">
             <span> Tablet </span>
             <span> 34% </span>
           </p>
@@ -120,7 +120,7 @@ const apexOptions = {
       <div class="w-full px-8 sm:w-1/2">
         <div class="flex w-full items-center">
           <span class="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#8FD0EF]"></span>
-          <p class="flex w-full justify-between text-sm font-medium text-black dark:text-white">
+          <p class="flex w-full justify-between text-sm font-medium text-ebony-clay-950 dark:text-white">
             <span> Mobile </span>
             <span> 45% </span>
           </p>
@@ -129,7 +129,7 @@ const apexOptions = {
       <div class="w-full px-8 sm:w-1/2">
         <div class="flex w-full items-center">
           <span class="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#0FADCF]"></span>
-          <p class="flex w-full justify-between text-sm font-medium text-black dark:text-white">
+          <p class="flex w-full justify-between text-sm font-medium text-ebony-clay-950 dark:text-white">
             <span> Unknown </span>
             <span> 12% </span>
           </p>

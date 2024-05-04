@@ -4,7 +4,7 @@ import type { TStat } from '../../models/type'
 const cardItems = ref<TStat[]>([
     {
         icon: `<svg
-          class="fill-primary dark:fill-white"
+          class="fill-cerulean-blue-600 dark:fill-white"
           width="22"
           height="16"
           viewBox="0 0 22 16"
@@ -26,7 +26,7 @@ const cardItems = ref<TStat[]>([
     },
     {
         icon: `<svg
-            class="fill-primary dark:fill-white"
+            class="fill-cerulean-blue-600 dark:fill-white"
             width="20"
             height="22"
             viewBox="0 0 20 22"
@@ -52,7 +52,7 @@ const cardItems = ref<TStat[]>([
     },
     {
         icon: `<svg
-            class="fill-primary dark:fill-white"
+            class="fill-cerulean-blue-600 dark:fill-white"
             width="22"
             height="22"
             viewBox="0 0 22 22"
@@ -74,7 +74,7 @@ const cardItems = ref<TStat[]>([
     },
     {
         icon: `<svg
-            class="fill-primary dark:fill-white"
+            class="fill-cerulean-blue-600 dark:fill-white"
             width="22"
             height="18"
             viewBox="0 0 22 18"
