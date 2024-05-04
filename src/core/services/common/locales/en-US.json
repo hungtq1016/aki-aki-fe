@@ -1,35 +1,10 @@
 {
-  "navigation": {
-    "home": "Home",
-    "about": "About",
-    "service": "Service",
-    "specialist": "Medical specialist",
-    "blogs": "Blogs",
-    "contact": "Contact",
-    "all": "All",
-    "menu": "Menu",
-    "other": "Other",
-    "chart": "Chart",
-    "dashboard": "Dashboard",
-    "audio": "Audios",
-    "album": "Albums",
-    "setting": "Setting",
-    "profile": "Profile",
-    "contacts": "Contacts",
-    "collection": "Collection",
-    "admin-blogs":"Blogs"
-  },
-  "contact": {
-    "phone": "Phone"
-  },
-  "about": {
-    "title": "CLINIC <br/> WORLD MEDICAL STANDARD",
-    "content": "The AKIKI clinic system was established in 1998 with 4 hospitals covering various areas in Ho Chi Minh City. AKIAKI Clinic is the first private clinic dedicated to you in Vietnam, and it is the only clinic in Vietnam up to the present time to receive ISO 9001:2015 certification from the NQA UK Association for medical examination and treatment services."
-  },
   "form": {
     "email": "Email",
     "username": "Username",
     "fullname": "Fullname",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
     "address": "Address",
     "gender": "Gender",
     "birthday": "Birthday",
@@ -38,15 +13,13 @@
     "re_password": "Confirm password",
     "old_password": "Old password",
     "new_password": "New password",
-    "has_not_account": "Don't have an account?",
-    "has_account": "Already have an account?",
-    "back": "Back to login",
     "place_holder": {
-      "email": "Enter email",
-      "password": "Enter password",
-      "username": "Enter username",
-      "fullname": "Enter fullname",
-      "address": "Enter address",
+      "email": "Enter email...",
+      "password": "Enter password...",
+      "re_password": "Confirm password",
+      "username": "Enter username...",
+      "fullname": "Enter fullname...",
+      "address": "Enter address...",
       "search": "Search..."
     },
     "validation": {
@@ -75,17 +48,6 @@
       "message": "You are not authorized to access this page"
     }
   },
-  "oauth2": {
-    "login": "Login",
-    "signout": "Sign out",
-    "register": "Register",
-    "change_password": "Change password",
-    "forgot_password": "Forgot password",
-    "reset_password": "Reset password",
-    "change_email": "Change email",
-    "change_phone": "Change phone",
-    "change_avatar": "Change avatar"
-  },
   "button": {
     "ok": "Ok",
     "cancel": "Cancel",
@@ -95,7 +57,8 @@
     "edit": "Edit",
     "add": "Add",
     "back": "Back",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "submit":"Submit"
   },
   "route": {
     "home": "Home",
@@ -104,8 +67,8 @@
     "specialist": "Medical specialist",
     "other": "Other Service",
     "blogs": "All blogs",
-    "blogs-content": "Content for you",
-    "blogs-detail": "Blog detail",
+    "blogs_content": "Content for you",
+    "blogs_detail": "Blog detail",
     "contact": "Contact",
     "healthcare": "Healthcare",
     "sale": "Sale",
@@ -114,31 +77,45 @@
     "customer": "Customers Talk About AkiAki",
     "team": "Medical Team",
     "equipment": "Equipment",
-    "introduction": "Hospital Introduction"
+    "introduction": "Hospital Introduction",
+    "admin_blogs":"Blogs",
+    "dashboard":"Dashboard",
+    "reset_password":"Reset Password",
+    "send_email":"Send Email",
+    "register":"Register",
+    "login":"Login"
   },
   "content": {
     "share": "Share",
-    "search-blog": "Search",
+    "search_blog": "Search",
     "branch": "Branch",
     "category": "Category",
     "search": "Search for articles",
-    "search-result": "Search results for",
+    "search_result": "Search results for",
     "more": "See More",
-    "assistance-contact": "Need further assistance, please contact us via",
-    "directly-contact": "Or directly contact AKIAKI Clinic at the address:",
-    "related-articles": "Related articles"
+    "assistance_contact": "Need further assistance, please contact us via",
+    "directly_contact": "Or directly contact AKIAKI Clinic at the address:",
+    "related_articles": "Related articles",
+    "active": "Active",
+    "inactive": "Inactive",
+    "or":"Or",
+    "has_not_account": "Don't have an account?",
+    "has_account": "Already have an account?",
+    "back_home":"Back to Homepage",
+    "menu":"Menu",
+    "menu_other":"Other"
   },
   "message": {
-    "notavailable": "Content not available",
+    "not_available": "Content not available",
     "welcome": "Welcome!",
     "greeting": "Hello, {name}!",
     "farewell": "Goodbye, {name}!",
     "loading": "Loading...",
-    "loginSuccess": "Login success",
-    "copySuccess": "Copy {name} success",
-    "deleteSuccess": "Delete {name} success",
-    "updateSuccess": "Update success",
-    "confirmDelete": "Are you sure you want to delete {name}?"
+    "login_success": "Login success",
+    "copy_success": "Copy {name} success",
+    "delete_success": "Delete {name} success",
+    "update_success": "Update success",
+    "confirm_delete": "Are you sure you want to delete {name}?"
   },
   "table": {
     "id": "ID",
@@ -151,20 +128,16 @@
     "createdAt": "Created at",
     "updatedAt": "Updated at",
     "action": "Action",
-    "selectHeader": "Select a header",
+    "select_header": "Select a header",
     "selected": "{count} selected",
     "show": "Show from {from} to {to} of {total} entries",
-    "selectAction": "Select action",
-    "selectedRows": "{count} selected rows",
-    "disableAll": "Disable all",
-    "deleteAll": "Delete all",
-    "enableAll": "Enable all",
+    "select_action": "Select action",
+    "select_rows": "{count} selected rows",
+    "disable_all": "Disable all",
+    "delete_all": "Delete all",
+    "enable_all": "Enable all",
     "name": "Name",
     "slug": "Slug"
-  },
-  "status": {
-    "active": "Active",
-    "inactive": "Inactive"
   },
   "html": {
     "browserNotSupport": "Your browser does not support the {element} element."

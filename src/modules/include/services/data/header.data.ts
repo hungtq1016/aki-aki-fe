@@ -22,27 +22,27 @@ const contacts = ref<Array<TContact>>([
 const navigations = ref<BaseINavigation[]>([
     {
         href: "/",
-        title: "navigation.home"
+        title: "route.home"
     },
     {
         href: "/about",
-        title: "navigation.about"
+        title: "route.about"
     },
     {
         href: "/service",
-        title: "navigation.service"
+        title: "route.service"
     },
     {
         href: "/specialist",
-        title: "navigation.specialist"
+        title: "route.specialist"
     },
     {
         href: "/blogs",
-        title: "navigation.blogs"
+        title: "route.blogs"
     },
     {
         href: "/contact",
-        title: "navigation.contact"
+        title: "route.contact"
     }
 ])
 

@@ -6,37 +6,37 @@ export const target = ref(null)
 
 export const menus: TMenu[] = [
     {
-        name: "navigation.menu",
+        name: "content.menu",
         menuItems: [
             {
                 icon: HomeIcon,
-                label: "navigation.dashboard",
+                label: "route.dashboard",
                 route: "/admin",
                 children: [
                     {
-                        label: "navigation.chart",
+                        label: "route.chart",
                         route: "/admin",
                     }
                 ]
             },
             {
                 icon: NewspaperIcon ,
-                label: "navigation.blogs",
+                label: "route.blogs",
                 route: "/admin/blogs"
             },
             {
                 icon: Square3Stack3DIcon,
-                label: "navigation.collection",
+                label: "route.collection",
                 route: "/admin/collections"
             }
         ]
     },
     {
-        name: "navigation.other",
+        name: "content.menu_other",
         menuItems: [
             {
                 icon: Cog6ToothIcon,
-                label: "navigation.setting",
+                label: "route.setting",
                 route: "/admin/pages/settings"
             }
         ]

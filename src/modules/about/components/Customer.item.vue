@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import SVGQuote from '@/assets/svg/SVG.quote.vue';
+import SVGQuote from '@/core/components/svg/SVG.quote.vue';
 import type { TQuote } from '../models/type';
 
 defineProps<{

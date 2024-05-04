@@ -4,7 +4,7 @@
       <div class="pb-2 flex gap-x-2">
         <TableHeader :value="selectedHeaders" :options="headers"
           @update:modelValue="value => selectedHeaders = value" />
-        <TableSelectedItem :total="countItems" :items="itemsSelected" :route="route" :fetch="fetch" />
+        <TableSelectedItem :total="countItems" :items="itemsSelected" :route="route" :fetch="fetch" v-bind="{}" />
       </div>
   
       <EasyDataTable v-model:items-selected="itemsSelected" :headers="localeHeaders" :items="items" :hide-footer="true"

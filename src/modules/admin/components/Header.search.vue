@@ -71,15 +71,15 @@ const search = ref<string>('')
 
 const indexNames: TOption[] = [
     {
-        'name': 'navigation.all',
+        'name': 'route.all',
         'value': '_all',
     },
     {
-        'name': 'navigation.audio',
+        'name': 'route.audio',
         'value': 'audio',
     },
     {
-        'name': 'navigation.collection',
+        'name': 'route.collection',
         'value': 'collection',
     }
 ]

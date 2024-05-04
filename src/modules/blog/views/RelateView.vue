@@ -1,8 +1,8 @@
 <template>
     <section class="pb-10">
         <div>
-            <div class="text-xl font-bold leading-10 mb-2">{{ $t('content.related-articles') }}</div>
-            <div v-if="!relate">{{ $t('message.notavailable') }}</div>
+            <div class="text-xl font-bold leading-10 mb-2">{{ $t('content.related_articles') }}</div>
+            <div v-if="!relate">{{ $t('message.not_available') }}</div>
             <div v-else
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <BlogItem v-for="data in updateData.slice(0,3)" :key="data.title" :data="data"/>

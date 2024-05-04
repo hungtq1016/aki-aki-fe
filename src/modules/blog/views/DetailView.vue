@@ -36,11 +36,11 @@
 </template>
 
 <script setup lang="ts">
-import SVGFacebook from '@/assets/svg/SVG.facebook.vue';
+import SVGFacebook from '@/core/components/svg/SVG.facebook.vue';
 import { blogs } from '../services/data/data'
 import { useRoute } from 'vue-router'
 import { ShareIcon } from '@heroicons/vue/24/outline';
-import SVGTwitterX from '@/assets/svg/SVG.twitter.x.vue';
+import SVGTwitterX from '@/core/components/svg/SVG.twitter.x.vue';
 import DetailContact from '../components/Detail.contact.vue';
 import RelateView from './RelateView.vue';
 const route = useRoute()

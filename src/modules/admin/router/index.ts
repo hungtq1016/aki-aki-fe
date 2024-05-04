@@ -7,13 +7,19 @@ const adminRoute: RouteRecordRaw[] = [
         children:[
             {
                 path: '',
-                name:'admin',
+                name:'dashboard',
                 component: () => import('@/modules/admin/views/MainView.vue'),
+                meta: {
+                    title: 'route.dashboard'
+                }
             },
             {
                 path: 'blogs',
-                name:'admin-blogs',
+                name:'admin_blogs',
                 component: () => import('@/modules/admin/views/BlogView.vue'),
+                meta: {
+                    title: 'route.admin_blogs'
+                }
             }
         ]
     }

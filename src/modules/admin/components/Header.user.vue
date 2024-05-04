@@ -14,16 +14,16 @@ onClickOutside(target, () => {
 })
 
 const menuProfile: TMenu = {
-    name: "navigation.profile",
+    name: "route.profile",
     menuItems: [
         {
             icon: UserIcon,
-            label: "navigation.profile",
+            label: "route.profile",
             route: "/profile"
         },
         {
             icon: GlobeAltIcon,
-            label: "navigation.contacts",
+            label: "route.contacts",
             route: "#"
         }
     ]

@@ -42,13 +42,13 @@ const remove = async () => {
             await props.fetch();
         }
     }
-    confirmNotification(i18n.global.t('message.deleteSuccess', { name: capitalize(props.route) }), removeAsync);
+    confirmNotification(i18n.global.t('message.delete_success', { name: capitalize(props.route) }), removeAsync);
 
 }
 
 const copyClipboard = () => {
     navigator.clipboard.writeText(props.id);
-    successNotification(i18n.global.t('message.copySuccess', { name: "Id" }) as string);
+    successNotification(i18n.global.t('message.copy_success', { name: "Id" }) as string);
 }
 
 const view = () => {

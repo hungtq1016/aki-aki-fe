@@ -1,6 +1,6 @@
 <template>
   <div class="text-lg">
-    <span class="font-medium">{{ $t('content.search-result') }}:</span> <span class="text-gray-600">{{ route.query.q }}</span>
+    <span class="font-medium">{{ $t('content.search_result') }}:</span> <span class="text-gray-600">{{ route.query.q }}</span>
   </div>
 
   <BlogList :list="updateData" title="search" />

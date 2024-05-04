@@ -14,7 +14,7 @@
         <!-- ===== Main Content Start ===== -->
         <main>
           <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-            <BreadcrumbView v-if="route.name !== 'admin' "/>
+            <BreadcrumbView v-if="route.name !== 'dashboard' "/>
             <router-view></router-view>
           </div>
         </main>

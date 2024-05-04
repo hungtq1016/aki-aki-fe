@@ -1,5 +1,5 @@
 <template>
-    <div v-if="data?.content == undefined">{{ $t('message.notavailable') }}</div>
+    <div v-if="data?.content == undefined">{{ $t('message.not_available') }}</div>
     <div v-html="data?.content" v-else/>
 </template>
 
