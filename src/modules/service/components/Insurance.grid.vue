@@ -3,7 +3,7 @@
     <div>
         <div class="mt-5 flex justify-center">
             <RadioGroup v-model="frequency"
-                class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-black-haze-5000">
+                class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-black-haze-500">
                 <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
                 <RadioGroupOption as="template" v-for="option in frequencies" :key="option.value" :value="option"
                     v-slot="{ checked }">

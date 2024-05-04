@@ -1,9 +1,31 @@
 <!-- eslint-disable vue/multi-word-component-names -->
+<template>
+    <li>
+        <router-link :to="item.route"
+            class="group flex justify-between items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-link-water-200  duration-300 ease-in-out hover:bg-bright-gray-900 dark:hover:bg-oxford-blue-900"
+            @click.prevent="handleItemClick" >
+            <div class="flex gap-x-2 items-center">
+                <component :is="item.icon" class="w-5 h-5"></component>
+                <span>{{ $t(item.label) }}</span>
+            </div>
+            <ChevronDownIcon v-if="item.children" class="w-5 h-5"
+                :class="{ 'rotate-180': sidebarStore.page === item.label }" />
+        </router-link>
+
+        <!-- Dropdown Menu Start -->
+        <div class="translate transform overflow-hidden" v-show="sidebarStore.page === item.label">
+            <AsideDropdown v-if="item.children" :items="item.children" :currentPage="currentPage"
+                :page="item.label" />
+            <!-- Dropdown Menu End -->
+        </div>
+    </li>
+</template>
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
 import { useSidebarStore } from '../stores/sidebar';
 import type { TAsideItem, TMenuItem } from '../models/type';
+import AsideDropdown from './Aside.dropdown.vue';
 
 const sidebarStore = useSidebarStore()
 
@@ -25,26 +47,8 @@ const handleItemClick = () => {
 
 </script>
 
-<template>
-    <li>
-        <router-link :to="item.route"
-            class="group flex justify-between items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-link-water-200  duration-300 ease-in-out hover:bg-bright-gray-900 dark:hover:bg-oxford-blue-900"
-            @click.prevent="handleItemClick" :class="{
-                'bg-bright-gray-900 dark:bg-oxford-blue-900': sidebarStore.page === item.label
-            }">
-            <div class="flex gap-x-2 items-center">
-                <component :is="item.icon" class="w-5 h-5"></component>
-                <span>{{ $t(item.label) }}</span>
-            </div>
-            <ChevronDownIcon v-if="item.children" class="w-5 h-5"
-                :class="{ 'rotate-180': sidebarStore.page === item.label }" />
-        </router-link>
-
-        <!-- Dropdown Menu Start -->
-        <div class="translate transform overflow-hidden" v-show="sidebarStore.page === item.label">
-            <SidebarDropdown v-if="item.children" :items="item.children" :currentPage="currentPage"
-                :page="item.label" />
-            <!-- Dropdown Menu End -->
-        </div>
-    </li>
-</template>
+<style scoped>
+.router-link-active.router-link-exact-active {
+    @apply bg-bright-gray-900 dark:bg-oxford-blue-900;
+}
+</style>

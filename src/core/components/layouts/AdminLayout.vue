@@ -14,7 +14,8 @@
         <!-- ===== Main Content Start ===== -->
         <main>
           <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-           <router-view></router-view>
+            <BreadcrumbView v-if="route.name !== 'admin' "/>
+            <router-view></router-view>
           </div>
         </main>
         <!-- ===== Main Content End ===== -->
@@ -24,7 +25,11 @@
   </template>
 <script setup lang="ts">
 import AsideView from '@/modules/admin/views/AsideView.vue';
+import BreadcrumbView from '@/modules/admin/views/BreadcrumbView.vue';
 import HeaderView from '@/modules/admin/views/HeaderView.vue';
 
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 </script>

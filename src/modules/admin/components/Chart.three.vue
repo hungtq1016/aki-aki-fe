@@ -64,7 +64,7 @@ const apexOptions = {
             <option value="">Monthly</option>
             <option value="">Yearly</option>
           </select>
-          <span class="absolute top-1/2 right-3 z-10 -translate-y-1/2">
+          <span class="absolute top-1/2 right-3 z-[10] -translate-y-1/2">
             <svg
               width="10"
               height="6"

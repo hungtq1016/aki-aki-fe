@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply relative z-1 bg-athens-gray-50  font-sans text-base font-normal text-lynch-500 dark:text-hit-gray-400 dark:bg-shark-950 ;
+    @apply relative z-[1] bg-white font-sans text-base font-normal text-lynch-500 dark:text-hit-gray-400 dark:bg-shark-950 ;
   }
 }
 

@@ -1,6 +1,6 @@
-import { Cog6ToothIcon, HomeIcon, MusicalNoteIcon, Square3Stack3DIcon } from "@heroicons/vue/24/solid";
 import { ref } from "vue";
-import type { TMenu } from "../models/type";
+import type { TMenu } from "../../models/type";
+import { NewspaperIcon, HomeIcon, Cog6ToothIcon, Square3Stack3DIcon } from "@heroicons/vue/24/outline";
 
 export const target = ref(null)
 
@@ -20,9 +20,9 @@ export const menus: TMenu[] = [
                 ]
             },
             {
-                icon: MusicalNoteIcon,
-                label: "navigation.audio",
-                route: "/admin/audios"
+                icon: NewspaperIcon ,
+                label: "navigation.blogs",
+                route: "/admin/blogs"
             },
             {
                 icon: Square3Stack3DIcon,

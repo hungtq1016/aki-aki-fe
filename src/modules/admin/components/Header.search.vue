@@ -22,12 +22,12 @@
                             <!-- component -->
                             <div class="w-full">
                                 <div class="inline-flex w-full flex-col justify-center relative text-gray-500">
-                                    <div class="flex items-center gap-x-2 rounded border border-black-haze-5000 ">
+                                    <div class="flex items-center gap-x-2 rounded border border-black-haze-500 ">
                                         <button type="button" class="focus:outline-none">
                                             <MagnifyingGlassIcon class="w-5 h-5 ml-4" />
                                         </button>
                                         <input type="text" v-model="search"
-                                            class="p-2 w-full bg-black-haze-5000 focus:bg-white focus:outline-none focus:ring-0 focus:border-transparent rounded"
+                                            class="p-2 w-full bg-black-haze-500 focus:bg-white focus:outline-none focus:ring-0 focus:border-transparent rounded"
                                             :placeholder="$t('form.place_holder.search')" />
                                         <select v-model="indexName" class="focuse:ring-0 focus:outline-none">
                                             <option v-for="idb in indexNames" :value="idb" :key="idb.value">

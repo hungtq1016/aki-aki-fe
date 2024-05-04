@@ -3,7 +3,7 @@ import { onClickOutside } from '@vueuse/core';
 import { useSidebarStore } from '../stores/sidebar';
 import AsideItem from '../components/Aside.item.vue';
 import AsideLocale from '../components/Aside.locale.vue';
-import { target, menus } from '../services/data';
+import { target, menus } from '../services/data/data';
 
 const sidebarStore = useSidebarStore()
 

@@ -16,7 +16,8 @@
     "setting": "Setting",
     "profile": "Profile",
     "contacts": "Contacts",
-    "collection": "Collection"
+    "collection": "Collection",
+    "admin-blogs":"Blogs"
   },
   "contact": {
     "phone": "Phone"

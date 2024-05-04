@@ -9,6 +9,11 @@ const adminRoute: RouteRecordRaw[] = [
                 path: '',
                 name:'admin',
                 component: () => import('@/modules/admin/views/MainView.vue'),
+            },
+            {
+                path: 'blogs',
+                name:'admin-blogs',
+                component: () => import('@/modules/admin/views/BlogView.vue'),
             }
         ]
     }

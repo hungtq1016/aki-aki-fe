@@ -24,16 +24,6 @@ export default {
       colors: colors,
     },
     spacing:spacing,
-    zIndex: {
-      999999: '999999',
-      99999: '99999',
-      9999: '9999',
-      999: '999',
-      99: '99',
-      9: '9',
-      1: '1'
-    },
-
   },
   
 plugins: [

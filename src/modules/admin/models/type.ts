@@ -1,4 +1,4 @@
-import type { BaseTypeIcon } from "@/core/models/type"
+import type { BaseTypeIcon, TEntity } from "@/core/models/type"
 
 export type TMenu = {
     name: string,
@@ -35,4 +35,13 @@ export type TStat = {
     title: string;
     total: string;
     growthRate: number;
+}
+
+export type TBlog = TEntity & {
+    name: string,
+    type: string,
+    slug: string,
+    desc: string,
+    content: string,
+    imageUrl: string,
 }
