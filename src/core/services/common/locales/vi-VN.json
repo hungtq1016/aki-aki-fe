@@ -13,6 +13,19 @@
     "re_password": "Xác nhận mật khẩu",
     "old_password": "Mật khẩu cũ",
     "new_password": "Mật khẩu mới",
+    "heading": "Phần mở đầu",
+    "title": "Tiêu đề",
+    "slug": "Đường dẫn",
+    "category": "Danh mục",
+    "select_category": "Chọn danh mục",
+    "image": "Hình ảnh",
+    "upload_image": "Đăng hình ảnh",
+    "review_image": "Xem lại hình ảnh",
+    "publish": "Đăng bài",
+    "content": "Nội dung",
+    "desc": "Mô tả",
+    "tag": "Tag",
+    "select_tag": "Chọn Tag",
     "place_holder": {
       "email": "Nhập email...",
       "password": "Nhập mật khẩu...",
@@ -21,7 +34,8 @@
       "firstname": "Nhập họ...",
       "lastname": "Nhập tên...",
       "address": "Nhập địa chỉ...",
-      "search": "Tìm kiếm..."
+      "search": "Tìm kiếm...",
+      "title": ""
     },
     "validation": {
       "required": "Trường này không được bỏ trống",
@@ -81,11 +95,14 @@
     "reset_password":"Đặt lại mật khẩu",
     "equipment": "Thiết bị",
     "introduction": "Giới thiệu bệnh viện",
-    "admin_blogs": "Tất cả bài viết",
+    "admin_blogs": "Danh sách Blog",
+    "admin_blogs_add": "Viết Blog",
+    "admin_blogs_edit": "Chỉnh sửa Blog",
     "admin": "Bảng điều khiển",
     "register":"Đăng ký",
     "login":"Đăng nhập",
-    "other": "Dịch vụ khác"
+    "other": "Dịch vụ khác",
+    "chart": "Thống kê"
   },
   "content": {
     "share": "Chia sẻ",
