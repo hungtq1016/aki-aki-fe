@@ -1,7 +1,7 @@
 import { ref } from "vue"
 import type { TContact } from "../../models/type"
 import { AnchorType } from "../../models/enum"
-import { BuildingStorefrontIcon, PhoneIcon } from "@heroicons/vue/24/outline"
+import { BuildingStorefrontIcon, HomeIcon, NewspaperIcon, PhoneIcon } from "@heroicons/vue/24/outline"
 import type { BaseINavigation } from "@/core/models/interface"
 
 const contacts = ref<Array<TContact>>([
@@ -46,4 +46,20 @@ const navigations = ref<BaseINavigation[]>([
     }
 ])
 
-export { contacts, navigations }
+const adminNavigations = ref<Array<TContact>>([
+    {
+        type: AnchorType.url,
+        icon: HomeIcon,
+        name: "route.dashboard",
+        url: "/admin"
+    },
+    {
+        type: AnchorType.url,
+        icon: NewspaperIcon,
+        name: "route.admin_blogs",
+        url: "/admin/blogs"
+    }
+])
+
+
+export { contacts, navigations, adminNavigations }

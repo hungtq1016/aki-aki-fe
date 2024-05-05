@@ -1,7 +1,8 @@
 <template>
-    <header :class="`fixed top-0 left-0 z-50 pt-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)] w-full bg-black/20 border-b border-b-white/30 duration-500
+    <header :class="`fixed top-0 left-0 z-50 shadow-[0_4px_30px_rgba(0,0,0,0.1)] w-full bg-black/20 border-b border-b-white/30 duration-500
         ${isScrollDown ? '-translate-y-full' : ''}
         ${isZero ? 'bg-white/80' : 'bg-white'}`">
+        <HeaderAdmin />
         <div :class="`max-w-screen-xl m-auto duration-300 
         ${isZero ? 'h-auto' : 'h-0 invisible'}`">
             <div class="pt-5">
@@ -59,6 +60,7 @@ import { Bars3Icon, MagnifyingGlassIcon } from '@heroicons/vue/24/solid'
 import HeaderContact from '../components/Header.contact.vue';
 import { contacts, navigations } from '../services/data/header.data'
 import HeaderNavigation from '../components/Header.navigation.vue';
+import HeaderAdmin from '../components/Header.admin.vue';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router'
 import { XMarkIcon } from '@heroicons/vue/24/outline';
