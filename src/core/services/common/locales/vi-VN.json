@@ -35,7 +35,13 @@
       "lastname": "Nhập tên...",
       "address": "Nhập địa chỉ...",
       "search": "Tìm kiếm...",
-      "title": ""
+      "title": "Tiêu đề",
+      "slug": "Đường dẫn",
+      "image": "Hình ảnh",
+      "content": "Nội dung",
+      "desc": "Mô tả",
+      "tag": "Tag",
+      "select_tag": "Chọn Tag"
     },
     "validation": {
       "required": "Trường này không được bỏ trống",

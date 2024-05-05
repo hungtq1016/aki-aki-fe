@@ -39,14 +39,13 @@
       "slug": "Slug",
       "category": "Category",
       "select_category": "Select Category",
-      "image": "",
-      "upload_image": "",
-      "review_image": "",
-      "publish": "",
-      "content": "",
-      "desc": "",
-      "tag": "",
-      "select_tag": ""
+      "image": "Image",
+      "upload_image": "Upload Image",
+      "review_image": "Review Image",
+      "publish": "Publish",
+      "content": "Content",
+      "desc": "Desc",
+      "tag": "Tag"
     },
     "validation": {
       "required": "This field is required",
