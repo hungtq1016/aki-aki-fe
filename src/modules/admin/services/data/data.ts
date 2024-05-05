@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import type { TMenu } from "../../models/type";
-import { NewspaperIcon, HomeIcon, Cog6ToothIcon, Square3Stack3DIcon, ArrowUturnLeftIcon } from "@heroicons/vue/24/outline";
+import { NewspaperIcon, HomeIcon, Cog6ToothIcon, Square3Stack3DIcon, ArrowUturnLeftIcon, ChatBubbleOvalLeftIcon, BriefcaseIcon } from "@heroicons/vue/24/outline";
 
 export const target = ref(null)
 
@@ -35,9 +35,29 @@ export const menus: TMenu[] = [
                 ]
             },
             {
-                icon: Square3Stack3DIcon,
-                label: "route.collection",
-                route: "/admin/collections"
+                icon: BriefcaseIcon ,
+                label: "route.admin_medicine",
+                route: "#",
+                children:[
+                    {
+                        label: "route.admin_medicine",
+                        route: "/admin/medicine",
+                    },
+                    {
+                        label: "route.admin_medicine_prescription",
+                        route: "/admin/medicine/prescription",
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: "content.support",
+        menuItems: [
+            {
+                icon: ChatBubbleOvalLeftIcon,
+                label: "route.message",
+                route: "/admin/message",
             }
         ]
     },

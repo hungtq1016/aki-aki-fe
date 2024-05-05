@@ -56,9 +56,3 @@ const handleItemClick = () => {
 }
 
 </script>
-
-<style scoped>
-a.router-link-active.router-link-exact-active {
-    @apply bg-bright-gray-900 dark:bg-oxford-blue-900;
-}
-</style>

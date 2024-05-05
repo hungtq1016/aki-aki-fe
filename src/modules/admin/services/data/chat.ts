@@ -1,8 +1,8 @@
-import UserOne from '@/assets/images/user/user-01.png'
-import UserTwo from '@/assets/images/user/user-02.png'
-import UserThree from '@/assets/images/user/user-03.png'
-import UserFour from '@/assets/images/user/user-04.png'
-import UserFive from '@/assets/images/user/user-05.png'
+import UserOne from '/user/user-01.png'
+import UserTwo from '/user/user-02.png'
+import UserThree from '/user/user-03.png'
+import UserFour from '/user/user-04.png'
+import UserFive from '/user/user-05.png'
 import { ref } from 'vue'
 import type { TChat } from '../../models/type'
 

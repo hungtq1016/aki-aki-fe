@@ -5,7 +5,7 @@
     >
       <div class="relative mt-2">
         <ListboxButton
-          class="relative cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-alabaster-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+          class="relative cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-alabaster-500 focus:outline-none focus:ring-2 focus:ring-cerulean-500 sm:text-sm sm:leading-6">
           <span class="flex items-center">
             {{ totalSelected ? $t('table.selected', { count: totalSelected }) : $t('table.select_header') }}
           </span>
@@ -21,7 +21,7 @@
             <ListboxOption as="template" v-for="item in options" :key="item.value" :value="item"
               v-slot="{ active }">
               <li
-                :class="[active ? 'bg-indigo-600 text-white' : 'text-gray-900', 'relative cursor-default select-none py-2 pl-3 pr-9']">
+                :class="[active ? 'bg-cerulean-600 text-white' : 'text-gray-900', 'relative cursor-default select-none py-2 pl-3 pr-9']">
                 <div class="flex items-center">
                   <span :class="[isSelected(item) ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">
                     {{ $t(item.text) }}
@@ -29,7 +29,7 @@
                 </div>
   
                 <span v-if="isSelected(item)"
-                  :class="[active ? 'text-white' : 'text-indigo-600', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                  :class="[active ? 'text-white' : 'text-cerulean-600', 'absolute inset-y-0 right-0 flex items-center pr-4']">
                   <CheckIcon class="h-5 w-5" aria-hidden="true" />
                 </span>
               </li>

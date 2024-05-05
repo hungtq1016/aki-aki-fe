@@ -1,5 +1,6 @@
 import type { RouteRecordRaw } from "vue-router";
 import {adminBlogRoute} from '@/modules/admin-blog/router'
+import {adminMedicineRoute} from '@/modules/admin-medicine/router'
 const adminRoute: RouteRecordRaw[] = [
     {
         path: 'admin',
@@ -13,7 +14,17 @@ const adminRoute: RouteRecordRaw[] = [
                     title: 'route.admin'
                 }
             },
-            {...adminBlogRoute}
+            {
+                path: 'message',
+                name:'message',
+                component: () => import('@/modules/admin-message/views/MessageView.vue'),
+                meta: {
+                    title: 'route.admin'
+                }
+            },
+            {...adminBlogRoute},
+            {...adminMedicineRoute},
+        
         ]
     }
 ]

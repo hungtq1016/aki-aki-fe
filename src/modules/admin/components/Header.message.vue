@@ -11,10 +11,10 @@ onClickOutside(target, () => {
     dropdownOpen.value = false
 })
 
-import userOne from '@/assets/images/user/user-01.png'
-import userTwo from '@/assets/images/user/user-02.png'
-import userThree from '@/assets/images/user/user-03.png'
-import userFour from '@/assets/images/user/user-04.png'
+import userOne from '/user/user-01.png'
+import userTwo from '/user/user-02.png'
+import userThree from '/user/user-03.png'
+import userFour from '/user/user-04.png'
 import { ChatBubbleOvalLeftEllipsisIcon } from '@heroicons/vue/24/outline';
 
 const messagesList = ref([
