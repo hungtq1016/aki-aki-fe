@@ -50,7 +50,7 @@ const adminNavigations = ref<Array<TContact>>([
     {
         type: AnchorType.url,
         icon: HomeIcon,
-        name: "route.dashboard",
+        name: "route.admin",
         url: "/admin"
     },
     {

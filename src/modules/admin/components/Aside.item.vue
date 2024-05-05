@@ -1,7 +1,17 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <li>
-        <router-link :to="item.route"
+        <router-link type="button" to="?" v-if="item.route === '#'"
+            class="w-full group flex justify-between items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-link-water-200  duration-300 ease-in-out hover:bg-bright-gray-900 dark:hover:bg-oxford-blue-900"
+            @click.prevent="handleItemClick" >
+            <div class="flex gap-x-2 items-center">
+                <component :is="item.icon" class="w-5 h-5"></component>
+                <span>{{ $t(item.label) }}</span>
+            </div>
+            <ChevronDownIcon v-if="item.children" class="w-5 h-5"
+                :class="{ 'rotate-180': sidebarStore.page === item.label }" />
+        </router-link>
+        <router-link :to="item.route" v-else
             class="group flex justify-between items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-link-water-200  duration-300 ease-in-out hover:bg-bright-gray-900 dark:hover:bg-oxford-blue-900"
             @click.prevent="handleItemClick" >
             <div class="flex gap-x-2 items-center">
@@ -48,7 +58,7 @@ const handleItemClick = () => {
 </script>
 
 <style scoped>
-.router-link-active.router-link-exact-active {
+a.router-link-active.router-link-exact-active {
     @apply bg-bright-gray-900 dark:bg-oxford-blue-900;
 }
 </style>

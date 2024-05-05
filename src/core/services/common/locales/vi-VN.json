@@ -59,14 +59,15 @@
     "add": "Thêm",
     "back": "Quay lại",
     "confirm": "Xác nhận",
-    "submit":"Gửi"
+    "submit":"Gửi",
+    "publish":"Đăng"
   },
   "route": {
     "home": "Trang chủ",
     "about": "Giới thiệu",
     "service": "Dịch vụ",
     "specialist": "Chuyên gia y tế",
-    "blogs": "Tất cả bài viết",
+    "blogs": "Danh sách bài viết",
     "blogs_content": "Nội dung dành cho bạn",
     "blogs_detail": "Chi tiết bài viết",
     "contact": "Liên hệ",
@@ -80,8 +81,8 @@
     "reset_password":"Đặt lại mật khẩu",
     "equipment": "Thiết bị",
     "introduction": "Giới thiệu bệnh viện",
-    "admin_blogs": "Bài viết",
-    "dashboard": "Bảng điều khiển",
+    "admin_blogs": "Tất cả bài viết",
+    "admin": "Bảng điều khiển",
     "register":"Đăng ký",
     "login":"Đăng nhập",
     "other": "Dịch vụ khác"

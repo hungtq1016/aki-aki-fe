@@ -25,13 +25,16 @@ const handleItemClick = (index: number) => {
         <template v-for="(childItem, index) in items" :key="index">
             <li>
                 <router-link :to="childItem.route" @click="handleItemClick(index)"
-                    class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-regent-gray-600  duration-300 ease-in-out hover:text-white"
-                    :class="{
-                        '!text-white': childItem.label === sidebarStore.selected
-                    }">
+                    class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-regent-gray-600  duration-300 ease-in-out hover:text-white">
                     {{ $t(childItem.label) }}
                 </router-link>
             </li>
         </template>
     </ul>
 </template>
+
+<style scoped>
+.router-link-active.router-link-exact-active {
+    @apply text-white;
+}
+</style>

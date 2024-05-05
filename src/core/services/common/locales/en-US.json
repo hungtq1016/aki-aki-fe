@@ -58,7 +58,8 @@
     "add": "Add",
     "back": "Back",
     "confirm": "Confirm",
-    "submit":"Submit"
+    "submit": "Submit",
+    "publish":"Publish"
   },
   "route": {
     "home": "Home",
@@ -66,7 +67,7 @@
     "service": "Service",
     "specialist": "Medical specialist",
     "other": "Other Service",
-    "blogs": "All blogs",
+    "blogs": "Blogs",
     "blogs_content": "Content for you",
     "blogs_detail": "Blog detail",
     "contact": "Contact",
@@ -78,12 +79,15 @@
     "team": "Medical Team",
     "equipment": "Equipment",
     "introduction": "Hospital Introduction",
-    "admin_blogs":"Blogs",
-    "dashboard":"Dashboard",
-    "reset_password":"Reset Password",
-    "send_email":"Send Email",
-    "register":"Register",
-    "login":"Login"
+    "admin_blogs": "List of blogs",
+    "admin_blogs_add": "Add Blog",
+    "admin_blogs_edit": "Edit Blog",
+    "admin": "Dashboard",
+    "reset_password": "Reset Password",
+    "send_email": "Send Email",
+    "register": "Register",
+    "login": "Login",
+    "chart": "Chart"
   },
   "content": {
     "share": "Share",
@@ -98,12 +102,12 @@
     "related_articles": "Related articles",
     "active": "Active",
     "inactive": "Inactive",
-    "or":"Or",
+    "or": "Or",
     "has_not_account": "Don't have an account?",
     "has_account": "Already have an account?",
-    "back_home":"Back to Homepage",
-    "menu":"Menu",
-    "menu_other":"Other"
+    "back_home": "Back to Homepage",
+    "menu": "Menu",
+    "menu_other": "Other"
   },
   "message": {
     "not_available": "Content not available",

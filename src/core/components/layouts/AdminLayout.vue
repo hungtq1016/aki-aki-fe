@@ -12,9 +12,9 @@
         <!-- ===== Header End ===== -->
   
         <!-- ===== Main Content Start ===== -->
-        <main>
+        <main class="bg-gray-50  dark:bg-shark-950">
           <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-            <BreadcrumbView v-if="route.name !== 'dashboard' "/>
+            <BreadcrumbView v-if="route.name !== 'admin'" :key="route.fullPath"/>
             <router-view></router-view>
           </div>
         </main>

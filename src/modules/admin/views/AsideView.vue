@@ -28,7 +28,7 @@ onClickOutside(target, () => {
                         <h3 class="mb-4 ml-4 text-sm font-medium text-regent-gray-600 ">{{ $t(menuGroup.name) }}</h3>
 
                         <ul class="mb-6 flex flex-col gap-1.5">
-                            <AsideItem v-for="(menuItem, index) in menuGroup.menuItems" :item="menuItem" :key="index"
+                            <AsideItem v-for="(menuItem, index) in menuGroup.menuItems" :item="menuItem" :key="menuItem.label"
                                 :index="index" />
                         </ul>
                     </div>

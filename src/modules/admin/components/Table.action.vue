@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { DocumentDuplicateIcon, TrashIcon, EyeIcon } from '@heroicons/vue/24/outline';
-
+import { useRouter, useRoute } from 'vue-router'
 import { confirmNotification, errorNotification, infoNotification, successNotification } from '@/core/services/helpers/alert.helper';
 import { del } from '@/core/services/helpers/request.helper';
 
@@ -25,6 +25,9 @@ import { capitalize } from '@/core/services/utils/util.string';
 import { getPath } from '@/core/services/utils/util.url';
 
 import type { Response } from '@/core/models/type';
+
+const router = useRouter()
+const routes = useRoute()
 
 const props = defineProps<{
     id: string,
@@ -52,7 +55,7 @@ const copyClipboard = () => {
 }
 
 const view = () => {
-    infoNotification("This feature is not available yet");
+    router.push(`${routes.fullPath}/${props.id}`)  
 }
 
 </script>

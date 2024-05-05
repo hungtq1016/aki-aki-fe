@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import type { TMenu } from "../../models/type";
-import { NewspaperIcon, HomeIcon, Cog6ToothIcon, Square3Stack3DIcon } from "@heroicons/vue/24/outline";
+import { NewspaperIcon, HomeIcon, Cog6ToothIcon, Square3Stack3DIcon, ArrowUturnLeftIcon } from "@heroicons/vue/24/outline";
 
 export const target = ref(null)
 
@@ -10,8 +10,8 @@ export const menus: TMenu[] = [
         menuItems: [
             {
                 icon: HomeIcon,
-                label: "route.dashboard",
-                route: "/admin",
+                label: "route.admin",
+                route: "#",
                 children: [
                     {
                         label: "route.chart",
@@ -22,7 +22,17 @@ export const menus: TMenu[] = [
             {
                 icon: NewspaperIcon ,
                 label: "route.blogs",
-                route: "/admin/blogs"
+                route: "#",
+                children:[
+                    {
+                        label: "route.admin_blogs",
+                        route: "/admin/blogs",
+                    },
+                    {
+                        label: "route.admin_blogs_add",
+                        route: "/admin/blogs/add",
+                    }
+                ]
             },
             {
                 icon: Square3Stack3DIcon,
@@ -38,6 +48,11 @@ export const menus: TMenu[] = [
                 icon: Cog6ToothIcon,
                 label: "route.setting",
                 route: "/admin/pages/settings"
+            },
+            {
+                icon: ArrowUturnLeftIcon,
+                label: "route.home",
+                route: "/"
             }
         ]
     }
