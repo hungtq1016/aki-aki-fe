@@ -215,6 +215,7 @@ import {
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid'
 import { i18n } from '@/core/services/base/translation';
 import { v4 as Guid } from 'uuid';
+import { watch } from 'vue';
 
 const data = [
     { id: 1, name: 'Wade Cooper' },
@@ -252,6 +253,7 @@ const state = ref({
     slug:""
 })
 
+watch()
 
 const submit = () => {
     const imageId = Guid()
