@@ -9,7 +9,7 @@
                             <div class="border-big-gray-200 px-6.5 dark:border-big-stone-900 border-b py-4">
                                 <h3 class="text-black-1000 font-medium dark:text-white">{{ $t('form.medicine') }}</h3>
                             </div>
-                            <div class="gap-5.5 p-6.5 flex flex-col">
+                            <div class="gap-5.5 p-6.5 flex flex-col-reverse">
                                 <div>
                                     <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.quantity') }} </label>
                                     <input v-model="state.quantity" type="number" :placeholder="$t('form.place_holder.quantity')" class="text-black-1000 dark:border-big-stone-900 dark:bg-big-stone-950 w-full rounded-lg border-[1.5px] border-gray-200 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:bg-gray-200 dark:text-white" />
@@ -38,7 +38,7 @@
                         
                     </div>
 
-                    <div class="flex flex-col-reverse gap-9 md:flex-col">
+                    <div class="flex flex-col gap-9">
                         <div
                             class="dark:border-big-stone-900 dark:bg-big-stone-950 rounded-sm border border-gray-200 bg-white shadow">
                             <div class="px-6.5 dark:border-big-stone-900 border-b border-gray-200 py-4">
@@ -92,8 +92,8 @@
                     </button>
                 </div>
                 <div class="border border-zumthor-100 dark:border-oxford-blue-900">
-                    <div class="max-w-full overflow-x-auto">
-                        <div class="min-w-[670px]">
+                    <div class="max-w-full overflow-x-auto overflow-hidden">
+                        <div class="min-w-[670px] w-full">
                             <div
                                 class="grid grid-cols-12 border-b border-zumthor-100 py-3.5 pl-5 pr-6 dark:border-oxford-blue-900">
                                 <div class="col-span-3">
