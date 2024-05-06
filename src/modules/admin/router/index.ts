@@ -1,6 +1,8 @@
 import type { RouteRecordRaw } from "vue-router";
 import {adminBlogRoute} from '@/modules/admin-blog/router'
 import {adminMedicineRoute} from '@/modules/admin-medicine/router'
+import { adminCategoryRoute } from "@/modules/admin-category/router";
+import { adminTagRoute } from "@/modules/admin-tag/router";
 const adminRoute: RouteRecordRaw[] = [
     {
         path: 'admin',
@@ -24,7 +26,8 @@ const adminRoute: RouteRecordRaw[] = [
             },
             {...adminBlogRoute},
             {...adminMedicineRoute},
-        
+            {...adminCategoryRoute},
+            {...adminTagRoute},
         ]
     }
 ]

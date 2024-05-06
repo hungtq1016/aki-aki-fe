@@ -1,6 +1,7 @@
 import { ref } from "vue";
 import type { TMenu } from "../../models/type";
 import { NewspaperIcon, HomeIcon, Cog6ToothIcon, Square3Stack3DIcon, ArrowUturnLeftIcon, ChatBubbleOvalLeftIcon, BriefcaseIcon } from "@heroicons/vue/24/outline";
+import { ArchiveBoxIcon, BookmarkIcon } from "@heroicons/vue/20/solid";
 
 export const target = ref(null)
 
@@ -48,6 +49,36 @@ export const menus: TMenu[] = [
                         route: "/admin/medicine/prescription",
                     }
                 ]
+            },
+            {
+                icon: ArchiveBoxIcon ,
+                label: "route.category",
+                route: "#",
+                children:[
+                    {
+                        label: "route.category_list",
+                        route: "/admin/category",
+                    },
+                    {
+                        label: "route.categories_add",
+                        route: "/admin/category/add",
+                    }
+                ]
+            },
+            {
+                icon: BookmarkIcon ,
+                label: "route.tag",
+                route: "#",
+                children:[
+                    {
+                        label: "route.tag_list",
+                        route: "/admin/tag",
+                    },
+                    {
+                        label: "route.tags_add",
+                        route: "/admin/tag/add",
+                    }
+                ]
             }
         ]
     },
@@ -75,5 +106,5 @@ export const menus: TMenu[] = [
                 route: "/"
             }
         ]
-    }
+    },
 ]
