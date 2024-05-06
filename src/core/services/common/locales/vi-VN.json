@@ -10,7 +10,10 @@
     "ok": "Đồng ý",
     "publish": "Đăng",
     "save": "Lưu",
-    "submit": "Gửi"
+    "submit": "Gửi",
+    "print": "In",
+    "save_as": "Lưu lại",
+    "download": "Tải"
   },
 	"content": {
     "active": "Hoạt động",
@@ -31,7 +34,8 @@
     "search": "Tìm kiếm bài viết",
     "search_blog": "Tìm kiếm",
     "search_result": "Kết quả tìm kiếm cho",
-    "share": "Chia sẻ"
+    "share": "Chia sẻ",
+    "conversation": "Hội thoại"
   },
 	"error": {
 		"not_found": {
@@ -64,6 +68,11 @@
     "old_password": "Mật khẩu cũ",
     "password": "Mật khẩu",
     "phone": "Số điện thoại",
+    "medicine": "Thuốc",
+    "quantity": "Liều lượng",
+    "usage": "Hướng dẫn sử dụng",
+    "confirm": "Xác nhận",
+    "select_medicine": "Chọn thuốc",
     "place_holder": {
       "address": "Nhập địa chỉ...",
       "content": "Nội dung...",
@@ -79,7 +88,10 @@
       "slug": "tieu-de",
       "tag": "Nhãn dán...",
       "title": "Tiêu đề",
-      "username": "Nhập tên người dùng..."
+      "username": "Nhập tên người dùng...",
+      "chat": "Tin nhắn",
+      "select_medicine": "Chọn thuốc",
+      "usage": "Hướng dẫn sử dụng"
     },
     "publish": "Đăng bài",
     "re_password": "Xác nhận mật khẩu",
@@ -145,10 +157,14 @@
     "send_email": "Gửi email",
     "service": "Dịch vụ",
     "specialist": "Chuyên gia y tế",
-    "team": "Đội ngũ y tế"
+    "team": "Đội ngũ y tế",
+    "admin_medicine": "Thuốc",
+    "admin_medicine_prescription": "Toa thuốc",
+    "setting": "Cài đặt",
+    "admin_message": "Tin nhắn admin"
   },
 	"table": {
-    "action": "Hành động",
+    "action": "Điều chỉnh",
     "alt": "Nhãn",
     "createdAt": "Tạo lúc",
     "delete_all": "Xoá tất cả",
@@ -167,6 +183,9 @@
     "size": "Kích thước",
     "slug": "Đường dẫn",
     "title": "Tiêu đề",
-    "updatedAt": "Cập nhật lúc"
+    "updatedAt": "Cập nhật lúc",
+    "brand": "Hiệu thuốc",
+    "quantity": "Số lượng",
+    "usage": "Liều lượng"
   }
 }

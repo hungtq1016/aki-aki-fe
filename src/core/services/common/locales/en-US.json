@@ -10,7 +10,10 @@
     "ok": "Ok",
     "publish": "Publish",
     "save": "Save",
-    "submit": "Submit"
+    "submit": "Submit",
+    "print": "Print",
+    "save_as": "Save as",
+    "download": "Download"
   },
 	"content": {
     "active": "Active",
@@ -31,7 +34,8 @@
     "search": "Search for articles",
     "search_blog": "Search",
     "search_result": "Search results for",
-    "share": "Share"
+    "share": "Share",
+    "conversation": "Conversation"
   },
 	"error": {
 		"not_found": {
@@ -64,6 +68,11 @@
     "old_password": "Old password",
     "password": "Password",
     "phone": "Phone number",
+    "select_medicine": "Select Medicine",
+    "medicine": "Medicine",
+    "quantity": "Quantity",
+    "usage": "Usage",
+    "confirm": "Confirm",
     "place_holder": {
       "address": "Enter address...",
       "category": "Category",
@@ -83,7 +92,10 @@
       "tag": "Tag",
       "title": "Title",
       "upload_image": "Upload Image",
-      "username": "Enter username..."
+      "username": "Enter username...",
+      "chat": "Enter",
+      "select_medicine": "Select Medicine",
+      "usage": "Usage"
     },
     "publish": "Publish",
     "re_password": "Confirm password",
@@ -149,7 +161,11 @@
     "send_email": "Send Email",
     "service": "Service",
     "specialist": "Medical specialist",
-    "team": "Medical Team"
+    "team": "Medical Team",
+    "admin_medicine": "Medicine",
+    "admin_medicine_prescription": "Prescription",
+    "setting": "Setting",
+    "admin_message": "Admin Message"
   },
 	"table": {
     "action": "Action",
@@ -171,6 +187,9 @@
     "size": "Size",
     "slug": "Slug",
     "title": "Title",
-    "updatedAt": "Updated at"
+    "updatedAt": "Updated at",
+    "brand": "Brand",
+    "quantity": "Quantity",
+    "usage": "Usage"
   }
 }
