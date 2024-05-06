@@ -56,7 +56,7 @@ const notificationItems = ref([
         <div v-show="dropdownOpen"
             class="absolute -right-[108px] mt-2.5 flex h-[360px] w-[300px] flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-big-stone-950  sm:right-0 sm:w-80">
             <div class="px-[18px] py-3">
-                <h5 class="text-sm font-medium text-regent-gray-600 ">Notification</h5>
+                <h5 class="text-sm font-medium text-regent-gray-600 ">{{$t('route.notifcation')}}</h5>
             </div>
 
             <ul class="flex h-auto flex-col overflow-y-auto">
@@ -75,6 +75,9 @@ const notificationItems = ref([
                     </li>
                 </template>
             </ul>
+            <div class="px-[18px] py-3">
+                <router-link to="/admin/notification" class="text-sm font-medium text-regent-gray-600 ">{{ $t('content.go_to_notification') }}</router-link>
+            </div>
         </div>
         <!-- Dropdown End -->
     </li>

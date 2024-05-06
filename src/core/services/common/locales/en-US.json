@@ -5,15 +5,14 @@
     "cancel": "Cancel",
     "close": "Close",
     "confirm": "Confirm",
+    "download":"Download",
     "delete": "Delete",
     "edit": "Edit",
     "ok": "Ok",
     "publish": "Publish",
+    "print":"Print",
     "save": "Save",
-    "submit": "Submit",
-    "print": "Print",
-    "save_as": "Save as",
-    "download": "Download"
+    "submit": "Submit"
   },
 	"content": {
     "active": "Active",
@@ -140,6 +139,9 @@
     "admin_blogs": "List of blogs",
     "admin_blogs_add": "Add Blog",
     "admin_blogs_edit": "Edit Blog",
+    "admin_message":"Messages",
+    "admin_medicine":"Medicines",
+    "admin_medicine_prescription":"Prescription",
     "blogs": "Blogs",
     "blogs_content": "Content for you",
     "blogs_detail": "Blog detail",

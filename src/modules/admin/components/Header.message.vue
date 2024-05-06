@@ -73,7 +73,7 @@ const messagesList = ref([
         <div v-show="dropdownOpen"
             class="absolute -right-16 mt-2.5 flex h-90 w-75 flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-big-stone-950  sm:right-0 sm:w-80">
             <div class="px-[18px] py-3">
-                <h5 class="text-sm font-medium text-regent-gray-600 ">Messages</h5>
+                <h5 class="text-sm font-medium text-regent-gray-600 ">{{$t('route.message')}}</h5>
             </div>
 
             <ul class="flex h-auto flex-col overflow-y-auto">
@@ -95,6 +95,9 @@ const messagesList = ref([
                     </li>
                 </template>
             </ul>
+            <div class="px-[18px] py-3">
+                <router-link to="/admin/message" class="text-sm font-medium text-regent-gray-600 ">{{ $t('content.go_to_message') }}</router-link>
+            </div>
         </div>
         <!-- Dropdown End -->
     </li>
