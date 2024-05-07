@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-    <router-link :to="`/${$i18n.locale}${data.url}`" class="text-xs md:text-sm text-white dark:text-gray-100">
+    <router-link :to="data.url" class="text-xs md:text-sm text-white dark:text-gray-100">
         <div class="flex gap-1 items-center">
             <component :is="data.icon" class="w-4 h-4"/>
             <span>{{ $t(data.name) }}</span>

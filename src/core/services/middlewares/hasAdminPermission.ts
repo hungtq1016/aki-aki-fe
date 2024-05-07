@@ -3,6 +3,7 @@ import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
 
 export default async function hasAdminPermission(to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) {
     const data = await hasPermission(String(to.name));
-    if (data) return next();
-    next("/oauth2")
+    if(!data)
+     next("/oauth2")
+    next()
 }

@@ -1,23 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { adminRoute } from '@/modules/admin/router'
-import { clientRoute } from '@/modules/router'
-import { oauth2Route } from '@/modules/oauth2/router'
-import { i18n, loadLanguageAsync } from '@/core/services/base/translation'
+import adminRoute from '@/modules/admin/router'
+import clientRoute from '@/modules/router'
+import oauth2Route from '@/modules/oauth2/router'
+import { i18n } from '@/core/services/base/translation'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '',
-      redirect: { path: `/${i18n.global.locale.value}` }
-    },
-    {
-      path: '/:lang',
+      path: '/',
       component: () => import('@/core/views/MainView.vue'),
       children: [
-        ...adminRoute,
-        ...clientRoute,
-        ...oauth2Route
+        adminRoute,
+        clientRoute,
+        oauth2Route
       ]
     },
 
@@ -37,10 +33,8 @@ router.beforeEach((to, from, next) => {
   const descriptionElement = document.querySelector('head meta[name="description"]')
 
   descriptionElement?.setAttribute('content', String(description || defaultDescription))
-  
-  const lang = to.params.lang
-  console.log(to.params.lang)
-  loadLanguageAsync(lang).then(() => next())
+
+  next();
 })
 
 export default router

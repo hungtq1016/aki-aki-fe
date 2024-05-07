@@ -7,7 +7,6 @@ const adminBlogRoute: RouteRecordRaw = {
         {
             path: '',
             name: 'admin_blogs',
-            beforeEnter: hasAdminPermission,
             component: () => import('@/modules/admin-blog/views/BlogView.vue'),
             meta: {
                 title: 'route.admin_blogs'
@@ -16,7 +15,6 @@ const adminBlogRoute: RouteRecordRaw = {
         {
             path: 'add',
             name: 'admin_blogs_add',
-            beforeEnter: hasAdminPermission,
             component: () => import('@/modules/admin-blog/views/BlogAddView.vue'),
             meta: {
                 title: 'route.admin_blogs_add'
@@ -25,7 +23,6 @@ const adminBlogRoute: RouteRecordRaw = {
         {
             path: ':id',
             name: 'admin_blogs_edit',
-            beforeEnter: hasAdminPermission,
             component: () => import('@/modules/admin-blog/views/BlogAddView.vue'),
             meta: {
                 title: 'route.admin_blogs_edit'

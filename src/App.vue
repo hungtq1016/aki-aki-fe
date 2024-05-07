@@ -1,6 +1,3 @@
 <template>
-  <router-view>
-    <RouterView />
-  </router-view>
-
+   <RouterView />
 </template>
