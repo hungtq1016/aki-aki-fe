@@ -1,7 +1,7 @@
 import type { RouteRecordRaw } from "vue-router";
 
 const adminCategoryRoute: RouteRecordRaw = {
-    path: 'category',
+    path: 'categories',
     children: [
         {
             path: '',

@@ -94,7 +94,22 @@ export const menus: TMenu[] = [
                         route: "/admin/services/add",
                     }
                 ]
-            }
+            },
+            {
+                icon: NewspaperIcon ,
+                label: "route.branches",
+                route: "#",
+                children:[
+                    {
+                        label: "route.admin_branches",
+                        route: "/admin/branches",
+                    },
+                    {
+                        label: "route.admin_branches_add",
+                        route: "/admin/branches/add",
+                    }
+                ]
+            },
         ]
     },
     {

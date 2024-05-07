@@ -4,6 +4,7 @@ import {adminMedicineRoute} from '@/modules/admin-medicine/router'
 import { adminCategoryRoute } from "@/modules/admin-category/router";
 import { adminTagRoute } from "@/modules/admin-tag/router";
 import { adminServiceRoute } from "@/modules/admin-service/router";
+import { adminBranchRoute } from "@/modules/admin-branch/route";
 const adminRoute: RouteRecordRaw[] = [
     {
         path: 'admin',
@@ -30,6 +31,7 @@ const adminRoute: RouteRecordRaw[] = [
             {...adminCategoryRoute},
             {...adminTagRoute},
             {...adminServiceRoute},
+            {...adminBranchRoute},
         ]
     }
 ]
