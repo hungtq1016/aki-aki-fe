@@ -11,7 +11,7 @@
             <ChevronDownIcon v-if="item.children" class="w-5 h-5"
                 :class="{ 'rotate-180': sidebarStore.page === item.label }" />
         </router-link>
-        <router-link :to="`/${$i18n.locale}${item.route}`" v-else
+        <router-link :to="item.route" v-else
             class="group flex justify-between items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-link-water-200  duration-300 ease-in-out hover:bg-bright-gray-900 dark:hover:bg-oxford-blue-900"
             @click.prevent="handleItemClick" >
             <div class="flex gap-x-2 items-center">

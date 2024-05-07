@@ -7,12 +7,12 @@ import { i18n, loadLanguageAsync } from '@/core/services/base/translation'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    // {
+    //   path: '',
+    //   redirect: { path: `/${i18n.global.locale.value}` }
+    // },
     {
-      path: '',
-      redirect: { path: `/${i18n.global.locale.value}` }
-    },
-    {
-      path: '/:lang',
+      path: '/',
       component: () => import('@/core/views/MainView.vue'),
       children: [
         ...adminRoute,
@@ -38,9 +38,8 @@ router.beforeEach((to, from, next) => {
 
   descriptionElement?.setAttribute('content', String(description || defaultDescription))
   
-  const lang = to.params.lang
-  console.log(to.params.lang)
-  loadLanguageAsync(lang).then(() => next())
+  // const lang = to.params.lang
+  // loadLanguageAsync(lang).then(() => next())
 })
 
 export default router
