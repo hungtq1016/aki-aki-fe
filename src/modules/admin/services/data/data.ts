@@ -37,61 +37,61 @@ export const menus: TMenu[] = [
             },
             {
                 icon: BriefcaseIcon ,
-                label: "route.admin_medicine",
+                label: "route.admin_medicines",
                 route: "#",
                 children:[
                     {
-                        label: "route.admin_medicine",
-                        route: "/admin/medicine",
+                        label: "route.admin_medicines",
+                        route: "/admin/medicines",
                     },
                     {
-                        label: "route.admin_medicine_prescription",
-                        route: "/admin/medicine/prescription",
+                        label: "route.admin_medicines_prescription",
+                        route: "/admin/medicines/prescription",
                     }
                 ]
             },
             {
                 icon: ArchiveBoxIcon ,
-                label: "route.category",
+                label: "route.categories",
                 route: "#",
                 children:[
                     {
-                        label: "route.category_list",
-                        route: "/admin/category",
+                        label: "route.categories_list",
+                        route: "/admin/categories",
                     },
                     {
                         label: "route.categories_add",
-                        route: "/admin/category/add",
+                        route: "/admin/categories/add",
                     }
                 ]
             },
             {
                 icon: BookmarkIcon ,
-                label: "route.tag",
+                label: "route.tags",
                 route: "#",
                 children:[
                     {
-                        label: "route.tag_list",
-                        route: "/admin/tag",
+                        label: "route.tags_list",
+                        route: "/admin/tags",
                     },
                     {
                         label: "route.tags_add",
-                        route: "/admin/tag/add",
+                        route: "/admin/tags/add",
                     }
                 ]
             },
             {
                 icon: BookmarkIcon ,
-                label: "route.service",
+                label: "route.services",
                 route: "#",
                 children:[
                     {
-                        label: "route.service_list",
-                        route: "/admin/service",
+                        label: "route.services_list",
+                        route: "/admin/services",
                     },
                     {
                         label: "route.services_add",
-                        route: "/admin/service/add",
+                        route: "/admin/services/add",
                     }
                 ]
             }
