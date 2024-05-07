@@ -79,6 +79,21 @@ export const menus: TMenu[] = [
                         route: "/admin/tag/add",
                     }
                 ]
+            },
+            {
+                icon: BookmarkIcon ,
+                label: "route.service",
+                route: "#",
+                children:[
+                    {
+                        label: "route.service_list",
+                        route: "/admin/service",
+                    },
+                    {
+                        label: "route.services_add",
+                        route: "/admin/service/add",
+                    }
+                ]
             }
         ]
     },
