@@ -2,13 +2,17 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { adminRoute } from '@/modules/admin/router'
 import { clientRoute } from '@/modules/router'
 import { oauth2Route } from '@/modules/oauth2/router'
-import { i18n } from '@/core/services/base/translation'
+import { i18n, loadLanguageAsync } from '@/core/services/base/translation'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '',
+      redirect: { path: '/vi-VN' }
+    },
+    {
+      path: '/:lang',
       component: () => import('@/core/views/MainView.vue'),
       children: [
         ...adminRoute,
@@ -23,7 +27,7 @@ const router = createRouter({
   },
 })
 
-router.beforeEach((to) => {
+router.beforeEach((to, from, next) => {
   const { title, description } = to.meta;
   const defaultTitle = 'AkiAki';
   const defaultDescription = 'AkiAki Hospital';
@@ -33,6 +37,10 @@ router.beforeEach((to) => {
   const descriptionElement = document.querySelector('head meta[name="description"]')
 
   descriptionElement?.setAttribute('content', String(description || defaultDescription))
+  
+  const lang = to.params.lang
+  console.log(to.params.lang)
+  loadLanguageAsync(lang).then(() => next())
 })
 
 export default router
