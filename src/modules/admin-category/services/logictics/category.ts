@@ -21,7 +21,7 @@ export const items = ref<TCategory[]>([
 export const pagination = ref<TPagination>(init_pagination);
 export const fetch = async () => {
     
-    const response = await get<any, TPaginationResponse<TCategory>>("/api/categories", paginationOptions.value);
+    const response = await get<TPaginationResponse<TCategory>>("/api/categories/page", paginationOptions.value);
     items.value = response?.data.data || [];
     pagination.value = response?.data || init_pagination;
 

@@ -5,10 +5,10 @@ const adminCategoryRoute: RouteRecordRaw = {
     children: [
         {
             path: '',
-            name: 'categories',
+            name: 'admin_categories',
             component: () => import('@/modules/admin-category/views/CategoryView.vue'),
             meta: {
-                title: 'route.categories'
+                title: 'route.admin_categories'
             }
         },
         {
@@ -31,4 +31,4 @@ const adminCategoryRoute: RouteRecordRaw = {
 }
 
 
-export { adminCategoryRoute }
+export default adminCategoryRoute;

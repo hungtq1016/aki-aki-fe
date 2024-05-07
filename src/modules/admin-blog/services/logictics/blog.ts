@@ -11,7 +11,7 @@ import { EnableEnum } from "@/core/models/enum";
 export const items = ref<TBlog[]>([
     {
         id: "1",
-        name: "mock-data",
+        title: "mock-data",
         content: "mock-data",
         desc:"mock-data",
         slug:"mock-data",
@@ -22,12 +22,12 @@ export const items = ref<TBlog[]>([
         enable: EnableEnum.ALL
     }
 ]);
-export const pagination = ref<TPagination>({ ...init_pagination });
+export const pagination = ref<TPagination>(init_pagination);
 export const fetch = async () => {
     
-    const response = await get<any, TPaginationResponse<TBlog>>("/api/blogs", paginationOptions.value);
+    const response = await get<TPaginationResponse<TBlog>>("/api/blogs/page", paginationOptions.value);
     items.value = response?.data.data || [];
-    pagination.value = response?.data || { ...init_pagination };
+    pagination.value = response?.data || init_pagination;
 
 };
 

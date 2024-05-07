@@ -1,7 +1,7 @@
 import type { TEntity } from "@/core/models/type"
 
 export type TBlog = TEntity & {
-    name: string,
+    title: string,
     type: string,
     slug: string,
     desc: string,

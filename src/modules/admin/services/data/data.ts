@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import type { TMenu } from "../../models/type";
-import { NewspaperIcon, HomeIcon, ArrowUturnLeftIcon, ChatBubbleOvalLeftIcon, BriefcaseIcon ,ArchiveBoxIcon, BookmarkIcon  } from "@heroicons/vue/24/outline";
+import { NewspaperIcon, HomeIcon, ArrowUturnLeftIcon, ChatBubbleOvalLeftIcon, BriefcaseIcon ,ArchiveBoxIcon, BookmarkIcon, TagIcon, BuildingStorefrontIcon  } from "@heroicons/vue/24/outline";
 
 export const target = ref(null)
 
@@ -65,7 +65,7 @@ export const menus: TMenu[] = [
                 ]
             },
             {
-                icon: BookmarkIcon ,
+                icon: TagIcon ,
                 label: "route.admin_tags",
                 route: "#",
                 children:[
@@ -95,7 +95,7 @@ export const menus: TMenu[] = [
                 ]
             },
             {
-                icon: NewspaperIcon ,
+                icon: BuildingStorefrontIcon ,
                 label: "route.admin_branches",
                 route: "#",
                 children:[

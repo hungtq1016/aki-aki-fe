@@ -35,4 +35,4 @@ const adminBlogRoute: RouteRecordRaw = {
 }
 
 
-export { adminBlogRoute }
+export default adminBlogRoute

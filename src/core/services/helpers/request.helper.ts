@@ -53,8 +53,8 @@ async function makeRequest<TRequest,TResponse>(method: string, path: string, dat
 }
 
 // Define your REST API request methods
-export async function get<TRequest, TResponse>(path: string, queryParams?: any) {
-    return makeRequest<TRequest, TResponse>('GET', path, undefined, queryParams);
+export async function get<TResponse>(path: string, queryParams?: any) {
+    return makeRequest<any, TResponse>('GET', path, undefined, queryParams);
 }
 
 export async function post<TRequest, TResponse>(path: string, data?: any) {

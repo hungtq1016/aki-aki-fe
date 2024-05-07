@@ -36,7 +36,7 @@ for (let i = 1; i < paths.length; i++) {
     } else {
         temp += paths[i];
         breadcrumb.push(temp);
-        temp += ".";
+        temp += "_";
     }
 }
 

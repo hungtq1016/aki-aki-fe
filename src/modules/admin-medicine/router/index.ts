@@ -31,4 +31,4 @@ const adminMedicineRoute: RouteRecordRaw = {
 }
 
 
-export { adminMedicineRoute }
+export default adminMedicineRoute;

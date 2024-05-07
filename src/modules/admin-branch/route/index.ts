@@ -5,7 +5,7 @@ const adminBranchRoute: RouteRecordRaw = {
     children: [
         {
             path: '',
-            name: 'branches',
+            name: 'admin_branches',
             component: () => import('@/modules/admin-branch/views/BranchView.vue'),
             meta: {
                 title: 'route.branches'
@@ -13,7 +13,7 @@ const adminBranchRoute: RouteRecordRaw = {
         },
         {
             path: 'add',
-            name: 'admin_branchies_add',
+            name: 'admin_branches_add',
             component: () => import('@/modules/admin-branch/views/BranchAddView.vue'),
             meta: {
                 title: 'route.admin_branches_add'

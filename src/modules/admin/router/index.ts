@@ -1,11 +1,14 @@
-import type { RouteRecordRaw } from "vue-router";
-import {adminBlogRoute} from '@/modules/admin-blog/router'
-import {adminMedicineRoute} from '@/modules/admin-medicine/router'
-import { adminCategoryRoute } from "@/modules/admin-category/router";
+import adminBlogRoute from '@/modules/admin-blog/router'
+import adminMedicineRoute from '@/modules/admin-medicine/router'
+import adminCategoryRoute from "@/modules/admin-category/router";
 import { adminTagRoute } from "@/modules/admin-tag/router";
 import { adminServiceRoute } from "@/modules/admin-service/router";
 import { adminBranchRoute } from "@/modules/admin-branch/route";
+
 import hasAdminPermission from "@/core/services/middlewares/hasAdminPermission";
+
+import type { RouteRecordRaw } from "vue-router";
+
 const adminRoute: RouteRecordRaw[] = [
     {
         path: 'admin',
@@ -27,15 +30,15 @@ const adminRoute: RouteRecordRaw[] = [
                 beforeEnter: hasAdminPermission,
                 component: () => import('@/modules/admin-message/views/MessageView.vue'),
                 meta: {
-                    title: 'route.admin'
+                    title: 'route.admin_message'
                 }
             },
-            {...adminBlogRoute},
-            {...adminMedicineRoute},
-            {...adminCategoryRoute},
-            {...adminTagRoute},
-            {...adminServiceRoute},
-            {...adminBranchRoute},
+            adminBlogRoute,
+            adminMedicineRoute,
+            adminCategoryRoute,
+            adminTagRoute,
+            adminServiceRoute,
+            adminBranchRoute,
         ]
     }
 ]
