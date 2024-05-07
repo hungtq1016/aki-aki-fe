@@ -17,5 +17,5 @@ import HeaderAdminItem from './Header.admin.item.vue'
 import { hasPermission } from '@/core/services/hooks/usePermission'
 
 const isAdmin = ref<boolean>(false)
-onMounted(async()=>isAdmin.value = await hasPermission(["role.view"]))
+onMounted(async()=>isAdmin.value = await hasPermission('admin.view'))
 </script>

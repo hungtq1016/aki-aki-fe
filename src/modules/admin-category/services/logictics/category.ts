@@ -12,18 +12,18 @@ export const items = ref<TCategory[]>([
     {
         id: "1",
         name: "mock-data",
-        desc:"mock-data",
+        slug:"mock-data",
         createdAt: "2022-01-01",
         updatedAt: "2024-01-01",
         enable: EnableEnum.ALL
     }
 ]);
-export const pagination = ref<TPagination>({ ...init_pagination });
+export const pagination = ref<TPagination>(init_pagination);
 export const fetch = async () => {
     
-    const response = await get<any, TPaginationResponse<TCategory>>("/api/blogs", paginationOptions.value);
+    const response = await get<any, TPaginationResponse<TCategory>>("/api/categories", paginationOptions.value);
     items.value = response?.data.data || [];
-    pagination.value = response?.data || { ...init_pagination };
+    pagination.value = response?.data || init_pagination;
 
 };
 

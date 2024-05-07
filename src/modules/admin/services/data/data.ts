@@ -1,7 +1,6 @@
 import { ref } from "vue";
 import type { TMenu } from "../../models/type";
-import { NewspaperIcon, HomeIcon, Cog6ToothIcon, Square3Stack3DIcon, ArrowUturnLeftIcon, ChatBubbleOvalLeftIcon, BriefcaseIcon } from "@heroicons/vue/24/outline";
-import { ArchiveBoxIcon, BookmarkIcon } from "@heroicons/vue/20/solid";
+import { NewspaperIcon, HomeIcon, ArrowUturnLeftIcon, ChatBubbleOvalLeftIcon, BriefcaseIcon ,ArchiveBoxIcon, BookmarkIcon  } from "@heroicons/vue/24/outline";
 
 export const target = ref(null)
 
@@ -22,7 +21,7 @@ export const menus: TMenu[] = [
             },
             {
                 icon: NewspaperIcon ,
-                label: "route.blogs",
+                label: "route.admin_blogs",
                 route: "#",
                 children:[
                     {
@@ -52,52 +51,52 @@ export const menus: TMenu[] = [
             },
             {
                 icon: ArchiveBoxIcon ,
-                label: "route.categories",
+                label: "route.admin_categories",
                 route: "#",
                 children:[
                     {
-                        label: "route.categories_list",
+                        label: "route.admin_categories",
                         route: "/admin/categories",
                     },
                     {
-                        label: "route.categories_add",
+                        label: "route.admin_categories_add",
                         route: "/admin/categories/add",
                     }
                 ]
             },
             {
                 icon: BookmarkIcon ,
-                label: "route.tags",
+                label: "route.admin_tags",
                 route: "#",
                 children:[
                     {
-                        label: "route.tags_list",
+                        label: "route.admin_tags",
                         route: "/admin/tags",
                     },
                     {
-                        label: "route.tags_add",
+                        label: "route.admin_tags_add",
                         route: "/admin/tags/add",
                     }
                 ]
             },
             {
                 icon: BookmarkIcon ,
-                label: "route.services",
+                label: "route.admin_services",
                 route: "#",
                 children:[
                     {
-                        label: "route.services_list",
+                        label: "route.admin_services",
                         route: "/admin/services",
                     },
                     {
-                        label: "route.services_add",
+                        label: "route.admin_services_add",
                         route: "/admin/services/add",
                     }
                 ]
             },
             {
                 icon: NewspaperIcon ,
-                label: "route.branches",
+                label: "route.admin_branches",
                 route: "#",
                 children:[
                     {
@@ -125,11 +124,6 @@ export const menus: TMenu[] = [
     {
         name: "content.menu_other",
         menuItems: [
-            {
-                icon: Cog6ToothIcon,
-                label: "route.setting",
-                route: "/admin/pages/settings"
-            },
             {
                 icon: ArrowUturnLeftIcon,
                 label: "route.home",

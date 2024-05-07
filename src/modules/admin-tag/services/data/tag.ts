@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { EnableEnum } from "@/core/models/enum";
 
 import type { Header } from "vue3-easy-data-table";
-import type { TPagination, tPaginationRequest } from "@/core/models/type";
+import type { TPagination, TPaginationRequest } from "@/core/models/type";
 
 export const headers: Header[] = [
     { text: "table.id", value: "id", width: 100 },
@@ -13,7 +13,7 @@ export const headers: Header[] = [
     { text: "table.updatedAt", value: "updatedAt" },
 ];
 
-export const paginationOptions = ref<tPaginationRequest>({
+export const paginationOptions = ref<TPaginationRequest>({
     pageNumber: 1,
     pageSize: 10,
     enable: EnableEnum.ALL

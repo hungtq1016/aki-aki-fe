@@ -62,11 +62,11 @@
 <script setup lang="ts">
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/vue/24/solid'
 
-import type { TPagination, tPaginationRequest } from '@/core/models/type';
+import type { TPagination, TPaginationRequest } from '@/core/models/type';
 
 defineProps<{
     pagination: TPagination,
-    paginationOptions: tPaginationRequest
+    paginationOptions: TPaginationRequest
 }>()
 
 const totalOptions: number[] = [5, 10, 25, 50, 100]

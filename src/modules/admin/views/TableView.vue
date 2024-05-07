@@ -55,13 +55,13 @@
   
   import type { ComponentPublicInstance } from 'vue'
   import type { Header, Item } from "vue3-easy-data-table";
-import type { TPagination, tPaginationRequest } from "@/core/models/type";
+import type { TPagination, TPaginationRequest } from "@/core/models/type";
   
   const props = defineProps<{
     headers: Header[];
     items: Item[];
     pagination: TPagination;
-    paginationOptions: tPaginationRequest,
+    paginationOptions: TPaginationRequest,
     route: string;
     fetch: () => Promise<void>;
     expandComponent?: ComponentPublicInstance

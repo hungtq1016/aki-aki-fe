@@ -16,6 +16,7 @@ export type TTokenResponse = {
     tokenType: string,
     expiredAt: string
 }
+
 export type TPagination = {
     pageNumber: number
     pageSize: number
@@ -33,23 +34,22 @@ export type TPaginationResponse<T> = TPagination & {
 
 export type TSidebarItem = {
     label: string
-  }
-  
+}
 
-export type tPaginationRequest = {
+export type TPaginationRequest = {
     pageNumber: number
     pageSize: number
     enable: EnableEnum
 }
 
 export type TOption = {
-    name:string,
-    value:string
+    name: string,
+    value: string
 }
 
 export type TEntity = {
     id: string,
     createdAt: string,
     updatedAt: string,
-    enable:EnableEnum
+    enable: EnableEnum
 }
