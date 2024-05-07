@@ -25,8 +25,8 @@ const router = createRouter({
 
 router.beforeEach((to) => {
   const { title, description } = to.meta;
-  const defaultTitle = 'Home';
-  const defaultDescription = 'Akiaki hospital';
+  const defaultTitle = 'AkiAki';
+  const defaultDescription = 'AkiAki Hospital';
 
   document.title = `${i18n.global.t(String(title)) || defaultTitle} | AkiAki`
 
