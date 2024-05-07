@@ -9,7 +9,7 @@ const router = createRouter({
   routes: [
     {
       path: '',
-      redirect: { path: '/vi-VN' }
+      redirect: { path: `/${i18n.global.locale.value}` }
     },
     {
       path: '/:lang',

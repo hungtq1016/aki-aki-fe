@@ -1,27 +1,29 @@
 import { createI18n } from 'vue-i18n';
-import { ref } from 'vue';
-import enUS from '../common/locales/en-US.json';
-import viVN from '../common/locales/vi-VN.json';
+import { onMounted, ref } from 'vue';
 import { changeCookie, getCookie, isCookieExist, setCookie } from '../helpers/cookie.helper';
 import axios from 'axios'
+import { useRoute } from 'vue-router'
+export const locale = ref<string>('vi-VN');
 
-export const locale = ref<string>('en-US');
-
-if (!isCookieExist('locale')) {
-    setCookie('locale', 'en-US');
-    locale.value = 'en-US';
-} else {
-    locale.value = getCookie('locale') as string;
-}
+onMounted(()=>{
+    const route = useRoute()
+    console.log()
+    if (!isCookieExist('locale')) {
+        setCookie('locale', String(route?.params));
+        locale.value = String(route?.params);
+    } else {
+        locale.value = getCookie('locale') as string;
+    }
+})
 
 export const i18n = createI18n({
     legacy: false,
     locale: locale.value,
-    fallbackLocale: 'en-US', // Chỉ định ngôn ngữ mặc định
+    fallbackLocale: 'vi-VN', // Chỉ định ngôn ngữ mặc định
     globalInjection: true,
 });
 
-const loadedLanguages:any[] = [] // our default language that is preloaded
+const loadedLanguages:string[] = [] 
 
 function setI18nLanguage (lang:any) {
   i18n.global.locale = lang
