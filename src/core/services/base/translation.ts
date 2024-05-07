@@ -3,11 +3,10 @@ import { onMounted, ref } from 'vue';
 import { changeCookie, getCookie, isCookieExist, setCookie } from '../helpers/cookie.helper';
 import axios from 'axios'
 import { useRoute } from 'vue-router'
-export const locale = ref<string>('vi-VN');
+export const locale = ref<string>(getCookie('locale') as string|'vi-VN');
 
 onMounted(()=>{
     const route = useRoute()
-    console.log()
     if (!isCookieExist('locale')) {
         setCookie('locale', String(route?.params));
         locale.value = String(route?.params);
@@ -19,8 +18,11 @@ onMounted(()=>{
 export const i18n = createI18n({
     legacy: false,
     locale: locale.value,
-    fallbackLocale: 'vi-VN', // Chỉ định ngôn ngữ mặc định
+    fallbackLocale: getCookie('locale') as string | 'vi-VN', // Chỉ định ngôn ngữ mặc định
     globalInjection: true,
+    messages :{
+      'vi-VN':{},
+    }
 });
 
 const loadedLanguages:string[] = [] 
