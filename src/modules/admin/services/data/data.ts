@@ -37,16 +37,16 @@ export const menus: TMenu[] = [
             },
             {
                 icon: BriefcaseIcon ,
-                label: "route.admin_medicines",
+                label: "route.admin_medicine",
                 route: "#",
                 children:[
                     {
-                        label: "route.admin_medicines",
-                        route: "/admin/medicines",
+                        label: "route.admin_medicine",
+                        route: "/admin/medicine",
                     },
                     {
-                        label: "route.admin_medicines_prescription",
-                        route: "/admin/medicines/prescription",
+                        label: "route.admin_medicine_prescription",
+                        route: "/admin/medicine/prescription",
                     }
                 ]
             },
