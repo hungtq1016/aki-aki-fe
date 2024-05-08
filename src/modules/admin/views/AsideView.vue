@@ -15,7 +15,7 @@ onClickOutside(target, () => {
 
 <template>
     <aside
-        class="absolute left-0 top-0 z-50 flex h-screen w-[290px] flex-col justify-between py-5 overflow-y-hidden bg-slate-950 duration-300 ease-linear dark:bg-gray-950  lg:static lg:translate-x-0"
+        class="absolute left-0 top-0 z-50 flex h-screen w-[290px] flex-col justify-between py-5 overflow-y-hidden bg-slate-950 duration-300 ease-linear dark:bg-zinc-950  lg:static lg:translate-x-0"
         :class="{
             'translate-x-0': sidebarStore.isSidebarOpen,
             '-translate-x-full': !sidebarStore.isSidebarOpen

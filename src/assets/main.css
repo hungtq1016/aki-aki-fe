@@ -71,7 +71,7 @@ iframe {
 }
 
 .apexcharts-tooltip.apexcharts-theme-light {
-  @apply dark:!border-oxford-blue-900 dark:!bg-gray-950 ;
+  @apply dark:!border-oxford-blue-900 dark:!bg-zinc-950 ;
 }
 
 .apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
@@ -105,15 +105,15 @@ iframe {
 }
 
 .flatpickr-calendar.arrowTop:before {
-  @apply dark:!border-b-gray-950 ;
+  @apply dark:!border-b-zinc-950 ;
 }
 
 .flatpickr-calendar.arrowTop:after {
-  @apply dark:!border-b-gray-950 ;
+  @apply dark:!border-b-zinc-950 ;
 }
 
 .flatpickr-calendar {
-  @apply !p-6 dark:!bg-gray-950  dark:!text-hit-gray-400 dark:!shadow-[8] 2xsm:!w-auto;
+  @apply !p-6 dark:!bg-zinc-950  dark:!text-hit-gray-400 dark:!shadow-[8] 2xsm:!w-auto;
 }
 
 .flatpickr-day {

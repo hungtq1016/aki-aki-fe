@@ -125,7 +125,7 @@ const apexOptions = {
 
 <template>
     <div
-        class="col-span-12 rounded-sm border border-zumthor-100 bg-white px-5 pt-[30px] pb-5 shadow-default dark:border-oxford-blue-900 dark:bg-gray-950  sm:px-[30px] xl:col-span-8">
+        class="col-span-12 rounded-sm border border-zumthor-100 bg-white px-5 pt-[30px] pb-5 shadow-default dark:border-oxford-blue-900 dark:bg-zinc-950  sm:px-[30px] xl:col-span-8">
         <div class="flex flex-wrap items-start justify-between gap-3 sm:flex-nowrap">
             <div class="flex w-full flex-wrap gap-3 sm:gap-5">
                 <div class="flex min-w-[190px]">
@@ -152,15 +152,15 @@ const apexOptions = {
             <div class="flex w-full max-w-45 justify-end">
                 <div class="inline-flex items-center rounded-md bg-zircon-50  p-1.5 dark:bg-oxford-blue-900">
                     <button
-                        class="rounded bg-white py-1 px-3 text-xs font-medium text-slate-950 shadow-card hover:bg-white hover:shadow-card dark:bg-gray-950  dark:text-white dark:hover:bg-gray-950 ">
+                        class="rounded bg-white py-1 px-3 text-xs font-medium text-slate-950 shadow-card hover:bg-white hover:shadow-card dark:bg-zinc-950  dark:text-white dark:hover:bg-zinc-950 ">
                         Day
                     </button>
                     <button
-                        class="rounded py-1 px-3 text-xs font-medium text-slate-950 hover:bg-white hover:shadow-card dark:text-white dark:hover:bg-gray-950 ">
+                        class="rounded py-1 px-3 text-xs font-medium text-slate-950 hover:bg-white hover:shadow-card dark:text-white dark:hover:bg-zinc-950 ">
                         Week
                     </button>
                     <button
-                        class="rounded py-1 px-3 text-xs font-medium text-slate-950 hover:bg-white hover:shadow-card dark:text-white dark:hover:bg-gray-950 ">
+                        class="rounded py-1 px-3 text-xs font-medium text-slate-950 hover:bg-white hover:shadow-card dark:text-white dark:hover:bg-zinc-950 ">
                         Month
                     </button>
                 </div>

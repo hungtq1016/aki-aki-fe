@@ -2,7 +2,7 @@
 <template>
   <!-- Card Item Start -->
   <div
-    class="rounded-sm border border-zumthor-100 bg-white py-6 px-[30px] shadow-default dark:border-oxford-blue-900 dark:bg-gray-950 ">
+    class="rounded-sm border border-zumthor-100 bg-white py-6 px-[30px] shadow-default dark:border-oxford-blue-900 dark:bg-zinc-950 ">
     <div class="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-athens-gray-50 dark:bg-oxford-blue-900"
       v-html="data.icon"></div>
 

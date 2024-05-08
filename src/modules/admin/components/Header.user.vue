@@ -49,7 +49,7 @@ const menuProfile: TMenu = {
 
             <!-- Dropdown Start -->
             <div v-show="dropdownOpen"
-                class="absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-gray-950 ">
+                class="absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-zinc-950 ">
                 <ul class="flex flex-col gap-5 border-b border-zumthor-100 px-6 py-7.5 dark:border-oxford-blue-900">
                     <li v-for="item in menuProfile.menuItems" :key="item.label">
                         <router-link :to="item.route"

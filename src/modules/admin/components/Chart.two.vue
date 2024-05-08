@@ -81,7 +81,7 @@ const apexOptions = {
 
 <template>
   <div
-    class="col-span-12 rounded-sm border border-zumthor-100 bg-white p-[30px] shadow-default dark:border-oxford-blue-900 dark:bg-gray-950  xl:col-span-4"
+    class="col-span-12 rounded-sm border border-zumthor-100 bg-white p-[30px] shadow-default dark:border-oxford-blue-900 dark:bg-zinc-950  xl:col-span-4"
   >
     <div class="mb-4 justify-between gap-4 sm:flex">
       <div>

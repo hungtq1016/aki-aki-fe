@@ -12,12 +12,12 @@ const { isSidebarOpen, toggleSidebar } = useSidebarStore()
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 flex w-full bg-white drop-shadow dark:bg-gray-950  dark:drop-shadow-none">
+  <header class="sticky top-0 z-50 flex w-full bg-white drop-shadow dark:bg-zinc-950  dark:drop-shadow-none">
     <div class="flex flex-grow items-center justify-between py-4 px-4 shadow-2 md:px-6 2xl:px-11">
       <div class="flex items-center gap-2 sm:gap-4 lg:hidden">
         <!-- Hamburger Toggle BTN -->
         <button
-          class="z-50 block rounded-sm border border-zumthor-100 bg-white p-1.5 shadow-sm dark:border-oxford-blue-900 dark:bg-gray-950  lg:hidden"
+          class="z-50 block rounded-sm border border-zumthor-100 bg-white p-1.5 shadow-sm dark:border-oxford-blue-900 dark:bg-zinc-950  lg:hidden"
           @click="() => toggleSidebar() ">
           <span class="relative block h-[22px] w-[22px]  cursor-pointer">
             <span class="du-block absolute right-0 h-full w-full">

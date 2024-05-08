@@ -48,7 +48,7 @@ const apexOptions = {
 
 <template>
   <div
-    class="col-span-12 rounded-sm border border-zumthor-100 bg-white px-5 pt-[30px] pb-5 shadow-default dark:border-oxford-blue-900 dark:bg-gray-950  sm:px-[30px] xl:col-span-5"
+    class="col-span-12 rounded-sm border border-zumthor-100 bg-white px-5 pt-[30px] pb-5 shadow-default dark:border-oxford-blue-900 dark:bg-zinc-950  sm:px-[30px] xl:col-span-5"
   >
     <div class="mb-3 justify-between gap-4 sm:flex">
       <div>

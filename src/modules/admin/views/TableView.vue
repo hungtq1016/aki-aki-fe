@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-    <div class="bg-white dark:bg-gray-950 p-2 border border-gray-2200 dark:border-gray-900">
+    <div class="bg-white dark:bg-transparent p-2 border border-gray-200 dark:border-black-700">
       <div class="pb-2 flex gap-x-2">
         <TableHeader :value="selectedHeaders" :options="headers"
           @update:modelValue="value => selectedHeaders = value" />
