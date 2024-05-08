@@ -43,7 +43,7 @@ const notificationItems = ref([
 <template>
     <li class="relative" ref="target">
         <router-link
-            class="relative flex h-['34px'] w-['34px'] items-center justify-center rounded-full border-[0.5px] border-zumthor-100 bg-zircon-50 hover:text-cerulean-blue-600 dark:border-oxford-blue-900 dark:bg-oxford-blue-900 dark:text-white"
+            class="relative flex h-['34px'] w-['34px'] items-center justify-center rounded-full border-[0.5px] border-zumthor-100 bg-zircon-50 hover:text-cerulean-600 dark:border-oxford-blue-900 dark:bg-oxford-blue-900 dark:text-white"
             to="#" @click.prevent="(dropdownOpen = !dropdownOpen), (notifying = false)">
             <span :class="!notifying && 'hidden'" class="absolute -top-px right-0 z-[1] h-2 w-2 rounded-full bg-red-ribbon-600">
                 <span
@@ -54,7 +54,7 @@ const notificationItems = ref([
 
         <!-- Dropdown Start -->
         <div v-show="dropdownOpen"
-            class="absolute -right-[108px] mt-2.5 flex h-[360px] w-[300px] flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-big-stone-950  sm:right-0 sm:w-80">
+            class="absolute -right-[108px] mt-2.5 flex h-[360px] w-[300px] flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-gray-950  sm:right-0 sm:w-80">
             <div class="px-[18px] py-3">
                 <h5 class="text-sm font-medium text-regent-gray-600 ">{{$t('route.notifcation')}}</h5>
             </div>
@@ -66,7 +66,7 @@ const notificationItems = ref([
                             class="flex flex-col gap-2.5 border-t border-zumthor-100 px-[18px] py-3 hover:bg-black-haze-50 dark:border-oxford-blue-900 dark:hover:bg-oxford-blue-900"
                             :to="item.route">
                             <p class="text-sm">
-                                <span class="text-ebony-clay-950 dark:text-white">{{ item.title }}</span>
+                                <span class="text-slate-950 dark:text-white">{{ item.title }}</span>
                                 {{ item.details }}
                             </p>
 

@@ -35,7 +35,7 @@ const menuProfile: TMenu = {
         <div class="relative" ref="target">
             <router-link class="flex items-center gap-4" to="#" @click.prevent="dropdownOpen = !dropdownOpen">
                 <span class="hidden text-right lg:block">
-                    <span class="block text-sm font-medium text-ebony-clay-950 dark:text-white">{{
+                    <span class="block text-sm font-medium text-slate-950 dark:text-white">{{
                         $t('message.greeting',{name:"Hung"}) }}</span>
                 </span>
 
@@ -49,18 +49,18 @@ const menuProfile: TMenu = {
 
             <!-- Dropdown Start -->
             <div v-show="dropdownOpen"
-                class="absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-big-stone-950 ">
+                class="absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-gray-950 ">
                 <ul class="flex flex-col gap-5 border-b border-zumthor-100 px-6 py-7.5 dark:border-oxford-blue-900">
                     <li v-for="item in menuProfile.menuItems" :key="item.label">
                         <router-link :to="item.route"
-                            class="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-cerulean-blue-600 lg:text-base">
+                            class="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-cerulean-600 lg:text-base">
                             <component :is="item.icon" class="w-5 h-5" />
                             <span>{{ $t(item.label) }}</span>
                         </router-link>
                     </li>
                 </ul>
                 <button
-                    class="flex items-center gap-3.5 py-4 px-6 text-sm font-medium duration-300 ease-in-out hover:text-cerulean-blue-600 lg:text-base">
+                    class="flex items-center gap-3.5 py-4 px-6 text-sm font-medium duration-300 ease-in-out hover:text-cerulean-600 lg:text-base">
                     <ArrowLeftStartOnRectangleIcon class="w-6 h-6 " />
                     <span>{{ $t('oauth2.signout') }}</span>
                 </button>

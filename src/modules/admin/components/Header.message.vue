@@ -59,7 +59,7 @@ const messagesList = ref([
 <template>
     <li class="relative" ref="target">
         <router-link
-            class="relative flex h-['34px'] w-['34px'] items-center justify-center rounded-full border-[0.5px] border-zumthor-100 bg-zircon-50 hover:text-cerulean-blue-600 dark:border-oxford-blue-900 dark:bg-oxford-blue-900 dark:text-white"
+            class="relative flex h-['34px'] w-['34px'] items-center justify-center rounded-full border-[0.5px] border-zumthor-100 bg-zircon-50 hover:text-cerulean-600 dark:border-oxford-blue-900 dark:bg-oxford-blue-900 dark:text-white"
             to="#" @click.prevent="(dropdownOpen = !dropdownOpen), (notifying = false)">
             <span :class="!notifying && 'hidden'"
                 class="absolute -top-px -right-px z-[1] h-2 w-2 rounded-full bg-red-ribbon-600">
@@ -71,7 +71,7 @@ const messagesList = ref([
 
         <!-- Dropdown Start -->
         <div v-show="dropdownOpen"
-            class="absolute -right-16 mt-2.5 flex h-90 w-75 flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-big-stone-950  sm:right-0 sm:w-80">
+            class="absolute -right-16 mt-2.5 flex h-90 w-75 flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-gray-950  sm:right-0 sm:w-80">
             <div class="px-[18px] py-3">
                 <h5 class="text-sm font-medium text-regent-gray-600 ">{{$t('route.message')}}</h5>
             </div>
@@ -87,7 +87,7 @@ const messagesList = ref([
                             </div>
 
                             <div>
-                                <h6 class="text-sm font-medium text-ebony-clay-950 dark:text-white">{{ item.name }}</h6>
+                                <h6 class="text-sm font-medium text-slate-950 dark:text-white">{{ item.name }}</h6>
                                 <p class="text-sm">{{ item.message }}</p>
                                 <p class="text-xs">{{ item.time }}</p>
                             </div>

@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-    <div class="flex cursor-pointer items-center rounded py-2 px-4 hover:bg-gray-100 dark:hover:bg-big-stone-950">
+    <div class="flex cursor-pointer items-center rounded py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-950">
         <div class="relative mr-3.5 h-11 w-full max-w-11 rounded-full"><img :src="data.imageUrl"
                 :alt="`profile-${data.fullName}`" class="h-full w-full object-cover object-center">
             <span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full border-2 border-gray-2 bg-green-600" />

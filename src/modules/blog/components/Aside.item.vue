@@ -19,7 +19,7 @@ defineProps<{
 
 <style scoped>
 .router-link-active.router-link-exact-active{
-    @apply !text-ebony-clay-950 font-bold
+    @apply !text-slate-950 font-bold
 }
 .router-link-active.router-link-exact-active svg{
     @apply rotate-180

@@ -1,7 +1,7 @@
 <template>
     <div class="h-[calc(100vh-186px)] overflow-hidden sm:h-[calc(100vh-174px)]">
         <div
-            class="h-full rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-big-stone-950 xl:flex">
+            class="h-full rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-gray-950 xl:flex">
             <div class="hidden h-full flex-col xl:flex xl:w-1/4">
                 <div class="sticky border-b border-zumthor-100 px-6 py-7.5 dark:border-oxford-blue-900">
                     <h3 class="text-lg font-medium text-black-1000 dark:text-white 2xl:text-xl">
@@ -131,7 +131,7 @@
                     </template>
                 </div>
                 <div
-                    class="sticky bottom-0 border-t border-zumthor-100 bg-white py-5 px-6 dark:border-oxford-blue-900 dark:bg-big-stone-950">
+                    class="sticky bottom-0 border-t border-zumthor-100 bg-white py-5 px-6 dark:border-oxford-blue-900 dark:bg-gray-950">
                     <form @submit.prevent="() => { console.log('hello') }"
                         class="flex items-center justify-between space-x-4.5">
                         <div class="relative w-full">

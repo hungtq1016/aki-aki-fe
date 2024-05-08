@@ -10,9 +10,9 @@
 
         <div class="flex flex-1 items-center justify-between">
             <div>
-                <h5 class="font-medium text-ebony-clay-950 dark:text-white">{{ data.name }}</h5>
+                <h5 class="font-medium text-slate-950 dark:text-white">{{ data.name }}</h5>
                 <p>
-                    <span class="text-sm text-ebony-clay-950 dark:text-white">{{ data.text }}</span>
+                    <span class="text-sm text-slate-950 dark:text-white">{{ data.text }}</span>
                     <span class="text-xs"> . {{ data.time }} min</span>
                 </p>
             </div>

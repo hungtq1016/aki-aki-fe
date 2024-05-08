@@ -13,7 +13,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" style="border-radius: 5px; background-color: #008CDD"
-                                    class="btn btn-seagull-300" data-dismiss="modal" onclick="Close()">Đóng</button>
+                                    class="btn btn-cerulean-300" data-dismiss="modal" onclick="Close()">Đóng</button>
                             </div>
                         </div>
                     </div>

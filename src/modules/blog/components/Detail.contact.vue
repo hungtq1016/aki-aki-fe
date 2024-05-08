@@ -2,7 +2,7 @@
 <template>
     <div class="pb-10">
         <div class="py-4">
-            <div class="font-bold text-ebony-clay-950">{{ $t('content.assistance_contact') }}:</div>
+            <div class="font-bold text-slate-950">{{ $t('content.assistance_contact') }}:</div>
             <div class="flex pl-2 gap-y-2 flex-col mt-2">
                 <div v-for="data in socials" :key="data.title">
                     <div class="flex gap-x-1 items-center">
@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="py-4">
-            <div class="font-bold text-ebony-clay-950">{{ $t('content.directly_contact') }}:</div>
+            <div class="font-bold text-slate-950">{{ $t('content.directly_contact') }}:</div>
             <div class="flex pl-2 gap-y-2 flex-col mt-2">
                 <div v-for="(data,index) in branchs" :key="data.name">
                     <div class="flex gap-x-1 items-center">

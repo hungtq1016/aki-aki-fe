@@ -17,7 +17,7 @@
         <transition leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100"
           leave-to-class="opacity-0">
           <ListboxOptions
-            class="absolute z-[10] mt-1 max-h-56 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-ebony-clay-950 ring-opacity-5 focus:outline-none sm:text-sm">
+            class="absolute z-[10] mt-1 max-h-56 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-slate-950 ring-opacity-5 focus:outline-none sm:text-sm">
             <ListboxOption as="template" v-for="item in options" :key="item.value" :value="item"
               v-slot="{ active }">
               <li
