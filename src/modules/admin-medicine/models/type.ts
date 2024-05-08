@@ -2,16 +2,15 @@ import type { TEntity } from "@/core/models/type";
 
 export type TMedicine = TEntity & {
     name: string,
-    type: string,
+    brand: string,
     slug: string,
     desc: string,
-    content: string,
-    imageUrl: string,
 }
 
 export type TPresciption = {
-    name: string,
-    brand: string,
+    id: string,
+    medicineId: string,
+    medicine?:TMedicine
     quantity: number,
     usage: string,
 }

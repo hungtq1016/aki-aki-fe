@@ -2,10 +2,10 @@
 <template>
     <div class="grid grid-cols-12 border-b border-zumthor-100 py-3.5 pl-5 pr-6 dark:border-oxford-blue-900">
         <div class="col-span-3">
-            <p class="font-medium">{{ data.name }}</p>
+            <p class="font-medium">{{ data.medicine?.name }}</p>
         </div>
         <div class="col-span-4">
-            <p class="font-medium">{{ data.brand }}</p>
+            <p class="font-medium">{{ data.medicine?.brand }}</p>
         </div>
         <div class="col-span-2">
             <p class="font-medium">{{ data.quantity }}</p>

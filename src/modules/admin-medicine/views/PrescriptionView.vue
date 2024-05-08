@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col gap-10">
         <div>
-            <form @submit.prevent="">
+            <form @submit.prevent="submit">
                 <div class="grid grid-cols-1 gap-9 sm:grid-cols-2">
                     <div class="flex flex-col gap-9">
                         <div
@@ -24,9 +24,9 @@
                                         <select v-model="state.medicineId"
                                             class="border-big-gray-200 dark:border-zinc-900 dark:bg-zinc-950 relative z-20 w-full appearance-none rounded border bg-transparent px-12 py-3 outline-none transition">
                                             <option :value="null">{{ $t('form.select_medicine') }}</option>
-                                            <option class="text-body dark:text-bodydark" value="USA">USA</option>
-                                            <option class="text-body dark:text-bodydark" value="UK">UK</option>
-                                            <option class="text-body dark:text-bodydark" value="Canada">Canada</option>
+                                            <option v-for="item in medicines" :key="item.id"
+                                            class="text-gray-900 dark:text-gray-100" :value="item.id">{{ item.name }}</option>
+                                 
                                         </select>
                                         <span class="absolute right-4 top-1/2 z-10 -translate-y-1/2">
                                             <ChevronDownIcon class="h-6 w-6" />
@@ -48,7 +48,7 @@
                                 <div>
                                     <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{
                                         $t('form.usage') }} </label>
-                                    <textarea rows="6" v-model="state.usage"
+                                    <textarea rows="6" v-model="state.usage" :placeholder="$t('form.place_holder.usage')"
                                         class="file:hover:bg-zinc-950 dark:border-zinc-900 dark:bg-zinc-950 dark:file:border-zinc-900 w-full cursor-pointer rounded-lg border-[1.5px] border-gray-200 bg-transparent p-4 font-medium outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-gray-200 file:bg-gray-200 file:px-5 file:py-3 file:hover:bg-opacity-10 disabled:cursor-default disabled:bg-gray-200 dark:file:bg-white/30 dark:file:text-white"> </textarea>
                                 </div>
 
@@ -113,7 +113,7 @@
                                     <h5 class="font-medium text-black-1000 dark:text-white">{{ $t('table.action') }}</h5>
                                 </div>
                             </div>
-                            <PrescriptionItem v-for="data in prescriptions" :key="data.name" :data="data" />
+                            <PrescriptionItem v-for="data in prescriptions" :key="data.id" :data="data" />
 
                         </div>
                     </div>
@@ -133,17 +133,34 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowDownTrayIcon, DocumentIcon, PrinterIcon, RectangleGroupIcon } from '@heroicons/vue/24/outline';
-import { ref } from 'vue';
+import { ArrowDownTrayIcon, ChevronDownIcon, DocumentIcon, PrinterIcon, RectangleGroupIcon } from '@heroicons/vue/24/outline';
+import { onMounted, ref } from 'vue';
 import { v4 as Guid } from 'uuid';
-import { i18n } from '@/core/services/base/translation';
 import PrescriptionItem from '../components/Prescription.item.vue';
-import { prescriptions } from '../services/data/data'
+import type { TMedicine, TPresciption } from '../models/type';
+import { get } from '@/core/services/helpers/request.helper';
 
-const state = ref({
+const init_state = {
     id: Guid(),
-    usage: i18n.global.t('form.place_holder.usage'),
-    medicineId: null,
-    quantity: 1
+    usage: "",
+    medicineId: "",
+    quantity: 1,
+}
+
+const state = ref<TPresciption>(init_state)
+
+const medicines = ref<TMedicine[]>()
+
+onMounted(async()=>{
+    const data = await get<TMedicine[]>("/api/medicines")
+    medicines.value = data?.data || []
 })
+
+const submit = () => {
+    state.value.medicine = medicines.value?.find(item=>item.id === state.value.medicineId)
+    prescriptions.value.push(state.value)
+    state.value = init_state
+}
+
+const prescriptions = ref<TPresciption[]>([])
 </script>

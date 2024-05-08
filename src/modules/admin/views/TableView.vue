@@ -15,6 +15,12 @@
         <template #item-title="{ title }">
           <p class="line-clamp-1 w-40 hover:line-clamp-2">{{ title }}</p>
         </template>
+        <template #item-desc="{ desc }">
+          <p class="line-clamp-1 w-40 hover:line-clamp-2">{{ desc }}</p>
+        </template>
+        <template #item-name="{ name }">
+          <p class="line-clamp-1 w-40 hover:line-clamp-2">{{ name }}</p>
+        </template>
         <template #item-enable="item">
           <TableActive :item="item" :fetch="fetch" :route="route" />
         </template>

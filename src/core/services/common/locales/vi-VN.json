@@ -12,7 +12,7 @@
     "save": "Lưu",
     "submit": "Gửi",
     "print": "In",
-    "save_as": "Lưu lại",
+    "save_as": "Lưu {name}",
     "download": "Tải"
   },
 	"content": {
@@ -184,7 +184,7 @@
     "slug": "Đường dẫn",
     "title": "Tiêu đề",
     "updatedAt": "Cập nhật lúc",
-    "brand": "Hiệu thuốc",
+    "brand": "Thương hiệu",
     "quantity": "Số lượng",
     "usage": "Liều lượng"
   }
