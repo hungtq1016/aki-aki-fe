@@ -1,20 +1,29 @@
 import { ref } from "vue"
 import type { TContact } from "../../models/type"
 import { AnchorType } from "../../models/enum"
-import { BuildingStorefrontIcon, HomeIcon, NewspaperIcon, PhoneIcon } from "@heroicons/vue/24/outline"
+import { ArrowRightEndOnRectangleIcon, BuildingStorefrontIcon, HomeIcon, NewspaperIcon, PhoneIcon } from "@heroicons/vue/24/outline"
 import type { BaseINavigation } from "@/core/models/interface"
 
 const contacts = ref<Array<TContact>>([
     {
         type: AnchorType.url,
+        icon: ArrowRightEndOnRectangleIcon,
+        label: "route.login",
+        tag:"router",
+        url: "/oauth2"
+    },
+    {
+        type: AnchorType.url,
         icon: BuildingStorefrontIcon,
-        name: "shop",
+        label: "shop",
+        tag:"a",
         url: "https://shopee.vn/"
     },
     {
         type: AnchorType.tel,
         icon: PhoneIcon,
-        name: "1800 599 941",
+        label: "1800 599 941",
+        tag:"a",
         url: "1800 599 941"
     }
 ])
@@ -50,13 +59,15 @@ const adminNavigations = ref<Array<TContact>>([
     {
         type: AnchorType.url,
         icon: HomeIcon,
-        name: "route.admin",
+        tag: "a",
+        label: "route.admin",
         url: "/admin"
     },
     {
         type: AnchorType.url,
         icon: NewspaperIcon,
-        name: "route.admin_blogs",
+        label: "route.admin_blogs",
+        tag:"a",
         url: "/admin/blogs"
     }
 ])

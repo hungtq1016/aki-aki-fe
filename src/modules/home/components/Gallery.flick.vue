@@ -3,7 +3,7 @@
     <div class="mt-5">
         <Flicking :options="galleryOptions" :plugins="plugins">
             <div class="p-2"
-            v-for="data in galleries" :key="data.title" >
+            v-for="(data,index) in galleries" :key="index" >
                 <img 
                 :src="data.imageUrl" :alt="data.title"
                 class="h-40 object-cover w-full"/> </div>

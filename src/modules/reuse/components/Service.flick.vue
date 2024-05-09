@@ -2,7 +2,7 @@
 <template>
     <div class="py-5 md:py-10 md:px-5">
         <Flicking :options="defaultOption" :plugins="plugins">
-            <ServiceItem v-for="data in services" :key="data.slug" :data="data" />
+            <ServiceItem v-for="(data,index) in services" :key="index" :data="data" />
             <template #viewport>
                 <span class="flicking-arrow-prev"></span>
                 <span class="flicking-arrow-next"></span>

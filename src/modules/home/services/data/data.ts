@@ -3,11 +3,11 @@ import type { TBanner, TBlog, TCertificate, TQuote, TCount, TGallery } from "../
 
 const banners = ref<Array<TBanner>>([
     {
-        imageUrl: '/banner.jpg',
+        imageUrl: '/akiaki/banner.jpg',
         title: 'Banner 1'
     },
     {
-        imageUrl: '/banner2.jpg',
+        imageUrl: '/akiaki/banner2.jpg',
         title: 'Banner 2'
     }
 ])

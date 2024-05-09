@@ -7,7 +7,7 @@
         ${isZero ? 'h-auto' : 'h-0 invisible'}`">
             <div class="pt-5">
                 <ul class="flex gap-x-10 flex-row-reverse">
-                    <HeaderContact v-for="data in contacts" :key="data.name" :data="data" />
+                    <HeaderContact v-for="data in contacts" :key="data.label" :data="data" />
                 </ul>
             </div>
         </div>
