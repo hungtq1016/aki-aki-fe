@@ -87,7 +87,7 @@
             <div class="gap-5.5 p-6.5 flex flex-col">
               <div>
                 <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.desc') }} </label>
-                <textarea rows="6" v-model="state.description" class="file:hover:bg-zinc-950 dark:border-zinc-900 dark:bg-zinc-950 dark:file:border-zinc-900 w-full cursor-pointer rounded-lg border-[1.5px] border-gray-200 bg-transparent p-4 font-medium outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-gray-200 file:bg-gray-200 file:px-5 file:py-3 file:hover:bg-opacity-10 disabled:cursor-default disabled:bg-gray-200 dark:file:bg-white/30 dark:file:text-white"> </textarea>
+                <textarea rows="6" v-model="state.description" class="file:hover:bg-zinc-950 dark:border-zinc-900 dark:bg-zinc-900 dark:file:border-zinc-900 w-full cursor-pointer rounded-lg border-[1.5px] border-gray-200 bg-transparent p-4 font-medium outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-gray-200 file:bg-gray-200 file:px-5 file:py-3 file:hover:bg-opacity-10 disabled:cursor-default disabled:bg-gray-200 dark:file:bg-white/30 dark:file:text-white"> </textarea>
               </div>
               <div>
                 <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.content') }} </label>
