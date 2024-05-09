@@ -6,7 +6,7 @@ import { init_pagination, paginationOptions } from './../data/blog';
 import { get, post } from '@/core/services/helpers/request.helper';
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type';
-import type { TBlog, TBlogRequest, TCategory } from "../../models/type";
+import type { TBlog, TBlogRequest, TCategory, TTag } from "../../models/type";
 import { EnableEnum } from "@/core/models/enum";
 import type { Rules } from "async-validator";
 import { successNotification } from "@/core/services/helpers/alert.helper";
@@ -45,11 +45,13 @@ export const init_state : TBlogRequest = {
     desc:"",
     slug:"",
     imageUrl:"",
-    categoryId:"",
+    categoryId:"-1",
     enable: Boolean(EnableEnum.ALL)
 }
 
 export const categories: Ref<TCategory[]> = ref([])
+export const tags: Ref<TTag[]> = ref([])
+export const selectedTags = ref<TTag[]>([])
 
 export const state = reactive<TBlogRequest>(init_state)
 
