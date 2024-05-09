@@ -21,12 +21,12 @@ export const items = ref<TBranch[]>([
         enable: EnableEnum.ALL
     }
 ]);
-export const pagination = ref<TPagination>({ ...init_pagination });
+export const pagination = ref<TPagination>(init_pagination);
 export const fetch = async () => {
     
     const response = await get<TPaginationResponse<TBranch>>("/api/branches/page", paginationOptions.value);
     items.value = response?.data.data || [];
-    pagination.value = response?.data || { ...init_pagination };
+    pagination.value = response?.data || init_pagination ;
 
 };
 

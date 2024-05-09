@@ -13,3 +13,8 @@ export type TCategory = TEntity & {
     name: string,
     slug: string,
 }
+
+export type TTag = TEntity & {
+    name: string,
+    type: string,
+}

@@ -5,7 +5,7 @@ import { init_pagination, paginationOptions } from './../data/category';
 import { get } from '@/core/services/helpers/request.helper';
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type';
-import type { TCategory } from "../../../admin-category/models/type";
+import type { TCategory } from "../../models/type";
 import { EnableEnum } from "@/core/models/enum";
 
 export const items = ref<TCategory[]>([

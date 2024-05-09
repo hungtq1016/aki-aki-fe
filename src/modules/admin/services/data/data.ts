@@ -39,6 +39,14 @@ export const menus: TMenu[] = [
                     {
                         label: "route.admin_blogs_categories_add",
                         route: "/admin/blogs/categories/add",
+                    },
+                    {
+                        label: "route.admin_blogs_tags",
+                        route: "/admin/blogs/tags",
+                    },
+                    {
+                        label: "route.admin_blogs_tags_add",
+                        route: "/admin/blogs/tags/add",
                     }
                 ]
             },
@@ -54,21 +62,6 @@ export const menus: TMenu[] = [
                     {
                         label: "route.admin_medicine_prescription",
                         route: "/admin/medicine/prescription",
-                    }
-                ]
-            },
-            {
-                icon: TagIcon ,
-                label: "route.admin_tags",
-                route: "#",
-                children:[
-                    {
-                        label: "route.admin_tags",
-                        route: "/admin/tags",
-                    },
-                    {
-                        label: "route.admin_tags_add",
-                        route: "/admin/tags/add",
                     }
                 ]
             },

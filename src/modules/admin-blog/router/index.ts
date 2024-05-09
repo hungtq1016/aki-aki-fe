@@ -55,6 +55,35 @@ const adminBlogRoute: RouteRecordRaw = {
                     }
                 }
             ]
+        },
+        {
+            path: 'tags',
+            children: [
+                {
+                    path: '',
+                    name: 'admin_blogs_tags',
+                    component: () => import('@/modules/admin-blog/views/TagView.vue'),
+                    meta: {
+                        title: 'route.admin_blogs_tags'
+                    }
+                },
+                {
+                    path: 'add',
+                    name: 'admin_blogs_tags_add',
+                    component: () => import('@/modules/admin-blog/views/TagAddView.vue'),
+                    meta: {
+                        title: 'route.admin_blogs_tags_add'
+                    }
+                },
+                {
+                    path: ':id',
+                    name: 'admin_blogs_tags_edit',
+                    component: () => import('@/modules/admin-blog/views/TagAddView.vue'),
+                    meta: {
+                        title: 'route.admin_blogs_tags_edit'
+                    }
+                }
+            ]
         }
     ]
 }

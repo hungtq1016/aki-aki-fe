@@ -21,12 +21,12 @@ export const items = ref<TService[]>([
         enable: EnableEnum.ALL
     }
 ]);
-export const pagination = ref<TPagination>({ ...init_pagination });
+export const pagination = ref<TPagination>(init_pagination );
 export const fetch = async () => {
     
     const response = await get<any, TPaginationResponse<TService>>("/api/services", paginationOptions.value);
     items.value = response?.data.data || [];
-    pagination.value = response?.data || { ...init_pagination };
+    pagination.value = response?.data || init_pagination ;
 
 };
 
