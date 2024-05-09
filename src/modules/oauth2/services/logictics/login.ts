@@ -9,8 +9,8 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 
 const init_state = {
-    email: '',
-    password: '',
+  email: '',
+  password: '',
 }
 
 const state = reactive<TLoginRequest>(init_state)
@@ -31,26 +31,26 @@ const rules: Rules = {
 }
 
 const submit = async () => {
-  const {updateAuthAsync } = useAuthInfo()
+  const { updateAuthAsync } = useAuthInfo()
   try {
-      const data = await post<TLoginRequest,TTokenResponse>("/api/authenticate/login",state);
-      if (data?.data) {
+    const data = await post<TLoginRequest, TTokenResponse>("/api/authenticate/login", state);
+    if (data?.data) {
 
       const auth: TTokenResponse = data.data;
 
       const saveResult: boolean | undefined = await updateAuthAsync(auth);
-      if (saveResult) {    
-          successNotification(data.message)
-          router.push({
-            name: 'home',
-  
-          })
-         
+      if (saveResult) {
+        successNotification(data.message)
+        router.push({
+          name: 'home',
+
+        })
+
       }
-      }
-  
+    }
+
   } catch (error) {
-      errorNotification(String(error))
+    errorNotification(String(error))
   }
 }
 

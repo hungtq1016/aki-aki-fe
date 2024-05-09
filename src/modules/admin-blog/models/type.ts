@@ -1,4 +1,4 @@
-import type { TEntity } from "@/core/models/type"
+import type { TEntity, TRequest } from "@/core/models/type"
 
 export type TBlog = TEntity & {
     title: string,
@@ -7,14 +7,35 @@ export type TBlog = TEntity & {
     desc: string,
     content: string,
     imageUrl: string,
+    categoryId: string
 }
 
 export type TCategory = TEntity & {
-    name: string,
+    title: string,
     slug: string,
 }
 
+export type TCategoryRequest = TRequest & {
+    title: string,
+    slug: string,
+}
+
+
 export type TTag = TEntity & {
-    name: string,
-    type: string,
+    title: string,
+    slug: string,
+}
+
+export type TTagRequest = TRequest & {
+    title: string,
+    slug: string,
+}
+
+export type TBlogRequest = TRequest & {
+    title: string,
+    slug: string,
+    desc: string,
+    content: string,
+    imageUrl: string,
+    categoryId: string
 }
