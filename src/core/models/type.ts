@@ -51,5 +51,10 @@ export type TEntity = {
     id: string,
     createdAt: string,
     updatedAt: string,
-    enable: EnableEnum
+    enable: boolean
+}
+
+export type TRequest = {
+    id: string,
+    enable: boolean
 }

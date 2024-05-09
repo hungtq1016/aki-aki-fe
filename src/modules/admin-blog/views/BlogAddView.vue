@@ -29,11 +29,13 @@
                   <span class="absolute left-4 top-1/2 z-30 -translate-y-1/2">
                     <RectangleGroupIcon class="h-5 w-5" />
                   </span>
-                  <select v-model="state.categoryId" class="border-big-gray-200 dark:border-zinc-900 dark:bg-zinc-950 relative z-20 w-full appearance-none rounded border bg-transparent px-12 py-3 outline-none transition">
-                    <option :value="null">{{ $t('form.select_category') }}</option>
-                    <option class="text-body dark:text-bodydark" value="USA">USA</option>
-                    <option class="text-body dark:text-bodydark" value="UK">UK</option>
-                    <option class="text-body dark:text-bodydark" value="Canada">Canada</option>
+                  <select :disabled="categories.length == 0"
+                    v-model="state.categoryId" 
+                    class="border-big-gray-200 dark:border-zinc-900 dark:bg-zinc-950 relative z-20 w-full appearance-none rounded border bg-transparent px-12 py-3 outline-none transition
+                    disabled:!bg-gray-600 disabled:!text-gray-100">
+                    <option :value="-1">{{ $t('form.select_category') }}</option>
+                    <option v-for="(data,index) in categories" :key="index"
+                    class="text-gray-900 dark:text-gray-100" :value="data.id">{{ data.title }}</option>
                   </select>
                   <span class="absolute right-4 top-1/2 z-10 -translate-y-1/2">
                     <ChevronDownIcon class="h-6 w-6" />
@@ -75,7 +77,10 @@
                   </Switch>
                 </div>
                 <div>
-                  <button class="bg-cerulean-600 flex justify-center rounded px-6 py-2 font-medium text-gray-100 hover:bg-opacity-90" type="submit">{{ $t('button.publish') }}</button>
+                  <button :disabled="!pass"
+                  class="bg-cerulean-600 flex justify-center rounded px-6 py-2 font-medium text-gray-100 hover:bg-opacity-90
+                  disabled:bg-gray-400 disabled:text-gray-100"
+                  type="submit">{{ $t('button.publish') }}</button>
                 </div>
               </div>
             </div>
@@ -87,7 +92,7 @@
             <div class="gap-5.5 p-6.5 flex flex-col">
               <div>
                 <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.desc') }} </label>
-                <textarea rows="6" v-model="state.description" class="file:hover:bg-zinc-950 dark:border-zinc-900 dark:bg-zinc-900 dark:file:border-zinc-900 w-full cursor-pointer rounded-lg border-[1.5px] border-gray-200 bg-transparent p-4 font-medium outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-gray-200 file:bg-gray-200 file:px-5 file:py-3 file:hover:bg-opacity-10 disabled:cursor-default disabled:bg-gray-200 dark:file:bg-white/30 dark:file:text-white"> </textarea>
+                <textarea rows="6" v-model="state.desc" class="file:hover:bg-zinc-950 dark:border-zinc-900 dark:bg-zinc-900 dark:file:border-zinc-900 w-full cursor-pointer rounded-lg border-[1.5px] border-gray-200 bg-transparent p-4 font-medium outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-gray-200 file:bg-gray-200 file:px-5 file:py-3 file:hover:bg-opacity-10 disabled:cursor-default disabled:bg-gray-200 dark:file:bg-white/30 dark:file:text-white"> </textarea>
               </div>
               <div>
                 <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.content') }} </label>
@@ -152,17 +157,21 @@
   
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { RectangleGroupIcon } from '@heroicons/vue/24/outline';
 import { ChevronDownIcon, EyeSlashIcon, EyeIcon, XMarkIcon } from '@heroicons/vue/24/solid';
 import { Switch } from '@headlessui/vue';
 import { Combobox, ComboboxInput, ComboboxButton, ComboboxOptions, ComboboxOption, TransitionRoot, } from '@headlessui/vue'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid'
-import { i18n } from '@/core/services/base/translation';
-import { v4 as Guid } from 'uuid';
-import { watch } from 'vue';
-import { slugify } from '@/core/services/utils/util.string';
+
+import { categories } from '../services/logictics/blog'
+import { get } from '@/core/services/helpers/request.helper';
+import type { TCategory } from '../models/type';
+import { errorNotification } from '@/core/services/helpers/alert.helper';
+import { state, rules, submit } from '../services/logictics/blog';
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs';
+const { pass, errorFields } = useAsyncValidator(state, rules);
 
 const data = [
     { id: 1, name: 'Wade Cooper' },
@@ -189,22 +198,12 @@ let filteredData = computed(() =>
 const editor = ref(ClassicEditor)
 const editorConfig = ref()
 
-const state = ref({
-    id: Guid(),
-    enable: true,
-    content: `<p>${i18n.global.t('form.place_holder.content')}</p>`,
-    description: i18n.global.t('form.place_holder.desc'),
-    categoryId: null,
-    imageUrl: "",
-    title: "",
-    slug: ""
+onMounted(()=>{
+    get<TCategory[]>("/api/categories").then(response => {
+        categories.value =  []
+    }).catch(error => {
+        errorNotification(error)
+    })
 })
 
-watch(state, (newValue) => {
-    state.value.slug = slugify(newValue.title)
-}, { deep: true })
-
-const submit = () => {
-    const imageId = Guid()
-}
 </script>

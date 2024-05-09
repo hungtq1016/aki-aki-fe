@@ -10,7 +10,9 @@
             <div class="p-6.5 flex flex-col gap-4">
               <div>
                 <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.title') }} </label>
-                <input v-model="state.title" type="text" :placeholder="$t('form.place_holder.title')" class="text-black-1000 dark:border-zinc-900 dark:bg-zinc-950 w-full rounded-lg border-[1.5px] border-gray-200 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:bg-gray-200 dark:text-white" />
+                <input  
+                :class="{ '!border-red-600': errorFields?.title?.length }"
+                v-model="state.title" type="text" :placeholder="$t('form.place_holder.title')" class="text-black-1000 dark:border-zinc-900 dark:bg-zinc-950 w-full rounded-lg border-[1.5px] border-gray-200 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:bg-gray-200 dark:text-white" />
               </div>
               <div>
                 <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.slug') }} </label>
@@ -36,8 +38,10 @@
                     </span>
                   </Switch>
                 </div>
-                <div>
-                  <button class="bg-cerulean-600 flex justify-center rounded px-6 py-2 font-medium text-gray-100 hover:bg-opacity-90" type="submit">{{ $t('button.publish') }}</button>
+                <div> 
+                  <button :disabled="!pass"
+                  class="bg-cerulean-600 flex justify-center rounded px-6 py-2 font-medium text-gray-100 hover:bg-opacity-90
+                  disabled:bg-gray-400 disabled:text-gray-100" type="submit">{{ $t('button.publish') }}</button>
                 </div>
               </div>
             </div>
@@ -49,59 +53,10 @@
   
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { RectangleGroupIcon } from '@heroicons/vue/24/outline';
-import { ChevronDownIcon, EyeSlashIcon, EyeIcon, XMarkIcon } from '@heroicons/vue/24/solid';
+import { EyeSlashIcon, EyeIcon } from '@heroicons/vue/24/solid';
 import { Switch } from '@headlessui/vue';
-import { Combobox, ComboboxInput, ComboboxButton, ComboboxOptions, ComboboxOption, TransitionRoot, } from '@headlessui/vue'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid'
-import { i18n } from '@/core/services/base/translation';
-import { v4 as Guid } from 'uuid';
-import { watch } from 'vue';
-import { slugify } from '@/core/services/utils/util.string';
+import { state, rules, submit } from '../services/logictics/category';
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs';
+const { pass, errorFields } = useAsyncValidator(state, rules)
 
-const data = [
-    { id: 1, name: 'Wade Cooper' },
-    { id: 2, name: 'Arlene Mccoy' },
-    { id: 3, name: 'Devon Webb' },
-    { id: 4, name: 'Tom Cook' },
-    { id: 5, name: 'Tanya Fox' },
-    { id: 6, name: 'Hellen Schmidt' },
-]
-
-const selected = ref([data[0], data[1]])
-let query = ref('')
-
-let filteredData = computed(() =>
-    query.value === ''
-        ? data
-        : data.filter((item) =>
-            item.name
-                .toLowerCase()
-                .replace(/\s+/g, '')
-                .includes(query.value.toLowerCase().replace(/\s+/g, ''))
-        )
-)
-const editor = ref(ClassicEditor)
-const editorConfig = ref()
-
-const state = ref({
-    id: Guid(),
-    enable: true,
-    content: `<p>${i18n.global.t('form.place_holder.content')}</p>`,
-    description: i18n.global.t('form.place_holder.desc'),
-    categoryId: null,
-    imageUrl: "",
-    title: "",
-    slug: ""
-})
-
-watch(state, (newValue) => {
-    state.value.slug = slugify(newValue.title)
-}, { deep: true })
-
-const submit = () => {
-    const imageId = Guid()
-}
 </script>
