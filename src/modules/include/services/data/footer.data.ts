@@ -69,17 +69,17 @@ const contacts = ref<Array<TContact>>([
 const socials = ref<Array<TSocial>>([
     {
         type: 'youtube',
-        imageUrl: '/akiaki/socials/YT.png',
+        imageUrl: '/vuehost/socials/YT.png',
         url: 'https://www.youtube.com/'
     },
     {
         type: 'tiktok',
-        imageUrl:' /akiaki/socials/tiktok.png',
+        imageUrl:' /vuehost/socials/tiktok.png',
         url: 'https://www.tiktok.com/'
     },
     {
         type: 'facebook',
-        imageUrl: '/akiaki/socials/FB.png',
+        imageUrl: '/vuehost/socials/FB.png',
         url: 'https://www.facebook.com/'
     }
 ])

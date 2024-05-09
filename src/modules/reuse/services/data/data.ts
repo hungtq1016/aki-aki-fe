@@ -3,12 +3,12 @@ import type { TFaQ, TSpecialist, TService } from "../../models/type";
 
 const specialists = ref<Array<TSpecialist>>([
     {
-        imageUrl: '/akiaki/special1.png',
+        imageUrl: '/vuehost/special1.png',
         name: 'Khoa Nhiễm',
         slug: '/specialist/khoa-nhiem',
     },
     {
-        imageUrl: '/akiaki/special2.png',
+        imageUrl: '/vuehost/special2.png',
         name: 'Xét nghiệm',
         slug: '/specialist/xet-nghiem',
     }
@@ -35,25 +35,25 @@ const faqs = ref<Array<TFaQ>>([
 
 const services = ref<Array<TService>>([
     {
-        imageUrl: '/akiaki/special1.png',
+        imageUrl: '/vuehost/special1.png',
         name: 'Khám bệnh tại nhà',
         slug: '/other/kham-benh-tai-nhâ',
         desc: 'Dịch vụ khám bệnh tại nhà'
     },
     {
-        imageUrl: '/akiaki/special2.png',
+        imageUrl: '/vuehost/special2.png',
         name: 'Chăm sóc răng miệng',
         slug: '/other/cham-soc-rang-mieng',
         desc: 'Dịch vụ chăm sóc răng miệng'
     },
     {
-        imageUrl: '/akiaki/special1.png',
+        imageUrl: '/vuehost/special1.png',
         name: 'Bảo hiểm',
         slug: '/other/bao-hiem',
         desc: 'Dịch vụ bảo hiểm cho khách hàng'
     },
     {
-        imageUrl: '/akiaki/special2.png',
+        imageUrl: '/vuehost/special2.png',
         name: 'Xét nghiệm',
         slug: '/other/xet-nghiem',
         desc: 'Dịch vụ xét nghiệm'
