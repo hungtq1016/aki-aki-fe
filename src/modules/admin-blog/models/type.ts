@@ -8,3 +8,13 @@ export type TBlog = TEntity & {
     content: string,
     imageUrl: string,
 }
+
+export type TCategory = TEntity & {
+    name: string,
+    slug: string,
+}
+
+export type TTag = TEntity & {
+    name: string,
+    type: string,
+}

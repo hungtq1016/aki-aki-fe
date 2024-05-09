@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between flex-wrap">
         <h2 class="text-3xl font-semibold text-slate-950 dark:text-white">
             {{ $t(`route.${String(route.name)}`) }}
         </h2>

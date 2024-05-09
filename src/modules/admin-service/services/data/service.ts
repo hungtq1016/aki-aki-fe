@@ -7,11 +7,11 @@ import type { TPagination, TPaginationRequest } from "@/core/models/type";
 
 export const headers: Header[] = [
     { text: "table.id", value: "id", width: 100 },
-    { text: "table.title", value: "Title", sortable: true },
+    { text: "table.title", value: "title", sortable: true },
     { text: "table.content", value: "content" },
-    { text: "table.type", value: "Type" },
-    { text: "table.imageurl", value: "ImangeUrl" },
-    { text: "table.slug", value: "Slug" },
+    { text: "table.groupId", value: "group" },
+    { text: "table.imageUrl", value: "imangeUrl" },
+    { text: "table.slug", value: "slug" },
     { text: "table.createdAt", value: "createdAt" },
     { text: "table.updatedAt", value: "updatedAt" },
 ];

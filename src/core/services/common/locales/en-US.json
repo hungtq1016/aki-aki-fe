@@ -137,8 +137,14 @@
     "about": "About",
     "admin": "Dashboard",
     "admin_blogs": "List of blogs",
-    "admin_blogs_add": "Add Blog",
-    "admin_blogs_edit": "Edit Blog",
+    "admin_blogs_add": "Add blog",
+    "admin_blogs_edit": "Edit blog",
+    "admin_blogs_categories": "List of categories",
+    "admin_blogs_categories_add": "Add category",
+    "admin_blogs_categories_edit": "Edit category",
+    "admin_blogs_tags": "List of tags",
+    "admin_blogs_tags_add": "Add tag",
+    "admin_blogs_tags_edit": "Edit tag",
     "admin_message":"Messages",
     "admin_medicine":"Medicines",
     "admin_medicine_prescription":"Prescription",
@@ -164,10 +170,7 @@
     "service": "Service",
     "specialist": "Medical specialist",
     "team": "Medical Team",
-    "admin_medicine": "Medicine",
-    "admin_medicine_prescription": "Prescription",
-    "setting": "Setting",
-    "admin_message": "Admin Message"
+    "setting": "Setting"
   },
 	"table": {
     "action": "Action",

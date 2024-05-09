@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <Flicking :options="customerOptions" :plugins="plugins">
-        <div class="p-2" v-for="data in customers" :key="data.title">
+        <div class="p-2" v-for="(data,index) in customers" :key="index">
             <img :src="data.imageUrl" class="h-40 object-cover w-full" />
         </div>
         <template #viewport>

@@ -1,5 +1,5 @@
 <template>
-    <section class="pb-10">
+    <section class="pb-10 min-h-screen">
         <BannerFlick/>
     </section>
 </template>

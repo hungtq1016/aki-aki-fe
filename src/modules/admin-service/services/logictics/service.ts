@@ -12,7 +12,7 @@ export const items = ref<TService[]>([
     {
         id: "1",
         title: "mock-data",
-        type:"mock-data",
+        groupId:"mock-data",
         imageurl:"",
         content: "mock-data",
         slug:"",
@@ -21,12 +21,12 @@ export const items = ref<TService[]>([
         enable: EnableEnum.ALL
     }
 ]);
-export const pagination = ref<TPagination>({ ...init_pagination });
+export const pagination = ref<TPagination>(init_pagination );
 export const fetch = async () => {
     
     const response = await get< TPaginationResponse<TService>>("/api/services", paginationOptions.value);
     items.value = response?.data.data || [];
-    pagination.value = response?.data || { ...init_pagination };
+    pagination.value = response?.data || init_pagination ;
 
 };
 

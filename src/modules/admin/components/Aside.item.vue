@@ -1,58 +1,38 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <li>
-        <router-link type="button" to="?" v-if="item.route === '#'"
-            class="w-full group flex justify-between items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-link-water-200  duration-300 ease-in-out hover:bg-bright-gray-900 dark:hover:bg-oxford-blue-900"
-            @click.prevent="handleItemClick" >
+        <router-link to="?" v-if="item.children"
+            class="link w-full group flex justify-between items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-link-water-200  duration-300 ease-in-out hover:bg-bright-gray-900 dark:hover:bg-oxford-blue-900"
+            @click="() => openDropdown = !openDropdown">
             <div class="flex gap-x-2 items-center">
                 <component :is="item.icon" class="w-5 h-5"></component>
                 <span>{{ $t(item.label) }}</span>
             </div>
-            <ChevronDownIcon v-if="item.children" class="w-5 h-5"
-                :class="{ 'rotate-180': sidebarStore.page === item.label }" />
+            <ChevronDownIcon v-if="item.children" class="w-5 h-5" :class="{ 'rotate-180': openDropdown }" />
         </router-link>
-        <router-link :to="item.route" v-else
-            class="group flex justify-between items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-link-water-200  duration-300 ease-in-out hover:bg-bright-gray-900 dark:hover:bg-oxford-blue-900"
-            @click.prevent="handleItemClick" >
+        <router-link :to="item.slug" v-else
+            class="group flex justify-between items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-link-water-200  duration-300 ease-in-out hover:bg-bright-gray-900 dark:hover:bg-oxford-blue-900">
             <div class="flex gap-x-2 items-center">
                 <component :is="item.icon" class="w-5 h-5"></component>
                 <span>{{ $t(item.label) }}</span>
             </div>
-            <ChevronDownIcon v-if="item.children" class="w-5 h-5"
-                :class="{ 'rotate-180': sidebarStore.page === item.label }" />
         </router-link>
-
         <!-- Dropdown Menu Start -->
-        <div class="translate transform overflow-hidden" v-show="sidebarStore.page === item.label">
-            <AsideDropdown v-if="item.children" :items="item.children" :currentPage="currentPage"
-                :page="item.label" />
-            <!-- Dropdown Menu End -->
+        <div class="dropdown translate transform overflow-hidden" v-show="openDropdown">
+            <AsideDropdown v-if="item.children" :items="item.children" :page="item.label" />
         </div>
+        <!-- Dropdown Menu End -->
     </li>
 </template>
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
-import { useSidebarStore } from '../stores/sidebar';
-import type { TAsideItem, TMenuItem } from '../models/type';
+import type { TMenuItem } from '../models/type';
 import AsideDropdown from './Aside.dropdown.vue';
-
-const sidebarStore = useSidebarStore()
-
-const props = defineProps<{
+import { ref, type Ref } from 'vue';
+defineProps<{
     item: TMenuItem,
     index: number
 }>()
 
-const currentPage = useRoute().name
-
-const handleItemClick = () => {
-    const pageName = sidebarStore.page === props.item.label ? '' : props.item.label
-    sidebarStore.page = pageName
-
-    if (props.item.children) {
-        return props.item.children.some((child: TAsideItem) => sidebarStore.selected === child.label)
-    }
-}
-
+const openDropdown: Ref<boolean> = ref(false)
 </script>

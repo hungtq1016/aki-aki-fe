@@ -5,5 +5,6 @@ export type TService = TEntity & {
     slug: string,
     content: string,
     imageurl: string,
-    type: string,
+    groupId: string,
+    videoEmbed:string
 }

@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <form @submit.prevent="submit">
-      <div class="grid grid-cols-1 gap-9 sm:grid-cols-2">
+      <div class="grid grid-cols-1 gap-9 sm:grid-cols-2 h-screen">
         <div class="flex flex-col gap-9">
           <div class="dark:border-zinc-900 dark:bg-zinc-950 rounded-sm border border-gray-200 bg-white shadow">
             <div class="px-6.5 dark:border-zinc-900 border-b border-gray-200 py-4">
@@ -9,20 +9,12 @@
             </div>
             <div class="p-6.5 flex flex-col gap-4">
               <div>
-                <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.address1') }} </label>
-                <input v-model="state.title" type="text" :placeholder="$t('form.place_holder.address1')" class="text-black-1000 dark:border-zinc-900 dark:bg-zinc-950 w-full rounded-lg border-[1.5px] border-gray-200 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:bg-gray-200 dark:text-white" />
+                <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.title') }} </label>
+                <input v-model="state.title" type="text" :placeholder="$t('form.place_holder.title')" class="text-black-1000 dark:border-zinc-900 dark:bg-zinc-950 w-full rounded-lg border-[1.5px] border-gray-200 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:bg-gray-200 dark:text-white" />
               </div>
               <div>
-                <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.address2') }} </label>
-                <input v-model="state.title" type="text" :placeholder="$t('form.place_holder.address2')" class="text-black-1000 dark:border-zinc-900 dark:bg-zinc-950 w-full rounded-lg border-[1.5px] border-gray-200 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:bg-gray-200 dark:text-white" />
-              </div>
-              <div>
-                <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.phone1') }} </label>
-                <input v-model="state.title" type="text" :placeholder="$t('form.place_holder.phone1')" class="text-black-1000 dark:border-zinc-900 dark:bg-zinc-950 w-full rounded-lg border-[1.5px] border-gray-200 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:bg-gray-200 dark:text-white" />
-              </div>
-              <div>
-                <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.phone2') }} </label>
-                <input v-model="state.title" type="text" :placeholder="$t('form.place_holder.phone2')" class="text-black-1000 dark:border-zinc-900 dark:bg-zinc-950 w-full rounded-lg border-[1.5px] border-gray-200 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:bg-gray-200 dark:text-white" />
+                <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.slug') }} </label>
+                <input v-model="state.slug" type="text" :placeholder="$t('form.place_holder.slug')" disabled="true" class="text-black-1000 dark:border-zinc-900 dark:bg-zinc-950 w-full rounded-lg border-[1.5px] border-gray-200 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:bg-gray-200 dark:text-white dark:disabled:bg-black" />
               </div>
             </div>
           </div>
@@ -47,18 +39,6 @@
                 <div>
                   <button class="bg-cerulean-600 flex justify-center rounded px-6 py-2 font-medium text-gray-100 hover:bg-opacity-90" type="submit">{{ $t('button.publish') }}</button>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="dark:border-zinc-900 dark:bg-zinc-950 rounded-sm border border-gray-200 bg-white shadow">
-            <div class="px-6.5 dark:border-zinc-900 border-b border-gray-200 py-4">
-              <h3 class="text-black-1000 font-medium dark:text-white">{{ $t('form.content') }}</h3>
-            </div>
-            <div class="gap-5.5 p-6.5 flex flex-col">
-              <div>
-                <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"> {{ $t('form.address_embed') }} </label>
-  
-                <ckeditor :editor="editor" v-model="state.content" :config="editorConfig"></ckeditor>
               </div>
             </div>
           </div>

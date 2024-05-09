@@ -2,7 +2,7 @@
 <template>
     <div class="py-5 md:py-10 md:px-5">
         <Flicking :options="slickOptions" :plugins="plugins">
-            <CertificateItem v-for="data in blogs" :key="data.slug" :data="data" />
+            <CertificateItem v-for="(data,index) in blogs" :key="index" :data="data" />
             <template #viewport>
                 <span class="flicking-arrow-prev"></span>
                 <span class="flicking-arrow-next"></span>

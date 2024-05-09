@@ -8,7 +8,7 @@ export type TMenu = {
 export type TMenuItem = {
     icon?: string | BaseTypeIcon,
     label: string,
-    route: string,
+    slug: string,
     children?: TMenuItem[]
 }
 

@@ -20,12 +20,12 @@ export const items = ref<TMedicine[]>([
         "updatedAt": "2024-05-08T09:51:09.42"
     }
 ]);
-export const pagination = ref<TPagination>({ ...init_pagination });
+export const pagination = ref<TPagination>(init_pagination );
 export const fetch = async () => {
     
     const response = await get<TPaginationResponse<TMedicine>>("/api/medicines/page", paginationOptions.value);
     items.value = response?.data.data || [];
-    pagination.value = response?.data || { ...init_pagination };
+    pagination.value = response?.data || init_pagination ;
 
 };
 

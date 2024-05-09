@@ -12,7 +12,7 @@
                 <div class="address">
                     <p>{{ data.address1 }}</p>
                     <p>{{ data?.address2 }}</p>
-                    <p>{{ $t('contact.phone') }}: {{ data.phone1 }} <span v-if="data.phone2">–</span> {{ data.phone2 }} </p>
+                    <p>{{ $t('content.phone') }}: {{ data.phone1 }} <span v-if="data.phone2">–</span> {{ data.phone2 }} </p>
                 </div>
             </div>
         </div>
@@ -22,11 +22,11 @@
 <script setup lang="ts">
 
 import { defineProps } from 'vue';
-import type { TAddress } from '../models/type';
+import type { TBranch } from '../models/type';
 import { MapPinIcon } from '@heroicons/vue/24/outline';
 
 defineProps<{
-    data : TAddress
+    data : TBranch
 }>()
 
 </script>

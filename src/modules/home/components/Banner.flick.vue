@@ -1,8 +1,8 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <Flicking :options="bannerOptions">
-            <BannerItem v-for="data in banners" :key="data.title" :data="data" />
-        </Flicking>
+        <BannerItem v-for="(data,index) in banners" :key="index" :data="data" />
+    </Flicking>
 </template>
 
 <script setup lang="ts">
