@@ -9,7 +9,7 @@
     <EasyDataTable v-model:items-selected="itemsSelected" :headers="localeHeaders" :items="items" :hide-footer="true"
       :header-item-class-name="headerItemClassNameFunction" 
       :body-item-class-name="bodyItemClassNameFunction"
-      class="dark:!border-zinc-900"
+      class="dark:!border-zinc-900 "
       no-hover>
       <template #item-id="{ id }">
         <p class="truncate max-w-28">{{ id }}</p>

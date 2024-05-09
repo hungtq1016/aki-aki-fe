@@ -1,4 +1,4 @@
-import type { TEntity, TRequest } from "@/core/models/type"
+import type { TEntity, TRequest } from '@/core/models/type'
 
 export type TBlog = TEntity & {
     title: string,
@@ -38,4 +38,12 @@ export type TBlogRequest = TRequest & {
     content: string,
     imageUrl: string,
     categoryId: string
+}
+
+export type TFileResponse = TRequest & {
+    title: string,
+    alt: string,
+    size: number,
+    path: string,
+    extension: string,
 }
