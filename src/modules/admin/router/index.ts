@@ -1,6 +1,5 @@
 import adminBlogRoute from '@/modules/admin-blog/router'
 import adminMedicineRoute from '@/modules/admin-medicine/router'
-import adminCategoryRoute from "@/modules/admin-category/router";
 import { adminTagRoute } from "@/modules/admin-tag/router";
 import { adminServiceRoute } from "@/modules/admin-service/router";
 import { adminBranchRoute } from "@/modules/admin-branch/route";
@@ -32,7 +31,6 @@ const adminRoute: RouteRecordRaw =
         },
         adminBlogRoute,
         adminMedicineRoute,
-        adminCategoryRoute,
         adminTagRoute,
         adminServiceRoute,
         adminBranchRoute,
