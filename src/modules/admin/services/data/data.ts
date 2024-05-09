@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import type { TMenu } from "../../models/type";
-import { NewspaperIcon, HomeIcon, ArrowUturnLeftIcon, ChatBubbleOvalLeftIcon, BriefcaseIcon ,ArchiveBoxIcon, BookmarkIcon, TagIcon, BuildingStorefrontIcon  } from "@heroicons/vue/24/outline";
+import { NewspaperIcon, HomeIcon, ArrowUturnLeftIcon, ChatBubbleOvalLeftIcon, BriefcaseIcon, BookmarkIcon, BuildingStorefrontIcon  } from "@heroicons/vue/24/outline";
 
 export const target = ref(null)
 
@@ -11,87 +11,87 @@ export const menus: TMenu[] = [
             {
                 icon: HomeIcon,
                 label: "route.admin",
-                route: "#",
+                slug: "/admin",
                 children: [
                     {
                         label: "route.chart",
-                        route: "/admin",
+                        slug: "/admin",
                     }
                 ]
             },
             {
                 icon: NewspaperIcon ,
                 label: "route.admin_blogs",
-                route: "#",
+                slug: "/admin/blogs",
                 children:[
                     {
                         label: "route.admin_blogs",
-                        route: "/admin/blogs",
+                        slug: "/admin/blogs",
                     },
                     {
                         label: "route.admin_blogs_add",
-                        route: "/admin/blogs/add",
+                        slug: "/admin/blogs/add",
                     },
                     {
                         label: "route.admin_blogs_categories",
-                        route: "/admin/blogs/categories",
+                        slug: "/admin/blogs/categories",
                     },
                     {
                         label: "route.admin_blogs_categories_add",
-                        route: "/admin/blogs/categories/add",
+                        slug: "/admin/blogs/categories/add",
                     },
                     {
                         label: "route.admin_blogs_tags",
-                        route: "/admin/blogs/tags",
+                        slug: "/admin/blogs/tags",
                     },
                     {
                         label: "route.admin_blogs_tags_add",
-                        route: "/admin/blogs/tags/add",
+                        slug: "/admin/blogs/tags/add",
                     }
                 ]
             },
             {
                 icon: BriefcaseIcon ,
                 label: "route.admin_medicine",
-                route: "#",
+                slug: "/admin/medicine",
                 children:[
                     {
                         label: "route.admin_medicine",
-                        route: "/admin/medicine",
+                        slug: "/admin/medicine",
                     },
                     {
                         label: "route.admin_medicine_prescription",
-                        route: "/admin/medicine/prescription",
+                        slug: "/admin/medicine/prescription",
                     }
                 ]
             },
             {
                 icon: BookmarkIcon ,
                 label: "route.admin_services",
-                route: "#",
+                slug: "/admin/services",
                 children:[
                     {
                         label: "route.admin_services",
-                        route: "/admin/services",
+                        slug: "/admin/services",
                     },
                     {
                         label: "route.admin_services_add",
-                        route: "/admin/services/add",
+                        slug: "/admin/services/add",
                     }
                 ]
             },
             {
                 icon: BuildingStorefrontIcon ,
                 label: "route.admin_branches",
-                route: "#",
+                slug: "/admin/branches",
                 children:[
                     {
                         label: "route.admin_branches",
-                        route: "/admin/branches",
+                        slug: "/admin/branches",
                     },
                     {
                         label: "route.admin_branches_add",
-                        route: "/admin/branches/add",
+                        slug: "/admin/branches/add",
                     }
                 ]
             },
@@ -103,7 +103,7 @@ export const menus: TMenu[] = [
             {
                 icon: ChatBubbleOvalLeftIcon,
                 label: "route.message",
-                route: "/admin/message",
+                slug: "/admin/message",
             }
         ]
     },
@@ -113,7 +113,7 @@ export const menus: TMenu[] = [
             {
                 icon: ArrowUturnLeftIcon,
                 label: "route.home",
-                route: "/"
+                slug: "/"
             }
         ]
     },

@@ -10,12 +10,12 @@ const adminRoute: RouteRecordRaw =
 {
     path: 'admin',
     component: () => import('@/core/components/layouts/AdminLayout.vue'),
+    // beforeEnter:hasAdminPermission,
     children: [
         {
             path: '',
             name: 'admin',
             component: () => import('@/modules/admin/views/MainView.vue'), 
-            beforeEnter:hasAdminPermission,
             meta: {
                 title: 'route.admin'
             }
