@@ -11,10 +11,11 @@ import { EnableEnum } from "@/core/models/enum";
 export const items = ref<TBranch[]>([
     {
         id: "1",
-        name: "mock-data",
-        type:"mock-data",
-        address: "mock-data",
-        phone:"123",
+        address1: "mock-data",
+        address2:"mock-data",
+        phone1: "mock-data",
+        phone2:"123",
+        addressEmbed:"",
         createdAt: "2022-01-01",
         updatedAt: "2024-01-01",
         enable: EnableEnum.ALL
@@ -23,7 +24,7 @@ export const items = ref<TBranch[]>([
 export const pagination = ref<TPagination>({ ...init_pagination });
 export const fetch = async () => {
     
-    const response = await get<any, TPaginationResponse<TBranch>>("/api/branches", paginationOptions.value);
+    const response = await get<TPaginationResponse<TBranch>>("/api/branches/page", paginationOptions.value);
     items.value = response?.data.data || [];
     pagination.value = response?.data || { ...init_pagination };
 

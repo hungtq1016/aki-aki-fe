@@ -12,7 +12,7 @@ export const items = ref<TService[]>([
     {
         id: "1",
         title: "mock-data",
-        type:"mock-data",
+        groupId:"mock-data",
         imageurl:"",
         content: "mock-data",
         slug:"",
