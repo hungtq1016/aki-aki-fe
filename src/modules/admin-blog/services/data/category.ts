@@ -12,6 +12,7 @@ export const headers: Header[] = [
     { text: "table.enable", value: "enable" },
     { text: "table.createdAt", value: "createdAt" },
     { text: "table.updatedAt", value: "updatedAt" },
+    { text: "table.action", value: "action" },
 ];
 
 export const paginationOptions = ref<TPaginationRequest>({
