@@ -1,5 +1,5 @@
 {
-	"button": {
+  "button": {
     "add": "Thêm",
     "back": "Quay lại",
     "cancel": "Hủy",
@@ -15,7 +15,7 @@
     "save_as": "Lưu {name}",
     "download": "Tải"
   },
-	"content": {
+  "content": {
     "active": "Hoạt động",
     "assistance_contact": "Cần trợ giúp thêm, vui lòng liên hệ qua",
     "back_home": "Quay lại trang chính",
@@ -30,28 +30,28 @@
     "more": "Xem thêm",
     "or": "Hoặc",
     "related_articles": "Bài viết liên quan",
-    "support":"Hỗ trợ",
+    "support": "Hỗ trợ",
     "search": "Tìm kiếm bài viết",
     "search_blog": "Tìm kiếm",
     "search_result": "Kết quả tìm kiếm cho",
     "share": "Chia sẻ",
     "conversation": "Hội thoại"
   },
-	"error": {
-		"not_found": {
-			"title": "Không tìm thấy",
-			"message": "Trang bạn yêu cầu không được tìm thấy"
-		},
-		"server_error": {
-			"title": "Lỗi máy chủ",
-			"message": "Đã xảy ra lỗi khi xử lý yêu cầu của bạn"
-		},
-		"unauthorized": {
-			"title": "Không được ủy quyền",
-			"message": "Bạn không được phép truy cập trang này"
-		}
-	},
-	"form": {
+  "error": {
+    "not_found": {
+      "title": "Không tìm thấy",
+      "message": "Trang bạn yêu cầu không được tìm thấy"
+    },
+    "server_error": {
+      "title": "Lỗi máy chủ",
+      "message": "Đã xảy ra lỗi khi xử lý yêu cầu của bạn"
+    },
+    "unauthorized": {
+      "title": "Không được ủy quyền",
+      "message": "Bạn không được phép truy cập trang này"
+    }
+  },
+  "form": {
     "address": "Địa chỉ",
     "birthday": "Ngày sinh",
     "category": "Danh mục",
@@ -73,11 +73,11 @@
     "usage": "Hướng dẫn sử dụng",
     "confirm": "Xác nhận",
     "select_medicine": "Chọn thuốc",
-    "address1":"Địa chỉ 1",
-    "address2":"Địa chỉ 2",
-    "phone1":"Số điện thoại 1",
-    "phone2":"Số điện thoại 2",
-    "address_embed":"Nhúng địa chỉ ",
+    "address1": "Địa chỉ 1",
+    "address2": "Địa chỉ 2",
+    "phone1": "Số điện thoại 1",
+    "phone2": "Số điện thoại 2",
+    "address_embed": "Nhúng địa chỉ ",
     "place_holder": {
       "address": "Nhập địa chỉ...",
       "content": "Nội dung...",
@@ -97,10 +97,10 @@
       "chat": "Tin nhắn",
       "select_medicine": "Chọn thuốc",
       "usage": "Hướng dẫn sử dụng",
-      "address1":"Địa chỉ 1",
-      "address2":"Địa chỉ 2",
-      "phone1":"Số điện thoại 1",
-      "phone2":"Số điện thoại 2"
+      "address1": "Địa chỉ 1",
+      "address2": "Địa chỉ 2",
+      "phone1": "Số điện thoại 1",
+      "phone2": "Số điện thoại 2"
     },
     "publish": "Xuất bản",
     "re_password": "Xác nhận mật khẩu",
@@ -124,10 +124,10 @@
       "birthday": "Ngày sinh không hợp lệ"
     }
   },
-	"html": {
-		"browserNotSupport": "Trình duyệt của bạn không hỗ trợ {element}."
-	},
-	"message": {
+  "html": {
+    "browserNotSupport": "Trình duyệt của bạn không hỗ trợ {element}."
+  },
+  "message": {
     "confirm_delete": "Bạn có chắc chắn muốn xóa {name} không?",
     "copy_success": "Sao chép {name} thành công",
     "delete_success": "Xóa {name} thành công",
@@ -139,7 +139,7 @@
     "update_success": "Cập nhật thành công",
     "welcome": "Chào mừng!"
   },
-	"route": {
+  "route": {
     "about": "Giới thiệu",
     "admin": "Bảng điều khiển",
     "admin_blogs": "Danh sách bài viết",
@@ -151,10 +151,10 @@
     "admin_blogs_tags": "Danh sách nhãn dán",
     "admin_blogs_tags_add": "Thêm nhãn dán",
     "admin_blogs_tags_edit": "Tùy chỉnh nhãn dán",
-    "admin_services" : "Dịch vụ",
-    "admin_services_add" : "Thêm dịch vụ",
-    "admin_branches":"Chi nhánh",
-    "admin_branches_add":"Thêm chi nhánh",
+    "admin_services": "Dịch vụ",
+    "admin_services_add": "Thêm dịch vụ",
+    "admin_branches": "Chi nhánh",
+    "admin_branches_add": "Thêm chi nhánh",
     "blogs": "Danh sách bài viết",
     "blogs_content": "Nội dung dành cho bạn",
     "blogs_detail": "Chi tiết bài viết",
@@ -171,7 +171,7 @@
     "register": "Đăng ký",
     "reset_password": "Đặt lại mật khẩu",
     "sale": "Khuyến mãi",
-    "message":"Tin nhắn",
+    "message": "Tin nhắn",
     "search": "Kết quả tìm kiếm",
     "send_email": "Gửi email",
     "service": "Dịch vụ",
@@ -182,7 +182,7 @@
     "setting": "Cài đặt",
     "admin_message": "Tin nhắn admin"
   },
-	"table": {
+  "table": {
     "action": "Điều chỉnh",
     "alt": "Nhãn",
     "createdAt": "Tạo lúc",

@@ -1,7 +1,6 @@
-import type { RouteRecordRaw } from "vue-router";
+import type { RouteRecordRaw } from 'vue-router'
 
-const clientRoute: RouteRecordRaw =
-{
+const clientRoute: RouteRecordRaw = {
   path: '/',
   component: () => import('@/core/components/layouts/DefaultLayout.vue'),
   children: [
@@ -56,7 +55,7 @@ const clientRoute: RouteRecordRaw =
           meta: {
             title: 'route.team'
           }
-        },
+        }
       ]
     },
     {
@@ -139,6 +138,5 @@ const clientRoute: RouteRecordRaw =
     }
   ]
 }
-
 
 export default clientRoute

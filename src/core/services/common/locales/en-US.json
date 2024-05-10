@@ -1,20 +1,20 @@
 {
-	"button": {
+  "button": {
     "add": "Add",
     "back": "Back",
     "cancel": "Cancel",
     "close": "Close",
     "confirm": "Confirm",
-    "download":"Download",
+    "download": "Download",
     "delete": "Delete",
     "edit": "Edit",
     "ok": "Ok",
     "publish": "Publish",
-    "print":"Print",
+    "print": "Print",
     "save": "Save",
     "submit": "Submit"
   },
-	"content": {
+  "content": {
     "active": "Active",
     "assistance_contact": "Need further assistance, please contact us via",
     "back_home": "Back to Homepage",
@@ -29,28 +29,28 @@
     "more": "See More",
     "or": "Or",
     "related_articles": "Related articles",
-    "support":"Support",
+    "support": "Support",
     "search": "Search for articles",
     "search_blog": "Search",
     "search_result": "Search results for",
     "share": "Share",
     "conversation": "Conversation"
   },
-	"error": {
-		"not_found": {
-			"title": "Not found",
-			"message": "The page you requested was not found"
-		},
-		"server_error": {
-			"title": "Server error",
-			"message": "An error occurred while processing your request"
-		},
-		"unauthorized": {
-			"title": "Unauthorized",
-			"message": "You are not authorized to access this page"
-		}
-	},
-	"form": {
+  "error": {
+    "not_found": {
+      "title": "Not found",
+      "message": "The page you requested was not found"
+    },
+    "server_error": {
+      "title": "Server error",
+      "message": "An error occurred while processing your request"
+    },
+    "unauthorized": {
+      "title": "Unauthorized",
+      "message": "You are not authorized to access this page"
+    }
+  },
+  "form": {
     "address": "Address",
     "birthday": "Birthday",
     "category": "Category",
@@ -72,11 +72,11 @@
     "quantity": "Quantity",
     "usage": "Usage",
     "confirm": "Confirm",
-    "address1":"Address 1",
-    "address2":"Address 2",
-    "phone1":"Phone number 1",
-    "phone2":"Phone number 2",
-    "address_embed":"Address embed",
+    "address1": "Address 1",
+    "address2": "Address 2",
+    "phone1": "Phone number 1",
+    "phone2": "Phone number 2",
+    "address_embed": "Address embed",
     "place_holder": {
       "address": "Enter address...",
       "category": "Category",
@@ -100,10 +100,10 @@
       "chat": "Enter",
       "select_medicine": "Select Medicine",
       "usage": "Usage",
-      "address1":"Address 1",
-      "address2":"Address 2",
-      "phone1":"Phone number 1",
-      "phone2":"Phone number 2"
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "phone1": "Phone number 1",
+      "phone2": "Phone number 2"
     },
     "publish": "Publish",
     "re_password": "Confirm password",
@@ -127,10 +127,10 @@
       "username": "Username must be at least 6 characters"
     }
   },
-	"html": {
-		"browserNotSupport": "Your browser does not support the {element} element."
-	},
-	"message": {
+  "html": {
+    "browserNotSupport": "Your browser does not support the {element} element."
+  },
+  "message": {
     "confirm_delete": "Are you sure you want to delete {name}?",
     "copy_success": "Copy {name} success",
     "delete_success": "Delete {name} success",
@@ -142,7 +142,7 @@
     "update_success": "Update success",
     "welcome": "Welcome!"
   },
-	"route": {
+  "route": {
     "about": "About",
     "admin": "Dashboard",
     "admin_blogs": "List of blogs",
@@ -154,13 +154,13 @@
     "admin_blogs_tags": "List of tags",
     "admin_blogs_tags_add": "Add tag",
     "admin_blogs_tags_edit": "Edit tag",
-    "admin_message":"Messages",
-    "admin_medicine":"Medicines",
-    "admin_medicine_prescription":"Prescription",
-    "admin_services" : "Services",
-    "admin_services_add" : "Add services",
-    "admin_branches":"Branches",
-    "admin_branches_add":"Add branches",
+    "admin_message": "Messages",
+    "admin_medicine": "Medicines",
+    "admin_medicine_prescription": "Prescription",
+    "admin_services": "Services",
+    "admin_services_add": "Add services",
+    "admin_branches": "Branches",
+    "admin_branches_add": "Add branches",
     "blogs": "Blogs",
     "blogs_content": "Content for you",
     "blogs_detail": "Blog detail",
@@ -177,7 +177,7 @@
     "register": "Register",
     "reset_password": "Reset Password",
     "sale": "Sale",
-    "message":"Messages",
+    "message": "Messages",
     "search": "Search result",
     "send_email": "Send Email",
     "service": "Service",
@@ -185,7 +185,7 @@
     "team": "Medical Team",
     "setting": "Setting"
   },
-	"table": {
+  "table": {
     "action": "Action",
     "alt": "Alt",
     "createdAt": "Created at",

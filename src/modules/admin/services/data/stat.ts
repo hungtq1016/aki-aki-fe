@@ -2,8 +2,8 @@ import { ref } from 'vue'
 import type { TStat } from '../../models/type'
 
 const cardItems = ref<TStat[]>([
-    {
-        icon: `<svg
+  {
+    icon: `<svg
           class="fill-cerulean-600 dark:fill-white"
           width="22"
           height="16"
@@ -20,12 +20,12 @@ const cardItems = ref<TStat[]>([
             fill=""
           />
         </svg>`,
-        title: 'Total views',
-        total: '$3.456K',
-        growthRate: 0.43
-    },
-    {
-        icon: `<svg
+    title: 'Total views',
+    total: '$3.456K',
+    growthRate: 0.43
+  },
+  {
+    icon: `<svg
             class="fill-cerulean-600 dark:fill-white"
             width="20"
             height="22"
@@ -46,12 +46,12 @@ const cardItems = ref<TStat[]>([
               fill=""
             />
           </svg>`,
-        title: 'Total Profit',
-        total: '$45,2K',
-        growthRate: 4.35
-    },
-    {
-        icon: `<svg
+    title: 'Total Profit',
+    total: '$45,2K',
+    growthRate: 4.35
+  },
+  {
+    icon: `<svg
             class="fill-cerulean-600 dark:fill-white"
             width="22"
             height="22"
@@ -68,12 +68,12 @@ const cardItems = ref<TStat[]>([
               fill=""
             />
           </svg>`,
-        title: 'Total Product',
-        total: '2.450',
-        growthRate: 2.59
-    },
-    {
-        icon: `<svg
+    title: 'Total Product',
+    total: '2.450',
+    growthRate: 2.59
+  },
+  {
+    icon: `<svg
             class="fill-cerulean-600 dark:fill-white"
             width="22"
             height="18"
@@ -94,10 +94,10 @@ const cardItems = ref<TStat[]>([
               fill=""
             />
           </svg>`,
-        title: 'Total Users',
-        total: '3.456',
-        growthRate: -0.95
-    }
+    title: 'Total Users',
+    total: '3.456',
+    growthRate: -0.95
+  }
 ])
 
 export { cardItems }

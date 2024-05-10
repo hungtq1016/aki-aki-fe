@@ -1,60 +1,82 @@
-import type { FunctionalComponent, HTMLAttributes, VNodeProps } from "vue"
-import type { EnableEnum } from "./enum";
+import type { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
+import type { EnableEnum } from './enum'
 
 export type BaseTypeIcon = FunctionalComponent<HTMLAttributes & VNodeProps, {}, any, {}>
-export type BaseInputType = "button" | "checkbox" | "color" | "date" | "datetime-local" | "email" | "file" | "hidden" | "image" | "month" | "number" | "password" | "radio" | "range" | "reset" | "search" | "submit" | "tel" | "text" | "time" | "url" | "week" ;
+export type BaseInputType =
+  | 'button'
+  | 'checkbox'
+  | 'color'
+  | 'date'
+  | 'datetime-local'
+  | 'email'
+  | 'file'
+  | 'hidden'
+  | 'image'
+  | 'month'
+  | 'number'
+  | 'password'
+  | 'radio'
+  | 'range'
+  | 'reset'
+  | 'search'
+  | 'submit'
+  | 'tel'
+  | 'text'
+  | 'time'
+  | 'url'
+  | 'week'
 export type Response<T> = {
-    data: T,
-    message: string,
-    statusCode: number,
-    isError: boolean
-};
+  data: T
+  message: string
+  statusCode: number
+  isError: boolean
+}
 
 export type TTokenResponse = {
-    accessToken: string,
-    refreshToken: string,
-    tokenType: string,
-    expiredAt: string
+  accessToken: string
+  refreshToken: string
+  tokenType: string
+  expiredAt: string
 }
 
 export type TPagination = {
-    pageNumber: number
-    pageSize: number
-    firstPage: number
-    lastPage: number
-    totalPages: number
-    totalRecords: number
-    nextPage: number
-    previousPage: number
+  pageNumber: number
+  pageSize: number
+  firstPage: number
+  lastPage: number
+  totalPages: number
+  totalRecords: number
+  nextPage: number
+  previousPage: number
 }
 
 export type TPaginationResponse<T> = TPagination & {
-    data: T[],
+  data: T[]
 }
 
 export type TSidebarItem = {
-    label: string
+  label: string
 }
 
 export type TPaginationRequest = {
-    pageNumber: number
-    pageSize: number
-    enable: EnableEnum
+  pageNumber: number
+  pageSize: number
+  enable: EnableEnum
 }
 
 export type TOption = {
-    name: string,
-    value: string
+  name: string
+  value: string
 }
 
 export type TEntity = {
-    id: string,
-    createdAt: string,
-    updatedAt: string,
-    enable: boolean
+  id: string
+  createdAt: string
+  updatedAt: string
+  enable: boolean
 }
 
 export type TRequest = {
-    id: string,
-    enable: boolean
+  id: string
+  enable: boolean
 }

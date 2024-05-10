@@ -10,23 +10,18 @@ const router = createRouter({
     {
       path: '/',
       component: () => import('@/core/views/MainView.vue'),
-      children: [
-        adminRoute,
-        clientRoute,
-        oauth2Route
-      ]
-    },
-
+      children: [adminRoute, clientRoute, oauth2Route]
+    }
   ],
   scrollBehavior() {
-    return { top: 0, behavior: "smooth" }
-  },
+    return { top: 0, behavior: 'smooth' }
+  }
 })
 
 router.beforeEach((to, from, next) => {
-  const { title, description } = to.meta;
-  const defaultTitle = 'AkiAki';
-  const defaultDescription = 'AkiAki Hospital';
+  const { title, description } = to.meta
+  const defaultTitle = 'AkiAki'
+  const defaultDescription = 'AkiAki Hospital'
 
   document.title = `${i18n.global.t(String(title)) || defaultTitle} | AkiAki`
 
@@ -34,7 +29,7 @@ router.beforeEach((to, from, next) => {
 
   descriptionElement?.setAttribute('content', String(description || defaultDescription))
 
-  next();
+  next()
 })
 
 export default router

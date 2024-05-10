@@ -1,5 +1,5 @@
 export enum AnchorType {
-    url="",
-    tel="tel:",
-    mailto="mailto:",
+  url = '',
+  tel = 'tel:',
+  mailto = 'mailto:'
 }

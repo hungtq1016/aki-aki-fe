@@ -3,13 +3,13 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useSidebarStore = defineStore('sidebar', () => {
-    const isSidebarOpen = ref(false)
-    const selected = useStorage('selected', ref('eCommerce'))
-    const page = useStorage('page', ref('admin'))
+  const isSidebarOpen = ref(false)
+  const selected = useStorage('selected', ref('eCommerce'))
+  const page = useStorage('page', ref('admin'))
 
-    function toggleSidebar() {
-        isSidebarOpen.value = !isSidebarOpen.value
-    }
+  function toggleSidebar() {
+    isSidebarOpen.value = !isSidebarOpen.value
+  }
 
-    return { isSidebarOpen, toggleSidebar, selected, page }
+  return { isSidebarOpen, toggleSidebar, selected, page }
 })

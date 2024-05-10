@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply relative z-[1] bg-white font-sans text-base font-normal text-lynch-500 dark:text-hit-gray-400 dark:bg-shark-950 ;
+    @apply relative z-[1] bg-white font-sans text-base font-normal text-lynch-500 dark:text-hit-gray-400 dark:bg-shark-950;
   }
 }
 
@@ -35,8 +35,8 @@
 
 /* third-party libraries CSS */
 iframe {
-    @apply min-h-[400px];
-  }
+  @apply min-h-[400px];
+}
 
 .tableCheckbox:checked ~ div span {
   @apply opacity-100;
@@ -71,7 +71,7 @@ iframe {
 }
 
 .apexcharts-tooltip.apexcharts-theme-light {
-  @apply dark:!border-oxford-blue-900 dark:!bg-zinc-950 ;
+  @apply dark:!border-oxford-blue-900 dark:!bg-zinc-950;
 }
 
 .apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
@@ -80,7 +80,7 @@ iframe {
 
 .apexcharts-xaxistooltip,
 .apexcharts-yaxistooltip {
-  @apply dark:!border-oxford-blue-900 dark:!bg-oxford-blue-900 dark:!text-link-water-200 ;
+  @apply dark:!border-oxford-blue-900 dark:!bg-oxford-blue-900 dark:!text-link-water-200;
 }
 
 .apexcharts-xaxistooltip-bottom:after {
@@ -105,11 +105,11 @@ iframe {
 }
 
 .flatpickr-calendar.arrowTop:before {
-  @apply dark:!border-b-zinc-950 ;
+  @apply dark:!border-b-zinc-950;
 }
 
 .flatpickr-calendar.arrowTop:after {
-  @apply dark:!border-b-zinc-950 ;
+  @apply dark:!border-b-zinc-950;
 }
 
 .flatpickr-calendar {

@@ -1,3 +1,3 @@
-export function resetObject(state:Object, initState:Object) {
-    Object.assign(state,initState);
+export function resetObject(state: Object, initState: Object) {
+  Object.assign(state, initState)
 }

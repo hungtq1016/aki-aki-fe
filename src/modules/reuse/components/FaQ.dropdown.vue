@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import FaQItem from './FaQ.item.vue';
+import FaQItem from './FaQ.item.vue'
 import { faqs } from '../services/data/data'
-
 </script>

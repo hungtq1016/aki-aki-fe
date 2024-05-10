@@ -1,16 +1,16 @@
-import { reactive } from "vue";
-import type { TLoginRequest } from "../../models/type";
+import { reactive } from 'vue'
+import type { TLoginRequest } from '../../models/type'
 import type { Rules } from 'async-validator'
-import { post } from "@/core/services/helpers/request.helper";
-import type { TTokenResponse } from "@/core/models/type";
-import { errorNotification, successNotification } from "@/core/services/helpers/alert.helper";
-import { useAuthInfo } from '@/core/services/helpers/indexedDB.helper';
-import { useRouter } from 'vue-router';
+import { post } from '@/core/services/helpers/request.helper'
+import type { TTokenResponse } from '@/core/models/type'
+import { errorNotification, successNotification } from '@/core/services/helpers/alert.helper'
+import { useAuthInfo } from '@/core/services/helpers/indexedDB.helper'
+import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const init_state = {
   email: '',
-  password: '',
+  password: ''
 }
 
 const state = reactive<TLoginRequest>(init_state)
@@ -20,35 +20,31 @@ const rules: Rules = {
     type: 'string',
     min: 5,
     max: 20,
-    required: true,
+    required: true
   },
   email: [
     {
       type: 'email',
-      required: true,
-    },
-  ],
+      required: true
+    }
+  ]
 }
 
 const submit = async () => {
   const { updateAuthAsync } = useAuthInfo()
   try {
-    const data = await post<TLoginRequest, TTokenResponse>("/api/authenticate/login", state);
+    const data = await post<TLoginRequest, TTokenResponse>('/api/authenticate/login', state)
     if (data?.data) {
+      const auth: TTokenResponse = data.data
 
-      const auth: TTokenResponse = data.data;
-
-      const saveResult: boolean | undefined = await updateAuthAsync(auth);
+      const saveResult: boolean | undefined = await updateAuthAsync(auth)
       if (saveResult) {
         successNotification(data.message)
         router.push({
-          name: 'home',
-
+          name: 'home'
         })
-
       }
     }
-
   } catch (error) {
     errorNotification(String(error))
   }

@@ -10,16 +10,14 @@
   </FormLayout>
 </template>
 
-
 <script setup lang="ts">
-import FormLayout from '@/modules/admin-template/components/Form.layout.vue';
-import FormItem from '@/modules/admin-template/components/Form.item.vue';
-import HeadingView from '@/modules/admin-template/views/HeadingView.vue';
-import PublishView from '@/modules/admin-template/views/PublishView.vue';
+import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
+import FormItem from '@/modules/admin-template/components/Form.item.vue'
+import HeadingView from '@/modules/admin-template/views/HeadingView.vue'
+import PublishView from '@/modules/admin-template/views/PublishView.vue'
 
-import { state, rules, submit } from '../services/logictics/category';
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs';
+import { state, rules, submit } from '../services/logictics/category'
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
-
 </script>
