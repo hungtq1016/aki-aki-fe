@@ -10,6 +10,9 @@
           <FormInput v-model="state.fullName" :has-error="Boolean(errorFields?.fullName?.length)" :placeholder="$t('form.place_holder.full_name')">
             {{ $t('form.fullName') }}
           </FormInput>
+          <FormInput v-model="state.phoneNumber" :has-error="Boolean(errorFields?.phoneNumber?.length)" :placeholder="$t('form.place_holder.phone_number')">
+            {{ $t('form.phoneNumber') }}
+          </FormInput>
         </template>
       </FormGroup>
     </FormItem>
@@ -20,9 +23,7 @@
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormInput v-model="state.phoneNumber" :has-error="Boolean(errorFields?.phoneNumber?.length)" :placeholder="$t('form.place_holder.phone_number')">
-            {{ $t('form.phoneNumber') }}
-          </FormInput>
+          
         </template>
       </FormGroup>
     </FormItem>

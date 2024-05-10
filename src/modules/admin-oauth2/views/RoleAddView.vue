@@ -2,7 +2,7 @@
 <template>
   <FormLayout :submit="submit">
     <FormItem>
-      <FormGroup :has-error="[Boolean(errorFields?.name?.length)]">
+      <FormGroup :has-error="[Boolean(errorFields?.name?.length),Boolean(errorFields?.note?.length)]">
         <template #heading>
           {{ $t('form.heading') }}
         </template>
@@ -10,21 +10,14 @@
           <FormInput v-model="state.name" :has-error="Boolean(errorFields?.name?.length)" :placeholder="$t('form.place_holder.name')">
             {{ $t('form.name') }}
           </FormInput>
-        </template>
-      </FormGroup>
-    </FormItem>
-    <FormItem>
-      <PublishView v-model="state" :pass="pass" />
-      <FormGroup :has-error="[Boolean(errorFields?.note?.length)]">
-        <template #heading>
-          {{ $t('form.heading') }}
-        </template>
-        <template #content>
           <FormInput v-model="state.note" :has-error="Boolean(errorFields?.note?.length)" :placeholder="$t('form.place_holder.note')">
             {{ $t('form.note') }}
           </FormInput>
         </template>
       </FormGroup>
+    </FormItem>
+    <FormItem>
+      <PublishView v-model="state" :pass="pass" />
     </FormItem>
   </FormLayout>
 </template>

@@ -25,7 +25,9 @@ const props = defineProps<{
 }>()
 
 const array: Ref<boolean[]> = ref(props.hasError)
-const allTrue: ComputedRef<boolean> = computed(() => !array.value.every((item) => item))
+const allTrue: ComputedRef<boolean> = computed(() => {
+  return array.value.find(item => item === false) !== undefined
+})
 
 watch(
   () => props.hasError,
