@@ -26,7 +26,36 @@ const adminServiceRoute: RouteRecordRaw = {
       meta: {
         title: 'route.admin_services_edit'
       }
-    }
+    },
+    {
+      path: 'groups',
+      children: [
+        {
+          path: '',
+          name: 'admin_services_groups',
+          component: () => import('@/modules/admin-service/views/GroupView.vue'),
+          meta: {
+            title: 'route.admin_services_groups'
+          }
+        },
+        {
+          path: 'add',
+          name: 'admin_services_groups_add',
+          component: () => import('@/modules/admin-service/views/GroupAddView.vue'),
+          meta: {
+            title: 'route.admin_services_groups_add'
+          }
+        },
+        {
+          path: ':id',
+          name: 'admin_services_groups_edit',
+          component: () => import('@/modules/admin-service/views/GroupAddView.vue'),
+          meta: {
+            title: 'route.admin_services_groups_edit'
+          }
+        }
+      ]
+    },
   ]
 }
 

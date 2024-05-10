@@ -1,10 +1,27 @@
-import type { TEntity } from '@/core/models/type'
+import type { TEntity, TRequest } from '@/core/models/type'
 
 export type TService = TEntity & {
   title: string
   slug: string
   content: string
-  imageurl: string
+  imageUrl: string
   groupId: string
   videoEmbed: string
+}
+
+export type TServiceRequest = TRequest & {
+  title: string
+  slug: string
+  content: string
+  imageUrl: string
+  groupId: string
+  videoEmbed: string
+}
+
+export type TGroupService = TEntity & {
+  label: string
+}
+
+export type TGroupServiceRequest = TRequest & {
+  label: string
 }

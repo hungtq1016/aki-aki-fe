@@ -1,16 +1,16 @@
 <template>
   <FormGroup :has-error="hasError">
     <template #heading>
-      {{ $t('form.category') }}
+      {{ $t('form.group_service') }}
     </template>
     <template #content>
       <FormSelect
-        v-model="model"
-        :list="categories"
+        v-model="model.groupId"
+        :list="groups"
         :has-error="hasError[0]"
-        :placeholder="$t('form.place_holder.category')"
+        :placeholder="$t('form.place_holder.group_service')"
       >
-        {{ $t('form.select_category') }}
+        {{ $t('form.group_service') }}
       </FormSelect>
     </template>
   </FormGroup>
@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { get } from '@/core/services/helpers/request.helper'
-import type { TCategory } from '@/modules/admin-blog/models/type'
+import type { TGroupService } from '@/modules/admin-service/models/type'
 import type { ModelRef, Ref } from 'vue'
 import { onMounted } from 'vue'
 import { ref } from 'vue'
@@ -26,14 +26,14 @@ import FormGroup from '../components/Form.group.vue'
 import FormSelect from '../components/Form.select.vue'
 
 const model: ModelRef<any> = defineModel({ required: true })
-const categories: Ref<TCategory[]> = ref([])
+const groups: Ref<TGroupService[]> = ref([])
 defineProps<{
   hasError: boolean[]
 }>()
 
 onMounted(() => {
-  get<TCategory[]>('/api/categories').then((response) => {
-    categories.value = response?.data || []
+  get<TGroupService[]>('/api/groupservices').then((response) => {
+    groups.value = response?.data || []
   })
 })
 </script>

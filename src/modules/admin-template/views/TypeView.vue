@@ -1,16 +1,16 @@
 <template>
   <FormGroup :has-error="hasError">
     <template #heading>
-      {{ $t('form.category') }}
+      {{ $t('form.branchtype') }}
     </template>
     <template #content>
       <FormSelect
         v-model="model"
-        :list="categories"
+        :list="branchtypes"
         :has-error="hasError[0]"
-        :placeholder="$t('form.place_holder.category')"
+        :placeholder="$t('form.place_holder.branchtype')"
       >
-        {{ $t('form.select_category') }}
+        {{ $t('form.select_branchtype') }}
       </FormSelect>
     </template>
   </FormGroup>
@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { get } from '@/core/services/helpers/request.helper'
-import type { TCategory } from '@/modules/admin-blog/models/type'
+import type { TBranchType } from '@/modules/admin-branch/models/type'
 import type { ModelRef, Ref } from 'vue'
 import { onMounted } from 'vue'
 import { ref } from 'vue'
@@ -26,14 +26,14 @@ import FormGroup from '../components/Form.group.vue'
 import FormSelect from '../components/Form.select.vue'
 
 const model: ModelRef<any> = defineModel({ required: true })
-const categories: Ref<TCategory[]> = ref([])
+const branchtypes: Ref<TBranchType[]> = ref([])
 defineProps<{
   hasError: boolean[]
 }>()
 
 onMounted(() => {
-  get<TCategory[]>('/api/categories').then((response) => {
-    categories.value = response?.data || []
+  get<TBranchType[]>('/api/branchtypes').then((response) => {
+    branchtypes.value = response?.data || []
   })
 })
 </script>

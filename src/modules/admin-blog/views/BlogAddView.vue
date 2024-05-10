@@ -3,7 +3,7 @@
   <FormLayout :submit="submit">
     <FormItem>
       <HeadingView v-model="state" :has-error="[Boolean(errorFields?.title?.length)]" />
-      <CategoryView v-model="state" :has-error="[Boolean(errorFields?.categoryId?.length)]" />
+      <CategoryView v-model="state.categoryId" :has-error="[Boolean(errorFields?.categoryId?.length)]" />
       <ImageView v-model="state" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
     </FormItem>
     <FormItem>

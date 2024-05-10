@@ -1,30 +1,50 @@
-import { ref, watch } from 'vue'
+import { reactive, ref, watch } from 'vue'
 
 import { init_pagination, paginationOptions } from './../data/service'
 
-import { get } from '@/core/services/helpers/request.helper'
+import { get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TService } from '../../models/type'
+import type { TService, TServiceRequest } from '../../models/type'
 import { EnableEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
+import type { Rules } from 'async-validator'
+import { resetObject } from '@/core/services/utils/util.object'
+import { successNotification } from '@/core/services/helpers/alert.helper'
 
 export const items = ref<TService[]>([
   {
-    id: '1',
+    id: v4(),
     title: 'mock-data',
     groupId: 'mock-data',
-    imageurl: '',
+    imageUrl: '',
     content: 'mock-data',
     slug: '',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    enable: EnableEnum.ALL
+    videoEmbed: '',
+    enable: Boolean(EnableEnum.ALL)
   }
 ])
+
+export const init_state: TServiceRequest = {
+  id: v4(),
+  title: '',
+  content: '',
+  imageUrl: '',
+  slug: '',
+  videoEmbed: '',
+  groupId: '-1',
+  enable: Boolean(EnableEnum.ALL)
+}
+
+export const state = reactive<TServiceRequest>(init_state)
+
 export const pagination = ref<TPagination>(init_pagination)
+
 export const fetch = async () => {
-  const response = await get<any, TPaginationResponse<TService>>(
-    '/api/services',
+  const response = await get<TPaginationResponse<TService>>(
+    '/api/services/page',
     paginationOptions.value
   )
   items.value = response?.data.data || []
@@ -38,3 +58,39 @@ watch(
   },
   { deep: true }
 )
+
+export const rules: Rules = {
+  title: {
+    type: 'string',
+    min: 5,
+    max: 255,
+    required: true
+  },
+  content: {
+    type: 'string',
+    min: 5,
+    required: true
+  },
+  videoEmbed: {
+    type: 'string',
+    min: 5,
+    required: true
+  },
+  imageUrl: {
+    type: 'string',
+    min: 5,
+    required: true
+  },
+  groupId: {
+    type: 'string',
+    min: 5,
+    required: true
+  }
+}
+
+export const submit = async () => {
+  const data = await post<TServiceRequest, TService>('/api/services', state)
+  if (data?.data) {
+    successNotification(data.message), resetObject(state, init_state)
+  }
+}

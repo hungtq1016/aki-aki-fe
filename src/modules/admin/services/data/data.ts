@@ -85,6 +85,14 @@ export const menus: TMenu[] = [
           {
             label: 'route.admin_services_add',
             slug: '/admin/services/add'
+          },
+          {
+            label: 'route.admin_services_groups',
+            slug: '/admin/services/groups'
+          },
+          {
+            label: 'route.admin_services_groups_add',
+            slug: '/admin/services/groups/add'
           }
         ]
       },
@@ -100,6 +108,14 @@ export const menus: TMenu[] = [
           {
             label: 'route.admin_branches_add',
             slug: '/admin/branches/add'
+          },
+          {
+            label: 'route.admin_branches_types',
+            slug: '/admin/branches/types'
+          },
+          {
+            label: 'route.admin_branches_types_add',
+            slug: '/admin/branches/types/add'
           }
         ]
       }
