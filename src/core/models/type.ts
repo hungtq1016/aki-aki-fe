@@ -2,7 +2,7 @@ import type { FunctionalComponent, HTMLAttributes, VNodeProps } from "vue"
 import type { EnableEnum } from "./enum";
 
 export type BaseTypeIcon = FunctionalComponent<HTMLAttributes & VNodeProps, {}, any, {}>
-
+export type BaseInputType = "button" | "checkbox" | "color" | "date" | "datetime-local" | "email" | "file" | "hidden" | "image" | "month" | "number" | "password" | "radio" | "range" | "reset" | "search" | "submit" | "tel" | "text" | "time" | "url" | "week" ;
 export type Response<T> = {
     data: T,
     message: string,

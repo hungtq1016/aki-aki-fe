@@ -3,15 +3,16 @@
   <form @submit.prevent="submit">
     <div class="grid grid-cols-1 gap-9 sm:grid-cols-2">
       <div class="flex flex-col gap-9">
-        <HeadingView v-model="state" :is-error="Boolean(errorFields?.title?.length)"/>
-        <CategoryView v-model="state" :is-error="Boolean(errorFields?.categoryId?.length)" />
-        <ImageView v-model="state" :is-error="Boolean(errorFields?.imageUrl?.length)" />
+        <HeadingView v-model="state" :has-error="[Boolean(errorFields?.title?.length)]" />
+        <CategoryView v-model="state" :has-error="[Boolean(errorFields?.categoryId?.length)]" />
+        <ImageView v-model="state" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
       </div>
 
       <div class="flex flex-col-reverse gap-9 md:flex-col">
-        <PublishView v-model="state" :pass="pass"/>
-        <DescView v-model="state" :is-error="pass"/>
-        <TagView v-model="state" :is-error="pass"/>
+        <PublishView v-model="state" :pass="pass" />
+        <DescView v-model="state"
+          :has-error="[Boolean(errorFields?.desc?.length), Boolean(errorFields?.content?.length)]" />
+        <TagView v-model="state" :is-error="pass" />
       </div>
     </div>
   </form>
