@@ -167,6 +167,14 @@ export const menus: TMenu[] = [
           {
             label: 'route.admin_oauth2_users_add',
             slug: '/admin/oauth2/users/add'
+          },
+          {
+            label: 'route.admin_oauth2_assignments',
+            slug: '/admin/oauth2/assignments'
+          },
+          {
+            label: 'route.admin_oauth2_assignments_add',
+            slug: '/admin/oauth2/assignments/add'
           }
         ]
       }

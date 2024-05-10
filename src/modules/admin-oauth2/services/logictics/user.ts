@@ -38,7 +38,7 @@ const init_state: TUserRequest = {
   id: v4(),
   fullName: '',
   email: '',
-  password: '',
+  password: 'Th1sIsP@ssword',
   address: '',
   phoneNumber: '',
   imageUrl: '',
@@ -48,12 +48,29 @@ const init_state: TUserRequest = {
 export const state = reactive<TUserRequest>({ ...init_state })
 
 export const rules: Rules = {
-  title: {
+  email: {
+    type: 'email',
+    min: 5,
+    max: 255,
+    required: true
+  },
+  fullName: {
     type: 'string',
     min: 5,
     max: 255,
     required: true
-  }
+  },
+  phoneNumber: {
+    type: 'string',
+    min: 10,
+    max: 15,
+    required: true
+  },
+  address: {
+    type: 'string',
+    min: 5,
+    required: true
+  },
 }
 
 export const submit = async () => {

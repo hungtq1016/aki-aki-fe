@@ -38,3 +38,13 @@ export type TUserRequest = TRequest & {
   address : string
   imageUrl : string
 }
+
+export type TAssignment = TEntity & {
+  roleId: string
+  permissionId: string
+}
+
+export type TAssignmentRequest = TRequest & {
+  roleId: string
+  permissionId: string
+}

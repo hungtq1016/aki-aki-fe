@@ -7,8 +7,8 @@ import type { TPagination, TPaginationRequest } from '@/core/models/type'
 
 export const headers: Header[] = [
   { text: 'table.id', value: 'id', width: 100 },
-  { text: 'table.type', value: 'type', sortable: true },
-  { text: 'table.value', value: 'value' },
+  { text: 'table.roleId', value: 'roleId' },
+  { text: 'table.permissionId', value: 'permissionId' },
   { text: 'table.enable', value: 'enable' },
   { text: 'table.createdAt', value: 'createdAt' },
   { text: 'table.updatedAt', value: 'updatedAt' },

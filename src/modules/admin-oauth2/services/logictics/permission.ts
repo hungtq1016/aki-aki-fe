@@ -41,8 +41,6 @@ export const fetch = async () => {
   resetObject(pagination, init_pagination)
 }
 
-
-
 export const rules: Rules = {
   type: {
     type: 'string',
