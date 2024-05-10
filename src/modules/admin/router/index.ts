@@ -1,5 +1,6 @@
 import adminBlogRoute from '@/modules/admin-blog/router'
 import adminMedicineRoute from '@/modules/admin-medicine/router'
+import adminOauth2Route from '@/modules/admin-oauth2/router'
 import { adminServiceRoute } from '@/modules/admin-service/router'
 import { adminBranchRoute } from '@/modules/admin-branch/route'
 
@@ -30,7 +31,8 @@ const adminRoute: RouteRecordRaw = {
     adminBlogRoute,
     adminMedicineRoute,
     adminServiceRoute,
-    adminBranchRoute
+    adminBranchRoute,
+    adminOauth2Route
   ]
 }
 

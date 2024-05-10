@@ -7,7 +7,8 @@ import {
   ChatBubbleOvalLeftIcon,
   BriefcaseIcon,
   BookmarkIcon,
-  BuildingStorefrontIcon
+  BuildingStorefrontIcon,
+  LockClosedIcon
 } from '@heroicons/vue/24/outline'
 
 export const target = ref(null)
@@ -132,6 +133,42 @@ export const menus: TMenu[] = [
         icon: ChatBubbleOvalLeftIcon,
         label: 'route.message',
         slug: '/admin/message'
+      }
+    ]
+  },
+  {
+    name: 'content.oauth2',
+    menuItems: [
+      {
+        icon: LockClosedIcon,
+        label: 'route.oauth2',
+        slug: '/admin/oauth2',
+        children: [
+          {
+            label: 'route.admin_oauth2_roles',
+            slug: '/admin/oauth2/roles'
+          },
+          {
+            label: 'route.admin_oauth2_roles_add',
+            slug: '/admin/oauth2/roles/add'
+          },
+          {
+            label: 'route.admin_oauth2_permissions',
+            slug: '/admin/oauth2/permissions'
+          },
+          {
+            label: 'route.admin_oauth2_permissions_add',
+            slug: '/admin/oauth2/permissions/add'
+          },
+          {
+            label: 'route.admin_oauth2_users',
+            slug: '/admin/oauth2/users'
+          },
+          {
+            label: 'route.admin_oauth2_users_add',
+            slug: '/admin/oauth2/users/add'
+          }
+        ]
       }
     ]
   },
