@@ -177,8 +177,8 @@
     "service": "Dịch vụ",
     "specialist": "Chuyên gia y tế",
     "team": "Đội ngũ y tế",
-    "admin_medicine": "Thuốc",
-    "admin_medicine_prescription": "Toa thuốc",
+    "admin_medicines": "Thuốc",
+    "admin_medicines_prescription": "Toa thuốc",
     "setting": "Cài đặt",
     "admin_message": "Tin nhắn admin"
   },

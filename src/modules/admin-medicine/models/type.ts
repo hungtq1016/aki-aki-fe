@@ -1,7 +1,14 @@
-import type { TEntity } from '@/core/models/type'
+import type { TEntity, TRequest } from '@/core/models/type'
 
 export type TMedicine = TEntity & {
-  name: string
+  title: string
+  brand: string
+  slug: string
+  desc: string
+}
+
+export type TMedicineRequest = TRequest & {
+  title: string
   brand: string
   slug: string
   desc: string

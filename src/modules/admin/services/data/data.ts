@@ -60,16 +60,20 @@ export const menus: TMenu[] = [
       },
       {
         icon: BriefcaseIcon,
-        label: 'route.admin_medicine',
+        label: 'route.admin_medicines',
         slug: '/admin/medicine',
         children: [
           {
-            label: 'route.admin_medicine',
-            slug: '/admin/medicine'
+            label: 'route.admin_medicines',
+            slug: '/admin/medicines'
           },
           {
-            label: 'route.admin_medicine_prescription',
-            slug: '/admin/medicine/prescription'
+            label: 'route.admin_medicines_add',
+            slug: '/admin/medicines/add'
+          },
+          {
+            label: 'route.admin_medicines_prescription',
+            slug: '/admin/medicines/prescription'
           }
         ]
       },

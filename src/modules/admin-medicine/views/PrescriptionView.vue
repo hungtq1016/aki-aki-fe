@@ -43,7 +43,7 @@
                         class="text-gray-900 dark:text-gray-100"
                         :value="item.id"
                       >
-                        {{ item.name }}
+                        {{ item.title }}
                       </option>
                     </select>
                     <span class="absolute right-4 top-1/2 z-10 -translate-y-1/2">
@@ -124,7 +124,7 @@
             class="inline-flex items-center gap-2.5 rounded bg-cerulean-600 px-4 py-[7px] font-medium text-white hover:bg-opacity-90"
           >
             <DocumentIcon class="w-5 h-5" />
-            <span>{{ $t('button.save_as', { name: 'PDF' }) }}</span>
+            <span>{{ $t('button.save_as', { title: 'PDF' }) }}</span>
           </button>
         </div>
         <div class="border border-zumthor-100 dark:border-oxford-blue-900">
@@ -135,7 +135,7 @@
               >
                 <div class="col-span-3">
                   <h5 class="font-medium text-black-1000 dark:text-white">
-                    {{ $t('table.name') }}
+                    {{ $t('table.title') }}
                   </h5>
                 </div>
                 <div class="col-span-4">
