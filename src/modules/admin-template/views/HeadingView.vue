@@ -4,10 +4,10 @@
       {{ $t('form.heading') }}
     </template>
     <template #content>
-      <FormInput v-model="model.title" :has-error="hasError[0]">
+      <FormInput v-model="model.title" :has-error="hasError[0]" :placeholder="$t('form.place_holder.title')">
         {{ $t('form.title') }}
       </FormInput>
-      <FormInput v-model="model.slug" :has-error="hasError[0]" :disabled="true">
+      <FormInput v-model="model.slug" :has-error="hasError[0]" :disabled="true" :placeholder="$t('form.place_holder.slug')">
         {{ $t('form.slug') }}
       </FormInput>
     </template>

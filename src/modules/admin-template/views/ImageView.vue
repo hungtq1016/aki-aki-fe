@@ -48,26 +48,19 @@
 
 <script setup lang="ts">
 import { successNotification, warningNotification } from '@/core/services/helpers/alert.helper';
-import { get, upload } from '@/core/services/helpers/request.helper';
-import type { TCategory, TFileResponse } from '@/modules/admin-blog/models/type';
+import { upload } from '@/core/services/helpers/request.helper';
+import type { TFileResponse } from '@/modules/admin-blog/models/type';
 import { ArrowUpTrayIcon, PlusIcon, XMarkIcon } from '@heroicons/vue/24/solid';
 import type { ComputedRef, ModelRef, Ref } from 'vue';
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import { ref } from 'vue';
 import FormGroup from '../components/Form.group.vue';
 
 const model: ModelRef<any> = defineModel({ required: true })
-const categories: Ref<TCategory[]> = ref([])
 
 defineProps<{
     hasError: boolean[]
 }>()
-
-onMounted(() => {
-    get<TCategory[]>("/api/categories").then(response => {
-        categories.value = response?.data || []
-    })
-})
 
 const fileInput: Ref<HTMLInputElement | null> = ref(null);
 const selectedFile: Ref<File | null> = ref(null);

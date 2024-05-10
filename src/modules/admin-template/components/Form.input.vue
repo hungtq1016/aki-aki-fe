@@ -2,7 +2,8 @@
 <template>
   <div>
     <label
-      class="text-black-1000 mb-3 block text-sm font-medium dark:text-white"
+      class="text-black-900 mb-3 block text-sm font-medium 
+    dark:text-gray-50"
     >
       <slot>
         {{$t('form.default_title')}}
@@ -14,7 +15,9 @@
       :disabled="disabled"
       :placeholder="placeholder"
       :class="{ '!border-red-600': hasError }" 
-      class="dark:border-zinc-900 dark:bg-zinc-950 dark:text-white dark:disabled:!bg-black-950 dark:disabled:!text-gray-100 text-black-1000 w-full rounded-lg border border-gray-200 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:!bg-gray-100 disabled:!text-gray-600"
+      class="dark:border-zinc-950 dark:bg-zinc-900 dark:text-gray-50 
+      text-gray-900 w-full rounded-lg border border-gray-50 bg-transparent px-5 py-3 font-normal outline-none transition 
+      disabled:cursor-default disabled:!bg-gray-100 disabled:!text-gray-600 dark:disabled:!bg-stone-950 dark:disabled:!text-gray-50" 
     />
   </div>
 </template>
@@ -43,6 +46,6 @@ defineProps({
   }
 })
 
-const model:ModelRef<any> = defineModel({required:true})
+const model:ModelRef<string> = defineModel({required:true})
 
 </script>

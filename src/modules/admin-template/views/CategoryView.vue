@@ -4,7 +4,9 @@
       {{ $t('form.category') }}
     </template>
     <template #content>
-      <FormSelect v-model="model.categoryId" :list="categories" :has-error="hasError[0]"/>
+      <FormSelect v-model="model.categoryId" :list="categories" :has-error="hasError[0]" :placeholder="$t('form.place_holder.category')">
+        {{ $t('form.select_category') }} 
+      </FormSelect>
     </template>
   </FormGroup>
 </template>

@@ -4,7 +4,7 @@
             {{$t('form.content')}}
         </template>
         <template #content>
-            <FormTextarea v-model="model.desc" :has-error="hasError[0]">
+            <FormTextarea v-model="model.desc" :has-error="hasError[0]" :placeholder="$t('form.place_holder.desc')">
                 {{ $t('form.desc') }}
             </FormTextarea>
             <FormInputSlot :has-error="hasError[1]">
