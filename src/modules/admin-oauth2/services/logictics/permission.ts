@@ -1,4 +1,4 @@
-import { reactive, ref, watch, type Ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import { v4 } from 'uuid'
 
 import { init_pagination, paginationOptions } from '../data/permission'
@@ -6,11 +6,10 @@ import { init_pagination, paginationOptions } from '../data/permission'
 import { get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TPermission, TPermissionRequest, TTag } from '../../models/type'
+import type { TPermission, TPermissionRequest } from '../../models/type'
 import { EnableEnum } from '@/core/models/enum'
 import type { Rules } from 'async-validator'
 import { successNotification } from '@/core/services/helpers/alert.helper'
-import { slugify } from '@/core/services/utils/util.string'
 import { resetObject } from '@/core/services/utils/util.object'
 
 export const items = ref<TPermission[]>([
@@ -24,7 +23,6 @@ export const items = ref<TPermission[]>([
   }
 ])
 
-export const selectedTags: Ref<TTag[]> = ref([])
 
 export const init_state: TPermissionRequest = {
   id: v4(),
@@ -33,14 +31,14 @@ export const init_state: TPermissionRequest = {
   enable: Boolean(EnableEnum.ALL)
 }
 
-export const state = reactive<TPermissionRequest>(init_state)
+export const state = reactive<TPermissionRequest>({ ...init_state })
 
-export const pagination = ref<TPagination>(init_pagination)
+export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
   const response = await get<TPaginationResponse<TPermission>>('/api/permissions/page', paginationOptions.value)
   items.value = response?.data.data || []
-  pagination.value = response?.data || init_pagination
+  resetObject(pagination, init_pagination)
 }
 
 
@@ -54,7 +52,7 @@ export const rules: Rules = {
   },
   value: {
     type: 'string',
-    min: 5,
+    min: 1,
     required: true
   }
 }

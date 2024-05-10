@@ -51,7 +51,7 @@ export const rules: Rules = {
     required: true
   }
 }
-export const pagination = ref<TPagination>(init_pagination)
+export const pagination = ref<TPagination>({ ...init_pagination })
 
 
 export const init_state: TBranchRequest = {
@@ -66,7 +66,7 @@ export const init_state: TBranchRequest = {
   enable: Boolean(EnableEnum.ALL)
 }
 
-export const state = reactive<TBranchRequest>(init_state)
+export const state = reactive<TBranchRequest>({ ...init_state })
 
 export const fetch = async () => {
   const response = await get<TPaginationResponse<TBranch>>(
@@ -74,7 +74,7 @@ export const fetch = async () => {
     paginationOptions.value
   )
   items.value = response?.data.data || []
-  pagination.value = response?.data || init_pagination
+  resetObject(pagination, init_pagination)
 }
 
 

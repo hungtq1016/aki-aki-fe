@@ -35,14 +35,14 @@ export const init_state: TMedicineRequest = {
   enable: Boolean(EnableEnum.ALL)
 }
 
-export const state = reactive<TMedicineRequest>(init_state)
+export const state = reactive<TMedicineRequest>({ ...init_state })
 
-export const pagination = ref<TPagination>(init_pagination)
+export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
   const response = await get<TPaginationResponse<TMedicine>>('/api/medicines/page', paginationOptions.value)
   items.value = response?.data.data || []
-  pagination.value = response?.data || init_pagination
+  resetObject(pagination, init_pagination)
 }
 
 watch(

@@ -13,7 +13,7 @@ const init_state = {
   password: ''
 }
 
-const state = reactive<TLoginRequest>(init_state)
+const state = reactive<TLoginRequest>({ ...init_state })
 
 const rules: Rules = {
   password: {

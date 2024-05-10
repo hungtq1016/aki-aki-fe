@@ -21,14 +21,14 @@ export const items = ref<TBranchType[]>([
     enable: Boolean(EnableEnum.ALL)
   }
 ])
-export const pagination = ref<TPagination>(init_pagination)
+export const pagination = ref<TPagination>({ ...init_pagination })
 export const fetch = async () => {
   const response = await get<TPaginationResponse<TBranchType>>(
     '/api/branchtypes/page',
     paginationOptions.value
   )
   items.value = response?.data.data || []
-  pagination.value = response?.data || init_pagination
+  resetObject(pagination, init_pagination)
 }
 
 export const init_state: TBranchTypeRequest = {

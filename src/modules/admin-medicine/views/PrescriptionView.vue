@@ -199,7 +199,7 @@ const init_state = {
   quantity: 1
 }
 
-const state = ref<TPresciption>(init_state)
+const state = ref<TPresciption>({ ...init_state })
 
 const medicines = ref<TMedicine[]>()
 

@@ -23,14 +23,14 @@ export const items = ref<TCategory[]>([
     enable: Boolean(EnableEnum.ALL)
   }
 ])
-export const pagination = ref<TPagination>(init_pagination)
+export const pagination = ref<TPagination>({ ...init_pagination })
 export const fetch = async () => {
   const response = await get<TPaginationResponse<TCategory>>(
     '/api/categories/page',
     paginationOptions.value
   )
   items.value = response?.data.data || []
-  pagination.value = response?.data || init_pagination
+  resetObject(pagination, init_pagination)
 }
 
 export const init_state: TCategoryRequest = {

@@ -38,9 +38,9 @@ export const init_state: TServiceRequest = {
   enable: Boolean(EnableEnum.ALL)
 }
 
-export const state = reactive<TServiceRequest>(init_state)
+export const state = reactive<TServiceRequest>({ ...init_state })
 
-export const pagination = ref<TPagination>(init_pagination)
+export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
   const response = await get<TPaginationResponse<TService>>(
@@ -48,7 +48,7 @@ export const fetch = async () => {
     paginationOptions.value
   )
   items.value = response?.data.data || []
-  pagination.value = response?.data || init_pagination
+  resetObject(pagination, init_pagination)
 }
 
 watch(
