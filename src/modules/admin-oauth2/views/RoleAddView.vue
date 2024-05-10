@@ -2,33 +2,42 @@
 <template>
   <FormLayout :submit="submit">
     <FormItem>
-      <HeadingView v-model="state" :has-error="[Boolean(errorFields?.title?.length)]" />
-      <CategoryView v-model="state.categoryId" :has-error="[Boolean(errorFields?.categoryId?.length)]" />
-      <ImageView v-model="state" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
+      <FormGroup :has-error="[Boolean(errorFields?.name?.length)]">
+        <template #heading>
+          {{ $t('form.heading') }}
+        </template>
+        <template #content>
+          <FormInput v-model="state.name" :has-error="Boolean(errorFields?.name?.length)" :placeholder="$t('form.place_holder.name')">
+            {{ $t('form.name') }}
+          </FormInput>
+        </template>
+      </FormGroup>
     </FormItem>
     <FormItem>
       <PublishView v-model="state" :pass="pass" />
-      <DescView
-        v-model="state"
-        :has-error="[Boolean(errorFields?.desc?.length), Boolean(errorFields?.content?.length)]"
-      />
-      <TagView v-model="selectedTags" :has-error="[false]" />
+      <FormGroup :has-error="[Boolean(errorFields?.note?.length)]">
+        <template #heading>
+          {{ $t('form.heading') }}
+        </template>
+        <template #content>
+          <FormInput v-model="state.note" :has-error="Boolean(errorFields?.note?.length)" :placeholder="$t('form.place_holder.note')">
+            {{ $t('form.note') }}
+          </FormInput>
+        </template>
+      </FormGroup>
     </FormItem>
   </FormLayout>
 </template>
 
 <script setup lang="ts">
-import PublishView from '@/modules/admin-template/views/PublishView.vue'
-import HeadingView from '@/modules/admin-template/views/HeadingView.vue'
-import ImageView from '@/modules/admin-template/views/ImageView.vue'
-import CategoryView from '@/modules/admin-template/views/CategoryView.vue'
-import TagView from '@/modules/admin-template/views/TagView.vue'
-import DescView from '@/modules/admin-template/views/DescView.vue'
-import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
+import FormItem from '@/modules/admin-template/components/Form.item.vue'
+import PublishView from '@/modules/admin-template/views/PublishView.vue'
 
-import { state, rules, submit, selectedTags } from '../services/logictics/blog'
+import { state, rules, submit } from '../services/logictics/role'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import FormInput from '@/modules/admin-template/components/Form.input.vue'
+import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 </script>

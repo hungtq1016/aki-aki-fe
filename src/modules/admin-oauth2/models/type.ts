@@ -1,48 +1,40 @@
 import type { TEntity, TRequest } from '@/core/models/type'
 
-export type TBlog = TEntity & {
-  title: string
+export type TPermission = TEntity & {
   type: string
-  slug: string
-  desc: string
-  content: string
-  imageUrl: string
-  categoryId: string
+  value: string
 }
 
-export type TCategory = TEntity & {
-  title: string
-  slug: string
+export type TPermissionRequest = TRequest & {
+  type: string
+  value: string
 }
 
-export type TCategoryRequest = TRequest & {
-  title: string
-  slug: string
+
+export type TRole = TEntity & {
+  name: string
+  note: string
 }
 
-export type TTag = TEntity & {
-  title: string
-  slug: string
+export type TRoleRequest = TRequest & {
+  name: string
+  note: string
 }
 
-export type TTagRequest = TRequest & {
-  title: string
-  slug: string
+export type TUser = TEntity & {
+  fullName: string
+  email: string
+  password : string
+  phoneNumber : string
+  address : string
+  imageUrl : string
 }
 
-export type TBlogRequest = TRequest & {
-  title: string
-  slug: string
-  desc: string
-  content: string
-  imageUrl: string
-  categoryId: string
-}
-
-export type TFileResponse = TRequest & {
-  title: string
-  alt: string
-  size: number
-  path: string
-  extension: string
+export type TUserRequest = TRequest & {
+  fullName: string
+  email: string
+  password : string
+  phoneNumber : string
+  address : string
+  imageUrl : string
 }

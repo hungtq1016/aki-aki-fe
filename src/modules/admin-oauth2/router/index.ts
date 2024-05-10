@@ -5,7 +5,8 @@ const adminOauth2Route: RouteRecordRaw = {
   children: [
     {
       path: '',
-      redirect: { path: 'admin/oauth2/roles' }
+      name: 'admin_oauth2',
+      redirect: { path: '/admin/oauth2/roles' }
     },
     {
       path:'roles',
@@ -15,7 +16,7 @@ const adminOauth2Route: RouteRecordRaw = {
           name: 'admin_oauth2_roles',
           component: () => import('@/modules/admin-oauth2/views/RoleView.vue'),
           meta: {
-            title: 'route.admin_oauth2_roles_add'
+            title: 'route.admin_oauth2_roles'
           }
         },
         {

@@ -1,23 +1,22 @@
 import { reactive, ref, watch } from 'vue'
 
-import { init_pagination, paginationOptions } from './../data/category'
+import { init_pagination, paginationOptions } from '../data/role'
 
 import { get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TCategory, TCategoryRequest } from '../../models/type'
+import type { TRole, TRoleRequest } from '../../models/type'
 import { EnableEnum } from '@/core/models/enum'
 import { v4 } from 'uuid'
 import type { Rules } from 'async-validator'
-import { slugify } from '@/core/services/utils/util.string'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
-export const items = ref<TCategory[]>([
+export const items = ref<TRole[]>([
   {
     id: '1',
-    title: 'mock-data',
-    slug: 'mock-data',
+    name: 'mock-data',
+    note: 'mock-data',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
     enable: Boolean(EnableEnum.ALL)
@@ -25,33 +24,31 @@ export const items = ref<TCategory[]>([
 ])
 export const pagination = ref<TPagination>(init_pagination)
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TCategory>>(
-    '/api/categories/page',
+  const response = await get<TPaginationResponse<TRole>>(
+    '/api/roles/page',
     paginationOptions.value
   )
   items.value = response?.data.data || []
   pagination.value = response?.data || init_pagination
 }
 
-export const init_state: TCategoryRequest = {
+export const init_state: TRoleRequest = {
   id: v4(),
-  title: '',
-  slug: '',
+  note: '',
+  name: '',
   enable: Boolean(EnableEnum.ALL)
 }
 
-export const state = reactive<TCategoryRequest>({ ...init_state })
-
-watch(
-  state,
-  (newValue) => {
-    state.slug = slugify(newValue.title)
-  },
-  { deep: true }
-)
+export const state = reactive<TRoleRequest>({ ...init_state })
 
 export const rules: Rules = {
-  title: {
+  name: {
+    type: 'string',
+    min: 5,
+    max: 255,
+    required: true
+  },
+  note: {
     type: 'string',
     min: 5,
     max: 255,
@@ -60,7 +57,7 @@ export const rules: Rules = {
 }
 
 export const submit = async () => {
-  const data = await post<TCategoryRequest, TCategory>('/api/categories', state)
+  const data = await post<TRoleRequest, TRole>('/api/roles', state)
   if (data?.data) {
     resetObject(state, init_state)
     successNotification(data.message)

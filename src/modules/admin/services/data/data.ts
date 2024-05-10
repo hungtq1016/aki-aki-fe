@@ -142,7 +142,7 @@ export const menus: TMenu[] = [
       {
         icon: LockClosedIcon,
         label: 'route.oauth2',
-        slug: '/admin/oauth2',
+        slug: '/admin/oauth2/roles',
         children: [
           {
             label: 'route.admin_oauth2_roles',

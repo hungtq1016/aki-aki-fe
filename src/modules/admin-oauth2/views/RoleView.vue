@@ -2,16 +2,15 @@
   <div class="flex flex-col gap-10">
     <TableView
       v-bind:="{ headers, items, pagination, paginationOptions, fetch }"
-      route="blogs"
-      key="blogs"
+      route="categories"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { paginationOptions, headers } from '../services/data/blog'
-import { pagination, items, fetch } from '../services/logictics/blog'
+import { paginationOptions, headers } from '../services/data/role'
+import { pagination, items, fetch } from '../services/logictics/role'
 import TableView from '@/modules/admin/views/TableView.vue'
 
 onMounted(async () => {
