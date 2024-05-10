@@ -7,7 +7,7 @@ import { EnvelopeIcon, PhoneIcon } from '@heroicons/vue/24/outline';
 const address = ref<Array<TBranch>>([
     {
         id: '1',
-        enable: EnableEnum.ENABLE,
+        enable: Boolean(EnableEnum.ENABLE),
         createdAt: '',
         updatedAt:'',
         name: 'Trụ sở chính: PHÒNG KHÁM AKIAKI',
@@ -18,7 +18,7 @@ const address = ref<Array<TBranch>>([
     },
     {
         id: '1',
-        enable: EnableEnum.ENABLE,
+        enable: Boolean(EnableEnum.ENABLE),
         createdAt: '',
         updatedAt:'',
         name: 'PHÒNG KHÁM AKIAKI CỘNG HÒA',
@@ -29,7 +29,7 @@ const address = ref<Array<TBranch>>([
     },
     {
         id: '',
-        enable: EnableEnum.ENABLE,
+        enable: Boolean(EnableEnum.ENABLE),
         createdAt: '',
         updatedAt:'',
         name: 'PHÒNG KHÁM AKIAKI TÂN BÌNH',
@@ -39,7 +39,7 @@ const address = ref<Array<TBranch>>([
     },
     {
         id: '1',
-        enable: EnableEnum.ENABLE,
+        enable: Boolean(EnableEnum.ENABLE),
         createdAt: '',
         updatedAt:'',
         name: 'PHÒNG KHÁM AKIAKI BÌNH TÂN',
