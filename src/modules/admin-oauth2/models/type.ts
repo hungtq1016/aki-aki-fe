@@ -48,3 +48,14 @@ export type TAssignmentRequest = TRequest & {
   roleId: string
   permissionId: string
 }
+
+export type TGroup = TEntity & {
+  roleId: string
+  userId: string
+}
+
+export type TGroupRequest = TRequest & {
+  roleId: string
+  userId: string
+}
+
