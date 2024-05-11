@@ -7,16 +7,11 @@ import type { TPagination, TPaginationRequest } from '@/core/models/type'
 
 export const headers: Header[] = [
   { text: 'table.id', value: 'id', width: 100 },
-  { text: 'table.name', value: 'name', sortable: true },
-  { text: 'table.address1', value: 'address1' },
-  { text: 'table.address2', value: 'address2' },
-  { text: 'table.phone1', value: 'phone1' },
-  { text: 'table.phone2', value: 'phone2' },
-  { text: 'table.embed', value: 'addressEmbed' },
-  { text: 'table.typeId', value: 'typeId' },
+  { text: 'table.label', value: 'label', sortable: true },
   { text: 'table.enable', value: 'enable' },
   { text: 'table.createdAt', value: 'createdAt' },
-  { text: 'table.updatedAt', value: 'updatedAt' }
+  { text: 'table.updatedAt', value: 'updatedAt' },
+  { text: 'table.action', value: 'action' }
 ]
 
 export const paginationOptions = ref<TPaginationRequest>({

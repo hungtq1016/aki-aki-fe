@@ -9,6 +9,7 @@ export const headers: Header[] = [
   { text: 'table.id', value: 'id', width: 100 },
   { text: 'table.fullName', value: 'fullName', sortable: true },
   { text: 'table.email', value: 'email' },
+  { text: 'table.imageUrl', value: 'imageUrl' },
   { text: 'table.phoneNumber', value: 'phoneNumber' },
   { text: 'table.address', value: 'address' },
   { text: 'table.enable', value: 'enable' },

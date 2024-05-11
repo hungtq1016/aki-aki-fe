@@ -24,7 +24,32 @@ export type TBranchType = TEntity & {
   label: string
 }
 
-
 export type TBranchTypeRequest = TRequest & {
+  label: string
+}
+
+export type TUrl = TEntity & {
+  label: string
+  slug: string
+  imageUrl: string
+  type: string
+  tag: string
+  groupId: string
+}
+
+export type TUrlRequest = TRequest & {
+  label: string
+  slug: string
+  imageUrl: string
+  type: string
+  tag: string
+  groupId: string
+}
+
+export type TGroupUrl = TEntity & {
+  label: string
+}
+
+export type TGroupUrlRequest = TRequest & {
   label: string
 }

@@ -8,7 +8,8 @@ import {
   BriefcaseIcon,
   BookmarkIcon,
   BuildingStorefrontIcon,
-  LockClosedIcon
+  LockClosedIcon,
+  LinkIcon
 } from '@heroicons/vue/24/outline'
 
 export const target = ref(null)
@@ -121,6 +122,29 @@ export const menus: TMenu[] = [
           {
             label: 'route.admin_branches_types_add',
             slug: '/admin/branches/types/add'
+          }
+        ]
+      },
+      {
+        icon: LinkIcon,
+        label: 'route.admin_urls',
+        slug: '/admin/urls',
+        children: [
+          {
+            label: 'route.admin_urls',
+            slug: '/admin/urls'
+          },
+          {
+            label: 'route.admin_urls_add',
+            slug: '/admin/urls/add'
+          },
+          {
+            label: 'route.admin_urls_groups',
+            slug: '/admin/urls/groups'
+          },
+          {
+            label: 'route.admin_urls_groups_add',
+            slug: '/admin/urls/groups/add'
           }
         ]
       }

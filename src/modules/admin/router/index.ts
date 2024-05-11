@@ -1,8 +1,8 @@
 import adminBlogRoute from '@/modules/admin-blog/router'
 import adminMedicineRoute from '@/modules/admin-medicine/router'
 import adminOauth2Route from '@/modules/admin-oauth2/router'
-import { adminServiceRoute } from '@/modules/admin-service/router'
-import { adminBranchRoute } from '@/modules/admin-branch/route'
+import adminServiceRoute from '@/modules/admin-service/router'
+import { adminUrlRoute, adminBranchRoute } from '@/modules/admin-branch/route'
 
 import type { RouteRecordRaw } from 'vue-router'
 import hasAdminPermission from '@/core/services/middlewares/hasAdminPermission'
@@ -31,6 +31,7 @@ const adminRoute: RouteRecordRaw = {
     adminBlogRoute,
     adminMedicineRoute,
     adminServiceRoute,
+    adminUrlRoute,
     adminBranchRoute,
     adminOauth2Route
   ]

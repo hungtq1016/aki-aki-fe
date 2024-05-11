@@ -59,4 +59,4 @@ const adminServiceRoute: RouteRecordRaw = {
   ]
 }
 
-export { adminServiceRoute }
+export default adminServiceRoute;
