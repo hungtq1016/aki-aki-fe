@@ -45,7 +45,7 @@ export const checkedPermission: Ref<TPermission[]> = ref([])
 export const roleId: Ref<string> = ref('-1')
 
 export function isChecked(permission:TPermission) {
-  return permissionsById.value.includes(permission);
+  return permissionsById.value.find(item => item.id === permission.id) ? true : false;
 }
 export function togglePermission(permission:TPermission) {
   if (checkedPermission.value.includes(permission)) {

@@ -3,7 +3,7 @@ import { v4 } from 'uuid'
 
 import { init_pagination, paginationOptions } from '../data/group'
 
-import { get, post } from '@/core/services/helpers/request.helper'
+import { del, get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TGroup, TGroupRequest, TRole } from '../../models/type'
@@ -45,7 +45,7 @@ export const checkedRole: Ref<TRole[]> = ref([])
 export const userId: Ref<string> = ref('-1')
 
 export function isChecked(role:TRole) {
-  return rolesById.value.includes(role);
+  return rolesById.value.find(item => item.id === role.id) ? true : false;
 }
 export function toggleRole(role:TRole) {
   if (checkedRole.value.includes(role)) {
@@ -55,6 +55,11 @@ export function toggleRole(role:TRole) {
   }
 }
 export const submit = async () => {
+  rolesById.value.forEach(async item =>{
+    const response = await del<TGroupRequest, TGroup>('/api/groups/'+item.id, item)
+    console.log(response)
+
+  })
   checkedRole.value.forEach(async element => {
 
     const payload : TGroupRequest = {

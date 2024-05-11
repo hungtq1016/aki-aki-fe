@@ -43,7 +43,6 @@
               </label>
             </li>
           </ul>
-          <div>{{ checkedPermission }}</div>
         </template>
       </FormGroup>
     </FormItem>
