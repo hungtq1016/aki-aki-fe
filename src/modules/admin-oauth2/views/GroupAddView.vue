@@ -2,19 +2,19 @@
 <template>
   <FormLayout :submit="submit">
     <FormItem>
-      <FormGroup :has-error="[false]">
+      <FormGroup :has-error="[Boolean(errorFields?.userId?.length)]">
         <template #heading>
-          {{ $t('form.role') }}
+          {{ $t('form.user') }}
         </template>
         <template #content>
-          <FormSelect v-model="userId" :list="users" :has-error="false" :placeholder="$t('form.place_holder.user_id')">
-            {{ $t('form.role') }}
+          <FormSelect v-model="state.userId" :list="users" :has-error="Boolean(errorFields?.userId?.length)" :placeholder="$t('form.place_holder.select_email')">
+            {{ $t('form.user') }}
           </FormSelect>
         </template>
       </FormGroup>
     </FormItem>
     <FormItem>
-      <PublishView v-model="model" :pass="true" />
+      <PublishView v-model="state" :pass="pass" />
       <FormGroup :has-error="[false]">
         <template #heading>
           {{ $t('form.role') }}
@@ -24,7 +24,8 @@
             <li v-for="(role, index) in roles" :key="index">
               <label :for="`checkbox-${index}`">
                 <div class="border border-gray-100 relative dark:border-zinc-900 rounded-md">
-                  <input :checked="isChecked(role)" @change="toggleRole(role)" class="absolute top-2 right-4 w-4 h-4 peer text-cerulean-600 bg-gray-100 border-gray-300 rounded 
+                  <input :checked="isChecked(role)" @click="toggleRole(role)" :disabled="state.userId === '-1'"
+                  class="absolute top-2 right-4 w-4 h-4 peer text-cerulean-600 bg-gray-100 border-gray-300 rounded 
           checked:accent-cerulean-600" type="checkbox" :value="role" :id="`checkbox-${index}`">
                   <div class="flex justify-between px-4 py-2 bg-gray-100 peer-checked:bg-cerulean-100 dark:peer-checked:!bg-slate-950
           dark:bg-zinc-950">
@@ -57,16 +58,18 @@ import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 
 import { get } from '@/core/services/helpers/request.helper'
-import { checkedRole, submit } from '../services/logictics/group'
-import { isChecked, roles, userId, toggleRole } from '../services/logictics/group'
+import { isChecked, roles, toggleRole, rules, submit, state } from '../services/logictics/group'
 
 import { onMounted, ref } from 'vue'
 
 import type { Ref } from 'vue'
 import type {  TRole, TUser } from '../models/type'
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+
+const { pass, errorFields } = useAsyncValidator(state, rules)
 
 const users: Ref<TUser[]> = ref([])
-const model = true
+
 defineProps<{
   hasError: boolean[]
 }>()

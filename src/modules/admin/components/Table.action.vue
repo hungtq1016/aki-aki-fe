@@ -17,9 +17,7 @@
 import { DocumentDuplicateIcon, TrashIcon, EyeIcon } from '@heroicons/vue/24/outline'
 import { useRouter, useRoute } from 'vue-router'
 import {
-  confirmNotification,
   errorNotification,
-  infoNotification,
   successNotification
 } from '@/core/services/helpers/alert.helper'
 import { del } from '@/core/services/helpers/request.helper'
@@ -27,7 +25,6 @@ import { del } from '@/core/services/helpers/request.helper'
 import { i18n } from '@/core/services/base/translation'
 
 import { capitalize } from '@/core/services/utils/util.string'
-import { getPath } from '@/core/services/utils/util.url'
 
 import type { Response } from '@/core/models/type'
 
@@ -41,10 +38,11 @@ const props = defineProps<{
 }>()
 
 const remove = async () => {
-  const removeAsync = async () => {
-    const response = await del<any, Response<boolean>>(`/${props.route}/${props.item.id}`)
+  const item = confirm(i18n.global.t('message.confirm_delete', { name: capitalize(props.item.id) }) as string)
+  if (item) {
+    const response = await del<any, Response<boolean>>(`/api/${props.route}/${props.item.id}`)
 
-    if (response?.isError) {
+      if (response?.isError) {
       errorNotification(
         i18n.global.t('error.server_error.message', { name: capitalize(props.route) }) as string
       )
@@ -52,10 +50,6 @@ const remove = async () => {
       await props.fetch()
     }
   }
-  confirmNotification(
-    i18n.global.t('message.delete_success', { name: capitalize(props.route) }),
-    removeAsync
-  )
 }
 
 const copyClipboard = () => {

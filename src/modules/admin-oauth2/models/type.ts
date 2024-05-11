@@ -5,6 +5,12 @@ export type TPermission = TEntity & {
   value: string
 }
 
+export type TPermissionResponse = TEntity & {
+  assignments: TAssignment[]
+  type: string
+  value: string
+}
+
 export type TPermissionRequest = TRequest & {
   type: string
   value: string
@@ -12,6 +18,13 @@ export type TPermissionRequest = TRequest & {
 
 
 export type TRole = TEntity & {
+  name: string
+  note: string
+}
+
+
+export type TRoleResponse = TEntity & {
+  groups: TGroup[]
   name: string
   note: string
 }

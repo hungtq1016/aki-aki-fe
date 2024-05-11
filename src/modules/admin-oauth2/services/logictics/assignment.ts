@@ -1,15 +1,15 @@
-import { ref, watch, type Ref } from 'vue'
+import { reactive, ref, watch, type Ref } from 'vue'
 import { v4 } from 'uuid'
 
 import { init_pagination, paginationOptions } from '../data/assignment'
 
-import { get, post } from '@/core/services/helpers/request.helper'
+import { del, get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TAssignment, TAssignmentRequest, TPermission } from '../../models/type'
+import type { TAssignment, TAssignmentRequest, TPermission, TPermissionResponse } from '../../models/type'
 import { EnableEnum } from '@/core/models/enum'
 import type { Rules } from 'async-validator'
-import { successNotification } from '@/core/services/helpers/alert.helper'
+import { errorNotification, successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
 export const items = ref<TPermission[]>([
@@ -31,6 +31,12 @@ export const rules: Rules = {
   }
 }
 
+export const init_state = {
+  roleId: '-1',
+  enable: Boolean(EnableEnum.ALL)
+}
+
+export const state = reactive({ ...init_state })
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
@@ -40,32 +46,43 @@ export const fetch = async () => {
 }
 
 export const permissions: Ref<TPermission[]> = ref([])
-export const permissionsById: Ref<TPermission[]> = ref([])
+export const permissionsById: Ref<TPermissionResponse[]> = ref([])
 export const checkedPermission: Ref<TPermission[]> = ref([])
-export const roleId: Ref<string> = ref('-1')
 
 export function isChecked(permission:TPermission) {
   return permissionsById.value.find(item => item.id === permission.id) ? true : false;
 }
 export function togglePermission(permission:TPermission) {
-  if (checkedPermission.value.includes(permission)) {
-    checkedPermission.value = checkedPermission.value.filter(item => item !== permission);
+  const index = checkedPermission.value.map(e => e.id).indexOf(permission.id);
+  if (index !== -1) {
+    checkedPermission.value.splice(index, 1); // Remove item if it exists
   } else {
-    checkedPermission.value.push(permission);
+    checkedPermission.value.push(permission); // Add item if it doesn't exist
   }
 }
 export const submit = async () => {
+  permissionsById.value.forEach(async item =>{
+    item.assignments.forEach(async assignment => {
+      const response = await del<TAssignmentRequest, TAssignment>('/api/assignments/'+assignment.id, item)
+      if (response !== undefined) {
+        successNotification(response.message)
+      }else{
+        errorNotification("500: Server Error")
+      }
+    })
+  })
   checkedPermission.value.forEach(async element => {
 
     const payload : TAssignmentRequest = {
       id: v4(),
-      roleId: roleId.value,
+      roleId: state.roleId,
       permissionId: element.id,
       enable: true
     }
     const data = await post<TAssignmentRequest, TAssignment>('/api/assignments', payload)
     if (data?.data) {
       successNotification(data.message)
+      resetObject(state, init_state)
     }
   });
 }
@@ -78,15 +95,18 @@ watch(
   { deep: true }
 )
 
-watch(roleId, (newValue) => {
+watch(()=>state.roleId, (newValue) => {
   if (newValue !== '-1') {
-    get<TPermission[]>('/api/permissions/byroleid/' + newValue).then((response) => {
+    checkedPermission.value = []
+    get<TPermissionResponse[]>('/api/permissions/byroleid/' + newValue).then((response) => {
       permissionsById.value = response?.data || []
-      console.log(permissionsById.value)
     })
+  }else{
+    permissionsById.value = []
+    checkedPermission.value = []
   }
 })
 
 watch(permissionsById, (newValue) => {
-  checkedPermission.value.splice(0, checkedPermission.value.length, ...newValue);
+  checkedPermission.value= [ ...newValue];
 }, { deep: true });

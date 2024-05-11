@@ -1,4 +1,4 @@
-import { ref, watch, type Ref } from 'vue'
+import { reactive, ref, watch, type Ref } from 'vue'
 import { v4 } from 'uuid'
 
 import { init_pagination, paginationOptions } from '../data/group'
@@ -6,10 +6,10 @@ import { init_pagination, paginationOptions } from '../data/group'
 import { del, get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TGroup, TGroupRequest, TRole } from '../../models/type'
+import type { TGroup, TGroupRequest, TRole, TRoleRequest, TRoleResponse } from '../../models/type'
 import { EnableEnum } from '@/core/models/enum'
 import type { Rules } from 'async-validator'
-import { successNotification } from '@/core/services/helpers/alert.helper'
+import { errorNotification, successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
 export const items = ref<TRole[]>([
@@ -26,10 +26,17 @@ export const items = ref<TRole[]>([
 export const rules: Rules = {
   userId: {
     type: 'string',
-    min: 5,
+    min: 35,
     required: true
   }
 }
+
+export const init_state = {
+  userId: '-1',
+  enable: Boolean(EnableEnum.ALL)
+}
+
+export const state = reactive({ ...init_state })
 
 export const pagination = ref<TPagination>({ ...init_pagination })
 
@@ -40,37 +47,42 @@ export const fetch = async () => {
 }
 
 export const roles: Ref<TRole[]> = ref([])
-export const rolesById: Ref<TRole[]> = ref([])
+export const rolesById: Ref<TRoleResponse[]> = ref([])
 export const checkedRole: Ref<TRole[]> = ref([])
-export const userId: Ref<string> = ref('-1')
 
 export function isChecked(role:TRole) {
   return rolesById.value.find(item => item.id === role.id) ? true : false;
 }
 export function toggleRole(role:TRole) {
-  if (checkedRole.value.includes(role)) {
-    checkedRole.value = checkedRole.value.filter(item => item !== role);
+  const index = checkedRole.value.map(e => e.id).indexOf(role.id);
+  if (index !== -1) {
+    checkedRole.value.splice(index, 1); // Remove item if it exists
   } else {
-    checkedRole.value.push(role);
+    checkedRole.value.push(role); // Add item if it doesn't exist
   }
 }
 export const submit = async () => {
   rolesById.value.forEach(async item =>{
-    const response = await del<TGroupRequest, TGroup>('/api/groups/'+item.id, item)
-    console.log(response)
-
+    item.groups.forEach(async group => {
+      const response = await del<TGroupRequest, TGroup>('/api/groups/'+group.id, item)
+      if (response !== undefined) {
+        successNotification(response.message)
+      }else{
+        errorNotification("500: Server Error")
+      }
+    })
   })
   checkedRole.value.forEach(async element => {
-
     const payload : TGroupRequest = {
       id: v4(),
-      userId: userId.value,
+      userId: state.userId,
       roleId: element.id,
       enable: true
     }
     const data = await post<TGroupRequest, TGroup>('/api/groups', payload)
     if (data?.data) {
       successNotification(data.message)
+      resetObject(state, init_state)
     }
   });
 }
@@ -83,15 +95,18 @@ watch(
   { deep: true }
 )
 
-watch(userId, (newValue) => {
+watch(()=>state.userId, (newValue) => {
   if (newValue !== '-1') {
-    get<TRole[]>('/api/roles/byuserid/' + newValue).then((response) => {
+    checkedRole.value = []
+    get<TRoleResponse[]>('/api/roles/byuserid/' + newValue).then((response) => {
       rolesById.value = response?.data || []
-      console.log(rolesById.value)
     })
+  }else{
+    rolesById.value = []
+    checkedRole.value = []
   }
 })
 
 watch(rolesById, (newValue) => {
-  checkedRole.value.splice(0, checkedRole.value.length, ...newValue);
+  checkedRole.value = [...newValue];
 }, { deep: true });
