@@ -2,7 +2,7 @@
 <template>
   <div
     class="dark:border-zinc-950 dark:bg-zinc-950/90 rounded-sm border border-gray-100 bg-white shadow"
-    :class="{ '!border-green-600': allTrue }"
+    :class="{ '!border-green-600': areTrue }"
   >
     <div class="px-6.5 py-4 border-b border-gray-100 dark:border-zinc-950 dark:!bg-zinc-950">
       <h3 class="text-black-1000 font-medium dark:text-white">
@@ -18,21 +18,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, type ComputedRef, type Ref } from 'vue'
+import { computed } from 'vue';
+
 
 const props = defineProps<{
   hasError: boolean[]
 }>()
 
-const array: Ref<boolean[]> = ref(props.hasError)
-const allTrue: ComputedRef<boolean> = computed(() => {
-  return array.value.find(item => item === false) !== undefined
-})
+const areTrue = computed(()=>props.hasError.every(item=>item===false))
 
-watch(
-  () => props.hasError,
-  (newValue) => {
-    array.value = newValue
-  }
-)
 </script>

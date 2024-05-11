@@ -2,7 +2,7 @@
 <template>
   <FormLayout :submit="submit">
     <FormItem>
-      <FormGroup :has-error="[Boolean(errorFields?.title?.length)]">
+      <FormGroup :has-error="[Boolean(errorFields?.title?.length),Boolean(errorFields?.categoryId?.length),Boolean(errorFields?.content?.length)]">
         <template #heading>
           {{ $t('form.heading') }}
         </template>
@@ -11,7 +11,7 @@
             :placeholder="$t('form.place_holder.title')">
             {{ $t('form.title') }}
           </FormInput>
-          <FormInput v-model="state.slug" :has-error="Boolean(errorFields?.title?.length)" :disabled="true"
+          <FormInput v-model="state.slug" :disabled="true"
             :placeholder="$t('form.place_holder.slug')">
             {{ $t('form.slug') }}
           </FormInput>
@@ -27,12 +27,12 @@
           </FormInputSlot>
         </template>
       </FormGroup>
-      <ImageView v-model="state" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
+      <ImageView v-model="state.imageUrl" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
 
     </FormItem>
     <FormItem>
-      <PublishView v-model="state" :pass="pass" />
-      <FormGroup :has-error="[Boolean(errorFields?.desc?.length), Boolean(errorFields?.content?.length)]">
+      <PublishView v-model="state.enable" :pass="pass" />
+      <FormGroup :has-error="[Boolean(errorFields?.desc?.length), Boolean(errorFields?.videoEmbed?.length)]">
         <template #heading>
           {{ $t('form.content') }}
         </template>

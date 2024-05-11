@@ -2,10 +2,24 @@
 <template>
   <FormLayout :submit="submit">
     <FormItem>
-      <HeadingView v-model="state" :has-error="[Boolean(errorFields?.title?.length)]" />
+      <FormGroup :has-error="[Boolean(errorFields?.title?.length)]">
+        <template #heading>
+          {{ $t('form.heading') }}
+        </template>
+        <template #content>
+          <FormInput v-model="state.title" :has-error="Boolean(errorFields?.title?.length)"
+            :placeholder="$t('form.place_holder.title')">
+            {{ $t('form.title') }}
+          </FormInput>
+          <FormInput v-model="state.slug" :disabled="true"
+            :placeholder="$t('form.place_holder.slug')">
+            {{ $t('form.slug') }}
+          </FormInput>
+        </template>
+      </FormGroup>
     </FormItem>
     <FormItem>
-      <PublishView v-model="state" :pass="pass" />
+      <PublishView v-model="state.enable" :pass="pass" />
     </FormItem>
   </FormLayout>
 </template>
@@ -18,5 +32,7 @@ import PublishView from '@/modules/admin-template/views/PublishView.vue'
 
 import { state, rules, submit } from '../services/logictics/tag'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import FormGroup from '@/modules/admin-template/components/Form.group.vue'
+import FormInput from '@/modules/admin-template/components/Form.input.vue'
 const { pass, errorFields } = useAsyncValidator(state, rules)
 </script>

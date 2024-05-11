@@ -23,7 +23,7 @@
       </FormGroup>
     </FormItem>
     <FormItem>
-      <PublishView v-model="state" :pass="pass" />
+      <PublishView v-model="state.enable" :pass="pass" />
       <FormGroup :has-error="[Boolean(errorFields?.desc?.length)]">
         <template #heading>
           {{ $t('form.content') }}

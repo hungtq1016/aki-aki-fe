@@ -30,7 +30,7 @@
       </FormGroup>
     </FormItem>
     <FormItem>
-      <PublishView v-model="state" :pass="pass" />
+      <PublishView v-model="state.enable" :pass="pass" />
       <FormGroup :has-error="[Boolean(errorFields?.typeId?.length)]">
         <template #heading>
           {{ $t('form.branchtype') }}
@@ -40,9 +40,12 @@
             :placeholder="$t('form.place_holder.branchtype')">
             {{ $t('form.select_branchtype') }}
           </FormSelect>
+          <FormTextarea v-model="state.addressEmbed" :has-error="Boolean(errorFields?.addressEmbed?.length)"
+            :placeholder="$t('form.place_holder.address_embed')">
+            {{ $t('form.embed') }}
+          </FormTextarea>
         </template>
       </FormGroup>
-      <AddressEmbedView v-model="state" :has-error="[Boolean(errorFields?.addressEmbed?.length)]" />
     </FormItem>
   </FormLayout>
 </template>
@@ -62,6 +65,7 @@ import { onMounted, ref } from 'vue'
 import type { Ref } from 'vue'
 import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
+import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 const branchtypes: Ref<TBranchType[]> = ref([])

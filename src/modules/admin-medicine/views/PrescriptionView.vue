@@ -18,7 +18,7 @@
         </FormGroup>
       </FormItem>
       <FormItem>
-        <PublishView v-model="state" :pass="true" />
+        <PublishView v-model="state.enable" :pass="true" />
         <FormGroup :has-error="[false]">
           <template #heading>
             {{ $t('form.content') }}

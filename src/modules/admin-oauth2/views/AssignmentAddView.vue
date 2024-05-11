@@ -14,7 +14,7 @@
       </FormGroup>
     </FormItem>
     <FormItem>
-      <PublishView v-model="state" :pass="pass" />
+      <PublishView v-model="state.enable" :pass="pass" />
       <FormGroup :has-error="[false]">
         <template #heading>
           {{ $t('form.permission') }}

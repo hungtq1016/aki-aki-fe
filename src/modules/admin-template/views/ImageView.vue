@@ -67,7 +67,7 @@ import { computed } from 'vue'
 import { ref } from 'vue'
 import FormGroup from '../components/Form.group.vue'
 
-const model: ModelRef<any> = defineModel({ required: true })
+const model: ModelRef<string> = defineModel({ required: true })
 
 defineProps<{
   hasError: boolean[]
@@ -95,7 +95,7 @@ async function uploadFile() {
   const response = await upload<TFileResponse>('/api/images', formData)
 
   if (response?.data) {
-    model.value.imageUrl = response.data.data.path
+    model.value = response.data.data.path
     successNotification('Uploaded')
   } else {
     warningNotification('Cannot upload')
@@ -103,6 +103,7 @@ async function uploadFile() {
 }
 
 const removeImage = () => {
+  selectedFile.value = null
   fileInput.value = null
   imageUrl.value = ''
 }
