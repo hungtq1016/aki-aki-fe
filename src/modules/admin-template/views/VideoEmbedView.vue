@@ -7,9 +7,9 @@
       <FormTextarea
         v-model="model.videoEmbed"
         :has-error="hasError[0]"
-        :placeholder="$t('form.place_holder.video_embed')"
+        :placeholder="$t('form.place_holder.embed')"
       >
-        {{ $t('form.video_embed') }}
+        {{ $t('form.embed') }}
       </FormTextarea>
       <FormInputSlot :has-error="hasError[1]">
         <template #label>{{ $t('form.content') }}</template>

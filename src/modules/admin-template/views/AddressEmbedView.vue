@@ -7,9 +7,9 @@
       <FormTextarea
         v-model="model.addressEmbed"
         :has-error="hasError[0]"
-        :placeholder="$t('form.place_holder.address_embed')"
+        :placeholder="$t('form.place_holder.embed')"
       >
-        {{ $t('form.address_embed') }}
+        {{ $t('form.embed') }}
       </FormTextarea>
     </template>
   </FormGroup>

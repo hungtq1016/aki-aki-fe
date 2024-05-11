@@ -6,6 +6,7 @@ export type TBlog = TEntity & {
   slug: string
   desc: string
   content: string
+  videoEmbed: string
   imageUrl: string
   categoryId: string
 }
@@ -36,6 +37,7 @@ export type TBlogRequest = TRequest & {
   desc: string
   content: string
   imageUrl: string
+  videoEmbed: string
   categoryId: string
 }
 

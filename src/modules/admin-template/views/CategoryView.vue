@@ -24,12 +24,12 @@ import { onMounted } from 'vue'
 import { ref } from 'vue'
 import FormGroup from '../components/Form.group.vue'
 import FormSelect from '../components/Form.select.vue'
-
-const model: ModelRef<any> = defineModel({ required: true })
-const categories: Ref<TCategory[]> = ref([])
 defineProps<{
   hasError: boolean[]
 }>()
+
+const model: ModelRef<any> = defineModel({ required: true })
+const categories: Ref<TCategory[]> = ref([])
 
 onMounted(() => {
   get<TCategory[]>('/api/categories').then((response) => {

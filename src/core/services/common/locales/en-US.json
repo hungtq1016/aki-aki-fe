@@ -76,7 +76,7 @@
     "address2": "Address 2",
     "phone1": "Phone number 1",
     "phone2": "Phone number 2",
-    "address_embed": "Address embed",
+    "embed": "Address embed",
     "place_holder": {
       "address": "Enter address...",
       "category": "Category",

@@ -18,6 +18,7 @@ export const items = ref<TBlog[]>([
     id: v4(),
     title: 'mock-data',
     content: 'mock-data',
+    videoEmbed:'',
     desc: 'mock-data',
     slug: 'mock-data',
     type: 'mock-data',
@@ -35,6 +36,7 @@ export const init_state: TBlogRequest = {
   id: v4(),
   title: '',
   content: '',
+  videoEmbed:'',
   desc: '',
   slug: '',
   imageUrl: '',
@@ -78,6 +80,11 @@ export const rules: Rules = {
     required: true
   },
   imageUrl: {
+    type: 'string',
+    min: 5,
+    required: true
+  },
+  videoEmbed: {
     type: 'string',
     min: 5,
     required: true

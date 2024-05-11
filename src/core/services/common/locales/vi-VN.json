@@ -77,7 +77,7 @@
     "address2": "Địa chỉ 2",
     "phone1": "Số điện thoại 1",
     "phone2": "Số điện thoại 2",
-    "address_embed": "Nhúng địa chỉ ",
+    "embed": "Nhúng địa chỉ ",
     "place_holder": {
       "address": "Nhập địa chỉ...",
       "content": "Nội dung...",
