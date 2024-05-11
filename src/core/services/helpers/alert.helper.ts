@@ -1,4 +1,4 @@
-import Alert from '@/core/components/modal/Alert.vue'
+  import Alert from '@/core/components/modal/Alert.vue'
 
 import { useToast, POSITION } from 'vue-toastification'
 

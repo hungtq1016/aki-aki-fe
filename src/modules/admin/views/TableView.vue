@@ -52,8 +52,8 @@
       <template #item-updatedAt="{ updatedAt }">
         <TableDatetime :date="updatedAt" />
       </template>
-      <template #item-action="{ id }">
-        <TableAction v-bind="{ id, route, fetch }" />
+      <template #item-action="item">
+        <TableAction v-bind="{ item, route, fetch }" />
       </template>
       <template #expand="item" v-if="expandComponent">
         <expandComponent v-bind="{ item, route }" />

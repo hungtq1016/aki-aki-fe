@@ -35,14 +35,14 @@ const router = useRouter()
 const routes = useRoute()
 
 const props = defineProps<{
-  id: string
-  fetch: () => Promise<void>
+  item: any
   route: string
+  fetch: () => Promise<void>
 }>()
 
 const remove = async () => {
   const removeAsync = async () => {
-    const response = await del<any, Response<boolean>>(`/${getPath(props.route)}/${props.id}`)
+    const response = await del<any, Response<boolean>>(`/${props.route}/${props.item.id}`)
 
     if (response?.isError) {
       errorNotification(
@@ -59,11 +59,11 @@ const remove = async () => {
 }
 
 const copyClipboard = () => {
-  navigator.clipboard.writeText(props.id)
+  navigator.clipboard.writeText(props.item.id)
   successNotification(i18n.global.t('message.copy_success', { name: 'Id' }) as string)
 }
 
 const view = () => {
-  router.push(`${routes.fullPath}/${props.id}`)
+  router.push(`${routes.fullPath}/${props.item.id}`)
 }
 </script>
