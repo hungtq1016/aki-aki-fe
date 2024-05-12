@@ -68,6 +68,7 @@
     </div>
   </header>
   <ScrollToTop v-if="!isZero" />
+  <ChatBubbleView />
 </template>
 
 <script setup lang="ts">
@@ -80,6 +81,7 @@ import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import ScrollToTop from '@/core/components/buttons/ScrollToTop.vue'
+import ChatBubbleView from './ChatBubbleView.vue'
 const isScrollDown = ref<boolean>(false)
 const isZero = ref<boolean>(true)
 const router = useRouter()
