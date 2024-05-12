@@ -59,7 +59,7 @@
 </template>
 <script setup lang="ts">
 // Third-party libraries
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 // Local modules
 import TableHeader from '../components/Table.header.vue'
@@ -121,4 +121,8 @@ const remove = (id: string): void => {
 
 const selectedHeaders = ref<Header[]>([...props.headers])
 const countItems = computed(() => itemsSelected.value.length)
+
+watch(()=>props.items, (newValue)=>{
+  itemRef.value = newValue
+})
 </script>

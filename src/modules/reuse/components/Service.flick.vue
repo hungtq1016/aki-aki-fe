@@ -18,7 +18,20 @@ import Flicking from '@egjs/vue3-flicking'
 import ServiceItem from './Service.item.vue'
 import { Arrow } from '@egjs/flicking-plugins'
 import { defaultOption } from '@/core/services/data/options'
-import { services } from '../services/data/data'
+import { services as data } from '../services/data/data'
+import { onMounted, ref } from 'vue'
+import type { TGroupServiceResponse, TService } from '@/modules/admin-service/models/type'
+import { get } from '@/core/services/helpers/request.helper'
 
 const plugins = [new Arrow()]
+
+const services = ref<TService[]>(data.value)
+
+onMounted(()=>{
+  get<TGroupServiceResponse>('/api/groupservices/service/other').then(res=>{
+    if (res?.data) {
+      services.value = res.data.services
+    }
+  })
+})
 </script>

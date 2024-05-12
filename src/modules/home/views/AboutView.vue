@@ -4,18 +4,17 @@
       <div class="text-center">
         <div class="flex justify-between gap-x-8">
           <div class="basis-3/5">
-            <div class="">
-              <iframe v-html="blog.videoEmbed"></iframe>
+            <div  v-html="blog.videoEmbed">
             </div>
           </div>
           <div class="">
             <h1
               class="text-2xl leading-[45px] uppercase text-center font-semibold mb-10 text-cerulean-400 relative after:contents-[''] after:h-px after:w-32 after:absolute after:left-1/2 after:-bottom-3 after:-translate-x-1/2 after:-translate-y-1/2 after:bg-cerulean-400"
-              v-html="$t('about.title')"
+              v-html="blog.title"
             />
 
-            <div class="text-justify text-gray-600">
-              <p style="font-size: 1rem" v-html="$t('about.content')" />
+            <div class="text-justify text-gray-600 max-w-lg">
+              <p style="font-size: 1rem" v-html="blog.desc" />
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@
   <div class="mt-5">
     <Flicking :options="galleryOptions" :plugins="plugins">
       <div class="p-2" v-for="(data, index) in galleries" :key="index">
-        <img :src="data.imageUrl" :alt="data.title" class="h-40 object-cover w-full" />
+        <img :src="imageBuilderUrl(data.imageUrl)" :alt="data.id" class="h-40 object-cover w-full" />
       </div>
       <template #viewport>
         <span class="flicking-arrow-prev"></span>
@@ -17,9 +17,23 @@
 import '@egjs/flicking-plugins/dist/arrow.css'
 
 import Flicking from '@egjs/vue3-flicking'
-import { galleries } from '../services/data/data'
+import { galleries as data } from '../services/data/data'
 import { Arrow } from '@egjs/flicking-plugins'
 import { galleryOptions } from '../services/data/options'
+import { onMounted, ref } from 'vue'
+import type { TUrl, TGroupUrlReponse } from '@/modules/admin-branch/models/type'
+import { imageBuilderUrl } from '@/core/services/utils/util.string'
+import { get } from '@/core/services/helpers/request.helper'
 
 const plugins = [new Arrow()]
+
+const galleries = ref<TUrl[]>(data.value)
+
+onMounted(()=>{
+  get<TGroupUrlReponse>('/api/groupurls/url/gallery').then(res=>{
+    if (res?.data) {
+        galleries.value = res.data.urls
+    }
+  })
+})
 </script>

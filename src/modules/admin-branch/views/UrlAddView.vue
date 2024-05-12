@@ -39,7 +39,7 @@
     </FormItem>
     <FormItem>
       <PublishView v-model="state.enable" :pass="pass" />
-      <ImageView v-model="state" :has-error="[]" />
+      <ImageView v-model="state.imageUrl" :has-error="[]" />
 
 
     </FormItem>

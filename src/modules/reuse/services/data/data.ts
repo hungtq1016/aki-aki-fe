@@ -1,16 +1,31 @@
 import { ref } from 'vue'
-import type { TFaQ, TSpecialist, TService } from '../../models/type'
+import type { TFaQ } from '../../models/type'
+import type { TService } from '@/modules/admin-service/models/type'
 
-const specialists = ref<Array<TSpecialist>>([
+const specialists = ref<Array<TService>>([
   {
     imageUrl: '/vuehost/special1.png',
-    name: 'Khoa Nhiễm',
-    slug: '/specialist/khoa-nhiem'
+    title: 'Khoa Nhiễm',
+    slug: '/specialist/khoa-nhiem',
+    content:'',
+    createdAt:'',
+    enable:true,
+    groupId:'',
+    id:'',
+    updatedAt:'',
+    videoEmbed:''
   },
   {
     imageUrl: '/vuehost/special2.png',
-    name: 'Xét nghiệm',
-    slug: '/specialist/xet-nghiem'
+    title: 'Xét nghiệm',
+    slug: '/specialist/khoa-nhiem',
+    content:'',
+    createdAt:'',
+    enable:true,
+    groupId:'',
+    id:'',
+    updatedAt:'',
+    videoEmbed:''
   }
 ])
 

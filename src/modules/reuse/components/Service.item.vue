@@ -6,19 +6,19 @@
         <div class="bg-transparent w-full pt-[100%] relative overflow-hidden rounded-full">
           <div
             class="absolute inset-0 block bg-no-repeat bg-cover bg-[50%]"
-            :style="{ 'background-image': `url(${data.imageUrl})` }"
+            :style="{ 'background-image': `url(${imageBuilderUrl(data.imageUrl)})` }"
           ></div>
         </div>
       </div>
 
       <h3 class="text-center text-cerulean-500 text-xl uppercase font-semibold mb-4">
-        {{ data.name }}
+        {{ data.title }}
       </h3>
       <div class="text-center text-gray-800">
         {{ data.desc }}
       </div>
       <div class="text-center mt-20">
-        <router-link class="text-cerulean-400 underline" :to="data.slug">{{
+        <router-link class="text-cerulean-400 underline" :to="'/others/'+data.slug">{{
           $t('content.more')
         }}</router-link>
       </div>
@@ -27,7 +27,9 @@
 </template>
 
 <script setup lang="ts">
-import type { TService } from '../models/type'
+import { imageBuilderUrl } from '@/core/services/utils/util.string';
+import type { TService } from '@/modules/admin-service/models/type';
+
 
 defineProps<{
   data: TService

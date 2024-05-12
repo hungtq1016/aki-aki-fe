@@ -20,6 +20,10 @@
             :placeholder="$t('form.place_holder.group_service')">
             {{ $t('form.group_service') }}
           </FormSelect>
+          <FormTextarea v-model="state.desc" :has-error="Boolean(errorFields?.desc?.length)"
+            :placeholder="$t('form.place_holder.desc')">
+            {{ $t('form.desc') }}
+          </FormTextarea>
         </template>
       </FormGroup>
       <ImageView v-model="state.imageUrl" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
@@ -32,8 +36,8 @@
         </template>
         <template #content>
           <FormTextarea v-model="state.videoEmbed" :has-error="Boolean(errorFields?.videoEmbed?.length)"
-            :placeholder="$t('form.place_holder.embed')">
-            {{ $t('form.embed') }}
+            :placeholder="$t('form.place_holder.video_embed')">
+            {{ $t('form.video_embed') }}
           </FormTextarea>
           <FormInputSlot :has-error="Boolean(errorFields?.content?.length)">
             <template #label>{{ $t('form.content') }}</template>

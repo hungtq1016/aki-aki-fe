@@ -11,6 +11,7 @@ import { v4 } from 'uuid'
 import type { Rules } from 'async-validator'
 import { resetObject } from '@/core/services/utils/util.object'
 import { successNotification } from '@/core/services/helpers/alert.helper'
+import { slugify } from '@/core/services/utils/util.string'
 
 export const items = ref<TService[]>([
   {
@@ -23,6 +24,7 @@ export const items = ref<TService[]>([
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
     videoEmbed: '',
+    desc:'',
     enable: Boolean(EnableEnum.ALL)
   }
 ])
@@ -33,6 +35,7 @@ export const init_state: TServiceRequest = {
   content: '',
   imageUrl: '',
   slug: '',
+  desc:'',
   videoEmbed: '',
   groupId: '-1',
   enable: Boolean(EnableEnum.ALL)
@@ -85,8 +88,20 @@ export const rules: Rules = {
     type: 'string',
     min: 5,
     required: true
+  },
+  desc: {
+    type: 'string',
+    min: 5,
+    required: true
   }
 }
+watch(
+  state,
+  (newValue) => {
+    state.slug = slugify(newValue.title)
+  },
+  { deep: true }
+)
 
 export const submit = async () => {
   const data = await post<TServiceRequest, TService>('/api/services', state)

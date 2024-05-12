@@ -50,6 +50,11 @@ export type TGroupUrl = TEntity & {
   label: string
 }
 
+export type TGroupUrlReponse = TEntity & {
+  label: string,
+  urls: TUrl[]
+}
+
 export type TGroupUrlRequest = TRequest & {
   label: string
 }
