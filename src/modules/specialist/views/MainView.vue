@@ -3,7 +3,7 @@
     <div class="max-w-screen-xl m-auto">
       <div class="flex gap-x-12 flex-row-reverse">
         <AsideView class="basis-1/5" />
-        <ContentView class="basis-4/5" :key="route.path" />
+        <ContentView class="basis-4/5" :key="route.fullPath" />
       </div>
     </div>
   </section>

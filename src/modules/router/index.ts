@@ -68,7 +68,7 @@ const clientRoute: RouteRecordRaw = {
     },
     {
       path: 'specialist',
-      redirect: { path: 'specialist/khoa-noi' }
+      redirect: { path: '/specialist/khoa-noi' }
     },
     {
       path: 'specialist/:slug',
@@ -80,7 +80,7 @@ const clientRoute: RouteRecordRaw = {
     },
     {
       path: 'other',
-      redirect: { path: 'specialist/khoa-noi' }
+      redirect: { path: '/specialist/khoa-noi' }
     },
     {
       path: 'other/:slug',

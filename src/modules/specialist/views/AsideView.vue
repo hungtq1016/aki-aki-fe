@@ -1,10 +1,22 @@
 <template>
   <div class="flex flex-col gap-y-4">
-    <AsideList v-for="data in asides" :key="data.title" :data="data" />
+    <AsideList v-for="data in groups" :key="data.id" :data="data" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref, type Ref } from 'vue';
 import AsideList from '../components/Aside.list.vue'
-import { asides } from '../services/data/data'
+import type { TGroupService } from '@/modules/admin-service/models/type';
+import { get } from '@/core/services/helpers/fetcher.helper';
+
+const groups: Ref<TGroupService[]> = ref([])
+
+onMounted(()=>{
+  get<TGroupService[]>('/api/groupservices').then(res=>{
+    if (res?.data) {
+      groups.value = res.data
+    }
+  })
+})
 </script>

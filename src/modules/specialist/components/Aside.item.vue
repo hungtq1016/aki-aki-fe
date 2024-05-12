@@ -8,10 +8,10 @@
 </template>
 
 <script setup lang="ts">
-import type { TAsideItem } from '../models/type'
+import type { TService } from '@/modules/admin-service/models/type';
 
 defineProps<{
-  data: TAsideItem
+  data: TService
   parentSlug: string
 }>()
 </script>

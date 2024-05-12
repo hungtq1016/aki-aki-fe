@@ -11,6 +11,18 @@ export type TBlog = TEntity & {
   categoryId: string
 }
 
+export type TBlogResponse = TEntity & {
+  title: string
+  type: string
+  slug: string
+  desc: string
+  content: string
+  videoEmbed: string
+  imageUrl: string
+  categoryId: string,
+  category: TCategory
+}
+
 export type TCategory = TEntity & {
   title: string
   slug: string

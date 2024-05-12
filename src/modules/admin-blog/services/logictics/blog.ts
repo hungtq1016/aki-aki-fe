@@ -6,7 +6,7 @@ import { init_pagination, paginationOptions } from './../data/blog'
 import { get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TBlog, TBlogRequest, TTag, TTagRequest } from '../../models/type'
+import type { TBlog, TBlogRequest, TTag } from '../../models/type'
 import { EnableEnum } from '@/core/models/enum'
 import type { Rules } from 'async-validator'
 import { successNotification } from '@/core/services/helpers/alert.helper'
