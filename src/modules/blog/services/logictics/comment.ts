@@ -1,26 +1,16 @@
-import { post } from "@/core/services/helpers/request.helper"
-import type { TComment } from "../../models/type"
+import { post } from "@/core/services/helpers/fetcher.helper"
+import type { TCommentRequest, TCommentResponse } from "../../models/type"
 import { ref, type Ref } from "vue"
-import { watch } from "fs"
-import { get } from "http"
 
-export const submit = async (payload:TComment) => {
+export const submit = async (payload:TCommentRequest): Promise<void> => {
   
-    const data = await post('/api/comments',payload)       
+    const data = await post<TCommentRequest,TCommentResponse>('/api/comments',payload)       
     if(data?.data){
-        comments.value.push(payload)
+        comments.value.push(data.data)
+        content.value = ''
     }
 }
 
-export const comments: Ref<TComment[]> = ref([])
+export const comments: Ref<TCommentResponse[]> = ref([])
 
-export const blogId: Ref<strimh>
-
-watch(()=>props.blogId,(newValue)=>{
-    if(newValue !== undefined)
-    get<TComment[]>('/api/comments/blog/'+props.blogId).then(res => {
-        if (res?.data) {
-            comments.value = res.data
-        }
-    })
-})
+export const content: Ref<string> = ref('')

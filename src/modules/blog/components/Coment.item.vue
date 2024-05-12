@@ -2,16 +2,16 @@
 <template>
     <div class="flex justify-between relative flex-row pt-2">
         <div class="basis-10">
-            <img class="rounded-full object-cover w-10" :src="`https://picsum.photos/50/50?rand=${data.id}`"
+            <img class="rounded-full object-cover w-10 h-10" :src="imageBuilderUrl(data.user.imageUrl)"
                 :alt="data.userId">
         </div>
         <div class="basis-[calc(100%-45px)]">
-            <div class="flex flex-col gap-y-1 bg-gray-100 dark:bg-zinc-700 rounded pl-3 pr-2 py-1 w-fit">
-                <div class="font-medium dark:text-gray-200 dark:font-medium">{{ data.id }}</div>
-                <div class="text-gray-700 text-sm dark:text-gray-100">{{ data.content }}</div>
+            <div class="flex flex-col gap-y-1 bg-gray-100 dark:bg-zinc-900 rounded pl-3 pr-2 py-1 w-fit">
+                <div class="font-medium dark:text-gray-200 dark:font-medium text-black-1000">{{ data.user.fullName }}</div>
+                <div class="text-gray-600 text-sm dark:text-gray-100">{{ data.content }}</div>
             </div>
            
-            <div class="flex gap-x-2 mt-0.5 flex-wrap">
+            <div class="flex gap-x-2 mt-1 flex-wrap">
                 <!-- <button @click="toggleLike" class="text-sm font-medium text-gray-600 dark:text-gray-100"
                     :class="{ '!text-sky-600 !font-bold': isLike && isAuthen}">Thích</button>
                 <button @click="toggleReply"
@@ -20,7 +20,7 @@
                     {{ countLike }} lượt thích
                 </div> -->
                 <div class="text-sm text-gray-600 font-medium dark:text-gray-100">
-                    <!-- {{ formatDistance(parseISO(data.created_at), new Date(), { addSuffix: true, locale: vi }) }} -->
+                    {{ formatDistance(parseISO(data.createdAt), new Date(), { addSuffix: true, locale: vi }) }}
                 </div>
             </div>
             <div class="pt-2 pb-1 pr-3 relative">
@@ -47,16 +47,14 @@
 </template>
 
 <script setup lang="ts">
-// import { useDark, useFetch } from '@vueuse/core';
-// import { computed, onMounted, ref,inject } from 'vue';
-import { v4 } from 'uuid';
-import type { TComment } from '../models/type';
-import CommentItem from './Coment.item.vue';
-import { post } from '@/core/services/helpers/fetcher.helper';
-import type { Ref } from 'vue';
 
-const props = defineProps<{
-    data: TComment,
+import type {  TCommentResponse } from '../models/type';
+import { imageBuilderUrl } from '@/core/services/utils/util.string';
+import { formatDistance, parseISO } from 'date-fns';
+import { vi } from 'date-fns/locale';
+
+defineProps<{
+    data: TCommentResponse,
     blogId: string,
 }>()
 

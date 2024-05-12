@@ -29,7 +29,7 @@
     </div>
     <h1 class="text-2xl font-bold mb-7 text-cerulean-600 capitalize">{{ blog?.title }}</h1>
     <div class="w-full h-[500px]">
-      <img class="w-full rounded-[5px] h-min-[500px] object-cover" :src="imageBuilderUrl(blog.imageUrl)"
+      <img class="w-full rounded-[5px] h-full object-cover" :src="imageBuilderUrl(blog.imageUrl)"
         :alt="blog.title">
     </div>
     <div class="py-5">
@@ -42,7 +42,7 @@
 
     </div>
     <DetailContact />
-    <CommentView :blog-id="blog.categoryId"/>
+    <CommentView :blog-id="blog.id"/>
     <RelateView :slug="blog?.category?.slug" />
   </div>
 </template>

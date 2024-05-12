@@ -1,4 +1,5 @@
-import type { TEntity } from '@/core/models/type'
+import type { TEntity, TRequest } from '@/core/models/type'
+import type { TUser } from '@/modules/admin-oauth2/models/type'
 import type { AnchorType } from '@/modules/include/models/enum'
 
 export type TBlogAside = {
@@ -34,8 +35,28 @@ export type TSocial = {
 }
 
 export type TComment = TEntity & {
+  parentId: string | null
   userId: string,
   blogId: string,
   content: string,
   subComments: TComment[] | null
+}
+
+export type TCommentRequest = TRequest & {
+  parentId: string | null
+  userId: string,
+  blogId: string,
+  content: string,
+  left: number,
+  right: number
+}
+
+export type TCommentResponse = TEntity & {
+  parentId: string | null
+  userId: string,
+  user: TUser
+  blogId: string,
+  content: string,
+  left: number,
+  right: number
 }

@@ -1,7 +1,7 @@
 import type { TTokenResponse } from '@/core/models/type'
 
 export const useAuthInfo = () => {
-  const databaseName: string = 'test'
+  const databaseName: string = 'akiaki_db'
   const collectionName: string = (import.meta.env.VITE_INDEXED_DB_COLLECTION as string) || 'akiaki'
   const authKey: string = (import.meta.env.VITE_AUTH_KEY as string) || 'user_default'
   const csrfKey: string = (import.meta.env.VITE_CSRF_KEY as string) || '_csrf'

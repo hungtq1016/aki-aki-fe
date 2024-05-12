@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-md w-full">
-    <form @submit.prevent="submit" class="w-full">
+    <form @submit.prevent="submitLogin" class="w-full">
       <div>
         <div class="py-5">
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -46,7 +46,7 @@
           :disabled="!pass"
           class="rounded-md bg-cerulean-600 px-3 py-2 text-sm font-semibold text-white shadow-sm disabled:bg-cerulean-100 disabled:text-zinc-300 hover:bg-cerulean-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cerulean-600"
         >
-          {{ $t('button.confirm') }}
+          {{ $t('button.confirm') }} 
         </button>
       </div>
     </form>
@@ -95,6 +95,24 @@ import SVGFacebook from '@/core/components/svg/SVG.facebook.vue'
 import SVGTwitterX from '@/core/components/svg/SVG.twitter.x.vue'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator'
 import { state, rules, submit } from '../services/logictics/login'
+import { useUserstore } from '@/core/stores/user'
+import { successNotification } from '@/core/services/helpers/alert.helper'
+import { i18n } from '@/core/services/base/translation'
+import { useRouter } from 'vue-router'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
+const router = useRouter()
+
+const submitLogin = async (): Promise<void> => {
+  const { fetchUser } = useUserstore()
+
+  const response = await submit()
+
+  if(response){
+    successNotification(i18n.global.t('message.login_success'))
+    await fetchUser()
+    router.push('/')
+  }
+}
+
 </script>
