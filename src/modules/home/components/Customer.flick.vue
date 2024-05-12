@@ -20,7 +20,7 @@ import { Arrow } from '@egjs/flicking-plugins'
 import { customerOptions } from '../services/data/options'
 import { onMounted, ref } from 'vue'
 import type { TGroupUrlReponse, TUrl } from '@/modules/admin-branch/models/type'
-import { get } from '@/core/services/helpers/request.helper'
+import { get } from '@/core/services/helpers/fetcher.helper'
 
 const plugins = [new Arrow()]
 

@@ -1,26 +1,39 @@
 import { ref } from 'vue'
-import type { TBlog, TBlogAside, TBlogDetail } from '../../models/type'
+import type { TBlog, TBlogDetail } from '../../models/type'
+import type { TCategory } from '@/modules/admin-blog/models/type'
 
-const aside = ref<Array<TBlogAside>>([
-  {
-    title: 'route.blogs',
-    slug: '/blogs'
-  },
+const categories = ref<Array<TCategory>>([
   {
     title: 'route.healthcare',
-    slug: '/blogs/healthcare'
+    slug: '/healthcare',
+    createdAt:'',
+    updatedAt: '',
+    enable: true,
+    id: '2'
   },
   {
     title: 'route.service',
-    slug: '/blogs/service'
+    slug: '/service',
+    createdAt:'',
+    updatedAt: '',
+    enable: true,
+    id: '3'
   },
   {
     title: 'route.sale',
-    slug: '/blogs/sale'
+    slug: '/sale',
+    createdAt:'',
+    updatedAt: '',
+    enable: true,
+    id: '4'
   },
   {
     title: 'route.information',
-    slug: '/blogs/information'
+    slug: '/information',
+    createdAt:'',
+    updatedAt: '',
+    enable: true,
+    id: '5'
   }
 ])
 
@@ -159,4 +172,4 @@ const blogs = ref<Array<TBlogDetail>>([
   }
 ])
 
-export { aside, data, blogs }
+export { categories, data, blogs }

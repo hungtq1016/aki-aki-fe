@@ -28,7 +28,7 @@ import FooterItem from '../components/Footer.item.vue'
 import FooterSocial from '../components/Footer.social.vue'
 import { address, socials as dataSocials, contacts as dataContact } from '../services/data/footer.data'
 import type { TBranch, TGroupUrlReponse, TUrl } from '@/modules/admin-branch/models/type';
-import { get } from '@/core/services/helpers/request.helper';
+import { get } from '@/core/services/helpers/fetcher.helper';
 
 const branches = ref<TBranch[]>(address.value)
 const contacts = ref<TUrl[]>(dataContact.value)

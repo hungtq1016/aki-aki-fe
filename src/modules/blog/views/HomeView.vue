@@ -1,13 +1,25 @@
 <template>
   <BlogList
-    v-for="([title, list], index) in Object.entries(data)"
-    :key="index"
-    :list="list.slice(0, 3)"
-    :title="title"
+    v-for="data in categories"
+    :key="data.id"
+    :data="data"
+    :blogs="data.blogs.slice(0,3)"
   />
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref, type Ref } from 'vue';
 import BlogList from '../components/Blog.list.vue'
-import { data } from '../services/data/data'
+import type { TCategoryResponse } from '@/modules/admin-blog/models/type';
+import { get } from '@/core/services/helpers/fetcher.helper';
+
+const categories: Ref<TCategoryResponse[]> = ref([])
+
+onMounted(()=>{
+  get<TCategoryResponse[]>(`/api/categories/blogs`).then(res=>{
+    if (res?.data) {
+      categories.value = res.data
+    }
+  })
+})
 </script>

@@ -21,7 +21,7 @@ import { slickOptions } from '../services/data/options'
 import BlogItem from './Blog.item.vue'
 import { onMounted, ref } from 'vue'
 import type { TBlog } from '@/modules/admin-blog/models/type'
-import { get } from '@/core/services/helpers/request.helper'
+import { get } from '@/core/services/helpers/fetcher.helper'
 import type { TPaginationResponse } from '@/core/models/type'
 
 const plugins = [new Arrow()]

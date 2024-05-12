@@ -21,7 +21,7 @@ import { slickOptions } from '../services/data/options'
 import CertificateItem from './Certificate.item.vue'
 import { onMounted, ref } from 'vue'
 import type { TUrl, TGroupUrlReponse } from '@/modules/admin-branch/models/type'
-import { get } from '@/core/services/helpers/request.helper'
+import { get } from '@/core/services/helpers/fetcher.helper'
 
 const plugins = [new Arrow()]
 

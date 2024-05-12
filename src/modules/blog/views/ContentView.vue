@@ -1,24 +1,33 @@
 <template>
-  <BlogList :list="updateData" :title="String(route.params.slug)" />
+  <BlogList :data="data" :blogs="blogs"/>
   <BlogPagination />
 </template>
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import BlogList from '../components/Blog.list.vue'
-import { data } from '../services/data/data'
-import type { TBlog, TBlogItem } from '../models/type'
-import { computed } from 'vue'
+import { onMounted, ref, type Ref } from 'vue'
 import BlogPagination from '../components/Blog.pagination.vue'
+import { get } from '@/core/services/helpers/fetcher.helper'
+import type { TBlog, TCategoryResponse } from '@/modules/admin-blog/models/type'
+import type { TPaginationResponse } from '@/core/models/type'
+
 const route = useRoute()
 
-function getValueByKey(obj: TBlog, key: string): TBlogItem[] {
-  if (key in obj) {
-    return obj[key]
-  } else {
-    return []
-  }
-}
+const blogs: Ref<TBlog[]> = ref([])
+const data: Ref<TCategoryResponse> = ref({} as TCategoryResponse)
 
-const updateData = computed(() => getValueByKey(data, String(route.params.slug)))
+onMounted(()=>{
+  get<TPaginationResponse<TBlog>>(`/api/blogs/category/${route.params.slug}`).then(res=>{
+    if (res?.data) {
+      blogs.value = res.data.data
+    }
+  })
+
+  get<TCategoryResponse>(`/api/categories/slug/${route.params.slug}`).then(res=>{
+    if (res?.data) {
+      data.value = res.data
+    }
+  })
+})
 </script>

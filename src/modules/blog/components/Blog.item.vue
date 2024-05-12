@@ -4,11 +4,11 @@
     <router-link :to="data.slug">
       <img
         class="w-full rounded-t-md flex-shrink-0 h-60 object-cover"
-        :src="data.imageUrl"
+        :src="imageBuilderUrl(data.imageUrl)"
         :alt="data.title"
       />
     </router-link>
-    <div class="relative h-full px-3 pb-6 flex flex-col">
+    <div class="relative h-full px-3 pb-6 flex flex-col justify-between">
       <router-link :to="data.slug">
         <div class="mx-height text-lg line-clamp-2 font-bold pt-4 flex-1">
           {{ data.title }}
@@ -20,7 +20,7 @@
       <div class="flex-shrink-0 pt-3 text-center">
         <router-link
           class="text-sm underline underline-offset-[4px] text-cerulean-400"
-          :to="data.slug"
+          :to="'/blogs/detail/'+data.slug"
         >
           {{ $t('content.more') }}
         </router-link>
@@ -30,9 +30,10 @@
 </template>
 
 <script setup lang="ts">
-import type { TBlogItem } from '../models/type'
+import { imageBuilderUrl } from '@/core/services/utils/util.string';
+import type { TBlog } from '@/modules/admin-blog/models/type';
 
 defineProps<{
-  data: TBlogItem
+  data: TBlog
 }>()
 </script>

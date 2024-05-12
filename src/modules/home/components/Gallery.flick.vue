@@ -23,7 +23,7 @@ import { galleryOptions } from '../services/data/options'
 import { onMounted, ref } from 'vue'
 import type { TUrl, TGroupUrlReponse } from '@/modules/admin-branch/models/type'
 import { imageBuilderUrl } from '@/core/services/utils/util.string'
-import { get } from '@/core/services/helpers/request.helper'
+import { get } from '@/core/services/helpers/fetcher.helper'
 
 const plugins = [new Arrow()]
 

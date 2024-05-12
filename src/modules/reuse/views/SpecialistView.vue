@@ -23,7 +23,7 @@ import SpecialistItem from '../components/Specialist.item.vue'
 import { specialists as data } from '../services/data/data'
 import { HeartIcon } from '@heroicons/vue/24/solid'
 import { useRoute } from 'vue-router'
-import { get } from '@/core/services/helpers/request.helper'
+import { get } from '@/core/services/helpers/fetcher.helper'
 import type { TPaginationResponse } from '@/core/models/type'
 import type { TService } from '@/modules/admin-service/models/type'
 

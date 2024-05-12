@@ -21,7 +21,7 @@ import { defaultOption } from '@/core/services/data/options'
 import { services as data } from '../services/data/data'
 import { onMounted, ref } from 'vue'
 import type { TGroupServiceResponse, TService } from '@/modules/admin-service/models/type'
-import { get } from '@/core/services/helpers/request.helper'
+import { get } from '@/core/services/helpers/fetcher.helper'
 
 const plugins = [new Arrow()]
 

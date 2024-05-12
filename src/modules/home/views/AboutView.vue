@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from 'vue';
 import type { TBlog } from '../models/type';
-import { get } from '@/core/services/helpers/request.helper';
+import { get } from '@/core/services/helpers/fetcher.helper';
 
 const blog: Ref<TBlog> = ref({} as TBlog)
 

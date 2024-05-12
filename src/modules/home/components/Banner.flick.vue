@@ -12,7 +12,7 @@ import Flicking from '@egjs/vue3-flicking'
 import { bannerOptions } from '../services/data/options'
 import { onMounted, ref } from 'vue';
 import type { TGroupUrlReponse, TUrl } from '@/modules/admin-branch/models/type';
-import { get } from '@/core/services/helpers/request.helper';
+import { get } from '@/core/services/helpers/fetcher.helper';
 
 const banners = ref<TUrl[]>(data.value)
 

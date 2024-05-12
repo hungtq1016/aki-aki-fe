@@ -21,6 +21,13 @@ export type TCategoryRequest = TRequest & {
   slug: string
 }
 
+export type TCategoryResponse = TEntity & {
+  title: string
+  slug: string
+  blogs: TBlog[]
+}
+
+
 export type TTag = TEntity & {
   title: string
   slug: string
