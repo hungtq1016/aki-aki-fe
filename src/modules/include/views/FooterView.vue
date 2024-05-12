@@ -40,12 +40,12 @@ onMounted(()=>{
       branches.value = res.data
     }
   })
-  get<TGroupUrlReponse>('/api/groupurls/url/contact').then(res =>{
+  get<TGroupUrlReponse>('/api/groupurls/label/contact').then(res =>{
     if (res?.data) {
       contacts.value = res.data.urls
     }
   })
-  get<TGroupUrlReponse>('/api/groupurls/url/social').then(res =>{
+  get<TGroupUrlReponse>('/api/groupurls/label/social').then(res =>{
     if (res?.data) {
       socials.value = res.data.urls
     }

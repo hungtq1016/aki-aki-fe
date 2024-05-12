@@ -28,7 +28,7 @@ const plugins = [new Arrow()]
 const certificates = ref<TUrl[]>(data.value)
 
 onMounted(()=>{
-  get<TGroupUrlReponse>('/api/groupurls/url/certificate').then(res=>{
+  get<TGroupUrlReponse>('/api/groupurls/label/certificate').then(res=>{
     if (res?.data) {
       certificates.value = res.data.urls
     }

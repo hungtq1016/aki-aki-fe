@@ -28,7 +28,7 @@ const customers = ref<TUrl[]>(data.value)
 
 onMounted(()=>{
 
-  get<TGroupUrlReponse>('/api/groupurls/url/customer').then(res =>{
+  get<TGroupUrlReponse>('/api/groupurls/label/customer').then(res =>{
     if (res?.data) {
       customers.value = res.data.urls
     }

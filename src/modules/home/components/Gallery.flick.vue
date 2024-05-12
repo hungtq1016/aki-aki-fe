@@ -30,7 +30,7 @@ const plugins = [new Arrow()]
 const galleries = ref<TUrl[]>(data.value)
 
 onMounted(()=>{
-  get<TGroupUrlReponse>('/api/groupurls/url/gallery').then(res=>{
+  get<TGroupUrlReponse>('/api/groupurls/label/gallery').then(res=>{
     if (res?.data) {
         galleries.value = res.data.urls
     }

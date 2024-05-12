@@ -17,7 +17,7 @@ import { get } from '@/core/services/helpers/request.helper';
 const banners = ref<TUrl[]>(data.value)
 
 onMounted(()=>{
-  get<TGroupUrlReponse>('/api/groupurls/url/banner').then(res=>{
+  get<TGroupUrlReponse>('/api/groupurls/label/banner').then(res=>{
     if (res?.data) {
       banners.value = res.data.urls
     }
