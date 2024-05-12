@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, type Ref } from 'vue';
+import { onMounted, ref, watch, type Ref } from 'vue';
 import BlogItem from '../components/Blog.item.vue'
 import type { TPaginationResponse } from '@/core/models/type';
 import type { TBlog } from '@/modules/admin-blog/models/type';
@@ -23,8 +23,9 @@ const props = defineProps<{
 
 const blogs: Ref<TBlog[]> = ref([])
 
-onMounted(()=>{
-  get<TPaginationResponse<TBlog>>('/api/blogs/category/'+props.slug+'?pageSize=3').then(res=>{
+watch(()=>props.slug,(newValue)=>{
+    if(newValue !== undefined)
+    get<TPaginationResponse<TBlog>>('/api/blogs/category/'+props.slug+'?pageSize=3').then(res=>{
     if (res?.data) {
       blogs.value = res.data.data
     }

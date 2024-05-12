@@ -37,5 +37,5 @@ export type TComment = TEntity & {
   userId: string,
   blogId: string,
   content: string,
-  subComments: TComment[]
+  subComments: TComment[] | null
 }

@@ -49,11 +49,15 @@
 <script setup lang="ts">
 // import { useDark, useFetch } from '@vueuse/core';
 // import { computed, onMounted, ref,inject } from 'vue';
+import { v4 } from 'uuid';
 import type { TComment } from '../models/type';
 import CommentItem from './Coment.item.vue';
+import { post } from '@/core/services/helpers/fetcher.helper';
+import type { Ref } from 'vue';
 
-defineProps<{
-    data: TComment
+const props = defineProps<{
+    data: TComment,
+    blogId: string,
 }>()
 
 // const isReply = ref(false)
@@ -89,25 +93,7 @@ defineProps<{
 //     }
 // }
 
-// const submitComment = async () => {
-//     isReply.value=false
-//     let payload = {
-//         post_id: props.post_id,
-//         user_id: user.value.id,
-//         content: content.value,
-//         parent_id:props.data.id
-//     }    
-//     const { data } = await useFetch(`${URL}/comment`).post(payload).json()        
-//     if ( !data.value.error) {
-//         children.value =data.value.data
-//         updateRight(data.value.right)
-//     }
-//     toast(data.value.message, {
-//             autoClose: 1000,
-//             type: data.value.error ? 'error' :'default',
-//             theme: isDark.value ? 'dark' : 'light'
-//     });
-// }
+
 
 // const toggleLike = async () => {
 //     if (!isAuthen.value) {
