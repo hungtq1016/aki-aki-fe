@@ -42,6 +42,7 @@
 
     </div>
     <DetailContact />
+    <CommentView :blog-id="blog.categoryId"/>
     <RelateView :slug="blog?.category?.slug" />
   </div>
 </template>
@@ -57,6 +58,7 @@ import { onMounted, ref, type Ref } from 'vue'
 import type { TBlogResponse } from '@/modules/admin-blog/models/type'
 import { get } from '@/core/services/helpers/fetcher.helper'
 import { imageBuilderUrl } from '@/core/services/utils/util.string'
+import CommentView from './CommentView.vue'
 const route = useRoute()
 const url = new URL(window.location.href)
 const copyToClipboard = async () => {
