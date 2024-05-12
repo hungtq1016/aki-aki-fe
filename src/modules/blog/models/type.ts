@@ -1,3 +1,4 @@
+import type { TEntity } from '@/core/models/type'
 import type { AnchorType } from '@/modules/include/models/enum'
 
 export type TBlogAside = {
@@ -30,4 +31,11 @@ export type TSocial = {
   url: string
   lable: string
   type: AnchorType
+}
+
+export type TComment = TEntity & {
+  userId: string,
+  blogId: string,
+  content: string,
+  subComments: TComment[]
 }
