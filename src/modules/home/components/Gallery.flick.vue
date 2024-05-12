@@ -3,7 +3,7 @@
   <div class="mt-5">
     <Flicking :options="galleryOptions" :plugins="plugins">
       <div class="p-2" v-for="(data, index) in galleries" :key="index">
-        <img :src="imageBuilderUrl(data.imageUrl)" :alt="data.id" class="h-40 object-cover w-full" />
+        <img :src="imageBuilderUrl(data.imageUrl)" :alt="data.label" class="h-40 object-cover w-full" />
       </div>
       <template #viewport>
         <span class="flicking-arrow-prev"></span>

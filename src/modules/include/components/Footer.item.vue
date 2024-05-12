@@ -24,8 +24,8 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue'
-import type { TBranch } from '../models/type'
 import { MapPinIcon } from '@heroicons/vue/24/outline'
+import type { TBranch } from '@/modules/admin-branch/models/type';
 
 defineProps<{
   data: TBranch

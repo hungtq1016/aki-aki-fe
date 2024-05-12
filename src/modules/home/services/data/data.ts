@@ -1,6 +1,7 @@
 import { ref } from 'vue'
-import type {  TBlog, TCertificate, TQuote, TCount, TGallery } from '../../models/type'
+import type {  TQuote, TCount } from '../../models/type'
 import type { TUrl } from '@/modules/admin-branch/models/type'
+import type { TBlog } from '@/modules/admin-blog/models/type'
 
 const banners = ref<TUrl[]>([
   {
@@ -55,29 +56,57 @@ const blogs = ref<Array<TBlog>>([
     title: 'Hình ảnh trước và sau khi niềng răng',
     slug: '/blogs/detail/hinh-anh-truoc-va-sau-khi-nieng-rang',
     desc: 'Trước và sau khi niềng răng không chỉ là sự thay đổi về nụ cười mà còn là hành trình chăm sóc vẻ đẹp tự tin và tự hào về bản thân. Niềng răng là cơ hội để tái tạo nét đẹp tự nhiên của khuôn mặt và tăng cường lòng tự tin. ',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    imageUrl: '',
+    categoryId: '',
+    content: '',
+    createdAt: '',
+    enable: true,
+    id: '',
+    type: '',
+    updatedAt: '',
+    videoEmbed: ''
   },
   {
     title: 'Quá trình niềng răng diễn ra như thế nào?',
     slug: '/blogs/detail/qua-trinh-nieng-rang-dien-ra-nhu-the-nao',
     desc: 'Quá trình niềng răng đạt chuẩn y khoa sẽ bắt đầu bằng việc khám ban đầu và kết thúc bằng kết quả là hàm răng đều và chắc khỏe. Tuy nhiên, thời gian niềng răng nhanh hay chậm còn phụ thuộc vào nhiều yếu tố khác nhau.',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    imageUrl: '',
+    categoryId: '',
+    content: '',
+    createdAt: '',
+    enable: true,
+    id: '',
+    type: '',
+    updatedAt: '',
+    videoEmbed: ''
   },
   {
     title: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
     slug: '/blogs/detail/cac-giai-doan-nieng-rang-theo-cac-moc-va-dieu-can-luu-y',
     desc: 'Niềng răng là một quá trình chỉnh nha khá dài dao động từ 18 – 24 tháng vì thế quá trình này đòi hỏi người niềng phải theo sát, kiên nhẫn và tuân theo hướng dẫn quy trình niềng răng của bác sĩ nha khoa.',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    imageUrl: '',
+    categoryId: '',
+    content: '',
+    createdAt: '',
+    enable: true,
+    id: '',
+    type: '',
+    updatedAt: '',
+    videoEmbed: ''
   },
   {
     title: 'Phân biệt các chức danh bác sĩ chuyên khoa 1, 2,...',
     slug: '/blogs/detail/phan-biet-cac-chuc-danh-bac-si-chuyen-khoa-1-2',
     desc: 'Hiện nay, trong các tin tức sức khỏe có đề cập đến một chuyên gia y khoa nào đó, chúng ta rất thường bắt gặp các cụm từ như bác sĩ chuyên khoa 1, bác sĩ chuyên khoa 2, PGS, ThS, TS,… ',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    imageUrl: '',
+    categoryId: '',
+    content: '',
+    createdAt: '',
+    enable: true,
+    id: '',
+    type: '',
+    updatedAt: '',
+    videoEmbed: ''
   }
 ])
 
@@ -132,46 +161,102 @@ const certificates = ref<Array<TUrl>>([
   }
 ])
 
-const customers = ref<Array<TQuote>>([
+const customers = ref<Array<TUrl>>([
   {
-    title: 'Hình ảnh trước và sau khi niềng răng',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    label: 'Hình ảnh trước và sau khi niềng răng',
+    imageUrl: '/vuehost/cer1.webp',
+    createdAt: '',
+    enable: true,
+    groupId: '',
+    id: '',
+    slug: '',
+    tag: '',
+    type: '',
+    updatedAt: ''
   },
   {
-    title: 'Quá trình niềng răng diễn ra như thế nào?',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    label: 'Quá trình niềng răng diễn ra như thế nào?',
+    imageUrl: '/vuehost/cer2.png',
+    createdAt: '',
+    enable: true,
+    groupId: '',
+    id: '',
+    slug: '',
+    tag: '',
+    type: '',
+    updatedAt: ''
   },
   {
-    title: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    label: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
+    imageUrl:'/vuehost/cer3.jpg',
+    createdAt: '',
+    enable: true,
+    groupId: '',
+    id: '',
+    slug: '',
+    tag: '',
+    type: '',
+    updatedAt: ''
   },
   {
-    title: 'Phân biệt các chức danh bác sĩ chuyên khoa 1, 2,...',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    label: 'Phân biệt các chức danh bác sĩ chuyên khoa 1, 2,...',
+    imageUrl: '/vuehost/cer4.png',
+    createdAt: '',
+    enable: true,
+    groupId: '',
+    id: '',
+    slug: '',
+    tag: '',
+    type: '',
+    updatedAt: ''
   },
   {
-    title: 'Hình ảnh trước và sau khi niềng răng',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    label: 'Hình ảnh trước và sau khi niềng răng',
+    imageUrl: '/vuehost/cer1.webp',
+    createdAt: '',
+    enable: true,
+    groupId: '',
+    id: '',
+    slug: '',
+    tag: '',
+    type: '',
+    updatedAt: ''
   },
   {
-    title: 'Quá trình niềng răng diễn ra như thế nào?',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    label: 'Quá trình niềng răng diễn ra như thế nào?',
+    imageUrl: '/vuehost/cer2.png',
+    createdAt: '',
+    enable: true,
+    groupId: '',
+    id: '',
+    slug: '',
+    tag: '',
+    type: '',
+    updatedAt: ''
   },
   {
-    title: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    label: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
+    imageUrl:'/vuehost/cer3.jpg',
+    createdAt: '',
+    enable: true,
+    groupId: '',
+    id: '',
+    slug: '',
+    tag: '',
+    type: '',
+    updatedAt: ''
   },
   {
-    title: 'Phân biệt các chức danh bác sĩ chuyên khoa 1, 2,...',
-    imageUrl:
-      'https://admin.petpro.com.vn/images/uploaded/1%20hanh%20luu/2-Cat-and-Dogfriendships2.jpg'
+    label: 'Phân biệt các chức danh bác sĩ chuyên khoa 1, 2,...',
+    imageUrl: '/vuehost/cer4.png',
+    createdAt: '',
+    enable: true,
+    groupId: '',
+    id: '',
+    slug: '',
+    tag: '',
+    type: '',
+    updatedAt: ''
   }
 ])
 

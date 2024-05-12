@@ -15,9 +15,23 @@
 import '@egjs/flicking-plugins/dist/arrow.css'
 
 import Flicking from '@egjs/vue3-flicking'
-import { customers } from '../services/data/data'
+import { customers as data } from '../services/data/data'
 import { Arrow } from '@egjs/flicking-plugins'
 import { customerOptions } from '../services/data/options'
+import { onMounted, ref } from 'vue'
+import type { TGroupUrlReponse, TUrl } from '@/modules/admin-branch/models/type'
+import { get } from '@/core/services/helpers/request.helper'
 
 const plugins = [new Arrow()]
+
+const customers = ref<TUrl[]>(data.value)
+
+onMounted(()=>{
+
+  get<TGroupUrlReponse>('/api/groupurls/url/customer').then(res =>{
+    if (res?.data) {
+      customers.value = res.data.urls
+    }
+  })
+})
 </script>

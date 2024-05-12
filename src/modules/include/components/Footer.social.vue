@@ -1,14 +1,14 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <a target="_blank" :href="data.url">
+  <a target="_blank" :href="data.slug">
     <img class="w-12" :alt="data.type" :src="data.imageUrl" />
   </a>
 </template>
 
 <script setup lang="ts">
-import type { TSocial } from '../models/type'
+import type { TUrl } from '@/modules/admin-branch/models/type';
 
 defineProps<{
-  data: TSocial
+  data: TUrl
 }>()
 </script>

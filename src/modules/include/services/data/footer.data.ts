@@ -1,8 +1,9 @@
 import { EnableEnum } from './../../../../core/models/enum'
 import { ref } from 'vue'
-import type { TBranch, TContact, TSocial } from '../../models/type'
+import type { TContact, TSocial } from '../../models/type'
 import { AnchorType } from '../../models/enum'
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/vue/24/outline'
+import type { TBranch, TUrl } from '@/modules/admin-branch/models/type'
 
 const address = ref<Array<TBranch>>([
   {
@@ -14,7 +15,9 @@ const address = ref<Array<TBranch>>([
     address1: '550 Lũy Bán Bích, P.Hòa Thạnh',
     address2: 'Q.Tân Phú, TP.HCM',
     phone1: '(028) 38 612977',
-    phone2: '0913 949 041'
+    phone2: '0913 949 041',
+    typeId:'',
+    addressEmbed:''
   },
   {
     id: '1',
@@ -25,7 +28,9 @@ const address = ref<Array<TBranch>>([
     address1: '387 - 389 Cộng Hòa, P.13,',
     address2: 'Q.Tân Bình, TP.HCM',
     phone1: '(028) 62 972 290',
-    phone2: '0917 710 311'
+    phone2: '0917 710 311',
+    typeId:'',
+    addressEmbed:''
   },
   {
     id: '',
@@ -35,7 +40,9 @@ const address = ref<Array<TBranch>>([
     name: 'PHÒNG KHÁM AKIAKI TÂN BÌNH',
     address1: '111 Trường Chinh, P.12,',
     address2: 'Q.Tân Bình, TP.HCM',
-    phone1: '0916 219 211'
+    phone1: '0916 219 211',
+    typeId:'',
+    addressEmbed:''
   },
   {
     id: '1',
@@ -45,42 +52,87 @@ const address = ref<Array<TBranch>>([
     name: 'PHÒNG KHÁM AKIAKI BÌNH TÂN',
     address1: '155 Nguyễn Thị Tú, P.Bình Hưng Hòa B,',
     address2: ' Q.Bình Tân, TP.HCM',
-    phone1: '0912 219 211'
+    phone1: '0912 219 211',
+    typeId:'',
+    addressEmbed:''
   }
 ])
 
-const contacts = ref<Array<TContact>>([
+const contacts = ref<Array<TUrl>>([
   {
+    id:'1',
+    createdAt:'',
+    enable: true,
+    groupId: '',
+    imageUrl: '',
+    updatedAt: '',
+    tag: 'a',
     type: AnchorType.mailto,
-    icon: EnvelopeIcon,
     label: 'cskh@akiaki.com.vn',
-    tag: 'a',
-    url: 'cskh@akiaki.com.vn'
+    slug: 'cskh@akiaki.com.vn'
   },
   {
-    type: AnchorType.tel,
-    icon: PhoneIcon,
-    label: '01232456789',
+    id:'2',
+    createdAt:'',
+    enable: true,
+    groupId: '',
+    imageUrl: '',
+    updatedAt: '',
     tag: 'a',
-    url: '01232456789'
+    type: AnchorType.tel,
+    label: '01232456789',
+    slug: '01232456789'
   }
 ])
 
-const socials = ref<Array<TSocial>>([
+const socials = ref<Array<TUrl>>([
   {
-    type: 'youtube',
-    imageUrl: '/vuehost/socials/YT.png',
-    url: 'https://www.youtube.com/'
+    id:'1',
+    createdAt:'',
+    enable: true,
+    groupId: '',
+    imageUrl: '',
+    updatedAt: '',
+    tag: 'a',
+    type: AnchorType.mailto,
+    label: 'cskh@akiaki.com.vn',
+    slug: 'cskh@akiaki.com.vn'
   },
   {
-    type: 'tiktok',
-    imageUrl: ' /vuehost/socials/tiktok.png',
-    url: 'https://www.tiktok.com/'
+    id:'1',
+    createdAt:'',
+    enable: true,
+    groupId: '',
+    imageUrl: '',
+    updatedAt: '',
+    tag: 'a',
+    type: AnchorType.url,
+    label: 'cskh@akiaki.com.vn',
+    slug: 'cskh@akiaki.com.vn'
   },
   {
-    type: 'facebook',
-    imageUrl: '/vuehost/socials/FB.png',
-    url: 'https://www.facebook.com/'
+    id:'2',
+    createdAt:'',
+    enable: true,
+    groupId: '',
+    imageUrl: '',
+    updatedAt: '',
+    tag: 'a',
+    type: AnchorType.url,
+    label: 'cskh@akiaki.com.vn',
+    slug: 'cskh@akiaki.com.vn'
+  },
+  {
+    id:'3',
+    createdAt:'',
+    enable: true,
+    groupId: '',
+    imageUrl: '',
+    updatedAt: '',
+    tag: 'a',
+    type: AnchorType.url,
+    label: 'cskh@akiaki.com.vn',
+    slug: 'cskh@akiaki.com.vn'
   }
 ])
 
