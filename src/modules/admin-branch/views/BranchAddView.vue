@@ -54,18 +54,19 @@
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
-
-import { state, rules, submit } from '../services/logictics/branch'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
-import AddressEmbedView from '@/modules/admin-template/views/AddressEmbedView.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
-import { get } from '@/core/services/helpers/request.helper'
-import type { TBranchType } from '@/modules/admin-branch/models/type'
-import { onMounted, ref } from 'vue'
-import type { Ref } from 'vue'
 import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
 import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
+
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import { onMounted, ref } from 'vue'
+
+import { state, rules, submit } from '../services/logictics/branch'
+import { get } from '@/core/services/helpers/request.helper'
+
+import type { Ref } from 'vue'
+import type { TBranchType } from '@/modules/admin-branch/models/type'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 const branchtypes: Ref<TBranchType[]> = ref([])

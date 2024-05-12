@@ -6,7 +6,7 @@ import { init_pagination, paginationOptions } from './../data/blog'
 import { get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TBlog, TBlogRequest, TTag } from '../../models/type'
+import type { TBlog, TBlogRequest, TTag, TTagRequest } from '../../models/type'
 import { EnableEnum } from '@/core/models/enum'
 import type { Rules } from 'async-validator'
 import { successNotification } from '@/core/services/helpers/alert.helper'
@@ -93,14 +93,27 @@ export const rules: Rules = {
     type: 'string',
     min: 5,
     required: true
+  },
+  tags: {
+    type: 'array',
+    min:1
   }
 }
 
 export const submit = async () => {
   const data = await post<TBlogRequest, TBlog>('/api/blogs', state)
   if (data?.data) {
+    
     successNotification(data.message), resetObject(state, init_state)
   }
+  selectedTags.value.forEach(async tag => {
+    const payload = {
+      id:v4(),
+      blogId: state.id,
+      tagId:tag.id
+    }
+    const responseTag = await post<any,any>('/api/blogtags',payload)
+  })  
 }
 
 watch(

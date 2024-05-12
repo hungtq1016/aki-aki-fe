@@ -4,17 +4,8 @@
       <div class="text-center">
         <div class="flex justify-between gap-x-8">
           <div class="basis-3/5">
-            <div class="iframe-about">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/WjILHS4--o0?si=CgEVifWZL3wEsHeC"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
+            <div class="">
+              <iframe v-html="blog.videoEmbed"></iframe>
             </div>
           </div>
           <div class="">
@@ -34,6 +25,17 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref, type Ref } from 'vue';
+import type { TBlog } from '../models/type';
+import { get } from '@/core/services/helpers/request.helper';
 
+const blog: Ref<TBlog> = ref({} as TBlog)
 
+onMounted(()=>{
+  get<TBlog>('/api/blogs/ea1767a2-7e03-48e7-b874-0e16ac1b592d').then(res=>{
+    if (res?.data) {
+      blog.value = res.data
+    }
+  })
+})
 </script>

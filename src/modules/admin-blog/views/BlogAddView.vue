@@ -47,7 +47,21 @@
           </FormTextarea>
         </template>
       </FormGroup>
-      <TagView v-model="selectedTags" :has-error="[false]" />
+      <FormGroup :has-error="[false]">
+        <template #heading>
+          {{ $t('form.content') }}
+        </template>
+        <template #content>
+          <FormSelectMultiple
+            v-model="selectedTags"
+            :list="tags"
+            :has-error="false"
+            :placeholder="$t('form.place_holder.multiple_select_tag')"
+          >
+            {{ $t('form.multiple_select_tag') }}
+          </FormSelectMultiple>
+        </template>
+      </FormGroup>
     </FormItem>
   </FormLayout>
 </template>
@@ -58,7 +72,6 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import ImageView from '@/modules/admin-template/views/ImageView.vue'
-import TagView from '@/modules/admin-template/views/TagView.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
@@ -66,13 +79,14 @@ import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.vue'
+import FormSelectMultiple from '@/modules/admin-template/components/Form.select.multiple.vue'
 
 import { state, rules, submit, selectedTags } from '../services/logictics/blog'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 
 import { get } from '@/core/services/helpers/request.helper'
 
-import type { TCategory } from '../models/type'
+import type { TCategory, TTag } from '../models/type'
 import type { Ref } from 'vue'
 
 const editor: Ref<typeof ClassicEditor> = ref(ClassicEditor)
@@ -81,10 +95,14 @@ const editorConfig: Ref<any> = ref()
 const { pass, errorFields } = useAsyncValidator(state, rules)
 
 const categories: Ref<TCategory[]> = ref([])
+const tags: Ref<TTag[]> = ref([])
 
 onMounted(() => {
   get<TCategory[]>('/api/categories').then((response) => {
     categories.value = response?.data || []
+  })
+  get<TCategory[]>('/api/tags').then((response) => {
+    tags.value = response?.data || []
   })
 })
 </script>

@@ -19,4 +19,5 @@ export type TBlog = {
   slug: string
   desc: string
   imageUrl: string
+  videoEmbed: string
 }
