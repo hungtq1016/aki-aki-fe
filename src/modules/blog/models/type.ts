@@ -36,28 +36,28 @@ export type TSocial = {
 
 export type TComment = TEntity & {
   parentId: string | null
-  userId: string,
-  blogId: string,
-  content: string,
+  userId: string
+  blogId: string
+  content: string
   children: TComment[] | null
 }
 
 export type TCommentRequest = TRequest & {
   parentId: string | null
-  userId: string,
-  blogId: string,
-  content: string,
-  left: number,
+  userId: string
+  blogId: string
+  content: string
+  left: number
   right: number
 }
 
 export type TCommentResponse = TEntity & {
   parentId: string | null
-  userId: string,
+  userId: string
   user: TUser
-  blogId: string,
-  content: string,
+  blogId: string
+  content: string
   children: TCommentResponse[]
-  left: number,
+  left: number
   right: number
 }

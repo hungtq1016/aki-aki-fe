@@ -9,8 +9,8 @@ const adminOauth2Route: RouteRecordRaw = {
       redirect: { path: '/admin/oauth2/roles' }
     },
     {
-      path:'roles',
-      children:[
+      path: 'roles',
+      children: [
         {
           path: '',
           name: 'admin_oauth2_roles',

@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { imageBuilderUrl } from '@/core/services/utils/util.string';
-import type { TUrl } from '@/modules/admin-branch/models/type';
+import { imageBuilderUrl } from '@/core/services/utils/util.string'
+import type { TUrl } from '@/modules/admin-branch/models/type'
 
 defineProps<{
   data: TUrl

@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TService } from '@/modules/admin-service/models/type';
+import type { TService } from '@/modules/admin-service/models/type'
 
 defineProps<{
   data: TService

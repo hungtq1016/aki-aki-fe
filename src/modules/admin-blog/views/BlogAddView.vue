@@ -2,21 +2,37 @@
 <template>
   <FormLayout :submit="submit">
     <FormItem>
-      <FormGroup :has-error="[Boolean(errorFields?.title?.length),Boolean(errorFields?.categoryId?.length),Boolean(errorFields?.content?.length)]">
+      <FormGroup
+        :has-error="[
+          Boolean(errorFields?.title?.length),
+          Boolean(errorFields?.categoryId?.length),
+          Boolean(errorFields?.content?.length)
+        ]"
+      >
         <template #heading>
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormInput v-model="state.title" :has-error="Boolean(errorFields?.title?.length)"
-            :placeholder="$t('form.place_holder.title')">
+          <FormInput
+            v-model="state.title"
+            :has-error="Boolean(errorFields?.title?.length)"
+            :placeholder="$t('form.place_holder.title')"
+          >
             {{ $t('form.title') }}
           </FormInput>
-          <FormInput v-model="state.slug" :disabled="true"
-            :placeholder="$t('form.place_holder.slug')">
+          <FormInput
+            v-model="state.slug"
+            :disabled="true"
+            :placeholder="$t('form.place_holder.slug')"
+          >
             {{ $t('form.slug') }}
           </FormInput>
-          <FormSelect v-model="state.categoryId" :list="categories"
-            :has-error="Boolean(errorFields?.categoryId?.length)" :placeholder="$t('form.place_holder.category')">
+          <FormSelect
+            v-model="state.categoryId"
+            :list="categories"
+            :has-error="Boolean(errorFields?.categoryId?.length)"
+            :placeholder="$t('form.place_holder.category')"
+          >
             {{ $t('form.select_category') }}
           </FormSelect>
           <FormInputSlot :has-error="Boolean(errorFields?.content?.length)">
@@ -28,21 +44,28 @@
         </template>
       </FormGroup>
       <ImageView v-model="state.imageUrl" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
-
     </FormItem>
     <FormItem>
       <PublishView v-model="state.enable" :pass="pass" />
-      <FormGroup :has-error="[Boolean(errorFields?.desc?.length), Boolean(errorFields?.videoEmbed?.length)]">
+      <FormGroup
+        :has-error="[Boolean(errorFields?.desc?.length), Boolean(errorFields?.videoEmbed?.length)]"
+      >
         <template #heading>
           {{ $t('form.content') }}
         </template>
         <template #content>
-          <FormTextarea v-model="state.videoEmbed" :has-error="Boolean(errorFields?.videoEmbed?.length)"
-            :placeholder="$t('form.place_holder.video_embed')">
+          <FormTextarea
+            v-model="state.videoEmbed"
+            :has-error="Boolean(errorFields?.videoEmbed?.length)"
+            :placeholder="$t('form.place_holder.video_embed')"
+          >
             {{ $t('form.video_embed') }}
           </FormTextarea>
-          <FormTextarea v-model="state.desc" :has-error="Boolean(errorFields?.desc?.length)"
-            :placeholder="$t('form.place_holder.desc')">
+          <FormTextarea
+            v-model="state.desc"
+            :has-error="Boolean(errorFields?.desc?.length)"
+            :placeholder="$t('form.place_holder.desc')"
+          >
             {{ $t('form.desc') }}
           </FormTextarea>
         </template>

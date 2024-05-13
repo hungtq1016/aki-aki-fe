@@ -77,14 +77,10 @@ export const init_state: TUrlRequest = {
 export const state = reactive<TUrlRequest>({ ...init_state })
 
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TUrl>>(
-    '/api/urls/page',
-    paginationOptions.value
-  )
+  const response = await get<TPaginationResponse<TUrl>>('/api/urls/page', paginationOptions.value)
   items.value = response?.data.data || []
   resetObject(pagination, init_pagination)
 }
-
 
 export const submit = async () => {
   const data = await post<TUrlRequest, TUrl>('/api/urls', state)

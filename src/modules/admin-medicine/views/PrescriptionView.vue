@@ -7,11 +7,19 @@
             {{ $t('form.medicine') }}
           </template>
           <template #content>
-            <FormSelect v-model="state.medicineId" :has-error="false" :list="medicines"
-              :placeholder="$t('form.place_holder.medicineId')">
+            <FormSelect
+              v-model="state.medicineId"
+              :has-error="false"
+              :list="medicines"
+              :placeholder="$t('form.place_holder.medicineId')"
+            >
               {{ $t('form.medicineId') }}
             </FormSelect>
-            <FormInput v-model="state.quantity" type="number" :placeholder="$t('form.place_holder.quantity')">
+            <FormInput
+              v-model="state.quantity"
+              type="number"
+              :placeholder="$t('form.place_holder.quantity')"
+            >
               {{ $t('form.quantity') }}
             </FormInput>
           </template>
@@ -24,7 +32,11 @@
             {{ $t('form.content') }}
           </template>
           <template #content>
-            <FormTextarea v-model="state.usage" :has-error="false" :placeholder="$t('form.place_holder.usage')">
+            <FormTextarea
+              v-model="state.usage"
+              :has-error="false"
+              :placeholder="$t('form.place_holder.usage')"
+            >
               {{ $t('form.usage') }}
             </FormTextarea>
           </template>
@@ -38,24 +50,27 @@
       <template #content>
         <div class="flex flex-wrap items-center justify-end gap-3.5">
           <button
-            class="inline-flex items-center gap-2.5 rounded bg-green-600 px-4 py-2 font-medium text-white hover:bg-opacity-90">
+            class="inline-flex items-center gap-2.5 rounded bg-green-600 px-4 py-2 font-medium text-white hover:bg-opacity-90"
+          >
             <PrinterIcon class="w-5 h-5" />
             <span>{{ $t('button.print') }}</span>
           </button>
           <button
-            class="inline-flex items-center gap-2.5 rounded bg-cerulean-600 px-4 py-2 font-medium text-white hover:bg-opacity-90">
+            class="inline-flex items-center gap-2.5 rounded bg-cerulean-600 px-4 py-2 font-medium text-white hover:bg-opacity-90"
+          >
             <DocumentIcon class="w-5 h-5" />
             <span>{{ $t('button.save_as', { title: 'PDF' }) }}</span>
           </button>
         </div>
-        <TableView 
+        <TableView
           :headers="headers"
           :items="prescriptions"
           :pagination="pagination"
-          :pagination-options = "paginationOptions"
+          :pagination-options="paginationOptions"
           :fetch="fetch"
           route="pre"
-          key="pre"/>
+          key="pre"
+        />
       </template>
     </FormGroup>
   </div>
@@ -74,7 +89,14 @@ import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 import TableView from '@/modules/admin/views/TableView.vue'
 
 import { paginationOptions, headers } from '../services/data/prescription'
-import { fetch, medicines, pagination, prescriptions, state, submit } from '../services/logictics/prescription'
+import {
+  fetch,
+  medicines,
+  pagination,
+  prescriptions,
+  state,
+  submit
+} from '../services/logictics/prescription'
 
 import { onMounted } from 'vue'
 import { get } from '@/core/services/helpers/request.helper'
@@ -85,5 +107,4 @@ onMounted(async () => {
   const data = await get<TMedicine[]>('/api/medicines')
   medicines.value = data?.data || []
 })
-
 </script>

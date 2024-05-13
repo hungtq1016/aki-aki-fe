@@ -13,10 +13,10 @@ export const items = ref<TComment[]>([
   {
     id: v4(),
     content: 'mock-data',
-    parentId:'-1',
+    parentId: '-1',
     blogId: '-1',
     userId: '-1',
-    children:[],
+    children: [],
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
     enable: Boolean(EnableEnum.ALL)
@@ -26,9 +26,11 @@ export const items = ref<TComment[]>([
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TComment>>('/api/comments/page', paginationOptions.value)
+  const response = await get<TPaginationResponse<TComment>>(
+    '/api/comments/page',
+    paginationOptions.value
+  )
   items.value = response?.data.data || []
-  
 }
 
 watch(

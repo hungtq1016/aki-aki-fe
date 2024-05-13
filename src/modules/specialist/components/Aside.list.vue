@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <aside>
-    <ul class="w-full p-0 m-0 overflow-hidden rounded ">
+    <ul class="w-full p-0 m-0 overflow-hidden rounded">
       <li class="text-lg font-bold leading-5 text-white px-6 py-3.5 bg-cerulean-400 capitalize">
         {{ data.label }}
       </li>
@@ -16,10 +16,14 @@
 </template>
 
 <script setup lang="ts">
-import type { TGroupService, TGroupServiceResponse, TService } from '@/modules/admin-service/models/type';
+import type {
+  TGroupService,
+  TGroupServiceResponse,
+  TService
+} from '@/modules/admin-service/models/type'
 import AsideItem from './Aside.item.vue'
-import { onMounted, ref, type Ref } from 'vue';
-import { get } from '@/core/services/helpers/fetcher.helper';
+import { onMounted, ref, type Ref } from 'vue'
+import { get } from '@/core/services/helpers/fetcher.helper'
 
 const props = defineProps<{
   data: TGroupService
@@ -27,10 +31,10 @@ const props = defineProps<{
 
 const dataService: Ref<TService[]> = ref([])
 
-onMounted(()=>{
-  get<TGroupServiceResponse>('/api/groupservices/label/'+props.data.label).then(res =>{
+onMounted(() => {
+  get<TGroupServiceResponse>('/api/groupservices/label/' + props.data.label).then((res) => {
     if (res?.data) {
-      const {services} =  res.data
+      const { services } = res.data
       dataService.value = services
     }
   })

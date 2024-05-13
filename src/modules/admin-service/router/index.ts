@@ -55,8 +55,8 @@ const adminServiceRoute: RouteRecordRaw = {
           }
         }
       ]
-    },
+    }
   ]
 }
 
-export default adminServiceRoute;
+export default adminServiceRoute

@@ -7,12 +7,18 @@
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormInput v-model="state.title" :has-error="Boolean(errorFields?.title?.length)"
-            :placeholder="$t('form.place_holder.title')">
+          <FormInput
+            v-model="state.title"
+            :has-error="Boolean(errorFields?.title?.length)"
+            :placeholder="$t('form.place_holder.title')"
+          >
             {{ $t('form.title') }}
           </FormInput>
-          <FormInput v-model="state.slug" :disabled="true"
-            :placeholder="$t('form.place_holder.slug')">
+          <FormInput
+            v-model="state.slug"
+            :disabled="true"
+            :placeholder="$t('form.place_holder.slug')"
+          >
             {{ $t('form.slug') }}
           </FormInput>
         </template>

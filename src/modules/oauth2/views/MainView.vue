@@ -46,7 +46,7 @@
           :disabled="!pass"
           class="rounded-md bg-cerulean-600 px-3 py-2 text-sm font-semibold text-white shadow-sm disabled:bg-cerulean-100 disabled:text-zinc-300 hover:bg-cerulean-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cerulean-600"
         >
-          {{ $t('button.confirm') }} 
+          {{ $t('button.confirm') }}
         </button>
       </div>
     </form>
@@ -108,11 +108,10 @@ const submitLogin = async (): Promise<void> => {
 
   const response = await submit()
 
-  if(response){
+  if (response) {
     successNotification(i18n.global.t('message.login_success'))
     await fetchUser()
     router.push('/')
   }
 }
-
 </script>

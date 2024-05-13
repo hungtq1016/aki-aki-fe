@@ -47,7 +47,4 @@ const model: ModelRef<boolean> = defineModel({ required: true })
 defineProps<{
   pass: boolean
 }>()
-
-
-
 </script>

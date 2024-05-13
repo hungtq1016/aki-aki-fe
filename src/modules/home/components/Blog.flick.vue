@@ -28,10 +28,10 @@ const plugins = [new Arrow()]
 
 const blogs = ref<TBlog[]>(data.value)
 
-onMounted(()=>{
-  get<TPaginationResponse<TBlog>>('/api/blogs/page').then(res=>{
+onMounted(() => {
+  get<TPaginationResponse<TBlog>>('/api/blogs/page').then((res) => {
     if (res?.data) {
-      blogs.value = res.data.data      
+      blogs.value = res.data.data
     }
   })
 })

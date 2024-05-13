@@ -38,18 +38,16 @@ const submit = async (): Promise<boolean> => {
       const auth: TTokenResponse = data.data
       const saveResult: boolean | undefined = await updateAuthAsync(auth)
 
-      if (saveResult) return true;
+      if (saveResult) return true
 
-      return false;
+      return false
     }
 
-    return false;
-
+    return false
   } catch (error) {
     errorNotification(String(error))
-    return false;
+    return false
   }
 }
-
 
 export { state, rules, submit }

@@ -4,24 +4,43 @@
     <FormItem>
       <!-- <HeadingView v-model="state" :has-error="[Boolean(errorFields?.title?.length)]" /> -->
       <FormGroup
-        :has-error="[Boolean(errorFields?.title?.length), Boolean(errorFields?.categoryId?.length), Boolean(errorFields?.content?.length)]">
+        :has-error="[
+          Boolean(errorFields?.title?.length),
+          Boolean(errorFields?.categoryId?.length),
+          Boolean(errorFields?.content?.length)
+        ]"
+      >
         <template #heading>
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormInput v-model="state.title" :has-error="Boolean(errorFields?.title?.length)"
-            :placeholder="$t('form.place_holder.title')">
+          <FormInput
+            v-model="state.title"
+            :has-error="Boolean(errorFields?.title?.length)"
+            :placeholder="$t('form.place_holder.title')"
+          >
             {{ $t('form.title') }}
           </FormInput>
-          <FormInput v-model="state.slug" :disabled="true" :placeholder="$t('form.place_holder.slug')">
+          <FormInput
+            v-model="state.slug"
+            :disabled="true"
+            :placeholder="$t('form.place_holder.slug')"
+          >
             {{ $t('form.slug') }}
           </FormInput>
-          <FormSelect v-model="state.groupId" :list="groups" :has-error="Boolean(errorFields?.groupId?.length)"
-            :placeholder="$t('form.place_holder.group_service')">
+          <FormSelect
+            v-model="state.groupId"
+            :list="groups"
+            :has-error="Boolean(errorFields?.groupId?.length)"
+            :placeholder="$t('form.place_holder.group_service')"
+          >
             {{ $t('form.group_service') }}
           </FormSelect>
-          <FormTextarea v-model="state.desc" :has-error="Boolean(errorFields?.desc?.length)"
-            :placeholder="$t('form.place_holder.desc')">
+          <FormTextarea
+            v-model="state.desc"
+            :has-error="Boolean(errorFields?.desc?.length)"
+            :placeholder="$t('form.place_holder.desc')"
+          >
             {{ $t('form.desc') }}
           </FormTextarea>
         </template>
@@ -30,13 +49,21 @@
     </FormItem>
     <FormItem>
       <PublishView v-model="state.enable" :pass="pass" />
-      <FormGroup :has-error="[Boolean(errorFields?.videoEmbed?.length), Boolean(errorFields?.content?.length)]">
+      <FormGroup
+        :has-error="[
+          Boolean(errorFields?.videoEmbed?.length),
+          Boolean(errorFields?.content?.length)
+        ]"
+      >
         <template #heading>
           {{ $t('form.content') }}
         </template>
         <template #content>
-          <FormTextarea v-model="state.videoEmbed" :has-error="Boolean(errorFields?.videoEmbed?.length)"
-            :placeholder="$t('form.place_holder.video_embed')">
+          <FormTextarea
+            v-model="state.videoEmbed"
+            :has-error="Boolean(errorFields?.videoEmbed?.length)"
+            :placeholder="$t('form.place_holder.video_embed')"
+          >
             {{ $t('form.video_embed') }}
           </FormTextarea>
           <FormInputSlot :has-error="Boolean(errorFields?.content?.length)">

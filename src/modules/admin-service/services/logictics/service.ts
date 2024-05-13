@@ -24,7 +24,7 @@ export const items = ref<TService[]>([
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
     videoEmbed: '',
-    desc:'',
+    desc: '',
     enable: Boolean(EnableEnum.ALL)
   }
 ])
@@ -35,7 +35,7 @@ export const init_state: TServiceRequest = {
   content: '',
   imageUrl: '',
   slug: '',
-  desc:'',
+  desc: '',
   videoEmbed: '',
   groupId: '-1',
   enable: Boolean(EnableEnum.ALL)

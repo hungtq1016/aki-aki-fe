@@ -18,7 +18,7 @@ export const items = ref<TSchedule[]>([
     id: v4(),
     title: 'mock-data',
     content: 'mock-data',
-    videoEmbed:'',
+    videoEmbed: '',
     desc: 'mock-data',
     slug: 'mock-data',
     type: 'mock-data',
@@ -36,7 +36,7 @@ export const init_state: TScheduleRequest = {
   id: v4(),
   title: '',
   content: '',
-  videoEmbed:'',
+  videoEmbed: '',
   desc: '',
   slug: '',
   imageUrl: '',
@@ -49,11 +49,14 @@ export const state = reactive<TScheduleRequest>({ ...init_state })
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TSchedule>>('/api/schedules/page', paginationOptions.value)
+  const response = await get<TPaginationResponse<TSchedule>>(
+    '/api/schedules/page',
+    paginationOptions.value
+  )
   items.value = response?.data.data || []
   resetObject(pagination, init_pagination)
 
-  pagination.value = response?.data || { ...init_pagination };
+  pagination.value = response?.data || { ...init_pagination }
 }
 
 watch(
@@ -98,24 +101,23 @@ export const rules: Rules = {
   },
   tags: {
     type: 'array',
-    min:1
+    min: 1
   }
 }
 
 export const submit = async () => {
   const data = await post<TScheduleRequest, TSchedule>('/api/schedules', state)
   if (data?.data) {
-    
     successNotification(data.message), resetObject(state, init_state)
   }
-  selectedTags.value.forEach(async tag => {
+  selectedTags.value.forEach(async (tag) => {
     const payload = {
-      id:v4(),
+      id: v4(),
       scheduleId: state.id,
-      tagId:tag.id
+      tagId: tag.id
     }
-    const responseTag = await post<any,any>('/api/scheduletags',payload)
-  })  
+    const responseTag = await post<any, any>('/api/scheduletags', payload)
+  })
 }
 
 watch(

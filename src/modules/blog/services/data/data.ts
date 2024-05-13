@@ -6,7 +6,7 @@ const categories = ref<Array<TCategory>>([
   {
     title: 'route.healthcare',
     slug: '/healthcare',
-    createdAt:'',
+    createdAt: '',
     updatedAt: '',
     enable: true,
     id: '2'
@@ -14,7 +14,7 @@ const categories = ref<Array<TCategory>>([
   {
     title: 'route.service',
     slug: '/service',
-    createdAt:'',
+    createdAt: '',
     updatedAt: '',
     enable: true,
     id: '3'
@@ -22,7 +22,7 @@ const categories = ref<Array<TCategory>>([
   {
     title: 'route.sale',
     slug: '/sale',
-    createdAt:'',
+    createdAt: '',
     updatedAt: '',
     enable: true,
     id: '4'
@@ -30,7 +30,7 @@ const categories = ref<Array<TCategory>>([
   {
     title: 'route.information',
     slug: '/information',
-    createdAt:'',
+    createdAt: '',
     updatedAt: '',
     enable: true,
     id: '5'

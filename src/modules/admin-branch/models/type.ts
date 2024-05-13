@@ -1,4 +1,4 @@
-import type { TEntity, TRequest } from "@/core/models/type"
+import type { TEntity, TRequest } from '@/core/models/type'
 
 export type TBranch = TEntity & {
   name: string
@@ -51,7 +51,7 @@ export type TGroupUrl = TEntity & {
 }
 
 export type TGroupUrlReponse = TEntity & {
-  label: string,
+  label: string
   urls: TUrl[]
 }
 

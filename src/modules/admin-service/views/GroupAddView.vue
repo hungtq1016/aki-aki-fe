@@ -7,8 +7,11 @@
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormInput v-model="state.label" :has-error="Boolean(errorFields?.label?.length)"
-            :placeholder="$t('form.place_holder.label')">
+          <FormInput
+            v-model="state.label"
+            :has-error="Boolean(errorFields?.label?.length)"
+            :placeholder="$t('form.place_holder.label')"
+          >
             {{ $t('form.label') }}
           </FormInput>
         </template>
@@ -31,5 +34,4 @@ import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
-
 </script>

@@ -4,8 +4,7 @@
       <div class="text-center">
         <div class="flex justify-between gap-x-8">
           <div class="basis-3/5">
-            <div  v-html="blog.videoEmbed">
-            </div>
+            <div v-html="blog.videoEmbed"></div>
           </div>
           <div class="">
             <h1
@@ -24,14 +23,14 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, type Ref } from 'vue';
-import type { TBlog } from '../models/type';
-import { get } from '@/core/services/helpers/fetcher.helper';
+import { onMounted, ref, type Ref } from 'vue'
+import type { TBlog } from '../models/type'
+import { get } from '@/core/services/helpers/fetcher.helper'
 
 const blog: Ref<TBlog> = ref({} as TBlog)
 
-onMounted(()=>{
-  get<TBlog>('/api/blogs/slug/tieu-chuan-y-khoa-the-gioi').then(res=>{
+onMounted(() => {
+  get<TBlog>('/api/blogs/slug/tieu-chuan-y-khoa-the-gioi').then((res) => {
     if (res?.data) {
       blog.value = res.data
     }

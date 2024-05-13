@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import type {  TQuote, TCount } from '../../models/type'
+import type { TQuote, TCount } from '../../models/type'
 import type { TUrl } from '@/modules/admin-branch/models/type'
 import type { TBlog } from '@/modules/admin-blog/models/type'
 
@@ -7,26 +7,26 @@ const banners = ref<TUrl[]>([
   {
     imageUrl: '/vuehost/banner.jpg',
     label: 'Banner 1',
-    createdAt:'',
+    createdAt: '',
     enable: true,
     groupId: '-1',
-    id:'-1',
-    slug:'',
-    tag:'',
-    type:'',
-    updatedAt:''
+    id: '-1',
+    slug: '',
+    tag: '',
+    type: '',
+    updatedAt: ''
   },
   {
     imageUrl: '/vuehost/banner2.jpg',
     label: 'Banner 2',
-    createdAt:'',
+    createdAt: '',
     enable: true,
     groupId: '-1',
-    id:'-1',
-    slug:'',
-    tag:'',
-    type:'',
-    updatedAt:''
+    id: '-1',
+    slug: '',
+    tag: '',
+    type: '',
+    updatedAt: ''
   }
 ])
 
@@ -137,7 +137,7 @@ const certificates = ref<Array<TUrl>>([
   },
   {
     label: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
-    imageUrl:'/vuehost/cer3.jpg',
+    imageUrl: '/vuehost/cer3.jpg',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -188,7 +188,7 @@ const customers = ref<Array<TUrl>>([
   },
   {
     label: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
-    imageUrl:'/vuehost/cer3.jpg',
+    imageUrl: '/vuehost/cer3.jpg',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -236,7 +236,7 @@ const customers = ref<Array<TUrl>>([
   },
   {
     label: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
-    imageUrl:'/vuehost/cer3.jpg',
+    imageUrl: '/vuehost/cer3.jpg',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -287,7 +287,7 @@ const galleries = ref<Array<TUrl>>([
   },
   {
     label: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
-    imageUrl:'/vuehost/cer3.jpg',
+    imageUrl: '/vuehost/cer3.jpg',
     createdAt: '',
     enable: true,
     groupId: '',

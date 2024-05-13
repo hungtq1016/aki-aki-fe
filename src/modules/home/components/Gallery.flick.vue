@@ -3,7 +3,11 @@
   <div class="mt-5">
     <Flicking :options="galleryOptions" :plugins="plugins">
       <div class="p-2" v-for="(data, index) in galleries" :key="index">
-        <img :src="imageBuilderUrl(data.imageUrl)" :alt="data.label" class="h-40 object-cover w-full" />
+        <img
+          :src="imageBuilderUrl(data.imageUrl)"
+          :alt="data.label"
+          class="h-40 object-cover w-full"
+        />
       </div>
       <template #viewport>
         <span class="flicking-arrow-prev"></span>
@@ -29,10 +33,10 @@ const plugins = [new Arrow()]
 
 const galleries = ref<TUrl[]>(data.value)
 
-onMounted(()=>{
-  get<TGroupUrlReponse>('/api/groupurls/label/gallery').then(res=>{
+onMounted(() => {
+  get<TGroupUrlReponse>('/api/groupurls/label/gallery').then((res) => {
     if (res?.data) {
-        galleries.value = res.data.urls
+      galleries.value = res.data.urls
     }
   })
 })

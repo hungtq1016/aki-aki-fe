@@ -7,7 +7,12 @@
           {{ $t('form.user') }}
         </template>
         <template #content>
-          <FormSelect v-model="state.userId" :list="users" :has-error="Boolean(errorFields?.userId?.length)" :placeholder="$t('form.place_holder.select_email')">
+          <FormSelect
+            v-model="state.userId"
+            :list="users"
+            :has-error="Boolean(errorFields?.userId?.length)"
+            :placeholder="$t('form.place_holder.select_email')"
+          >
             {{ $t('form.user') }}
           </FormSelect>
         </template>
@@ -24,20 +29,27 @@
             <li v-for="(role, index) in roles" :key="index">
               <label :for="`checkbox-${index}`">
                 <div class="border border-gray-100 relative dark:border-zinc-900 rounded-md">
-                  <input :checked="isChecked(role)" @click="toggleRole(role)" :disabled="state.userId === '-1'"
-                  class="absolute top-2 right-4 w-4 h-4 peer text-cerulean-600 bg-gray-100 border-gray-300 rounded 
-          checked:accent-cerulean-600" type="checkbox" :value="role" :id="`checkbox-${index}`">
-                  <div class="flex justify-between px-4 py-2 bg-gray-100 peer-checked:bg-cerulean-100 dark:peer-checked:!bg-slate-950
-          dark:bg-zinc-950">
+                  <input
+                    :checked="isChecked(role)"
+                    @click="toggleRole(role)"
+                    :disabled="state.userId === '-1'"
+                    class="absolute top-2 right-4 w-4 h-4 peer text-cerulean-600 bg-gray-100 border-gray-300 rounded checked:accent-cerulean-600"
+                    type="checkbox"
+                    :value="role"
+                    :id="`checkbox-${index}`"
+                  />
+                  <div
+                    class="flex justify-between px-4 py-2 bg-gray-100 peer-checked:bg-cerulean-100 dark:peer-checked:!bg-slate-950 dark:bg-zinc-950"
+                  >
                     <div
-                      class="flex gap-x-1 items-center capitalize text-gray-950 text-sm font-semibold dark:text-gray-50">
+                      class="flex gap-x-1 items-center capitalize text-gray-950 text-sm font-semibold dark:text-gray-50"
+                    >
                       {{ role.name }}
                     </div>
                   </div>
-                  <div class="border-t border-gray-100 bg-gray-50 px-4 dark:border-zinc-900 py-2 text-xs text-gray-600 
-          peer-checked:bg-cerulean-50
-          dark:bg-zinc-800 dark:text-gray-300
-          dark:peer-checked:!bg-slate-900">
+                  <div
+                    class="border-t border-gray-100 bg-gray-50 px-4 dark:border-zinc-900 py-2 text-xs text-gray-600 peer-checked:bg-cerulean-50 dark:bg-zinc-800 dark:text-gray-300 dark:peer-checked:!bg-slate-900"
+                  >
                     {{ role.note }}
                   </div>
                 </div>
@@ -63,7 +75,7 @@ import { isChecked, roles, toggleRole, rules, submit, state } from '../services/
 import { onMounted, ref } from 'vue'
 
 import type { Ref } from 'vue'
-import type {  TRole, TUser } from '../models/type'
+import type { TRole, TUser } from '../models/type'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
@@ -82,6 +94,4 @@ onMounted(() => {
     users.value = response?.data || []
   })
 })
-
-
 </script>

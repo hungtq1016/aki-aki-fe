@@ -7,20 +7,33 @@
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormInput v-model="state.label" :has-error="Boolean(errorFields?.label?.length)"
-            :placeholder="$t('form.place_holder.label')">
+          <FormInput
+            v-model="state.label"
+            :has-error="Boolean(errorFields?.label?.length)"
+            :placeholder="$t('form.place_holder.label')"
+          >
             {{ $t('form.label') }}
           </FormInput>
-          <FormInput v-model="state.slug" :has-error="Boolean(errorFields?.slug?.length)"
-            :placeholder="$t('form.place_holder.slug')">
+          <FormInput
+            v-model="state.slug"
+            :has-error="Boolean(errorFields?.slug?.length)"
+            :placeholder="$t('form.place_holder.slug')"
+          >
             {{ $t('form.slug') }}
           </FormInput>
-          <FormInput v-model="state.type" :has-error="Boolean(errorFields?.type?.length)"
-            :placeholder="$t('form.place_holder.type')">
+          <FormInput
+            v-model="state.type"
+            :has-error="Boolean(errorFields?.type?.length)"
+            :placeholder="$t('form.place_holder.type')"
+          >
             {{ $t('form.type') }}
           </FormInput>
-          <FormSelect v-model="state.tag" :has-error="Boolean(errorFields?.tag?.length)" :list="elementTags"
-            :placeholder="$t('form.place_holder.tag_element')">
+          <FormSelect
+            v-model="state.tag"
+            :has-error="Boolean(errorFields?.tag?.length)"
+            :list="elementTags"
+            :placeholder="$t('form.place_holder.tag_element')"
+          >
             {{ $t('form.tag_element') }}
           </FormSelect>
         </template>
@@ -30,8 +43,12 @@
           {{ $t('form.content') }}
         </template>
         <template #content>
-          <FormSelect v-model="state.groupId" :has-error="Boolean(errorFields?.groupId?.length)" :list="groupurls"
-            :placeholder="$t('form.place_holder.groupId')">
+          <FormSelect
+            v-model="state.groupId"
+            :has-error="Boolean(errorFields?.groupId?.length)"
+            :list="groupurls"
+            :placeholder="$t('form.place_holder.groupId')"
+          >
             {{ $t('form.groupId') }}
           </FormSelect>
         </template>
@@ -40,8 +57,6 @@
     <FormItem>
       <PublishView v-model="state.enable" :pass="pass" />
       <ImageView v-model="state.imageUrl" :has-error="[]" />
-
-
     </FormItem>
   </FormLayout>
 </template>
@@ -67,12 +82,12 @@ const groupurls: Ref<TGroupUrlRequest[]> = ref([])
 
 const elementTags = [
   {
-    id:"a-tag",
-    name:"a-tag"
+    id: 'a-tag',
+    name: 'a-tag'
   },
   {
-    id:"router-link",
-    name:"router-link"
+    id: 'router-link',
+    name: 'router-link'
   }
 ]
 
@@ -81,5 +96,4 @@ onMounted(() => {
     groupurls.value = response?.data || []
   })
 })
-
 </script>

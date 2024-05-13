@@ -7,16 +7,25 @@
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormInput v-model="state.title" :has-error="Boolean(errorFields?.title?.length)"
-            :placeholder="$t('form.place_holder.title')">
+          <FormInput
+            v-model="state.title"
+            :has-error="Boolean(errorFields?.title?.length)"
+            :placeholder="$t('form.place_holder.title')"
+          >
             {{ $t('form.title') }}
           </FormInput>
-          <FormInput v-model="state.slug" :disabled="true"
-            :placeholder="$t('form.place_holder.slug')">
+          <FormInput
+            v-model="state.slug"
+            :disabled="true"
+            :placeholder="$t('form.place_holder.slug')"
+          >
             {{ $t('form.slug') }}
           </FormInput>
-          <FormInput v-model="state.brand" :has-error="Boolean(errorFields?.brand?.length)"
-            :placeholder="$t('form.place_holder.brand')">
+          <FormInput
+            v-model="state.brand"
+            :has-error="Boolean(errorFields?.brand?.length)"
+            :placeholder="$t('form.place_holder.brand')"
+          >
             {{ $t('form.brand') }}
           </FormInput>
         </template>
@@ -29,8 +38,11 @@
           {{ $t('form.content') }}
         </template>
         <template #content>
-          <FormTextarea v-model="state.desc" :has-error="Boolean(errorFields?.desc?.length)"
-            :placeholder="$t('form.place_holder.desc')">
+          <FormTextarea
+            v-model="state.desc"
+            :has-error="Boolean(errorFields?.desc?.length)"
+            :placeholder="$t('form.place_holder.desc')"
+          >
             {{ $t('form.desc') }}
           </FormTextarea>
         </template>

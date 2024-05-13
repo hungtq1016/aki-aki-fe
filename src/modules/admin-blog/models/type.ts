@@ -19,7 +19,7 @@ export type TBlogResponse = TEntity & {
   content: string
   videoEmbed: string
   imageUrl: string
-  categoryId: string,
+  categoryId: string
   category: TCategory
 }
 
@@ -38,7 +38,6 @@ export type TCategoryResponse = TEntity & {
   slug: string
   blogs: TBlog[]
 }
-
 
 export type TTag = TEntity & {
   title: string

@@ -20,7 +20,7 @@
       <div class="flex-shrink-0 pt-3 text-center">
         <router-link
           class="text-sm underline underline-offset-[4px] text-cerulean-400"
-          :to="'/blogs/detail/'+data.slug"
+          :to="'/blogs/detail/' + data.slug"
         >
           {{ $t('content.more') }}
         </router-link>
@@ -30,8 +30,8 @@
 </template>
 
 <script setup lang="ts">
-import { imageBuilderUrl } from '@/core/services/utils/util.string';
-import type { TBlog } from '@/modules/admin-blog/models/type';
+import { imageBuilderUrl } from '@/core/services/utils/util.string'
+import type { TBlog } from '@/modules/admin-blog/models/type'
 
 defineProps<{
   data: TBlog

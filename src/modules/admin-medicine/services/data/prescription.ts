@@ -6,11 +6,11 @@ import type { Header } from 'vue3-easy-data-table'
 import type { TPagination, TPaginationRequest } from '@/core/models/type'
 
 export const headers: Header[] = [
-  { text: 'table.title', value: 'medicine.title'},
+  { text: 'table.title', value: 'medicine.title' },
   { text: 'table.brand', value: 'medicine.brand', sortable: true },
   { text: 'table.quantity', value: 'quantity' },
   { text: 'table.usage', value: 'usage' },
-  { text: 'table.delete', value: 'delete' },
+  { text: 'table.delete', value: 'delete' }
 ]
 
 export const paginationOptions = ref<TPaginationRequest>({

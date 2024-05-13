@@ -46,8 +46,11 @@ watch(
 )
 
 const fetch = async () => {
-  const response = await get<TPaginationResponse<TBlog>>(`/api/blogs/category/${route.params.slug}`, paginationOptions.value)
-  
+  const response = await get<TPaginationResponse<TBlog>>(
+    `/api/blogs/category/${route.params.slug}`,
+    paginationOptions.value
+  )
+
   if (response?.data) {
     const { data, ...page } = response.data
     blogs.value = data
@@ -58,7 +61,7 @@ const fetch = async () => {
 onMounted(async () => {
   await fetch()
 
-  get<TCategoryResponse>(`/api/categories/slug/${route.params.slug}`).then(res => {
+  get<TCategoryResponse>(`/api/categories/slug/${route.params.slug}`).then((res) => {
     if (res?.data) {
       data.value = res.data
     }

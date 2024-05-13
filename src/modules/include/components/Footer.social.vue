@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TUrl } from '@/modules/admin-branch/models/type';
+import type { TUrl } from '@/modules/admin-branch/models/type'
 
 defineProps<{
   data: TUrl

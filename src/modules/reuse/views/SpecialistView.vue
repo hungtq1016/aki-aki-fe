@@ -33,12 +33,13 @@ const isHomePage = computed(() => route.name == 'home')
 
 const specialists = ref<TService[]>(data.value)
 
-onMounted(()=>{
-  get<TPaginationResponse<TService>>('/api/services/page?pageNumber=1&pageSize=6&enable=2').then(res=>{
-    if (res?.data) {
-      specialists.value = res.data.data
+onMounted(() => {
+  get<TPaginationResponse<TService>>('/api/services/page?pageNumber=1&pageSize=6&enable=2').then(
+    (res) => {
+      if (res?.data) {
+        specialists.value = res.data.data
+      }
     }
-  })
+  )
 })
-
 </script>

@@ -16,8 +16,8 @@ const address = ref<Array<TBranch>>([
     address2: 'Q.Tân Phú, TP.HCM',
     phone1: '(028) 38 612977',
     phone2: '0913 949 041',
-    typeId:'',
-    addressEmbed:''
+    typeId: '',
+    addressEmbed: ''
   },
   {
     id: '1',
@@ -29,8 +29,8 @@ const address = ref<Array<TBranch>>([
     address2: 'Q.Tân Bình, TP.HCM',
     phone1: '(028) 62 972 290',
     phone2: '0917 710 311',
-    typeId:'',
-    addressEmbed:''
+    typeId: '',
+    addressEmbed: ''
   },
   {
     id: '',
@@ -41,8 +41,8 @@ const address = ref<Array<TBranch>>([
     address1: '111 Trường Chinh, P.12,',
     address2: 'Q.Tân Bình, TP.HCM',
     phone1: '0916 219 211',
-    typeId:'',
-    addressEmbed:''
+    typeId: '',
+    addressEmbed: ''
   },
   {
     id: '1',
@@ -53,15 +53,15 @@ const address = ref<Array<TBranch>>([
     address1: '155 Nguyễn Thị Tú, P.Bình Hưng Hòa B,',
     address2: ' Q.Bình Tân, TP.HCM',
     phone1: '0912 219 211',
-    typeId:'',
-    addressEmbed:''
+    typeId: '',
+    addressEmbed: ''
   }
 ])
 
 const contacts = ref<Array<TUrl>>([
   {
-    id:'1',
-    createdAt:'',
+    id: '1',
+    createdAt: '',
     enable: true,
     groupId: '',
     imageUrl: '',
@@ -72,8 +72,8 @@ const contacts = ref<Array<TUrl>>([
     slug: 'cskh@akiaki.com.vn'
   },
   {
-    id:'2',
-    createdAt:'',
+    id: '2',
+    createdAt: '',
     enable: true,
     groupId: '',
     imageUrl: '',
@@ -87,8 +87,8 @@ const contacts = ref<Array<TUrl>>([
 
 const socials = ref<Array<TUrl>>([
   {
-    id:'1',
-    createdAt:'',
+    id: '1',
+    createdAt: '',
     enable: true,
     groupId: '',
     imageUrl: '',
@@ -99,8 +99,8 @@ const socials = ref<Array<TUrl>>([
     slug: 'cskh@akiaki.com.vn'
   },
   {
-    id:'1',
-    createdAt:'',
+    id: '1',
+    createdAt: '',
     enable: true,
     groupId: '',
     imageUrl: '',
@@ -111,8 +111,8 @@ const socials = ref<Array<TUrl>>([
     slug: 'cskh@akiaki.com.vn'
   },
   {
-    id:'2',
-    createdAt:'',
+    id: '2',
+    createdAt: '',
     enable: true,
     groupId: '',
     imageUrl: '',
@@ -123,8 +123,8 @@ const socials = ref<Array<TUrl>>([
     slug: 'cskh@akiaki.com.vn'
   },
   {
-    id:'3',
-    createdAt:'',
+    id: '3',
+    createdAt: '',
     enable: true,
     groupId: '',
     imageUrl: '',

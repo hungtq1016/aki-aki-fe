@@ -53,7 +53,6 @@ export const rules: Rules = {
 }
 export const pagination = ref<TPagination>({ ...init_pagination })
 
-
 export const init_state: TBranchRequest = {
   id: v4(),
   address1: '',
@@ -76,7 +75,6 @@ export const fetch = async () => {
   items.value = response?.data.data || []
   resetObject(pagination, init_pagination)
 }
-
 
 export const submit = async () => {
   const data = await post<TBranchRequest, TBranch>('/api/branches', state)

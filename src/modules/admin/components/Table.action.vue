@@ -16,10 +16,7 @@
 <script setup lang="ts">
 import { DocumentDuplicateIcon, TrashIcon, EyeIcon } from '@heroicons/vue/24/outline'
 import { useRouter, useRoute } from 'vue-router'
-import {
-  errorNotification,
-  successNotification
-} from '@/core/services/helpers/alert.helper'
+import { errorNotification, successNotification } from '@/core/services/helpers/alert.helper'
 import { del } from '@/core/services/helpers/request.helper'
 
 import { i18n } from '@/core/services/base/translation'
@@ -38,11 +35,13 @@ const props = defineProps<{
 }>()
 
 const remove = async () => {
-  const item = confirm(i18n.global.t('message.confirm_delete', { name: capitalize(props.item.id) }) as string)
+  const item = confirm(
+    i18n.global.t('message.confirm_delete', { name: capitalize(props.item.id) }) as string
+  )
   if (item) {
     const response = await del<any, Response<boolean>>(`/api/${props.route}/${props.item.id}`)
 
-      if (response?.isError) {
+    if (response?.isError) {
       errorNotification(
         i18n.global.t('error.server_error.message', { name: capitalize(props.route) }) as string
       )

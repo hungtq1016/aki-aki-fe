@@ -23,7 +23,6 @@ export const items = ref<TPermission[]>([
   }
 ])
 
-
 export const init_state: TPermissionRequest = {
   id: v4(),
   type: '',
@@ -36,7 +35,10 @@ export const state = reactive<TPermissionRequest>({ ...init_state })
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TPermission>>('/api/permissions/page', paginationOptions.value)
+  const response = await get<TPaginationResponse<TPermission>>(
+    '/api/permissions/page',
+    paginationOptions.value
+  )
   items.value = response?.data.data || []
   resetObject(pagination, init_pagination)
 }

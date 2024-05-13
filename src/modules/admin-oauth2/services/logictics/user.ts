@@ -70,7 +70,7 @@ export const rules: Rules = {
     type: 'string',
     min: 5,
     required: true
-  },
+  }
 }
 
 export const submit = async () => {

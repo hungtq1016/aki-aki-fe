@@ -18,7 +18,7 @@ export const items = ref<TBlog[]>([
     id: v4(),
     title: 'mock-data',
     content: 'mock-data',
-    videoEmbed:'',
+    videoEmbed: '',
     desc: 'mock-data',
     slug: 'mock-data',
     type: 'mock-data',
@@ -36,7 +36,7 @@ export const init_state: TBlogRequest = {
   id: v4(),
   title: '',
   content: '',
-  videoEmbed:'',
+  videoEmbed: '',
   desc: '',
   slug: '',
   imageUrl: '',
@@ -53,7 +53,7 @@ export const fetch = async () => {
   items.value = response?.data.data || []
   resetObject(pagination, init_pagination)
 
-  pagination.value = response?.data || { ...init_pagination };
+  pagination.value = response?.data || { ...init_pagination }
 }
 
 watch(
@@ -98,24 +98,23 @@ export const rules: Rules = {
   },
   tags: {
     type: 'array',
-    min:1
+    min: 1
   }
 }
 
 export const submit = async () => {
   const data = await post<TBlogRequest, TBlog>('/api/blogs', state)
   if (data?.data) {
-    
     successNotification(data.message), resetObject(state, init_state)
   }
-  selectedTags.value.forEach(async tag => {
+  selectedTags.value.forEach(async (tag) => {
     const payload = {
-      id:v4(),
+      id: v4(),
       blogId: state.id,
-      tagId:tag.id
+      tagId: tag.id
     }
-    const responseTag = await post<any,any>('/api/blogtags',payload)
-  })  
+    const responseTag = await post<any, any>('/api/blogtags', payload)
+  })
 }
 
 watch(

@@ -1,22 +1,30 @@
 <template>
   <div>
-    <div class="capitalize bg-cerulean-600 text-sm w-fit font-medium text-center rounded text-white py-4 px-4 mb-7.5">
+    <div
+      class="capitalize bg-cerulean-600 text-sm w-fit font-medium text-center rounded text-white py-4 px-4 mb-7.5"
+    >
       {{ $t(String(blog?.category?.title)) }}
     </div>
     <div class="flex items-center my-4 flex-nowrap">
       <span class="relative mr-3">{{ $t('content.share') }}:</span>
       <ul class="flex gap-x-2">
         <li>
-          <a class="inline-block" :href="`https://www.facebook.com/sharer.php?u=${url}`" target="_blank"
-            onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes, width=SomeSize, height=SomeSize'); return false;">
+          <a
+            class="inline-block"
+            :href="`https://www.facebook.com/sharer.php?u=${url}`"
+            target="_blank"
+            onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes, width=SomeSize, height=SomeSize'); return false;"
+          >
             <SVGFacebook class="w-5 h-5 fill-cerulean-400" />
           </a>
         </li>
         <li>
-          <a class="inline-block"
+          <a
+            class="inline-block"
             :href="`https://twitter.com/share?url=${url}&amp;text=Hi%20everyone,%20please%20check%20this%20out:%20`"
             target="_blank"
-            onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes, width=SomeSize, height=SomeSize'); return false;">
+            onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes, width=SomeSize, height=SomeSize'); return false;"
+          >
             <SVGTwitterX class="w-5 h-5" />
           </a>
         </li>
@@ -29,20 +37,21 @@
     </div>
     <h1 class="text-2xl font-bold mb-7 text-cerulean-600 capitalize">{{ blog?.title }}</h1>
     <div class="w-full h-[500px]">
-      <img class="w-full rounded-[5px] h-full object-cover" :src="imageBuilderUrl(blog.imageUrl)"
-        :alt="blog.title">
+      <img
+        class="w-full rounded-[5px] h-full object-cover"
+        :src="imageBuilderUrl(blog.imageUrl)"
+        :alt="blog.title"
+      />
     </div>
     <div class="py-5">
       <h4 class="text-base leading-6 font-semibold italic text-gray-900 pb-2.5 text-justify">
         {{ blog?.desc }}
       </h4>
     </div>
-    <div class="py-5" v-html="blog.content" /> 
-    <div class="py-5 flex justify-center" v-html="blog.videoEmbed">
-
-    </div>
+    <div class="py-5" v-html="blog.content" />
+    <div class="py-5 flex justify-center" v-html="blog.videoEmbed"></div>
     <DetailContact />
-    <CommentView :blog-id="blog.id"/>
+    <CommentView :blog-id="blog.id" />
     <RelateView :slug="blog?.category?.slug" />
   </div>
 </template>
@@ -70,10 +79,10 @@ const copyToClipboard = async () => {
   }
 }
 
-const blog : Ref<TBlogResponse> = ref({} as TBlogResponse)
+const blog: Ref<TBlogResponse> = ref({} as TBlogResponse)
 
-onMounted(()=>{
-  get<TBlogResponse>('/api/blogs/slug/'+route.params.slug).then(res => {
+onMounted(() => {
+  get<TBlogResponse>('/api/blogs/slug/' + route.params.slug).then((res) => {
     if (res?.data) {
       blog.value = res.data
     }

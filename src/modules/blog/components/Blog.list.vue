@@ -21,12 +21,12 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import BlogItem from './Blog.item.vue'
-import type { TBlog, TCategoryResponse } from '@/modules/admin-blog/models/type';
+import type { TBlog, TCategoryResponse } from '@/modules/admin-blog/models/type'
 
 const route = useRoute()
 
 defineProps<{
-  data: TCategoryResponse,
-  blogs: TBlog[],
+  data: TCategoryResponse
+  blogs: TBlog[]
 }>()
 </script>

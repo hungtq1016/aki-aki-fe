@@ -26,7 +26,7 @@ const adminScheduleRoute: RouteRecordRaw = {
       meta: {
         title: 'route.admin_schedules_edit'
       }
-    },
+    }
   ]
 }
 

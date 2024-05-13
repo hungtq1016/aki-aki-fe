@@ -26,9 +26,8 @@ const plugins = [new Arrow()]
 
 const customers = ref<TUrl[]>(data.value)
 
-onMounted(()=>{
-
-  get<TGroupUrlReponse>('/api/groupurls/label/customer').then(res =>{
+onMounted(() => {
+  get<TGroupUrlReponse>('/api/groupurls/label/customer').then((res) => {
     if (res?.data) {
       customers.value = res.data.urls
     }

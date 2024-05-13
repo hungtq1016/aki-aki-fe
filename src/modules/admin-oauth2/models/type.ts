@@ -16,12 +16,10 @@ export type TPermissionRequest = TRequest & {
   value: string
 }
 
-
 export type TRole = TEntity & {
   name: string
   note: string
 }
-
 
 export type TRoleResponse = TEntity & {
   groups: TGroup[]
@@ -37,19 +35,19 @@ export type TRoleRequest = TRequest & {
 export type TUser = TEntity & {
   fullName: string
   email: string
-  password : string
-  phoneNumber : string
-  address : string
-  imageUrl : string
+  password: string
+  phoneNumber: string
+  address: string
+  imageUrl: string
 }
 
 export type TUserRequest = TRequest & {
   fullName: string
   email: string
-  password : string
-  phoneNumber : string
-  address : string
-  imageUrl : string
+  password: string
+  phoneNumber: string
+  address: string
+  imageUrl: string
 }
 
 export type TAssignment = TEntity & {
@@ -71,4 +69,3 @@ export type TGroupRequest = TRequest & {
   roleId: string
   userId: string
 }
-

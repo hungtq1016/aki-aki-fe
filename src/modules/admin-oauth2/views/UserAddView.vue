@@ -7,26 +7,41 @@
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormInput v-model="state.email" :has-error="Boolean(errorFields?.email?.length)"
+          <FormInput
+            v-model="state.email"
+            :has-error="Boolean(errorFields?.email?.length)"
             type="email"
-            :placeholder="$t('form.place_holder.email')">
+            :placeholder="$t('form.place_holder.email')"
+          >
             {{ $t('form.email') }}
           </FormInput>
-          <FormInput v-model="state.fullName" :has-error="Boolean(errorFields?.fullName?.length)"
-            :placeholder="$t('form.place_holder.full_name')">
+          <FormInput
+            v-model="state.fullName"
+            :has-error="Boolean(errorFields?.fullName?.length)"
+            :placeholder="$t('form.place_holder.full_name')"
+          >
             {{ $t('form.full_name') }}
           </FormInput>
-          <FormInput v-model="state.phoneNumber" :has-error="Boolean(errorFields?.phoneNumber?.length)"
-            :placeholder="$t('form.place_holder.phone_number')">
+          <FormInput
+            v-model="state.phoneNumber"
+            :has-error="Boolean(errorFields?.phoneNumber?.length)"
+            :placeholder="$t('form.place_holder.phone_number')"
+          >
             {{ $t('form.phone_number') }}
           </FormInput>
-          <FormTextarea v-model="state.address" :has-error="Boolean(errorFields?.address?.length)"
-            :placeholder="$t('form.place_holder.address')">
+          <FormTextarea
+            v-model="state.address"
+            :has-error="Boolean(errorFields?.address?.length)"
+            :placeholder="$t('form.place_holder.address')"
+          >
             {{ $t('form.address') }}
           </FormTextarea>
-          <FormInput v-model="state.password" :has-error="Boolean(errorFields?.password?.length)" 
+          <FormInput
+            v-model="state.password"
+            :has-error="Boolean(errorFields?.password?.length)"
             :disabled="true"
-            :placeholder="$t('form.place_holder.password')">
+            :placeholder="$t('form.place_holder.password')"
+          >
             {{ $t('form.password') }}
           </FormInput>
         </template>
@@ -34,7 +49,7 @@
     </FormItem>
     <FormItem>
       <PublishView v-model="state.enable" :pass="pass" />
-      <ImageView v-model="state.imageUrl" :has-error="[]"/>
+      <ImageView v-model="state.imageUrl" :has-error="[]" />
     </FormItem>
   </FormLayout>
 </template>

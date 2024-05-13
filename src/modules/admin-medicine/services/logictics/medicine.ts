@@ -40,7 +40,10 @@ export const state = reactive<TMedicineRequest>({ ...init_state })
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TMedicine>>('/api/medicines/page', paginationOptions.value)
+  const response = await get<TPaginationResponse<TMedicine>>(
+    '/api/medicines/page',
+    paginationOptions.value
+  )
   items.value = response?.data.data || []
   resetObject(pagination, init_pagination)
 }

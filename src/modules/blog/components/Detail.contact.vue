@@ -41,23 +41,23 @@
 </template>
 
 <script setup lang="ts">
-import { get } from '@/core/services/helpers/request.helper';
-import type { TBranch, TGroupUrlReponse, TUrl } from '@/modules/admin-branch/models/type';
+import { get } from '@/core/services/helpers/request.helper'
+import type { TBranch, TGroupUrlReponse, TUrl } from '@/modules/admin-branch/models/type'
 import { ChevronRightIcon, InformationCircleIcon } from '@heroicons/vue/24/outline'
 import { MapPinIcon, PhoneIcon } from '@heroicons/vue/24/solid'
-import { onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue'
 
 const branches = ref<TBranch[]>([])
 const socials = ref<TUrl[]>([])
 
-onMounted(()=>{
-  get<TBranch[]>('/api/branches').then(res =>{
+onMounted(() => {
+  get<TBranch[]>('/api/branches').then((res) => {
     if (res?.data) {
       branches.value = res.data
     }
   })
 
-  get<TGroupUrlReponse>('/api/groupurls/label/social').then(res =>{
+  get<TGroupUrlReponse>('/api/groupurls/label/social').then((res) => {
     if (res?.data) {
       socials.value = res.data.urls
     }

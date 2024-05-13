@@ -108,7 +108,7 @@ const clientRoute: RouteRecordRaw = {
           component: () => import('@/modules/profile/views/CustomProfileView.vue'),
           meta: {
             title: 'route.profile'
-          },
+          }
         },
         {
           path: 'schedule',
@@ -116,7 +116,7 @@ const clientRoute: RouteRecordRaw = {
           component: () => import('@/modules/profile/views/CalendarView.vue'),
           meta: {
             title: 'route.schedule'
-          },
+          }
         }
       ]
     },

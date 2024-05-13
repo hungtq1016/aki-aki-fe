@@ -18,7 +18,7 @@
         {{ data.desc }}
       </div>
       <div class="text-center mt-20">
-        <router-link class="text-cerulean-400 underline" :to="'/others/'+data.slug">{{
+        <router-link class="text-cerulean-400 underline" :to="'/others/' + data.slug">{{
           $t('content.more')
         }}</router-link>
       </div>
@@ -27,9 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import { imageBuilderUrl } from '@/core/services/utils/util.string';
-import type { TService } from '@/modules/admin-service/models/type';
-
+import { imageBuilderUrl } from '@/core/services/utils/util.string'
+import type { TService } from '@/modules/admin-service/models/type'
 
 defineProps<{
   data: TService

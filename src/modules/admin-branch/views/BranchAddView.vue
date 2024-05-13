@@ -3,24 +3,38 @@
   <FormLayout :submit="submit">
     <FormItem>
       <FormGroup
-        :has-error="[Boolean(errorFields?.name?.length), Boolean(errorFields?.address1?.length), Boolean(errorFields?.phone1?.length)]">
+        :has-error="[
+          Boolean(errorFields?.name?.length),
+          Boolean(errorFields?.address1?.length),
+          Boolean(errorFields?.phone1?.length)
+        ]"
+      >
         <template #heading>
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormInput v-model="state.name" :has-error="Boolean(errorFields?.name?.length)"
-            :placeholder="$t('form.place_holder.name')">
+          <FormInput
+            v-model="state.name"
+            :has-error="Boolean(errorFields?.name?.length)"
+            :placeholder="$t('form.place_holder.name')"
+          >
             {{ $t('form.name') }}
           </FormInput>
-          <FormInput v-model="state.address1" :has-error="Boolean(errorFields?.address1?.length)"
-            :placeholder="$t('form.place_holder.address1')">
+          <FormInput
+            v-model="state.address1"
+            :has-error="Boolean(errorFields?.address1?.length)"
+            :placeholder="$t('form.place_holder.address1')"
+          >
             {{ $t('form.address1') }}
           </FormInput>
           <FormInput v-model="state.address2" :placeholder="$t('form.place_holder.address2')">
             {{ $t('form.address2') }}
           </FormInput>
-          <FormInput v-model="state.phone1" :has-error="Boolean(errorFields?.phone1?.length)"
-            :placeholder="$t('form.place_holder.phone1')">
+          <FormInput
+            v-model="state.phone1"
+            :has-error="Boolean(errorFields?.phone1?.length)"
+            :placeholder="$t('form.place_holder.phone1')"
+          >
             {{ $t('form.phone1') }}
           </FormInput>
           <FormInput v-model="state.phone2" :placeholder="$t('form.place_holder.phone2')">
@@ -36,12 +50,19 @@
           {{ $t('form.branchtype') }}
         </template>
         <template #content>
-          <FormSelect v-model="state.typeId" :list="branchtypes" :has-error="Boolean(errorFields?.typeId?.length)"
-            :placeholder="$t('form.place_holder.branchtype')">
+          <FormSelect
+            v-model="state.typeId"
+            :list="branchtypes"
+            :has-error="Boolean(errorFields?.typeId?.length)"
+            :placeholder="$t('form.place_holder.branchtype')"
+          >
             {{ $t('form.select_branchtype') }}
           </FormSelect>
-          <FormTextarea v-model="state.addressEmbed" :has-error="Boolean(errorFields?.addressEmbed?.length)"
-            :placeholder="$t('form.place_holder.address_embed')">
+          <FormTextarea
+            v-model="state.addressEmbed"
+            :has-error="Boolean(errorFields?.addressEmbed?.length)"
+            :placeholder="$t('form.place_holder.address_embed')"
+          >
             {{ $t('form.embed') }}
           </FormTextarea>
         </template>

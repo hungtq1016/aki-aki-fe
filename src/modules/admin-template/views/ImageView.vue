@@ -12,7 +12,6 @@
         <div class="flex gap-x-2 items-center">
           <label for="image-upload" class="flex-1 basis-1/3">
             <input
-              
               id="image-upload"
               type="file"
               :disabled="hasImage"

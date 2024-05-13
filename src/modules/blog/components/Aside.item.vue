@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <li>
-    <router-link :to="'/blogs/'+data.slug" class="flex py-4 gap-x-2">
+    <router-link :to="'/blogs/' + data.slug" class="flex py-4 gap-x-2">
       <ChevronRightIcon class="w-5 h-5 text-cerulean-600" />
       <span class="text-gray-600 capitalize">{{ $t(data.title) }}</span>
     </router-link>

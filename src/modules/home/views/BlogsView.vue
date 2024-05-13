@@ -15,5 +15,4 @@
 
 <script setup lang="ts">
 import BlogFlick from '../components/Blog.flick.vue'
-
 </script>

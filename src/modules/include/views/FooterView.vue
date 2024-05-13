@@ -22,34 +22,37 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue'
 import FooterContact from '../components/Footer.contact.vue'
 import FooterItem from '../components/Footer.item.vue'
 import FooterSocial from '../components/Footer.social.vue'
-import { address, socials as dataSocials, contacts as dataContact } from '../services/data/footer.data'
-import type { TBranch, TGroupUrlReponse, TUrl } from '@/modules/admin-branch/models/type';
-import { get } from '@/core/services/helpers/fetcher.helper';
+import {
+  address,
+  socials as dataSocials,
+  contacts as dataContact
+} from '../services/data/footer.data'
+import type { TBranch, TGroupUrlReponse, TUrl } from '@/modules/admin-branch/models/type'
+import { get } from '@/core/services/helpers/fetcher.helper'
 
 const branches = ref<TBranch[]>(address.value)
 const contacts = ref<TUrl[]>(dataContact.value)
 const socials = ref<TUrl[]>(dataSocials.value)
 
-onMounted(()=>{
-  get<TBranch[]>('/api/branches').then(res =>{
+onMounted(() => {
+  get<TBranch[]>('/api/branches').then((res) => {
     if (res?.data) {
       branches.value = res.data
     }
   })
-  get<TGroupUrlReponse>('/api/groupurls/label/contact').then(res =>{
+  get<TGroupUrlReponse>('/api/groupurls/label/contact').then((res) => {
     if (res?.data) {
       contacts.value = res.data.urls
     }
   })
-  get<TGroupUrlReponse>('/api/groupurls/label/social').then(res =>{
+  get<TGroupUrlReponse>('/api/groupurls/label/social').then((res) => {
     if (res?.data) {
       socials.value = res.data.urls
     }
   })
 })
-
 </script>

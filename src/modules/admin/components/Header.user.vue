@@ -2,11 +2,15 @@
 <template>
   <li>
     <div class="relative" ref="target">
-      <router-link class="flex items-center gap-4" to="#" @click.prevent="dropdownOpen = !dropdownOpen">
+      <router-link
+        class="flex items-center gap-4"
+        to="#"
+        @click.prevent="dropdownOpen = !dropdownOpen"
+      >
         <span class="hidden text-right lg:block">
           <span class="block text-sm font-medium text-slate-950 dark:text-white">{{
             $t('message.greeting', { name: user.fullName })
-            }}</span>
+          }}</span>
         </span>
 
         <span class="h-12 w-12 rounded-full">
@@ -17,19 +21,26 @@
       </router-link>
 
       <!-- Dropdown Start -->
-      <div v-show="dropdownOpen"
-        class="absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-zinc-950">
-        <ul class="flex flex-col gap-5 border-b border-zumthor-100 px-6 py-7.5 dark:border-oxford-blue-900">
+      <div
+        v-show="dropdownOpen"
+        class="absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-zinc-950"
+      >
+        <ul
+          class="flex flex-col gap-5 border-b border-zumthor-100 px-6 py-7.5 dark:border-oxford-blue-900"
+        >
           <li v-for="item in menuProfile.menuItems" :key="item.label">
-            <router-link :to="item.slug"
-              class="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-cerulean-600 lg:text-base">
+            <router-link
+              :to="item.slug"
+              class="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-cerulean-600 lg:text-base"
+            >
               <component :is="item.icon" class="w-5 h-5" />
               <span>{{ $t(item.label) }}</span>
             </router-link>
           </li>
         </ul>
         <button
-          class="flex items-center gap-3.5 py-4 px-6 text-sm font-medium duration-300 ease-in-out hover:text-cerulean-600 lg:text-base">
+          class="flex items-center gap-3.5 py-4 px-6 text-sm font-medium duration-300 ease-in-out hover:text-cerulean-600 lg:text-base"
+        >
           <ArrowLeftStartOnRectangleIcon class="w-6 h-6" />
           <span>{{ $t('oauth2.signout') }}</span>
         </button>
@@ -58,6 +69,6 @@ onClickOutside(target, () => {
 
 const menuProfile: TMenu = {
   name: 'route.profile',
-  menuItems: [ ] 
+  menuItems: []
 }
 </script>

@@ -7,25 +7,25 @@ const specialists = ref<Array<TService>>([
     imageUrl: '/vuehost/special1.png',
     title: 'Khoa Nhiễm',
     slug: '/specialist/khoa-nhiem',
-    content:'',
-    createdAt:'',
-    enable:true,
-    groupId:'',
-    id:'',
-    updatedAt:'',
-    videoEmbed:''
+    content: '',
+    createdAt: '',
+    enable: true,
+    groupId: '',
+    id: '',
+    updatedAt: '',
+    videoEmbed: ''
   },
   {
     imageUrl: '/vuehost/special2.png',
     title: 'Xét nghiệm',
     slug: '/specialist/khoa-nhiem',
-    content:'',
-    createdAt:'',
-    enable:true,
-    groupId:'',
-    id:'',
-    updatedAt:'',
-    videoEmbed:''
+    content: '',
+    createdAt: '',
+    enable: true,
+    groupId: '',
+    id: '',
+    updatedAt: '',
+    videoEmbed: ''
   }
 ])
 

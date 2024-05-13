@@ -24,10 +24,7 @@ export const items = ref<TRole[]>([
 ])
 export const pagination = ref<TPagination>({ ...init_pagination })
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TRole>>(
-    '/api/roles/page',
-    paginationOptions.value
-  )
+  const response = await get<TPaginationResponse<TRole>>('/api/roles/page', paginationOptions.value)
   items.value = response?.data.data || []
   resetObject(pagination, init_pagination)
 }
