@@ -7,7 +7,7 @@
       </slot>
     </label>
     <div
-      class="border border-gray-100 dark:border-zinc-900 dark:bg-zinc-900"
+      class="border border-gray-100 dark:border-zinc-900 dark:bg-zinc-900 overflow-x-scroll"
       :class="{ '!border-red-600': hasError }"
     >
       <slot name="content"></slot>
