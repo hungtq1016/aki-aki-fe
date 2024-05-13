@@ -77,6 +77,6 @@ export type TEntity = {
 }
 
 export type TRequest = {
-  id: string
-  enable: boolean
+  id?: string
+  enable?: boolean
 }

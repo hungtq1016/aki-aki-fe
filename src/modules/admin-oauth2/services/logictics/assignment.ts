@@ -36,9 +36,9 @@ export const rules: Rules = {
   }
 }
 
-export const init_state = {
+export const init_state : TAssignmentRequest = {
   roleId: '-1',
-  enable: Boolean(EnableEnum.ALL)
+  permissionId: '-1'
 }
 
 export const state = reactive({ ...init_state })

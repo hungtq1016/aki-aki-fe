@@ -6,7 +6,7 @@ import { init_pagination, paginationOptions } from '../data/group'
 import { del, get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TGroup, TGroupRequest, TRole, TRoleRequest, TRoleResponse } from '../../models/type'
+import type { TGroup, TGroupRequest, TRole, TRoleResponse } from '../../models/type'
 import { EnableEnum } from '@/core/models/enum'
 import type { Rules } from 'async-validator'
 import { errorNotification, successNotification } from '@/core/services/helpers/alert.helper'
@@ -31,9 +31,9 @@ export const rules: Rules = {
   }
 }
 
-export const init_state = {
+export const init_state: TGroupRequest = {
   userId: '-1',
-  enable: Boolean(EnableEnum.ALL)
+  roleId: '-1'
 }
 
 export const state = reactive({ ...init_state })

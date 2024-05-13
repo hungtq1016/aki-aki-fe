@@ -30,10 +30,8 @@ export const fetch = async () => {
 }
 
 export const init_state: TRoleRequest = {
-  id: v4(),
   note: '',
   name: '',
-  enable: Boolean(EnableEnum.ALL)
 }
 
 export const state = reactive<TRoleRequest>({ ...init_state })

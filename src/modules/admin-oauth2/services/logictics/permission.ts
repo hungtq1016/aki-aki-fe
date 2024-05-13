@@ -24,10 +24,8 @@ export const items = ref<TPermission[]>([
 ])
 
 export const init_state: TPermissionRequest = {
-  id: v4(),
   type: '',
   value: '',
-  enable: Boolean(EnableEnum.ALL)
 }
 
 export const state = reactive<TPermissionRequest>({ ...init_state })

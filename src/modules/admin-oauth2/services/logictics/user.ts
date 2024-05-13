@@ -1,4 +1,4 @@
-import { reactive, ref, watch, type Ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 
 import { init_pagination, paginationOptions } from '../data/user'
 
@@ -9,7 +9,6 @@ import type { TUserRequest, TUser } from '../../models/type'
 import { EnableEnum } from '@/core/models/enum'
 import { v4 } from 'uuid'
 import type { Rules } from 'async-validator'
-import { slugify } from '@/core/services/utils/util.string'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
@@ -35,14 +34,12 @@ export const fetch = async () => {
 }
 
 const init_state: TUserRequest = {
-  id: v4(),
   fullName: '',
   email: '',
   password: 'Th1sIsP@ssword',
   address: '',
   phoneNumber: '',
   imageUrl: '',
-  enable: Boolean(EnableEnum.ALL)
 }
 
 export const state = reactive<TUserRequest>({ ...init_state })
