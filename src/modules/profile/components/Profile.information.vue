@@ -40,7 +40,6 @@
             <button :disabled="isChange"
                 class="bg-cerulean-600 text-cerulean-100 flex justify-center rounded px-6 py-2 font-medium hover:bg-opacity-90 dark:bg-cerulean-500 dark:text-cerulean-50 disabled:!bg-cerulean-100 disabled:!text-cerulean-600"
                 type="submit"> Save </button></div>
-                {{ isChange }}
     </form>
 </template>
 

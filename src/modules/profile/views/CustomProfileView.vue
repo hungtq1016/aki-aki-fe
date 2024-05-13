@@ -24,10 +24,14 @@
 </template>
 
 <script setup lang="ts">
+import { useUserstore } from '@/core/stores/user';
 import ProfileImage from '../components/Profile.image.vue';
 import ProfileInformation from '../components/Profile.information.vue';
+import { useRouter } from 'vue-router'
 
-
+const { isLogin } = useUserstore()
+const router = useRouter()
+// if(!isLogin) router.push('/')
 </script>
 
 <style scoped></style>

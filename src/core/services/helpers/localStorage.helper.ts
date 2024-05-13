@@ -71,10 +71,9 @@ export const getAllEntries = (): Array<{ key: string, value: string }> => {
 }
 
 export const firstOrUpdate = <T>(key: string, value: T): void => {
-    const storedValue = readValue(key);
-    if (typeof storedValue === typeof value) {
-        createValue(key, JSON.stringify(value));
+    if (isExist(key)) {
+        updateValue(key, JSON.stringify(value));
     } else {
-        throw new Error(`Key '${key}' has a value of different type in localStorage.`);
+        createValue(key, value);
     }
 }

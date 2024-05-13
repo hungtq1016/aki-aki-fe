@@ -8,6 +8,7 @@ import { firstOrUpdate, readValue } from '../services/helpers/localStorage.helpe
 export const useUserstore = defineStore('user', () => {
 
   const user: Ref<TUser> = ref({} as TUser)
+  const isLogin: Ref<boolean> = ref(false)
 
   const fetchUser = async () : Promise<void> => {
     const data = await get<TUser>('/api/authenticate/user')
@@ -32,7 +33,6 @@ export const useUserstore = defineStore('user', () => {
 }
 
 
-  const isLogin: Ref<boolean> = ref(false)
 
   return { user, fetchUser, isLogin, isUserExist, updateData }
 })

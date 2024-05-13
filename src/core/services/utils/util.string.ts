@@ -18,5 +18,6 @@ export function slugify(str: string) {
 }
 
 export const imageBuilderUrl = (path: string): string => {
+
   return import.meta.env.VITE_API_DOMAIN + ":" + import.meta.env.VITE_API_HOST  + "/api/images/" + path
 }
