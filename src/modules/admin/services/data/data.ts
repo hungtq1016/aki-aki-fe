@@ -9,7 +9,8 @@ import {
   BookmarkIcon,
   BuildingStorefrontIcon,
   LockClosedIcon,
-  LinkIcon
+  LinkIcon,
+  ClockIcon
 } from '@heroicons/vue/24/outline'
 
 export const target = ref(null)
@@ -26,6 +27,21 @@ export const menus: TMenu[] = [
           {
             label: 'route.chart',
             slug: '/admin'
+          }
+        ]
+      },
+      {
+        icon: ClockIcon,
+        label: 'route.admin_schedules',
+        slug: '/admin/schedules',
+        children: [
+          {
+            label: 'route.admin_schedules',
+            slug: '/admin/schedules'
+          },
+          {
+            label: 'route.admin_schedules_add',
+            slug: '/admin/schedules/add'
           }
         ]
       },

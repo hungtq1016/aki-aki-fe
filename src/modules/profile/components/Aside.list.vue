@@ -27,6 +27,18 @@ const aside: TUrl[] = [
         tag: '',
         type: '',
         updatedAt: ''
+    },
+    {
+        id: '1',
+        label: 'route.schedule',
+        slug: '/profile/schedule',
+        createdAt: '',
+        enable: true,
+        groupId: '',
+        imageUrl: '',
+        tag: '',
+        type: '',
+        updatedAt: ''
     }
 ]
 </script>
