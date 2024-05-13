@@ -39,7 +39,7 @@ export type TComment = TEntity & {
   userId: string,
   blogId: string,
   content: string,
-  subComments: TComment[] | null
+  children: TComment[] | null
 }
 
 export type TCommentRequest = TRequest & {
@@ -57,6 +57,7 @@ export type TCommentResponse = TEntity & {
   user: TUser
   blogId: string,
   content: string,
+  children: TCommentResponse[]
   left: number,
   right: number
 }

@@ -52,6 +52,8 @@ export const fetch = async () => {
   const response = await get<TPaginationResponse<TBlog>>('/api/blogs/page', paginationOptions.value)
   items.value = response?.data.data || []
   resetObject(pagination, init_pagination)
+
+  pagination.value = response?.data || { ...init_pagination };
 }
 
 watch(

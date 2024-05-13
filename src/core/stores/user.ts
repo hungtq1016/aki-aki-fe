@@ -1,9 +1,9 @@
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import type { Ref } from 'vue'
 import { defineStore } from 'pinia'
 import type { TUser } from '@/modules/admin-oauth2/models/type'
 import { get } from '../services/helpers/fetcher.helper'
-import { firstOrUpdate, isExist, readValue } from '../services/helpers/localStorage.helper'
+import { firstOrUpdate, readValue } from '../services/helpers/localStorage.helper'
 
 export const useUserstore = defineStore('user', () => {
 
@@ -12,20 +12,27 @@ export const useUserstore = defineStore('user', () => {
   const fetchUser = async () : Promise<void> => {
     const data = await get<TUser>('/api/authenticate/user')
     if (data?.data) {
-      user.value = data.data
+      updateData(data.data)
     }
 
-    firstOrUpdate('user',user.value)
+  }
+
+  const updateData = (payload: TUser): void => {
+    user.value = payload
+    firstOrUpdate('user',payload)
   }
 
   const isUserExist = (): void => {
-    if (isExist('user')) {
-      isLogin.value = true
-      user.value = readValue<TUser>('user')
+    const data = readValue('user');
+    if (data !== null) {
+        const userData: TUser = JSON.parse(data);
+        user.value = userData; 
+        isLogin.value = true;
     }
-  }
+}
+
 
   const isLogin: Ref<boolean> = ref(false)
 
-  return { user, fetchUser, isLogin, isUserExist }
+  return { user, fetchUser, isLogin, isUserExist, updateData }
 })

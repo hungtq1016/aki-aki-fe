@@ -2,113 +2,116 @@
 <template>
     <div class="flex justify-between relative flex-row pt-2">
         <div class="basis-10">
-            <img class="rounded-full object-cover w-10 h-10" :src="imageBuilderUrl(data.user.imageUrl)"
-                :alt="data.userId">
+            <img class="rounded-full object-cover w-10 h-10" :src="imageBuilderUrl(comment.user.imageUrl)"
+                :alt="comment.userId">
         </div>
         <div class="basis-[calc(100%-45px)]">
             <div class="flex flex-col gap-y-1 bg-gray-100 dark:bg-zinc-900 rounded pl-3 pr-2 py-1 w-fit">
-                <div class="font-medium dark:text-gray-200 dark:font-medium text-black-1000">{{ data.user.fullName }}</div>
-                <div class="text-gray-600 text-sm dark:text-gray-100">{{ data.content }}</div>
+                <div class="font-medium dark:text-gray-200 dark:font-medium text-black-1000">{{ comment.user.fullName }}
+                </div>
+                <div class="text-gray-600 text-sm dark:text-gray-100">{{ comment.content }}</div>
             </div>
-           
+
             <div class="flex gap-x-2 mt-1 flex-wrap">
-                <!-- <button @click="toggleLike" class="text-sm font-medium text-gray-600 dark:text-gray-100"
-                    :class="{ '!text-sky-600 !font-bold': isLike && isAuthen}">Thích</button>
-                <button @click="toggleReply"
-                class="text-sm font-medium text-gray-600 dark:text-gray-100">Trả lời</button>
-                <div v-if="countLike > 0" class="text-sm font-medium text-gray-600 dark:text-gray-100">
-                    {{ countLike }} lượt thích
-                </div> -->
+
+                <button @click="isReply = !isReply" class="text-sm font-medium text-gray-600 dark:text-gray-100">Trả
+                    lời</button>
+       
                 <div class="text-sm text-gray-600 font-medium dark:text-gray-100">
-                    {{ formatDistance(parseISO(data.createdAt), new Date(), { addSuffix: true, locale: vi }) }}
+                    {{ formatDistance(parseISO(comment.createdAt), new Date(), { addSuffix: true, locale: vi }) }}
                 </div>
             </div>
-            <div class="pt-2 pb-1 pr-3 relative">
-                <!-- <textarea v-model="content" placeholder="Phản hồi..."
-                class="dark:bg-zinc-700 bg-gray-100 focus:ring-0 focus:outline-none border-gray-100 border w-full rounded-md resize-none p-2 text-gray-900 dark:text-gray-100 text-sm" rows="3"></textarea>
-                <button class="absolute bottom-5 right-5"
-                type="button" @click="submitComment">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-gray-  dark:fill-gray-100" viewBox="0 0 122.88 108.3"><path d="M96.14,12.47l-76.71-1.1,28.3,27.85L96.14,12.47ZM53.27,49l9.88,39.17L102.1,22,53.27,49ZM117,1.6a5.59,5.59,0,0,1,4.9,8.75L66.06,105.21a5.6,5.6,0,0,1-10.44-1.15L41.74,49,1.67,9.57A5.59,5.59,0,0,1,5.65,0L117,1.6Z"/></svg>
-                </button> -->
+            <div class="pt-2 pb-1 pr-3 relative" v-if="isReply">
+                <form @submit.prevent="submitComment">
+                    <textarea v-model="content" placeholder="Phản hồi..."
+                        class="dark:bg-zinc-700 bg-gray-100 focus:ring-0 focus:outline-none border-gray-100 border w-full rounded-md resize-none p-2 text-gray-900 dark:text-gray-100 text-sm"
+                        rows="3"></textarea>
+                    <button class="absolute bottom-5 right-5" type="submit">
+                        <PaperAirplaneIcon class="w-5- h-5 text-cerulean-600 -rotate-45" />
+                    </button>
+                </form>
             </div>
-            <!-- <CommentLoading v-if="isFetch" :count="countChild" /> -->
-            <!-- <template v-else>
-                <button @click="fetchChildren" v-if="children.length == 0"
-                    class="text-sm text-gray-600 dark:text-gray-100">Xem thêm {{ countChild }} bình luận còn lại</button>
-                <template>
-                    <CommentItem v-for="item in data.subComments" :key="item.id"/>
-                </template>
-            </template> -->
+            <LoadingCommentView v-if="isLoading" />
+            <template v-else>
+                <button @click="fetchChildren" class="text-sm text-gray-600 dark:text-gray-100">Xem thêm</button>
+                <div v-show="!isLoading && comment.children.length > 0">
+                    <CommentItem v-for="item in data.children" :key="item.id" :data="item" :blogId="blogId" />
+                </div>
+            </template>
 
         </div>
-        <!-- <div v-if="data.hasChild" class="absolute bg-gray-100 top-10 bottom-1 left-5 w-5 -z-[1] border-l-2 border-b-2 rounded-bl-lg border-gray-900">
-        </div> -->
+        <div v-if="data"
+            class="absolute top-10 bottom-1 left-5 w-5 -z-[1] border-l-2 border-b-2 rounded-bl-lg border-gray-200">
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import LoadingCommentView from '@/modules/loading/views/LoadingCommentView.vue';
+import CommentItem from './Coment.item.vue';
 
-import type {  TCommentResponse } from '../models/type';
-import { imageBuilderUrl } from '@/core/services/utils/util.string';
 import { formatDistance, parseISO } from 'date-fns';
+import { ref, type Ref } from 'vue';
 import { vi } from 'date-fns/locale';
 
-defineProps<{
+import { imageBuilderUrl } from '@/core/services/utils/util.string';
+import { isLoading, paginationOptions, submit } from '../services/logictics/comment';
+import { get } from '@/core/services/helpers/fetcher.helper';
+import { warningNotification } from '@/core/services/helpers/alert.helper';
+import { useUserstore } from '@/core/stores/user';
+
+import type { TPaginationResponse } from '@/core/models/type';
+import type {  TCommentRequest, TCommentResponse } from '../models/type';
+import { v4 } from 'uuid';
+import { i18n } from '@/core/services/base/translation';
+import { PaperAirplaneIcon } from '@heroicons/vue/24/outline';
+
+const { user, isLogin } = useUserstore()
+
+const props = defineProps<{
     data: TCommentResponse,
     blogId: string,
 }>()
 
-// const isReply = ref(false)
+const comment: Ref<TCommentResponse> = ref({
+    ...props.data,
+    children:[]
+})
 
-// const isFetch = ref(false)
-// const content = ref('')
+const isReply: Ref<boolean> = ref(false)
+const content: Ref<string> = ref('')
 
-// onMounted(async () => {
-//     user_like.value = props.data.likes
-//     children.value = props.data.children        
-// })
+const fetchChildren = async (): Promise<void> => {
+    isLoading.value = true
 
-// const fetchChildren = async () => {
-//     isFetch.value = true
-//     const { data } = await useFetch(`${URL}/comment?parent_id=${props.data.id}&post_id=${props.post_id}`).get().json()    
-//     children.value = data.value.data
-//     isFetch.value = false
-// }
+    get<TPaginationResponse<TCommentResponse>>('/api/comments/comment/' + props.data.id, paginationOptions.value).then(response => {
+        if (response?.data) {
+            const { data, ...page } = response.data
+            comment.value.children = [...comment.value.children, ...data]
+            // pagination.value = page
+            // paginationOptions.value.pageNumber = pagination.value.nextPage
 
-// const isLike = computed(() =>user_like.value.some(person => person.id == user.value.id))
-// const countLike = computed(() => user_like.value.length)
-// const countChild = computed(() => (props.data.right - props.data.left - 1) / 2)
+            // isLast.value = pagination.value.pageNumber === pagination.value.lastPage
 
-// const toggleReply = ()=>{
-//     if (!isAuthen.value) {
-//         toast('Yêu cầu đăng nhập', {
-//             autoClose: 1000,
-//             type: 'error',
-//             theme: isDark.value ? 'dark' : 'light'
-//         });
-//     }else{
-//         isReply.value = !isReply.value
-//     }
-// }
+        }
+    }).finally(() => isLoading.value = false)
+}
 
+const submitComment = async () => {
+    if (!isLogin) warningNotification(i18n.global.t('message.need_login'))
+    else {
+        const payload: TCommentRequest = {
+            blogId: props.blogId,
+            userId: user.id,
+            content: content.value,
+            parentId: props.data.id,
+            id: v4(),
+            enable: true,
+            left: 1,
+            right: 1
+        }
+        submit(payload).finally(() => content.value = '')
+    }
+}
 
-
-// const toggleLike = async () => {
-//     if (!isAuthen.value) {
-//         toast('Yêu cầu đăng nhập', {
-//             autoClose: 1000,
-//             type: 'error',
-//             theme: isDark.value ? 'dark' : 'light'
-//         });
-//     } else {
-//         let payload = {
-//             post_id: props.data.id,
-//             user_id: user.value.id,
-//             like: !isLike.value,
-//             type: 'comment'
-//         }
-//         const { data, isFinished } = await useFetch(`${URL}/like`).post(payload).json()
-//         user_like.value = data.value.data
-//     }
-// }
 </script>

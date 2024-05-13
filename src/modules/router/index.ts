@@ -99,6 +99,20 @@ const clientRoute: RouteRecordRaw = {
       }
     },
     {
+      path: 'profile',
+      component: () => import('@/core/views/ProfileView.vue'),
+      children: [
+        {
+          path: '',
+          name: 'profile',
+          component: () => import('@/modules/profile/views/CustomProfileView.vue'),
+          meta: {
+            title: 'route.profile'
+          },
+        }
+      ]
+    },
+    {
       path: 'blogs',
       component: () => import('@/core/views/BlogView.vue'),
       children: [

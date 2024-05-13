@@ -15,26 +15,31 @@
             </form>
         </div>
         <CommentItem v-for="data in comments" :key="data.id" v-bind="{ data, blogId }" />
-        <!-- <CommentLoading v-if="isFetch" /> -->
-        <!-- <button @click="fetchComments" v-if="isNext && !isFetch" class="font-medium text-gray-600 mt-3 dark:text-gray-50">Xem thêm bình
-            luận</button> -->
+        <LoadingCommentView v-if="isLoading" />
+        <button v-if="!isLast" @click="fetch(blogId)" class="font-medium text-gray-600 mt-3 dark:text-gray-50">
+            {{ $t('content.see_more',$t('content.comment'))}}
+        </button>
     </section>
 </template>
 
 <script setup lang="ts">
-import { watch } from 'vue';
 import CommentItem from '../components/Coment.item.vue'
-import type {TCommentRequest, TCommentResponse } from '../models/type';
-import { PaperAirplaneIcon } from '@heroicons/vue/24/outline';
-import { get } from '@/core/services/helpers/request.helper';
-import { comments, content, submit } from '../services/logictics/comment';
+import LoadingCommentView from '@/modules/loading/views/LoadingCommentView.vue'
+
+import { watch } from 'vue';
 import { v4 } from 'uuid';
-import { useUserstore } from '@/core/stores/user';
+import { PaperAirplaneIcon } from '@heroicons/vue/24/outline';
+
+import { comments, content, fetch, isLast, isLoading, submit } from '../services/logictics/comment';
 import { warningNotification } from '@/core/services/helpers/alert.helper';
 import { i18n } from '@/core/services/base/translation';
-// import CommentLoading from '@/components/Loading/CommentLoading.vue';
+
+import { useUserstore } from '@/core/stores/user';
+
+import type {TCommentRequest } from '../models/type';
 
 const { user, isLogin } = useUserstore()
+
 const props = defineProps<{
     blogId: string
 }>()
@@ -54,17 +59,13 @@ const submitComment = async () => {
             left: 1,
             right: 1
         }
-        await submit(payload)
+        await submit(payload).finally(() => content.value = '')
     }
 }
 
-watch(() => props.blogId, (newValue) => {
+watch(() => props.blogId, async (newValue) => {
     if (newValue !== undefined)
-        get<TCommentResponse[]>('/api/comments/blog/' + props.blogId).then(res => {
-            if (res?.data) {
-                comments.value = res.data
-            }
-        })
+        await fetch(props.blogId)
 })
 
 </script>

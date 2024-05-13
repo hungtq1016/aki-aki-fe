@@ -12,18 +12,19 @@ export const createValues = (values: Array<{ key: string, value: string }>): voi
     values.forEach(value => createValue(value.key, value.value));
 }
 
-export const readValue = <T>(key: string): T  => {
-    const storedValue = localStorage.getItem(key);
-    if (storedValue !== null) {
+export const readValue = (key: string): any | null => {
+    const data = localStorage.getItem(key);
+    if (data !== null) {
         try {
-            return JSON.parse(storedValue) as T;
+            return JSON.parse(data);
         } catch (error) {
-            console.error(`Error parsing value for key '${key}' from localStorage:`, error);
-            return {} as T;
+            console.error(`Error parsing data for key '${key}': ${error}`);
+            return null;
         }
     }
-    return {} as T;
+    return null;
 }
+
 
 export const isExist = (key: string): boolean => {
     return localStorage.getItem(key) !== null;
@@ -70,7 +71,7 @@ export const getAllEntries = (): Array<{ key: string, value: string }> => {
 }
 
 export const firstOrUpdate = <T>(key: string, value: T): void => {
-    const storedValue = readValue<T>(key);
+    const storedValue = readValue(key);
     if (typeof storedValue === typeof value) {
         createValue(key, JSON.stringify(value));
     } else {

@@ -12,15 +12,6 @@ export type TMenuItem = {
   children?: TMenuItem[]
 }
 
-export type TOption = {
-  name: string
-  value: string
-}
-
-export type TAsideItem = {
-  label: string
-}
-
 export type TChat = {
   avatar: string
   name: string

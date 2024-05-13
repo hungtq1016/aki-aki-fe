@@ -43,6 +43,10 @@ export const menus: TMenu[] = [
             slug: '/admin/blogs/add'
           },
           {
+            label: 'route.admin_blogs_comments',
+            slug: '/admin/blogs/comments'
+          },
+          {
             label: 'route.admin_blogs_categories',
             slug: '/admin/blogs/categories'
           },

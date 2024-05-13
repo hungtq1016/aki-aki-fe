@@ -12,6 +12,14 @@ const adminBlogRoute: RouteRecordRaw = {
       }
     },
     {
+      path: 'comments',
+      name: 'admin_blogs_comments',
+      component: () => import('@/modules/admin-blog/views/CommentView.vue'),
+      meta: {
+        title: 'route.admin_blogs_comments'
+      }
+    },
+    {
       path: 'add',
       name: 'admin_blogs_add',
       component: () => import('@/modules/admin-blog/views/BlogAddView.vue'),
