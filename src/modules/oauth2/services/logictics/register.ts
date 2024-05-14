@@ -5,6 +5,7 @@ import { post } from '@/core/services/helpers/request.helper'
 import type { TTokenResponse } from '@/core/models/type'
 import { errorNotification } from '@/core/services/helpers/alert.helper'
 import { useAuthInfo } from '@/core/services/helpers/indexedDB.helper'
+import { resetObject } from '@/core/services/utils/util.object'
 
 const init_state: TRegisterRequest = {
   email: '',
@@ -53,7 +54,7 @@ const submit = async (): Promise<boolean> => {
     if (data?.data) {
       const auth: TTokenResponse = data.data
       const saveResult: boolean | undefined = await updateAuthAsync(auth)
-
+      resetObject(state,init_state)
       if (saveResult) return true
 
       return false

@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-md w-full">
+  <div class="max-w-xs w-full">
     <AuthForm :pass="pass" :submit="submitLogin">
       <div class="sm:col-span-6">
         <AuthInput v-model="state.email" type="email" :placeholder="$t('form.place_holder.email')"

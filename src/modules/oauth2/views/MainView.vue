@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-md w-full">
+  <div class="max-w-xs w-full">
     <AuthForm :pass="pass" :submit="submitLogin">
       <div class="sm:col-span-6">
         <AuthInput v-model="state.email" type="email" :placeholder="$t('form.place_holder.email')"
@@ -14,7 +14,14 @@
         </AuthInput>
       </div>
     </AuthForm>
-
+    <div class="pb-10 flex justify-between">
+      <router-link
+          class="text-sm text-center"
+          to="/oauth2/send-email"><span>{{ $t('route.forgot_password') }}</span></router-link>
+          <router-link
+          class="text-sm text-center"
+          to="/oauth2/login-by-email"><span>{{ $t('route.login_by_email') }}</span></router-link>
+    </div>
     <div class="relative border-t w-full">
       <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 p-1 bg-white">
         <span>{{ $t('content.or') }}</span>

@@ -20,7 +20,7 @@ const rules: Rules = {
 
 const submit = async () => {
     try {
-        const data = await post<TEmailRequest, string>('/api/authenticate/send-email', state)
+        const data = await post<TEmailRequest, string>('/api/authenticate/send-otp', state)
     
         if (data?.data) {
             successNotification(data.data)

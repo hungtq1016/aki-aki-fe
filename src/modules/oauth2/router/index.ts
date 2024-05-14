@@ -21,6 +21,22 @@ const oauth2Route: RouteRecordRaw = {
       }
     },
     {
+      path: 'otp',
+      name: 'otp',
+      component: () => import('@/modules/oauth2/views/OTPView.vue'),
+      meta: {
+        title: 'route.otp'
+      }
+    },
+    {
+      path: 'login-by-email',
+      name: 'login_by_email',
+      component: () => import('@/modules/oauth2/views/LoginByEmailView.vue'),
+      meta: {
+        title: 'route.login_by_email'
+      }
+    },
+    {
       path: 'send-email',
       name: 'send_email',
       component: () => import('@/modules/oauth2/views/EmailView.vue'),

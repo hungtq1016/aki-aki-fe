@@ -16,7 +16,7 @@ import AuthForm from '../components/Auth.form.vue';
 import AuthInput from '../components/Auth.input.vue';
 
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator'
-import { state, rules, submit } from '../services/logictics/email'
+import { state, rules, submit } from '../services/logictics/logbyemail'
 import { useRouter } from 'vue-router'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
@@ -27,7 +27,7 @@ const submitEmail = async (): Promise<void> => {
   const response = await submit()
 
   if (response) {
-    router.push('/oauth2')
+    router.push('/oauth2/otp?email='+state.email)
   }
 }
 </script>
