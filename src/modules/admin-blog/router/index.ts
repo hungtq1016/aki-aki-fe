@@ -30,7 +30,7 @@ const adminBlogRoute: RouteRecordRaw = {
     {
       path: ':id',
       name: 'admin_blogs_edit',
-      component: () => import('@/modules/admin-blog/views/BlogAddView.vue'),
+      component: () => import('@/modules/admin-blog/views/BlogEditView.vue'),
       meta: {
         title: 'route.admin_blogs_edit'
       }

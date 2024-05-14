@@ -3,7 +3,7 @@ import { v4 } from 'uuid'
 
 import { init_pagination, paginationOptions } from './../data/blog'
 
-import { get, post } from '@/core/services/helpers/request.helper'
+import { get, post, put } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TBlog, TBlogRequest, TTag } from '../../models/type'
@@ -33,7 +33,6 @@ export const items = ref<TBlog[]>([
 export const selectedTags: Ref<TTag[]> = ref([])
 
 export const init_state: TBlogRequest = {
-  id: v4(),
   title: '',
   content: '',
   videoEmbed: '',
@@ -41,7 +40,6 @@ export const init_state: TBlogRequest = {
   slug: '',
   imageUrl: '',
   categoryId: '-1',
-  enable: Boolean(EnableEnum.ALL)
 }
 
 export const state = reactive<TBlogRequest>({ ...init_state })
@@ -51,7 +49,7 @@ export const pagination = ref<TPagination>({ ...init_pagination })
 export const fetch = async () => {
   const response = await get<TPaginationResponse<TBlog>>('/api/blogs/page', paginationOptions.value)
   items.value = response?.data.data || []
-  resetObject(pagination, init_pagination)
+  pagination.value = response?.data || { ...init_pagination };
 
   pagination.value = response?.data || { ...init_pagination }
 }
@@ -113,9 +111,24 @@ export const submit = async () => {
       blogId: state.id,
       tagId: tag.id
     }
-    const responseTag = await post<any, any>('/api/blogtags', payload)
+    await post<any, any>('/api/blogtags', payload)
   })
 }
+
+export const update = async (payload:any) => {
+  const data = await put<any, any>('/api/blogs', payload)
+  if (data?.data) {
+    successNotification(data.message)
+  }
+  selectedTags.value.forEach(async (tag) => {
+    const payload = {
+      blogId: state.id,
+      tagId: tag.id
+    }
+    await post<any, any>('/api/blogtags', payload)
+  })
+}
+
 
 watch(
   paginationOptions,

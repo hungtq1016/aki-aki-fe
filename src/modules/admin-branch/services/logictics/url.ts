@@ -44,14 +44,9 @@ export const rules: Rules = {
     min: 5,
     required: true
   },
-  type: {
-    type: 'string',
-    min: 1,
-    required: true
-  },
   tag: {
     type: 'string',
-    min: 3,
+    min: 1,
     required: true
   },
   groupId: {
@@ -64,14 +59,12 @@ export const rules: Rules = {
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const init_state: TUrlRequest = {
-  id: v4(),
   label: '',
   slug: '',
   imageUrl: '',
   type: '',
-  tag: '-1',
+  tag: '',
   groupId: '-1',
-  enable: Boolean(EnableEnum.ALL)
 }
 
 export const state = reactive<TUrlRequest>({ ...init_state })
@@ -79,7 +72,7 @@ export const state = reactive<TUrlRequest>({ ...init_state })
 export const fetch = async () => {
   const response = await get<TPaginationResponse<TUrl>>('/api/urls/page', paginationOptions.value)
   items.value = response?.data.data || []
-  resetObject(pagination, init_pagination)
+  pagination.value = response?.data || { ...init_pagination };
 }
 
 export const submit = async () => {
@@ -88,6 +81,40 @@ export const submit = async () => {
     successNotification(data.message), resetObject(state, init_state)
   }
 }
+
+export const elementTags = [
+  {
+    id:'none',
+    name:'none'
+  },
+  {
+    id:'url',
+    name:'url'
+  },
+  {
+    id: 'a-tag',
+    name: 'a-tag'
+  },
+  {
+    id: 'router-link',
+    name: 'router-link'
+  }
+]
+
+export const type = [
+  {
+    id:'',
+    name:'url'
+  },
+  {
+    id:'tel:',
+    name:'phone'
+  },
+  {
+    id: 'mailto:',
+    name: 'email'
+  }
+]
 
 watch(
   paginationOptions,

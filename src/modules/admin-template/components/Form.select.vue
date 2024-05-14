@@ -36,7 +36,7 @@ import type { ModelRef, PropType } from 'vue'
 import { ChevronDownIcon, RectangleGroupIcon } from '@heroicons/vue/24/solid'
 import { i18n } from '@/core/services/base/translation'
 
-const model: ModelRef<any> = defineModel({ required: true })
+const model: ModelRef<string> = defineModel({ required: true })
 
 defineProps({
   hasError: {

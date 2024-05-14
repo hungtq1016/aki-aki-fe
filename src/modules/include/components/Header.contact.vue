@@ -1,23 +1,23 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <li class="text-white">
-    <div class="flex gap-x-4 items-center bg-persian-red-600 h-14 p-2 rounded-full">
-      <div class="p-1 bg-white rounded-full">
-        <component :is="data.icon" class="w-6 h-6 text-persian-red-600 m-1" />
-      </div>
+    <div 
+    :class="{'router':data.tag === 'router'}"
+    class="flex gap-x-1 items-center p-2 border border-cerulean-900 rounded-md">
+      <component :is="data.icon" class="w-6 h-6 text-cerulean-900 m-1" />
       <router-link
         v-if="data.tag === 'router'"
         :to="`${data.type}${data.url}`"
         class="uppercase text-lg relative pr-4 font-semibold"
       >
-        {{ $t(data.label) }}
+        <span class="text-cerulean-50">{{ $t(data.label) }}</span>
       </router-link>
       <a
         v-else
         class="uppercase text-lg relative pr-4 font-semibold"
         :href="`${data.type}${data.url}`"
       >
-        {{ data.label }}
+        <span class="text-cerulean-900">{{ data.label }}</span>
       </a>
     </div>
   </li>
@@ -31,3 +31,13 @@ defineProps<{
   data: TContact
 }>()
 </script>
+
+<style scoped>
+.router{
+  @apply bg-cerulean-900
+}
+
+.router > *{
+  @apply text-cerulean-50
+}
+</style>

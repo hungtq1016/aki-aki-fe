@@ -13,7 +13,7 @@
             />
 
             <div class="text-justify text-gray-600 max-w-lg">
-              <p style="font-size: 1rem" v-html="blog.desc" />
+              <p style="font-size: 1rem" v-html="formatText(blog.desc)" />
             </div>
           </div>
         </div>
@@ -36,4 +36,11 @@ onMounted(() => {
     }
   })
 })
+const formatText = (text:string) => {
+    if (text === undefined || text === null) {
+      return ''; // Return empty string if text is undefined or null
+    }
+    return text.replace(/\n/g, '<br>');
+  };
+
 </script>

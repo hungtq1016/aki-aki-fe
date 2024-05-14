@@ -27,7 +27,7 @@ export const pagination = ref<TPagination>({ ...init_pagination })
 export const fetch = async () => {
   const response = await get<TPaginationResponse<TTag>>('/api/tags/page', paginationOptions.value)
   items.value = response?.data.data || []
-  resetObject(pagination, init_pagination)
+  pagination.value = response?.data || { ...init_pagination };
 }
 
 const init_state: TTagRequest = {

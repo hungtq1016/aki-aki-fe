@@ -5,7 +5,7 @@ import { init_pagination, paginationOptions } from '../data/schedule'
 
 import { get, post } from '@/core/services/helpers/request.helper'
 
-import type { TPagination, TPaginationRequest, TPaginationResponse } from '@/core/models/type'
+import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TSchedule, TScheduleRequest } from '../../models/type'
 import { EnableEnum } from '@/core/models/enum'
 import type { Rules } from 'async-validator'
@@ -70,7 +70,7 @@ export const fetch = async () => {
     paginationOptions.value
   )
   items.value = response?.data.data || []
-  resetObject(pagination, init_pagination)
+  pagination.value = response?.data || { ...init_pagination };
 
   pagination.value = response?.data || { ...init_pagination }
 }

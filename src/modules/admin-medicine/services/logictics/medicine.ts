@@ -45,7 +45,7 @@ export const fetch = async () => {
     paginationOptions.value
   )
   items.value = response?.data.data || []
-  resetObject(pagination, init_pagination)
+  pagination.value = response?.data || { ...init_pagination };
 }
 
 watch(

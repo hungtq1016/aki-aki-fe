@@ -51,7 +51,7 @@
         <label class="text-black-1000 mb-3 block text-sm font-medium dark:text-white">
           {{ $t('form.review_image') }}
         </label>
-        <img :src="imageUrl" alt="review-image" />
+        <img :src="model ? imageBuilderUrl(imageUrl) : imageUrl" alt="review-image" />
       </div>
     </template>
   </FormGroup>
@@ -63,9 +63,10 @@ import { upload } from '@/core/services/helpers/request.helper'
 import type { TFileResponse } from '@/modules/admin-blog/models/type'
 import { ArrowUpTrayIcon, PlusIcon, XMarkIcon } from '@heroicons/vue/24/solid'
 import type { ComputedRef, ModelRef, Ref } from 'vue'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { ref } from 'vue'
 import FormGroup from '../components/Form.group.vue'
+import { imageBuilderUrl } from '@/core/services/utils/util.string'
 
 const model: ModelRef<string> = defineModel({ required: true })
 
@@ -107,4 +108,8 @@ const removeImage = () => {
   fileInput.value = null
   imageUrl.value = ''
 }
+
+watch(model,(newValue)=>{
+  imageUrl.value = newValue
+})
 </script>

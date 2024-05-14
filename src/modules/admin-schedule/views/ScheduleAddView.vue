@@ -28,7 +28,7 @@
     </FormItem>
     <FormItem>
       <PublishView v-model="state.enable" :pass="pass" />
-      <FormGroup :has-error="[Boolean(errorFields?.desc?.length), Boolean(errorFields?.videoEmbed?.length)]">
+      <FormGroup :has-error="[Boolean(errorFields?.userId?.length)]">
         <template #heading>
           {{ $t('form.customer') }}
         </template>
