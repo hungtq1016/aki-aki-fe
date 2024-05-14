@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-md w-full">
-    <form @submit.prevent="submit" class="w-full">
+    <!-- <form @submit.prevent="submit" class="w-full">
       <div>
         <div class="py-5">
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -49,12 +49,39 @@
           {{ $t('button.confirm') }}
         </button>
       </div>
-    </form>
+    </form> -->
+    <AuthForm :pass="pass" :submit="submitSendMail">
+      <div class="sm:col-span-6">
+          <AuthInput v-model="state.password" type="password" :placeholder="$t('form.place_holder.password')"
+            :has-error="Boolean(errorFields?.password?.length)">
+            {{ $t('form.password') }}
+          </AuthInput>
+        </div>
+        <div class="sm:col-span-6">
+          <AuthInput v-model="state.rePassword" type="password" :placeholder="$t('form.place_holder.re_password')"
+            :has-error="Boolean(errorFields?.rePassword?.length)">
+            {{ $t('form.re_password') }}
+          </AuthInput>
+        </div>
+    </AuthForm>
   </div>
 </template>
 
 <script setup lang="ts">
-const submit = () => {
-  console.log('Hello')
+import { useRouter } from 'vue-router';
+import AuthForm from '../components/Auth.form.vue';
+import AuthInput from '../components/Auth.input.vue';
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs';
+import { rules, state, submit } from '../services/logictics/email';
+
+const { pass, errorFields } = useAsyncValidator(state, rules)
+
+const router = useRouter()
+
+const submitSendMail = async () => {
+
+  const response = await submit()
+
 }
+
 </script>

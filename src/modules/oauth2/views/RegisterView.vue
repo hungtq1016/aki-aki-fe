@@ -1,102 +1,37 @@
 <template>
   <div class="max-w-md w-full">
-    <form @submit.prevent="submit" class="w-full">
-      <div>
-        <div class="py-5">
-          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div class="sm:col-span-6">
-              <label for="email" class="block text-sm font-medium leading-6 text-gray-900">
-                {{ $t('form.email') }}
-              </label>
-              <div class="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  :placeholder="$t('form.place_holder.email')"
-                  class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cerulean-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div class="sm:col-span-6">
-              <label for="password" class="block text-sm font-medium leading-6 text-gray-900">
-                {{ $t('form.password') }}
-              </label>
-              <div class="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autocomplete="password"
-                  :placeholder="$t('form.place_holder.password')"
-                  class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cerulean-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div class="sm:col-span-6">
-              <label for="re_password" class="block text-sm font-medium leading-6 text-gray-900">
-                {{ $t('form.re_password') }}
-              </label>
-              <div class="mt-2">
-                <input
-                  id="re_password"
-                  name="re_password"
-                  type="password"
-                  autocomplete="re_password"
-                  :placeholder="$t('form.place_holder.re_password')"
-                  class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cerulean-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div class="sm:col-span-3">
-              <label for="firstname" class="block text-sm font-medium leading-6 text-gray-900">
-                {{ $t('form.firstname') }}
-              </label>
-              <div class="mt-2">
-                <input
-                  type="text"
-                  name="firstname"
-                  id="firstname"
-                  autocomplete="given-name"
-                  :placeholder="$t('form.place_holder.firstname')"
-                  class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cerulean-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div class="sm:col-span-3">
-              <label for="lastname" class="block text-sm font-medium leading-6 text-gray-900">
-                {{ $t('form.lastname') }}
-              </label>
-              <div class="mt-2">
-                <input
-                  type="text"
-                  name="lastname"
-                  id="lastname"
-                  autocomplete="family-name"
-                  :placeholder="$t('form.place_holder.lastname')"
-                  class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cerulean-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+    <AuthForm :pass="pass" :submit="submitLogin">
+      <div class="sm:col-span-6">
+        <AuthInput v-model="state.email" type="email" :placeholder="$t('form.place_holder.email')"
+          :has-error="Boolean(errorFields?.email?.length)">
+          {{ $t('form.email') }}
+        </AuthInput>
       </div>
-
-      <div class="pb-10 flex items-center justify-end gap-x-6">
-        <button type="button" class="text-sm font-semibold leading-6 text-gray-900">
-          {{ $t('button.cancel') }}
-        </button>
-        <button
-          type="submit"
-          class="rounded-md bg-cerulean-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cerulean-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cerulean-600"
-        >
-          {{ $t('button.confirm') }}
-        </button>
+      <div class="sm:col-span-6">
+        <AuthInput v-model="state.password" type="password" :placeholder="$t('form.place_holder.password')"
+          :has-error="Boolean(errorFields?.password?.length)">
+          {{ $t('form.password') }}
+        </AuthInput>
       </div>
-    </form>
-
+      <div class="sm:col-span-6">
+        <AuthInput v-model="state.rePassword" type="password" :placeholder="$t('form.place_holder.re_password')"
+          :has-error="Boolean(errorFields?.rePassword?.length)">
+          {{ $t('form.re_password') }}
+        </AuthInput>
+      </div>
+      <div class="sm:col-span-6">
+        <AuthInput v-model="state.fullName" :placeholder="$t('form.place_holder.full_name')"
+          :has-error="Boolean(errorFields?.fullName?.length)">
+          {{ $t('form.full_name') }}
+        </AuthInput>
+      </div>
+      <div class="sm:col-span-6">
+        <AuthInput v-model="state.phoneNumber" :placeholder="$t('form.place_holder.phone_number')"
+          :has-error="Boolean(errorFields?.phoneNumber?.length)">
+          {{ $t('form.phone_number') }}
+        </AuthInput>
+      </div>
+    </AuthForm>
     <div class="relative shrink-0 pt-4 space-y-3">
       <div
         class="space-y-4 text-sm text-gray-900 sm:flex sm:items-center sm:justify-center sm:space-x-4 sm:space-y-0"
@@ -113,7 +48,29 @@
 </template>
 
 <script setup lang="ts">
-const submit = () => {
-  console.log('Hello')
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs';
+import AuthForm from '../components/Auth.form.vue';
+import AuthInput from '../components/Auth.input.vue';
+import { rules, state, submit } from '../services/logictics/register';
+import { useUserstore } from '@/core/stores/user';
+import { successNotification } from '@/core/services/helpers/alert.helper';
+import { i18n } from '@/core/services/base/translation';
+import { useRouter } from 'vue-router';
+
+const { pass, errorFields } = useAsyncValidator(state, rules)
+
+const router = useRouter()
+
+const submitLogin = async (): Promise<void> => {
+  const { fetchUser } = useUserstore()
+
+  const response = await submit()
+
+  if (response) {
+    successNotification(i18n.global.t('message.register_success'))
+    await fetchUser()
+    router.push('/')
+  }
 }
+
 </script>
