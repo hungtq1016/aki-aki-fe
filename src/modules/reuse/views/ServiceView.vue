@@ -1,5 +1,5 @@
 <template>
-  <section class="py-5" style="background-image: url('/vuehost/bg.png')">
+  <section class="py-5" style="background-image: url('bg.png')">
     <div class="max-w-screen-xl m-auto">
       <div class="py-5 md:py-10 md:px-5">
         <h1

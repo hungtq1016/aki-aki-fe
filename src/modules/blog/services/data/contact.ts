@@ -36,7 +36,7 @@ const socials = ref<Array<TSocial>>([
   }
 ])
 
-const branchs = ref<Array<TAddress>>([
+const branches = ref<Array<TAddress>>([
   {
     name: 'Trụ sở chính: PHÒNG KHÁM AKIAKI',
     address1: '550 Lũy Bán Bích, P.Hòa Thạnh',
@@ -65,4 +65,4 @@ const branchs = ref<Array<TAddress>>([
   }
 ])
 
-export { branchs, socials }
+export { branches, socials }

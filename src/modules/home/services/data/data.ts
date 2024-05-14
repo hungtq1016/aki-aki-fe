@@ -5,7 +5,7 @@ import type { TBlog } from '@/modules/admin-blog/models/type'
 
 const banners = ref<TUrl[]>([
   {
-    imageUrl: '/vuehost/banner.jpg',
+    imageUrl: 'banner.jpg',
     label: 'Banner 1',
     createdAt: '',
     enable: true,
@@ -17,7 +17,7 @@ const banners = ref<TUrl[]>([
     updatedAt: ''
   },
   {
-    imageUrl: '/vuehost/banner2.jpg',
+    imageUrl: 'banner2.jpg',
     label: 'Banner 2',
     createdAt: '',
     enable: true,
@@ -113,7 +113,7 @@ const blogs = ref<Array<TBlog>>([
 const certificates = ref<Array<TUrl>>([
   {
     label: 'Hình ảnh trước và sau khi niềng răng',
-    imageUrl: '/vuehost/cer1.webp',
+    imageUrl: 'cer1.webp',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -125,7 +125,7 @@ const certificates = ref<Array<TUrl>>([
   },
   {
     label: 'Quá trình niềng răng diễn ra như thế nào?',
-    imageUrl: '/vuehost/cer2.png',
+    imageUrl: 'cer2.png',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -137,7 +137,7 @@ const certificates = ref<Array<TUrl>>([
   },
   {
     label: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
-    imageUrl: '/vuehost/cer3.jpg',
+    imageUrl: 'cer3.jpg',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -149,7 +149,7 @@ const certificates = ref<Array<TUrl>>([
   },
   {
     label: 'Phân biệt các chức danh bác sĩ chuyên khoa 1, 2,...',
-    imageUrl: '/vuehost/cer4.png',
+    imageUrl: 'cer4.png',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -164,7 +164,7 @@ const certificates = ref<Array<TUrl>>([
 const customers = ref<Array<TUrl>>([
   {
     label: 'Hình ảnh trước và sau khi niềng răng',
-    imageUrl: '/vuehost/cer1.webp',
+    imageUrl: 'cer1.webp',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -176,7 +176,7 @@ const customers = ref<Array<TUrl>>([
   },
   {
     label: 'Quá trình niềng răng diễn ra như thế nào?',
-    imageUrl: '/vuehost/cer2.png',
+    imageUrl: 'cer2.png',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -188,7 +188,7 @@ const customers = ref<Array<TUrl>>([
   },
   {
     label: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
-    imageUrl: '/vuehost/cer3.jpg',
+    imageUrl: 'cer3.jpg',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -200,7 +200,7 @@ const customers = ref<Array<TUrl>>([
   },
   {
     label: 'Phân biệt các chức danh bác sĩ chuyên khoa 1, 2,...',
-    imageUrl: '/vuehost/cer4.png',
+    imageUrl: 'cer4.png',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -212,7 +212,7 @@ const customers = ref<Array<TUrl>>([
   },
   {
     label: 'Hình ảnh trước và sau khi niềng răng',
-    imageUrl: '/vuehost/cer1.webp',
+    imageUrl: 'cer1.webp',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -224,7 +224,7 @@ const customers = ref<Array<TUrl>>([
   },
   {
     label: 'Quá trình niềng răng diễn ra như thế nào?',
-    imageUrl: '/vuehost/cer2.png',
+    imageUrl: 'cer2.png',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -236,7 +236,7 @@ const customers = ref<Array<TUrl>>([
   },
   {
     label: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
-    imageUrl: '/vuehost/cer3.jpg',
+    imageUrl: 'cer3.jpg',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -248,7 +248,7 @@ const customers = ref<Array<TUrl>>([
   },
   {
     label: 'Phân biệt các chức danh bác sĩ chuyên khoa 1, 2,...',
-    imageUrl: '/vuehost/cer4.png',
+    imageUrl: 'cer4.png',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -263,7 +263,7 @@ const customers = ref<Array<TUrl>>([
 const galleries = ref<Array<TUrl>>([
   {
     label: 'Hình ảnh trước và sau khi niềng răng',
-    imageUrl: '/vuehost/cer1.webp',
+    imageUrl: 'cer1.webp',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -275,7 +275,7 @@ const galleries = ref<Array<TUrl>>([
   },
   {
     label: 'Quá trình niềng răng diễn ra như thế nào?',
-    imageUrl: '/vuehost/cer2.png',
+    imageUrl: 'cer2.png',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -287,7 +287,7 @@ const galleries = ref<Array<TUrl>>([
   },
   {
     label: 'Các giai đoạn niềng răng theo các mốc và điều cần lưu ý',
-    imageUrl: '/vuehost/cer3.jpg',
+    imageUrl: 'cer3.jpg',
     createdAt: '',
     enable: true,
     groupId: '',
@@ -299,7 +299,7 @@ const galleries = ref<Array<TUrl>>([
   },
   {
     label: 'Phân biệt các chức danh bác sĩ chuyên khoa 1, 2,...',
-    imageUrl: '/vuehost/cer4.png',
+    imageUrl: 'cer4.png',
     createdAt: '',
     enable: true,
     groupId: '',

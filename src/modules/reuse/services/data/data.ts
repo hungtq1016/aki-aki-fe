@@ -4,7 +4,7 @@ import type { TService } from '@/modules/admin-service/models/type'
 
 const specialists = ref<Array<TService>>([
   {
-    imageUrl: '/vuehost/special1.png',
+    imageUrl: 'special1.png',
     title: 'Khoa Nhiễm',
     slug: '/specialist/khoa-nhiem',
     content: '',
@@ -17,7 +17,7 @@ const specialists = ref<Array<TService>>([
     desc:''
   },
   {
-    imageUrl: '/vuehost/special2.png',
+    imageUrl: 'special2.png',
     title: 'Xét nghiệm',
     slug: '/specialist/khoa-nhiem',
     content: '',
@@ -56,7 +56,7 @@ const faqs = ref<Array<TFaQ>>([
 
 const services = ref<Array<TService>>([
   {
-    imageUrl: '/vuehost/special1.png',
+    imageUrl: 'special1.png',
     title: 'Khám bệnh tại nhà',
     slug: '#',
     desc: 'Dịch vụ khám bệnh tại nhà',
@@ -69,7 +69,7 @@ const services = ref<Array<TService>>([
     enable: true
   },
   {
-    imageUrl: '/vuehost/special2.png',
+    imageUrl: 'special2.png',
     title: 'Chăm sóc răng miệng',
     slug: '#',
     desc: 'Dịch vụ chăm sóc răng miệng',
@@ -82,7 +82,7 @@ const services = ref<Array<TService>>([
     enable: true
   },
   {
-    imageUrl: '/vuehost/special1.png',
+    imageUrl: 'special1.png',
     title: 'Bảo hiểm',
     slug: '#',
     desc: 'Dịch vụ bảo hiểm cho khách hàng',
@@ -95,7 +95,7 @@ const services = ref<Array<TService>>([
     enable: true
   },
   {
-    imageUrl: '/vuehost/special2.png',
+    imageUrl: 'special2.png',
     title: 'Xét nghiệm',
     slug: '#',
     desc: 'Dịch vụ xét nghiệm',
