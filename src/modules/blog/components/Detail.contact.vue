@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
 import { get } from '@/core/services/helpers/request.helper'
-import type { TBranch, TGroupUrlReponse, TUrl } from '@/modules/admin-branch/models/type'
+import type { TBranch, TGroupUrlResponse, TUrl } from '@/modules/admin-branch/models/type'
 import { ChevronRightIcon, InformationCircleIcon } from '@heroicons/vue/24/outline'
 import { MapPinIcon, PhoneIcon } from '@heroicons/vue/24/solid'
 import { onMounted, ref } from 'vue'
@@ -57,7 +57,7 @@ onMounted(() => {
     }
   })
 
-  get<TGroupUrlReponse>('/api/groupurls/label/social').then((res) => {
+  get<TGroupUrlResponse>('/api/groupurls/label/social').then((res) => {
     if (res?.data) {
       socials.value = res.data.urls
     }

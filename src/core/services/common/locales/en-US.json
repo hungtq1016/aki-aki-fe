@@ -35,7 +35,8 @@
     "search_result": "Search results for",
     "share": "Share",
     "conversation": "Conversation",
-    "oauth2": "Authorize"
+    "oauth2": "Authorize",
+    "phone":"Contact Phone: {number}"
   },
   "error": {
     "not_found": {
@@ -246,6 +247,12 @@
     "updatedAt": "Updated at",
     "brand": "Brand",
     "quantity": "Quantity",
-    "usage": "Usage"
+    "usage": "Usage",
+    "phone1":"Phone 1",
+    "phone2":"Phone 2",
+    "address1":"Address 1",
+    "address2":"Address 2",
+    "addressEmbed":"GG maps embed",
+    "typeId":"Type ID"
   }
 }

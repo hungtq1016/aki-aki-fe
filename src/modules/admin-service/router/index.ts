@@ -22,7 +22,7 @@ const adminServiceRoute: RouteRecordRaw = {
     {
       path: ':id',
       name: 'admin_services_edit',
-      component: () => import('@/modules/admin-service/views/ServiceAddView.vue'),
+      component: () => import('@/modules/admin-service/views/ServiceEditView.vue'),
       meta: {
         title: 'route.admin_services_edit'
       }

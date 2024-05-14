@@ -86,8 +86,9 @@ onMounted(() => {
   get<TBlogResponse>('/api/blogs/slug/' + route.params.slug).then((res) => {
     if (res?.data) {
       blog.value = res.data
+    }else{
+      router.push('/blogs')
     }
-    router.push('/blogs')
   })
 })
 </script>

@@ -6,12 +6,12 @@ import { get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TService, TServiceRequest } from '../../models/type'
-import { EnableEnum } from '@/core/models/enum'
-import { v4 } from 'uuid'
+
 import type { Rules } from 'async-validator'
 import { resetObject } from '@/core/services/utils/util.object'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { slugify } from '@/core/services/utils/util.string'
+import { v4 } from 'uuid'
 
 export const items = ref<TService[]>([
   {
@@ -25,12 +25,11 @@ export const items = ref<TService[]>([
     updatedAt: '2024-01-01',
     videoEmbed: '',
     desc: '',
-    enable: Boolean(EnableEnum.ALL)
+    enable: true
   }
 ])
 
 export const init_state: TServiceRequest = {
-  id: v4(),
   title: '',
   content: '',
   imageUrl: '',
@@ -38,7 +37,7 @@ export const init_state: TServiceRequest = {
   desc: '',
   videoEmbed: '',
   groupId: '-1',
-  enable: Boolean(EnableEnum.ALL)
+  enable: true
 }
 
 export const state = reactive<TServiceRequest>({ ...init_state })

@@ -11,13 +11,13 @@ import { banners as data } from '../services/data/data'
 import Flicking from '@egjs/vue3-flicking'
 import { bannerOptions } from '../services/data/options'
 import { onMounted, ref } from 'vue'
-import type { TGroupUrlReponse, TUrl } from '@/modules/admin-branch/models/type'
+import type { TGroupUrlResponse, TUrl } from '@/modules/admin-branch/models/type'
 import { get } from '@/core/services/helpers/fetcher.helper'
 
 const banners = ref<TUrl[]>(data.value)
 
 onMounted(() => {
-  get<TGroupUrlReponse>('/api/groupurls/label/banner').then((res) => {
+  get<TGroupUrlResponse>('/api/groupurls/label/banner').then((res) => {
     if (res?.data) {
       banners.value = res.data.urls
     }

@@ -6,7 +6,6 @@ import { get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TBranch, TBranchRequest } from '../../models/type'
-import { EnableEnum } from '@/core/models/enum'
 import type { Rules } from 'async-validator'
 import { v4 } from 'uuid'
 import { resetObject } from '@/core/services/utils/util.object'
@@ -24,7 +23,7 @@ export const items = ref<TBranch[]>([
     typeId: '-1',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    enable: Boolean(EnableEnum.ALL)
+    enable: true
   }
 ])
 
@@ -54,7 +53,6 @@ export const rules: Rules = {
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const init_state: TBranchRequest = {
-  id: v4(),
   address1: '',
   address2: '',
   phone1: '',
@@ -62,7 +60,7 @@ export const init_state: TBranchRequest = {
   addressEmbed: '',
   name: '',
   typeId: '-1',
-  enable: Boolean(EnableEnum.ALL)
+  enable: true
 }
 
 export const state = reactive<TBranchRequest>({ ...init_state })

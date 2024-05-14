@@ -12,11 +12,12 @@ export const headers: Header[] = [
   { text: 'table.address2', value: 'address2' },
   { text: 'table.phone1', value: 'phone1' },
   { text: 'table.phone2', value: 'phone2' },
-  { text: 'table.embed', value: 'addressEmbed' },
+  { text: 'table.addressEmbed', value: 'addressEmbed' },
   { text: 'table.typeId', value: 'typeId' },
   { text: 'table.enable', value: 'enable' },
   { text: 'table.createdAt', value: 'createdAt' },
-  { text: 'table.updatedAt', value: 'updatedAt' }
+  { text: 'table.updatedAt', value: 'updatedAt' },
+  { text: 'table.action', value: 'action' }
 ]
 
 export const paginationOptions = ref<TPaginationRequest>({

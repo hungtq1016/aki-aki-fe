@@ -6,8 +6,7 @@ import { get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TCategory, TCategoryRequest } from '../../models/type'
-import { EnableEnum } from '@/core/models/enum'
-import { v4 } from 'uuid'
+
 import type { Rules } from 'async-validator'
 import { slugify } from '@/core/services/utils/util.string'
 import { successNotification } from '@/core/services/helpers/alert.helper'
@@ -20,7 +19,7 @@ export const items = ref<TCategory[]>([
     slug: 'mock-data',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    enable: Boolean(EnableEnum.ALL)
+    enable: true
   }
 ])
 export const pagination = ref<TPagination>({ ...init_pagination })
@@ -37,7 +36,7 @@ export const init_state: TCategoryRequest = {
   id: v4(),
   title: '',
   slug: '',
-  enable: Boolean(EnableEnum.ALL)
+  enable: true
 }
 
 export const state = reactive<TCategoryRequest>({ ...init_state })

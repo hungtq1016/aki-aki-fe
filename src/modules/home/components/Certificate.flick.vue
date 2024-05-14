@@ -20,7 +20,7 @@ import { Arrow } from '@egjs/flicking-plugins'
 import { slickOptions } from '../services/data/options'
 import CertificateItem from './Certificate.item.vue'
 import { onMounted, ref } from 'vue'
-import type { TUrl, TGroupUrlReponse } from '@/modules/admin-branch/models/type'
+import type { TUrl, TGroupUrlResponse } from '@/modules/admin-branch/models/type'
 import { get } from '@/core/services/helpers/fetcher.helper'
 
 const plugins = [new Arrow()]
@@ -28,7 +28,7 @@ const plugins = [new Arrow()]
 const certificates = ref<TUrl[]>(data.value)
 
 onMounted(() => {
-  get<TGroupUrlReponse>('/api/groupurls/label/certificate').then((res) => {
+  get<TGroupUrlResponse>('/api/groupurls/label/certificate').then((res) => {
     if (res?.data) {
       certificates.value = res.data.urls
     }

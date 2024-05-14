@@ -14,6 +14,11 @@
           >
             {{ $t('form.label') }}
           </FormInput>
+          <FormInput
+            v-model="state.slug"
+            :disabled="true"
+            :placeholder="$t('form.place_holder.slug')"
+          ></FormInput>
         </template>
       </FormGroup>
     </FormItem>

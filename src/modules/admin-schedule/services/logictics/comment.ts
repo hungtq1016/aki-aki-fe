@@ -6,7 +6,6 @@ import { init_pagination, paginationOptions } from '../data/comment'
 import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import { EnableEnum } from '@/core/models/enum'
 import type { TComment } from '@/modules/blog/models/type'
 
 export const items = ref<TComment[]>([
@@ -19,7 +18,7 @@ export const items = ref<TComment[]>([
     children: [],
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    enable: Boolean(EnableEnum.ALL)
+    enable: true
   }
 ])
 

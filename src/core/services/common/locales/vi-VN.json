@@ -35,7 +35,8 @@
     "search_blog": "Tìm kiếm",
     "search_result": "Kết quả tìm kiếm cho",
     "share": "Chia sẻ",
-    "conversation": "Hội thoại"
+    "conversation": "Hội thoại",
+    "phone":"SĐT: {number}"
   },
   "error": {
     "not_found": {

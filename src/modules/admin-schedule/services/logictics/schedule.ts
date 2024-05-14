@@ -7,7 +7,6 @@ import { get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TSchedule, TScheduleRequest } from '../../models/type'
-import { EnableEnum } from '@/core/models/enum'
 import type { Rules } from 'async-validator'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
@@ -23,7 +22,7 @@ export const items = ref<TSchedule[]>([
     userId: '-1',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    enable: Boolean(EnableEnum.ALL)
+    enable: true
   }
 ])
 

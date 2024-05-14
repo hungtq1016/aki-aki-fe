@@ -13,7 +13,7 @@
           <p>{{ data.address1 }}</p>
           <p>{{ data?.address2 }}</p>
           <p>
-            {{ $t('content.phone') }}: {{ data.phone1 }} <span v-if="data.phone2">–</span>
+            {{ $t('content.phone',{number:data.phone1}) }}<span v-if="data.phone2">–</span>
             {{ data.phone2 }}
           </p>
         </div>

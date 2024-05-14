@@ -6,7 +6,6 @@ import { get, post } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TMedicine, TMedicineRequest } from '../../models/type'
-import { EnableEnum } from '@/core/models/enum'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { v4 } from 'uuid'
 import { slugify } from '@/core/services/utils/util.string'
@@ -20,7 +19,7 @@ export const items = ref<TMedicine[]>([
     slug: 'paracetamol',
     brand: 'CÔNG TY CỔ PHẦN DƯỢC - VẬT TƯ Y TẾ THANH HÓA - THEPHACO',
     desc: 'Paracetamol, còn được gọi là acetaminophen, là một loại thuốc có tác dụng hạ sốt và giảm đau, tuy nhiên không như aspirin, thuốc không hoặc ít có tác dụng chống viêm. Bằng chứng về khả năng hạ sốt trên đối tượng là trẻ em của thuốc này vẫn còn yếu, chưa rõ ràng.',
-    enable: Boolean(EnableEnum.ALL),
+    enable: true,
     createdAt: '2024-05-08T09:51:09.42',
     updatedAt: '2024-05-08T09:51:09.42'
   }
@@ -32,7 +31,7 @@ export const init_state: TMedicineRequest = {
   slug: '',
   brand: '',
   desc: '',
-  enable: Boolean(EnableEnum.ALL)
+  enable: true
 }
 
 export const state = reactive<TMedicineRequest>({ ...init_state })

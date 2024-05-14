@@ -22,7 +22,7 @@ const adminUrlRoute: RouteRecordRaw = {
     {
       path: ':id',
       name: 'admin_urls_edit',
-      component: () => import('@/modules/admin-branch/views/UrlAddView.vue'),
+      component: () => import('@/modules/admin-branch/views/UrlEditView.vue'),
       meta: {
         title: 'route.admin_urls_edit'
       }
@@ -49,7 +49,7 @@ const adminUrlRoute: RouteRecordRaw = {
         {
           path: ':id',
           name: 'admin_urls_groups_edit',
-          component: () => import('@/modules/admin-branch/views/GroupAddView.vue'),
+          component: () => import('@/modules/admin-branch/views/GroupEditView.vue'),
           meta: {
             title: 'route.admin_urls_groups_edit'
           }
@@ -81,7 +81,7 @@ const adminBranchRoute: RouteRecordRaw = {
     {
       path: ':id',
       name: 'admin_branches_edit',
-      component: () => import('@/modules/admin-branch/views/BranchAddView.vue'),
+      component: () => import('@/modules/admin-branch/views/BranchEditView.vue'),
       meta: {
         title: 'route.admin_branches_edit'
       }
@@ -108,7 +108,7 @@ const adminBranchRoute: RouteRecordRaw = {
         {
           path: ':id',
           name: 'admin_branches_types_edit',
-          component: () => import('@/modules/admin-branch/views/TypeAddView.vue'),
+          component: () => import('@/modules/admin-branch/views/TypeEditView.vue'),
           meta: {
             title: 'route.admin_branches_types_edit'
           }

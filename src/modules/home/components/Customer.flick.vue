@@ -19,7 +19,7 @@ import { customers as data } from '../services/data/data'
 import { Arrow } from '@egjs/flicking-plugins'
 import { customerOptions } from '../services/data/options'
 import { onMounted, ref } from 'vue'
-import type { TGroupUrlReponse, TUrl } from '@/modules/admin-branch/models/type'
+import type { TGroupUrlResponse, TUrl } from '@/modules/admin-branch/models/type'
 import { get } from '@/core/services/helpers/fetcher.helper'
 
 const plugins = [new Arrow()]
@@ -27,7 +27,7 @@ const plugins = [new Arrow()]
 const customers = ref<TUrl[]>(data.value)
 
 onMounted(() => {
-  get<TGroupUrlReponse>('/api/groupurls/label/customer').then((res) => {
+  get<TGroupUrlResponse>('/api/groupurls/label/customer').then((res) => {
     if (res?.data) {
       customers.value = res.data.urls
     }

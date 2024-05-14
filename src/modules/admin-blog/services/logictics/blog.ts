@@ -7,7 +7,6 @@ import { get, post, put } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TBlog, TBlogRequest, TTag } from '../../models/type'
-import { EnableEnum } from '@/core/models/enum'
 import type { Rules } from 'async-validator'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { slugify } from '@/core/services/utils/util.string'
@@ -26,7 +25,7 @@ export const items = ref<TBlog[]>([
     categoryId: '',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    enable: Boolean(EnableEnum.ALL)
+    enable: true
   }
 ])
 

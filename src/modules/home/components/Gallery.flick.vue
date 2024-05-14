@@ -25,7 +25,7 @@ import { galleries as data } from '../services/data/data'
 import { Arrow } from '@egjs/flicking-plugins'
 import { galleryOptions } from '../services/data/options'
 import { onMounted, ref } from 'vue'
-import type { TUrl, TGroupUrlReponse } from '@/modules/admin-branch/models/type'
+import type { TUrl, TGroupUrlResponse } from '@/modules/admin-branch/models/type'
 import { imageBuilderUrl } from '@/core/services/utils/util.string'
 import { get } from '@/core/services/helpers/fetcher.helper'
 
@@ -34,7 +34,7 @@ const plugins = [new Arrow()]
 const galleries = ref<TUrl[]>(data.value)
 
 onMounted(() => {
-  get<TGroupUrlReponse>('/api/groupurls/label/gallery').then((res) => {
+  get<TGroupUrlResponse>('/api/groupurls/label/gallery').then((res) => {
     if (res?.data) {
       galleries.value = res.data.urls
     }

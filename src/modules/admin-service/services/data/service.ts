@@ -9,7 +9,7 @@ export const headers: Header[] = [
   { text: 'table.id', value: 'id', width: 100 },
   { text: 'table.title', value: 'title', sortable: true },
   { text: 'table.slug', value: 'slug' },
-  { text: 'table.embed', value: 'videoEmbed' },
+  { text: 'table.videoEmbed', value: 'videoEmbed' },
   { text: 'table.imageUrl', value: 'imangeUrl' },
   { text: 'table.content', value: 'content' },
   { text: 'table.groupId', value: 'groupId' },

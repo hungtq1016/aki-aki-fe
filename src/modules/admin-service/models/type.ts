@@ -10,6 +10,16 @@ export type TService = TEntity & {
   videoEmbed: string
 }
 
+export type TServiceResponse = TEntity & {
+  title: string
+  slug: string
+  content: string
+  imageUrl: string
+  groupId: string
+  desc: string
+  videoEmbed: string
+}
+
 export type TServiceRequest = TRequest & {
   title: string
   slug: string
@@ -22,13 +32,16 @@ export type TServiceRequest = TRequest & {
 
 export type TGroupService = TEntity & {
   label: string
+  slug: string
 }
 
 export type TGroupServiceResponse = TEntity & {
   label: string
+  slug: string
   services: TService[]
 }
 
 export type TGroupServiceRequest = TRequest & {
   label: string
+  slug: string
 }
