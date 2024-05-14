@@ -2,6 +2,10 @@ import { reactive } from 'vue'
 import type { TOTPRequest } from '../../models/type'
 import type { Rules } from 'async-validator'
 import { post } from '@/core/services/helpers/request.helper'
+import { errorNotification } from '@/core/services/helpers/alert.helper'
+import { resetObject } from '@/core/services/utils/util.object'
+import type { TTokenResponse } from '@/core/models/type'
+import { useAuthInfo } from '@/core/services/helpers/indexedDB.helper'
 
 const init_state = {
   n1: '',
@@ -46,17 +50,27 @@ const submit = async (email: string): Promise<boolean> => {
     otp: state.n1 + state.n2 + state.n3 + state.n4 + state.n5 + state.n6,
     email: email
   }
+  const { updateAuthAsync } = useAuthInfo()
 
   try {
-    post<any, boolean>('/api/authenticate/receive-otp', payload).then(response => {
-      if (response?.data) return true
+    const data = await post<any, TTokenResponse>('/api/authenticate/receive-otp', payload)
+
+    if (data?.data) {
+      const auth: TTokenResponse = data.data
+      const saveResult: boolean | undefined = await updateAuthAsync(auth)
+
+      resetObject(state, init_state)
+
+      if (saveResult) return true
+
       return false
-    })
+    }
 
     return false
-
   } catch (error) {
+    errorNotification(String(error))
     return false
+
   }
 }
 

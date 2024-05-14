@@ -18,6 +18,8 @@ import AuthInput from '../components/Auth.input.vue';
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator'
 import { state, rules, submit } from '../services/logictics/logbyemail'
 import { useRouter } from 'vue-router'
+import { successNotification } from '@/core/services/helpers/alert.helper';
+import { i18n } from '@/core/services/base/translation';
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 const router = useRouter()
@@ -27,6 +29,7 @@ const submitEmail = async (): Promise<void> => {
   const response = await submit()
 
   if (response) {
+    successNotification(i18n.global.t('message.check_email'))
     router.push('/oauth2/otp?email='+state.email)
   }
 }

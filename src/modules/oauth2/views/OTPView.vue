@@ -2,7 +2,7 @@
   <div class="max-w-xs-full">
     <AuthForm :pass="pass" :submit="submitOTP">
       <div class="sm:col-span-6">
-        <AuthOTP/>
+        <AuthOTP />
       </div>
     </AuthForm>
   </div>
@@ -15,6 +15,9 @@ import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator'
 import { state, rules, submit } from '../services/logictics/otp'
 import { useRouter, useRoute } from 'vue-router'
 import AuthOTP from '../components/Auth.otp.vue';
+import { useUserstore } from '@/core/stores/user';
+import { successNotification } from '@/core/services/helpers/alert.helper';
+import { i18n } from '@/core/services/base/translation';
 
 const { pass } = useAsyncValidator(state, rules)
 const router = useRouter()
@@ -26,10 +29,14 @@ if (!route.query.email) {
 
 const submitOTP = async (): Promise<void> => {
 
+  const { fetchUser } = useUserstore()
+
   const response = await submit(String(route.query.email))
 
   if (response) {
-    router.push('/oauth2')
+    successNotification(i18n.global.t('message.login_success'))
+    await fetchUser()
+    router.push('/')
   }
 }
 </script>
