@@ -14,7 +14,8 @@ export const headers: Header[] = [
   { text: 'table.content', value: 'content' },
   { text: 'table.groupId', value: 'groupId' },
   { text: 'table.createdAt', value: 'createdAt' },
-  { text: 'table.updatedAt', value: 'updatedAt' }
+  { text: 'table.updatedAt', value: 'updatedAt' },
+  { text: 'table.action', value: 'action' }
 ]
 
 export const paginationOptions = ref<TPaginationRequest>({

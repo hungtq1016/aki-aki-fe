@@ -20,12 +20,12 @@
         v-if="data.mostPopular"
         class="rounded-full bg-cerulean-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-cerulean-600"
       >
-        Most popular
+        Nổi bật
       </p>
     </div>
     <p class="mt-4 text-sm leading-6 text-gray-600">{{ data.desc }}</p>
     <p class="mt-6 flex items-baseline gap-x-1">
-      <span class="text-4xl font-bold tracking-tight text-gray-900">{{
+      <span class="text-xl font-bold tracking-tight text-gray-900">{{
         data.price[frequency.value]
       }}</span>
       <span class="text-sm font-semibold leading-6 text-gray-600">{{ frequency.suffix }}</span>

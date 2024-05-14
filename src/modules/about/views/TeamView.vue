@@ -1,12 +1,12 @@
 <template>
-  <section class="pb-10">
+  <section class="py-10">
     <div class="max-w-screen-xl m-auto">
       <div class="w-full py-8">
         <div class="grid grid-cols-1 lg:grid-cols-10 gap-6">
           <div class="lg:col-span-6">
             <img
               class="w-full"
-              src="https://admin.petpro.com.vn/images/uploaded/Gioi%20thieu%20benh%20vien/doi%20ngu%20bac%20si.png"
+              src="http://hungtq1016-001-site1.btempurl.com/api/images/638512693785509305.png"
               alt="Doctor"
             />
           </div>
@@ -23,7 +23,7 @@
               <p class="mb-[15px]"></p>
               <p>
                 Đội ngũ Bác sĩ ưu tú với thâm niên trung bình 10 năm kinh nghiệm, thăm khám trên
-                nhiều chuyên khoa đa năng,tận tâm chăm sóc thú cưng của gia đình bạn.
+                nhiều chuyên khoa đa năng,tận tâm chăm sóc cho bạn và gia đình bạn.
               </p>
 
               <p></p>

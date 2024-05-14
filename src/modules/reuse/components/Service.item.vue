@@ -2,8 +2,8 @@
 <template>
   <div class="px-2">
     <div class="p-5 bg-gray-50 rounded-xl">
-      <div class="w-4/5 m-auto py-10">
-        <div class="bg-transparent w-full pt-[100%] relative overflow-hidden rounded-full">
+      <div class="w-full m-auto pb-10">
+        <div class="bg-transparent w-full pt-[100%] relative overflow-hidden rounded-md">
           <div
             class="absolute inset-0 block bg-no-repeat bg-cover bg-[50%]"
             :style="{ 'background-image': `url(${imageBuilderUrl(data.imageUrl)})` }"
@@ -14,7 +14,7 @@
       <h3 class="text-center text-cerulean-500 text-xl uppercase font-semibold mb-4">
         {{ data.title }}
       </h3>
-      <div class="text-center text-gray-800">
+      <div class=" text-gray-800 text-justify line-clamp-3">
         {{ data.desc }}
       </div>
       <div class="text-center mt-20">

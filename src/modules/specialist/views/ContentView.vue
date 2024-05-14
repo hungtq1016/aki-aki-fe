@@ -1,8 +1,8 @@
 <template>
   <section>
-    <div class="w-full h-[500px]">
+    <div class="w-full h-[500px] mb-10">
       <img
-        class="w-full rounded-[5px] h-min-[500px] object-cover"
+        class="w-full rounded-[5px] h-[500px] object-cover"
         :src="imageBuilderUrl(service.imageUrl)"
         :alt="service.title"
       />
@@ -13,7 +13,7 @@
         {{ service?.desc }}
       </h4>
     </div>
-    <div class="py-5" v-html="service.content" />
+    <div class="py-5 content" v-html="service.content" />
     <div class="grid grid-cols-2 mt-10 lg:grid-cols-4">
       <div class="flex py-4">
         <CheckCircleIcon class="mr-3 w-8 h-8 text-cerulean-400" />

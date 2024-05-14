@@ -7,7 +7,7 @@
         <div v-for="data in socials" :key="data.id">
           <div class="flex gap-x-1 items-center">
             <ChevronRightIcon class="w-3 h-3" />
-            <span class="font-medium">{{ data.label }} :</span>
+            <span class="font-medium capitalize">{{ data.label }} :</span>
             <a :href="data.type + data.slug" class="text-gray-600">{{ data.slug }}</a>
           </div>
         </div>

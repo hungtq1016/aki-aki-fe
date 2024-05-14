@@ -6,31 +6,32 @@
     <div class="w-40 sm:w-60 min-w-40 sm:min-w-60">
       <router-link :to="data.slug">
         <img
-          class="w-40 h-40 sm:w-60 sm:h-60 transition-all rounded-full"
-          :src="data.imageUrl"
-          :alt="data.title"
+          class="w-40 h-40 sm:w-60 sm:h-60 transition-all rounded-full object-cover"
+          :src="imageBuilderUrl(data.imageUrl)"
+          :alt="data.label"
         />
       </router-link>
     </div>
     <div class="flex flex-col ml-0 text-left sm:ml-6">
-      <component :is="data.icon" class="mt-4 sm:w-9 sm:m-0 text-cerulean-600" />
+      <!-- <component :is="data.icon" class="mt-4 sm:w-9 sm:m-0 text-cerulean-600" /> -->
       <router-link
         :to="data.slug"
-        class="mt-3 text-base text-cerulean-600 capitalize sm:text-2xl hover:text-cerulean-500"
+        class="mt-2 text-xs text-gray-600 sm:mt-4 sm:text-sm text-justify line-clamp-3"
       >
-        {{ data.title }}
+        {{ data.label }}
       </router-link>
-      <p class="mt-2 text-xs text-gray-600 sm:mt-4 sm:text-sm text-justify line-clamp-3">
-        {{ data.desc }}
-      </p>
+      <!-- <p class="mt-2 text-xs text-gray-600 sm:mt-4 sm:text-sm text-justify line-clamp-3">
+        {{ data.label }}
+      </p> -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { TAboutThumb } from '../models/type'
+import { imageBuilderUrl } from '@/core/services/utils/util.string';
+import type { TUrl } from '@/modules/admin-branch/models/type';
 
 defineProps<{
-  data: TAboutThumb
+  data: TUrl
 }>()
 </script>

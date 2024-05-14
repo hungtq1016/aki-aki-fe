@@ -7,14 +7,9 @@
             <h1
               class="text-2xl leading-[45px] uppercase text-center font-semibold mb-10 text-white relative after:contents-[''] after:h-pxafter:w-32 after:absolute after:left-1/2 after:-bottom-3 after:-translate-x-1/2 after:-translate-y-1/2 after:bg-white"
             >
-              chuyên khoa của chúng tôi
+              {{ blog.title }}
             </h1>
-            <p class="text-white text-justify">
-              Bệnh Viện Thú Y PETPRO luôn nỗ lực để đạt được sự hài lòng và tín nhiệm bằng chất
-              lượng dịch vụ, trải nghiệm hoàn hảo với chi phí hợp lý. Đáp ứng kỳ vọng của khách
-              hàng, đạt được sự tin tưởng gắn kết với sứ mệnh phát triển và nâng cao sức khoẻ cho
-              thú cưng Việt Nam tại PetPro.
-            </p>
+            <p class="text-white text-justify" v-html="formatText(blog.desc)"/>
             <div class="py-5">
               <GalleryList />
             </div>
@@ -22,8 +17,8 @@
           <div class="relative">
             <img
               class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[320px]"
-              src="/doctor.png"
-              alt="Doctor"
+              :src="imageBuilderUrl(blog.imageUrl)"
+              :alt="blog.title"
             />
           </div>
         </div>
@@ -36,6 +31,26 @@
 <script setup lang="ts">
 import GalleryFlick from '../components/Gallery.flick.vue'
 import GalleryList from '../components/Gallery.list.vue'
-</script>
 
-<style scoped></style>
+import { onMounted, ref, type Ref } from 'vue'
+import type { TBlog } from '../models/type'
+import { get } from '@/core/services/helpers/fetcher.helper'
+import { imageBuilderUrl } from '@/core/services/utils/util.string'
+
+const blog: Ref<TBlog> = ref({} as TBlog)
+
+onMounted(() => {
+  get<TBlog>('/api/blogs/slug/chuyen-mon-cua-chung-toi?show=true').then((res) => {
+    if (res?.data) {
+      blog.value = res.data
+    }
+  })
+})
+const formatText = (text:string) => {
+    if (text === undefined || text === null) {
+      return ''; // Return empty string if text is undefined or null
+    }
+    return text.replace(/\n/g, '<br>');
+};
+
+</script>

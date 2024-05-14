@@ -39,6 +39,7 @@ export const init_state: TBlogRequest = {
   slug: '',
   imageUrl: '',
   categoryId: '-1',
+  enable: true
 }
 
 export const state = reactive<TBlogRequest>({ ...init_state })

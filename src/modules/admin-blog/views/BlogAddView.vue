@@ -111,9 +111,19 @@ import { get } from '@/core/services/helpers/request.helper'
 
 import type { TCategory, TTag } from '../models/type'
 import type { Ref } from 'vue'
+import UploadAdapter from '@/core/services/classes/UploadFile'
 
 const editor: Ref<typeof ClassicEditor> = ref(ClassicEditor)
-const editorConfig: Ref<any> = ref()
+
+function uploader (editor:any){
+  editor.plugins.get('FileRepository').createUploadAdapter = (loader:any) => {
+    return new UploadAdapter(loader,"/api/images");
+  };
+}
+
+const editorConfig: Ref<any> = ref({
+  extraPlugins: [uploader]
+})
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 
@@ -121,7 +131,7 @@ const categories: Ref<TCategory[]> = ref([])
 const tags: Ref<TTag[]> = ref([])
 
 onMounted(() => {
-  get<TCategory[]>('/api/categories').then((response) => {
+  get<TCategory[]>('/api/categories/admin').then((response) => {
     categories.value = response?.data || []
   })
   get<TCategory[]>('/api/tags').then((response) => {

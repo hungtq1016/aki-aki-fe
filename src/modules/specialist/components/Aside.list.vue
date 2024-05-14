@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <aside>
+  <aside class="w-full">
     <ul class="w-full p-0 m-0 overflow-hidden rounded">
       <li class="text-lg font-bold leading-5 text-white px-6 py-3.5 bg-cerulean-400 capitalize">
         {{ data.label }}

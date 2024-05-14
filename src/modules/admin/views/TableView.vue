@@ -43,14 +43,17 @@
       <template #item-content="{ content }">
         <p class="line-clamp-1 w-40 hover:line-clamp-2">{{ content }}</p>
       </template>
+      <template #item-label="{ label }">
+        <p class="line-clamp-1 w-40 hover:line-clamp-2">{{ label }}</p>
+      </template>
       <template #item-name="{ name }">
         <p class="line-clamp-1 w-40 hover:line-clamp-2">{{ name }}</p>
       </template>
       <template #item-addressEmbed="{ addressEmbed }">
-        <div class="w-40 h-40" v-html="addressEmbed"></div>
+        <div class="w-40 h-40 overflow-hidden" v-html="addressEmbed"></div>
       </template>
       <template #item-videoEmbed="{ videoEmbed }">
-        <div class="w-40 h-40" v-html="videoEmbed"></div>
+        <div class="w-40 h-40 overflow-hidden" v-html="videoEmbed"></div>
       </template>
       <template #item-imageUrl="{ imageUrl }">
         <img :src="imageBuilderUrl(imageUrl)" :alt="imageUrl" class="w-10 h-10 object-cover" />

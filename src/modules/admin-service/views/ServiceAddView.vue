@@ -96,11 +96,19 @@ import { onMounted } from 'vue'
 import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.vue'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import UploadAdapter from '@/core/services/classes/UploadFile'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 const editor: Ref<typeof ClassicEditor> = ref(ClassicEditor)
-const editorConfig: Ref<any> = ref()
+  function uploader (editor:any){
+  editor.plugins.get('FileRepository').createUploadAdapter = (loader:any) => {
+    return new UploadAdapter(loader,"/api/images");
+  };
+}
 
+const editorConfig: Ref<any> = ref({
+  extraPlugins: [uploader]
+})
 const groups: Ref<TGroupService[]> = ref([])
 
 onMounted(() => {

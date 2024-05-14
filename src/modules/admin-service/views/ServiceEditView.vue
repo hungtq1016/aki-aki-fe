@@ -77,9 +77,11 @@ import { useRoute } from 'vue-router'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { get, put } from '@/core/services/helpers/fetcher.helper'
 import type { TServiceResponse } from '../models/type'
+import UploadAdapter from '@/core/services/classes/UploadFile'
 
 const route = useRoute()
 const stateUpdate: Ref<TServiceResponse> = ref({} as TServiceResponse)
+
 const { pass, errorFields } = useAsyncValidator(stateUpdate, rules)
 
 const fetchService = async (): Promise<void> => {
@@ -100,7 +102,15 @@ onMounted(async () => {
   await fetchService()
 })
 const editor: Ref<typeof ClassicEditor> = ref(ClassicEditor)
-const editorConfig: Ref<any> = ref()
+function uploader (editor:any){
+  editor.plugins.get('FileRepository').createUploadAdapter = (loader:any) => {
+    return new UploadAdapter(loader,"/api/images");
+  };
+}
+
+const editorConfig: Ref<any> = ref({
+  extraPlugins: [uploader]
+})
 
 const groups: Ref<TGroupService[]> = ref([])
 

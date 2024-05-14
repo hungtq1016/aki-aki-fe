@@ -15,6 +15,7 @@
     "submit": "Submit"
   },
   "content": {
+    "certificate":"Certificate",
     "active": "Active",
     "assistance_contact": "Need further assistance, please contact us via",
     "back_home": "Back to Homepage",

@@ -34,11 +34,11 @@ const counts = ref<Array<TCount>>([
   {
     title: 'KINH NGHIỆM',
     duration: 500,
-    number: 24,
+    number: 25,
     suffix: 'năm'
   },
   {
-    title: 'CA PHỤC HỒI THÚ CƯNG',
+    title: 'CA PHỤC HỒI',
     duration: 500,
     number: 300,
     suffix: 'NGHÌN'

@@ -28,9 +28,9 @@ const contacts = ref<Array<TContact>>([
   {
     type: AnchorType.tel,
     icon: PhoneIcon,
-    label: '1800 599 941',
+    label: '1800 1800',
     tag: 'a',
-    url: '1800 599 941'
+    url: '1800 1800'
   }
 ])
 

@@ -20,18 +20,21 @@ import { Arrow } from '@egjs/flicking-plugins'
 import { defaultOption } from '@/core/services/data/options'
 import { services as data } from '../services/data/data'
 import { onMounted, ref } from 'vue'
-import type { TGroupServiceResponse, TService } from '@/modules/admin-service/models/type'
+import type { TService } from '@/modules/admin-service/models/type'
 import { get } from '@/core/services/helpers/fetcher.helper'
+import type { TPaginationResponse } from '@/core/models/type'
 
 const plugins = [new Arrow()]
 
 const services = ref<TService[]>(data.value)
 
 onMounted(() => {
-  get<TGroupServiceResponse>('/api/groupservices/label/other').then((res) => {
-    if (res?.data) {
-      services.value = res.data.services
+  get<TPaginationResponse<TService>>('/api/services/group/dich-vu?pageNumber=1&pageSize=6&enable=1').then(
+    (res) => {
+      if (res?.data) {
+        services.value = res.data.data
+      }
     }
-  })
+  )
 })
 </script>

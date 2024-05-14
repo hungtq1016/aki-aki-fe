@@ -94,7 +94,6 @@ import UploadAdapter from '@/core/services/classes/UploadFile'
 
 const editor: Ref<typeof ClassicEditor> = ref(ClassicEditor)
 
-
 function uploader (editor:any){
   editor.plugins.get('FileRepository').createUploadAdapter = (loader:any) => {
     return new UploadAdapter(loader,"/api/images");
@@ -104,6 +103,7 @@ function uploader (editor:any){
 const editorConfig: Ref<any> = ref({
   extraPlugins: [uploader]
 })
+
 const route = useRoute()
 const stateUpdate: Ref<TBlogResponse> = ref({} as TBlogResponse)
 

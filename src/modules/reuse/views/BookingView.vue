@@ -2,7 +2,7 @@
   <section class="pb-10">
     <div class="relative w-full overflow-hidden bg-white">
       <div class="relative w-[830px] max-w-full pb-[45px] px-4 block mx-auto">
-        <!-- <img class="w-full" src="assets/pets.a13ce774.jpg" alt="Thú cưng Pet Pro"> -->
+        <!-- <img class="w-full" src="assets/pets.a13ce774.jpg" alt="bạn Pet Pro"> -->
         <div class="text-center pb-6">
           <h2 class="text-5xl text-cerulean-400 leading-[55px] md:leading-[72px] capitalize">
             Đặt lịch hẹn
@@ -11,7 +11,7 @@
         </div>
         <form
           id="myForm"
-          action="https://petpro.com.vn/dat-lich-hen/xac-nhan"
+          action="https://akiaki.com.vn/dat-lich-hen/xac-nhan"
           method="post"
           enctype="multipart/form-data"
         >
@@ -149,6 +149,10 @@
 
 <script setup lang="ts">
 import { HeartIcon } from '@heroicons/vue/24/solid'
-</script>
+import { onMounted, ref } from 'vue';
+const services = ref([])
+onMounted(()=>{
 
-<style scoped></style>
+})
+
+</script>

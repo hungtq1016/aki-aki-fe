@@ -11,9 +11,9 @@
         <HeartIcon v-if="!isHomePage" class="w-5 h-5 block mx-auto mt-3 text-cerulean-300" />
 
         <p class="text-gray-600 text-justify mt-10 max-w-xl m-auto" v-if="isHomePage">
-          Bệnh Viện Thú Y PETPRO là đơn vị cung cấp đầy đủ nhất các dịch vụ dành cho thú cưng trên
-          thị trường hiện nay. PETPRO đa dạng các loại hình dịch vụ từ khám chữa bệnh, chăm sóc làm
-          đẹp cho thú cưng, bảo hiểm, lưu trú, petshop...
+          Phòng khám AKIAKI là đơn vị cung cấp đầy đủ nhất các dịch vụ dành cho bạn trên
+          thị trường hiện nay. AKIAKI đa dạng các loại hình dịch vụ từ khám chữa bệnh, chăm sóc làm
+          đẹp cho bạn, bảo hiểm, lưu trú, petshop...
         </p>
       </div>
       <ServiceFlick />

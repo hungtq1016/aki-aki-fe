@@ -41,6 +41,6 @@ const formatText = (text:string) => {
       return ''; // Return empty string if text is undefined or null
     }
     return text.replace(/\n/g, '<br>');
-  };
+};
 
 </script>

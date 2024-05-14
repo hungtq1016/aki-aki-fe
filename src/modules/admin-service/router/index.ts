@@ -49,7 +49,7 @@ const adminServiceRoute: RouteRecordRaw = {
         {
           path: ':id',
           name: 'admin_services_groups_edit',
-          component: () => import('@/modules/admin-service/views/GroupAddView.vue'),
+          component: () => import('@/modules/admin-service/views/GroupEditView.vue'),
           meta: {
             title: 'route.admin_services_groups_edit'
           }

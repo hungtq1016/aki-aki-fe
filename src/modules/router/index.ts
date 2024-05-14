@@ -79,15 +79,15 @@ const clientRoute: RouteRecordRaw = {
       }
     },
     {
-      path: 'other',
+      path: 'others',
       redirect: { path: '/specialist/khoa-noi' }
     },
     {
-      path: 'other/:slug',
-      name: 'other',
+      path: 'others/:slug',
+      name: 'others',
       component: () => import('@/core/views/SpecialistView.vue'),
       meta: {
-        title: 'route.other'
+        title: 'route.others'
       }
     },
     {

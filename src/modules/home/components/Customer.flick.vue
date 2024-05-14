@@ -2,7 +2,7 @@
 <template>
   <Flicking :options="customerOptions" :plugins="plugins">
     <div class="p-2" v-for="(data, index) in customers" :key="index">
-      <img :src="data.imageUrl" class="h-40 object-cover w-full" />
+      <img :src="imageBuilderUrl(data.imageUrl)" class="aspect-video object-contain w-full" />
     </div>
     <template #viewport>
       <span class="flicking-arrow-prev"></span>
@@ -21,6 +21,7 @@ import { customerOptions } from '../services/data/options'
 import { onMounted, ref } from 'vue'
 import type { TGroupUrlResponse, TUrl } from '@/modules/admin-branch/models/type'
 import { get } from '@/core/services/helpers/fetcher.helper'
+import { imageBuilderUrl } from '@/core/services/utils/util.string'
 
 const plugins = [new Arrow()]
 

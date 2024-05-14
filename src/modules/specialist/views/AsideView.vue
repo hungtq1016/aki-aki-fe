@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-y-4">
+  <div class="flex gap-y-4 flex-col-reverse justify-end">
     <AsideList v-for="data in groups" :key="data.id" :data="data" />
   </div>
 </template>

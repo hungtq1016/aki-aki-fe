@@ -1,5 +1,5 @@
 <template>
-  <section class="pb-10">
+  <section class="py-10">
     <div class="m-auto max-w-screen-xl">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-[24px]">
         <div class="flex items-center lg:pt-0">
@@ -8,14 +8,14 @@
               sứ mệnh &amp; tầm nhìn
             </h2>
             <h4 class="text-[22px] sm:text-[24px] mb-[10px]">
-              Nâng tầm sức khoẻ cho thú cưng Việt!
+              Nâng tầm sức khoẻ cho bạn Việt!
             </h4>
 
             <p class="mb-6">
-              PETPRO luôn nỗ lực để đạt được sự hài lòng và tín nhiệm bằng chất lượng dịch vụ, trải
+              AKIAKI luôn nỗ lực để đạt được sự hài lòng và tín nhiệm bằng chất lượng dịch vụ, trải
               nghiệm hoàn hảo với chi phí hợp lý. Đáp ứng kỳ vọng của khách hàng, đạt được sự tin
-              tưởng gắn kết với sứ mệnh phát triển và nâng cao sức khoẻ cho thú cưng Việt Nam tại
-              PETPRO.
+              tưởng gắn kết với sứ mệnh phát triển và nâng cao sức khoẻ cho bạn tại
+              AKIAKI.
             </p>
 
             <div class="grid grid-cols-1 xl:grid-cols-2">
@@ -57,7 +57,7 @@
         <div>
           <img
             class="w-full"
-            src="https://admin.petpro.com.vn/images/uploaded/H%C3%ACnh%20b%C3%A1c%20s%C4%A9/TW_H0092-removebg-preview1.png"
+            src="http://hungtq1016-001-site1.btempurl.com:/api/images/638512688127504896.png"
             alt="Doctor"
           />
         </div>
