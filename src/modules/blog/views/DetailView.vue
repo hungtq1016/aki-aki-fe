@@ -58,7 +58,7 @@
 
 <script setup lang="ts">
 import SVGFacebook from '@/core/components/svg/SVG.facebook.vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { ShareIcon } from '@heroicons/vue/24/outline'
 import SVGTwitterX from '@/core/components/svg/SVG.twitter.x.vue'
 import DetailContact from '../components/Detail.contact.vue'
@@ -69,6 +69,7 @@ import { get } from '@/core/services/helpers/fetcher.helper'
 import { imageBuilderUrl } from '@/core/services/utils/util.string'
 import CommentView from './CommentView.vue'
 const route = useRoute()
+const router = useRouter()
 const url = new URL(window.location.href)
 const copyToClipboard = async () => {
   try {
@@ -86,6 +87,7 @@ onMounted(() => {
     if (res?.data) {
       blog.value = res.data
     }
+    router.push('/blogs')
   })
 })
 </script>

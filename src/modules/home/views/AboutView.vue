@@ -30,7 +30,7 @@ import { get } from '@/core/services/helpers/fetcher.helper'
 const blog: Ref<TBlog> = ref({} as TBlog)
 
 onMounted(() => {
-  get<TBlog>('/api/blogs/slug/tieu-chuan-y-khoa-the-gioi').then((res) => {
+  get<TBlog>('/api/blogs/slug/tieu-chuan-y-khoa-the-gioi?show=true').then((res) => {
     if (res?.data) {
       blog.value = res.data
     }

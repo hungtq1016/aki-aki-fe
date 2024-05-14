@@ -44,6 +44,11 @@ export type TTag = TEntity & {
   slug: string
 }
 
+export type TTagResponse = TEntity & {
+  title: string
+  slug: string
+}
+
 export type TTagRequest = TRequest & {
   title: string
   slug: string

@@ -57,7 +57,7 @@ const adminBlogRoute: RouteRecordRaw = {
         {
           path: ':id',
           name: 'admin_blogs_categories_edit',
-          component: () => import('@/modules/admin-blog/views/CategoryAddView.vue'),
+          component: () => import('@/modules/admin-blog/views/CategoryEditView.vue'),
           meta: {
             title: 'route.admin_blogs_categories_edit'
           }
@@ -86,7 +86,7 @@ const adminBlogRoute: RouteRecordRaw = {
         {
           path: ':id',
           name: 'admin_blogs_tags_edit',
-          component: () => import('@/modules/admin-blog/views/TagAddView.vue'),
+          component: () => import('@/modules/admin-blog/views/TagEditView.vue'),
           meta: {
             title: 'route.admin_blogs_tags_edit'
           }
