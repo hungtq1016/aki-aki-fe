@@ -2,7 +2,8 @@
   <div class="flex flex-col gap-10">
     <TableView
       v-bind:="{ headers, items, pagination, paginationOptions, fetch }"
-      route="services"
+      route="groupservices"
+      key="groupservices"
     />
   </div>
 </template>
@@ -16,4 +17,5 @@ import TableView from '@/modules/admin/views/TableView.vue'
 onMounted(async () => {
   await fetch()
 })
+
 </script>

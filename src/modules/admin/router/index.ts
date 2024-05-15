@@ -30,14 +30,14 @@ const adminRoute: RouteRecordRaw = {
         title: 'route.admin_message'
       }
     },
-    adminMedicineRoute,
-    adminServiceRoute,
     adminUrlRoute,
     adminBranchRoute,
     adminOauth2Route,
     adminScheduleRoute,
     adminUserRoute,
-    ...adminBlogRoute
+    ...adminBlogRoute,
+    ...adminMedicineRoute,
+    ...adminServiceRoute
   ]
 }
 

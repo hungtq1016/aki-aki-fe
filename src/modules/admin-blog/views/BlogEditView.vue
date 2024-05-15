@@ -101,5 +101,4 @@ onMounted(async () => {
   await fetch(String(route.params.id))
 })
 
-
 </script>

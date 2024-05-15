@@ -11,7 +11,8 @@ import {
   LockClosedIcon,
   LinkIcon,
   ClockIcon,
-  UserIcon
+  UserIcon,
+  RectangleStackIcon
 } from '@heroicons/vue/24/outline'
 
 export const target = ref(null)
@@ -47,6 +48,37 @@ export const menus: TMenu[] = [
         ]
       },
       {
+        icon: BriefcaseIcon,
+        label: 'route.admin_medicines',
+        slug: '/admin/medicine',
+        children: [
+          {
+            label: 'route.admin_records_add',
+            slug: '/admin/records/add'
+          },
+          {
+            label: 'route.admin_prescriptions_add',
+            slug: '/admin/prescriptions/add'
+          },
+          {
+            label: 'route.admin_medicines',
+            slug: '/admin/medicines'
+          },
+          {
+            label: 'route.admin_medicines_add',
+            slug: '/admin/medicines/add'
+          },
+          {
+            label: 'route.admin_records',
+            slug: '/admin/records'
+          },
+          {
+            label: 'route.admin_prescriptions',
+            slug: '/admin/prescriptions'
+          },
+        ]
+      },
+      {
         icon: NewspaperIcon,
         label: 'route.admin_blogs',
         slug: '/admin/blogs',
@@ -62,7 +94,14 @@ export const menus: TMenu[] = [
           {
             label: 'route.admin_comments',
             slug: '/admin/comments'
-          },
+          }
+        ]
+      },
+      {
+        icon: RectangleStackIcon,
+        label: 'route.admin_categories',
+        slug: '/admin/categories',
+        children: [
           {
             label: 'route.admin_categories',
             slug: '/admin/categories'
@@ -82,29 +121,6 @@ export const menus: TMenu[] = [
         ]
       },
       {
-        icon: BriefcaseIcon,
-        label: 'route.admin_medicines',
-        slug: '/admin/medicine',
-        children: [
-          {
-            label: 'route.admin_medicines_records',
-            slug: '/admin/medicines/records'
-          },
-          {
-            label: 'route.admin_medicines',
-            slug: '/admin/medicines'
-          },
-          {
-            label: 'route.admin_medicines_add',
-            slug: '/admin/medicines/add'
-          },
-          {
-            label: 'route.admin_medicines_prescription',
-            slug: '/admin/medicines/prescription'
-          }
-        ]
-      },
-      {
         icon: BookmarkIcon,
         label: 'route.admin_services',
         slug: '/admin/services',
@@ -118,12 +134,12 @@ export const menus: TMenu[] = [
             slug: '/admin/services/add'
           },
           {
-            label: 'route.admin_services_groups',
-            slug: '/admin/services/groups'
+            label: 'route.admin_groupservices',
+            slug: '/admin/groupservices'
           },
           {
-            label: 'route.admin_services_groups_add',
-            slug: '/admin/services/groups/add'
+            label: 'route.admin_groupservices_add',
+            slug: '/admin/groupservices/add'
           }
         ]
       },

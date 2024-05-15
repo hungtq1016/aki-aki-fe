@@ -1,17 +1,14 @@
-import { reactive, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
+import { v4 } from 'uuid'
 
 import { init_pagination, paginationOptions } from './../data/service'
 
-import { get, post } from '@/core/services/helpers/request.helper'
+import { get, } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TService, TServiceRequest } from '../../models/type'
 
-import type { Rules } from 'async-validator'
-import { resetObject } from '@/core/services/utils/util.object'
-import { successNotification } from '@/core/services/helpers/alert.helper'
-import { slugify } from '@/core/services/utils/util.string'
-import { v4 } from 'uuid'
+import type { TService } from '../../models/type'
+
 
 export const items = ref<TService[]>([
   {
@@ -28,19 +25,6 @@ export const items = ref<TService[]>([
     enable: true
   }
 ])
-
-export const init_state: TServiceRequest = {
-  title: '',
-  content: '',
-  imageUrl: '',
-  slug: '',
-  desc: '',
-  videoEmbed: '',
-  groupId: '-1',
-  enable: true
-}
-
-export const state = reactive<TServiceRequest>({ ...init_state })
 
 export const pagination = ref<TPagination>({ ...init_pagination })
 
@@ -60,51 +44,3 @@ watch(
   },
   { deep: true }
 )
-
-export const rules: Rules = {
-  title: {
-    type: 'string',
-    min: 5,
-    max: 255,
-    required: true
-  },
-  content: {
-    type: 'string',
-    min: 5,
-    required: true
-  },
-  videoEmbed: {
-    type: 'string',
-    min: 5,
-    required: true
-  },
-  imageUrl: {
-    type: 'string',
-    min: 5,
-    required: true
-  },
-  groupId: {
-    type: 'string',
-    min: 5,
-    required: true
-  },
-  desc: {
-    type: 'string',
-    min: 5,
-    required: true
-  }
-}
-watch(
-  state,
-  (newValue) => {
-    state.slug = slugify(newValue.title)
-  },
-  { deep: true }
-)
-
-export const submit = async () => {
-  const data = await post<TServiceRequest, TService>('/api/services', state)
-  if (data?.data) {
-    successNotification(data.message), resetObject(state, init_state)
-  }
-}

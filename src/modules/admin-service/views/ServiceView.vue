@@ -3,6 +3,7 @@
     <TableView
       v-bind:="{ headers, items, pagination, paginationOptions, fetch }"
       route="services"
+      key="services"
     />
   </div>
 </template>
@@ -16,4 +17,5 @@ import TableView from '@/modules/admin/views/TableView.vue'
 onMounted(async () => {
   await fetch()
 })
+
 </script>
