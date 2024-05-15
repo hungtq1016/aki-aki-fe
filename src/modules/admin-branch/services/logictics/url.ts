@@ -25,9 +25,13 @@ export const items = ref<TUrl[]>([
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TUrl>>('/api/urls/page', paginationOptions.value)
-  items.value = response?.data.data || []
-  pagination.value = response?.data || { ...init_pagination };
+  await get<TPaginationResponse<TUrl>>('/api/urls/page', paginationOptions.value).then(response => {
+    if (response?.data) {
+      const { data, ...page } = response.data
+      items.value = data
+      pagination.value = page
+    }
+  })
 }
 
 watch(

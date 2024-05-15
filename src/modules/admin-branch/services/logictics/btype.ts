@@ -20,12 +20,16 @@ export const items = ref<TBranchType[]>([
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TBranchType>>(
+  await get<TPaginationResponse<TBranchType>>(
     '/api/branchtypes/page',
     paginationOptions.value
-  )
-  items.value = response?.data.data || []
-  pagination.value = response?.data || { ...init_pagination };
+  ).then(response => {
+    if (response?.data) {
+      const { data, ...page } = response.data
+      items.value = data
+      pagination.value = page
+    }
+  })
 }
 
 watch(

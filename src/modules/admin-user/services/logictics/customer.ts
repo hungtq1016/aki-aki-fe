@@ -26,9 +26,13 @@ export const items = ref<TUser[]>([
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TUser>>('/api/users/role/customer/search', paginationOptions.value)
-  items.value = response?.data.data || []
-  pagination.value = response?.data || { ...init_pagination };
+  get<TPaginationResponse<TUser>>('/api/users/role/customer/search', paginationOptions.value).then(response => {
+    if (response?.data) {
+      const { data, ...page } = response.data
+      items.value = data
+      pagination.value = page
+    }
+  })
 }
 
 watch(

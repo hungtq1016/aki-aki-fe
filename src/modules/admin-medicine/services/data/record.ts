@@ -4,13 +4,24 @@ import { EnableEnum } from '@/core/models/enum'
 
 import type { Header } from 'vue3-easy-data-table'
 import type { TPagination, TPaginationRequest } from '@/core/models/type'
+import type { Rules } from 'async-validator'
 
 export const headers: Header[] = [
-  { text: 'table.title', value: 'medicine.title' },
-  { text: 'table.brand', value: 'medicine.brand', sortable: true },
-  { text: 'table.quantity', value: 'quantity' },
-  { text: 'table.usage', value: 'usage' },
-  { text: 'table.delete', value: 'delete' }
+  { text: 'table.id', value: 'id' },
+  { text: 'table.gender', value: 'gender' },
+  { text: 'table.userId', value: 'userId'},
+  { text: 'table.address', value: 'address' },
+  { text: 'table.height', value: 'height' },
+  { text: 'table.weight', value: 'weight' },
+  { text: 'table.bloodPressure', value: 'bloodPressure' },
+  { text: 'table.temperature', value: 'temperature' },
+  { text: 'table.heartBeat', value: 'heartBeat'},
+  { text: 'table.anamnesis', value: 'anamnesis' },
+  { text: 'table.diagnosis', value: 'diagnosis' },
+  { text: 'table.enable', value: 'enable' },
+  // { text: 'table.createdAt', value: 'createdAt' },
+  // { text: 'table.updatedAt', value: 'updatedAt' },
+  { text: 'table.action', value: 'action' },
 ]
 
 export const paginationOptions = ref<TPaginationRequest>({
@@ -28,4 +39,50 @@ export const init_pagination: TPagination = {
   totalRecords: 0,
   nextPage: 1,
   previousPage: 1
+}
+
+export const rules: Rules = {
+  birthDay: {
+    type: 'string',
+    min: 5,
+    required: true
+  },
+  gender: {
+    type: 'string',
+    required: true
+  },
+  address: {
+    type: 'string',
+    min: 1,
+    required: true
+  },
+  height: {
+    type: 'number',
+    required: true
+  },
+  weight: {
+    type: 'number',
+    required: true
+  },
+  bloodPressure: {
+    type: 'number',
+    required: true
+  },
+  temperature: {
+    type: 'number',
+    required: true
+  },
+  heartBeat: {
+    type: 'number',
+    required: true
+  },
+  diagnosis: {
+    type: 'string',
+    min: 5,
+    required: true
+  },
+  userId: {
+    type: 'string',
+    min: 2
+  }
 }

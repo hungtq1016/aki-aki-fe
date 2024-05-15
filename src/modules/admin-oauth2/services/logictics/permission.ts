@@ -21,12 +21,16 @@ export const items = ref<TPermission[]>([
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TPermission>>(
+  await get<TPaginationResponse<TPermission>>(
     '/api/permissions/page',
     paginationOptions.value
-  )
-  items.value = response?.data.data || []
-  pagination.value = response?.data || { ...init_pagination };
+  ).then(response => {
+    if (response?.data) {
+      const { data, ...page } = response.data
+      items.value = data
+      pagination.value = page
+    }
+  })
 }
 
 watch(

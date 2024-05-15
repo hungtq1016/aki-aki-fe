@@ -3,31 +3,33 @@ import { ref, watch } from 'vue'
 import { useDebounceFn } from "@vueuse/core"
 
 import { paginationOptions } from "../data/record"
-import { get } from "@/core/services/helpers/request.helper"
+import { get, post } from "@/core/services/helpers/request.helper"
+import { resetObject } from '@/core/services/utils/util.object'
+import { successNotification } from '@/core/services/helpers/alert.helper'
 
 import type { TPagination, TPaginationResponse } from "@/core/models/type"
 import type { TUser } from "@/modules/admin-oauth2/models/type"
 import type { Ref } from "vue"
+import type { TRecord } from '../../models/type'
 
-const init_state = {
+const init_state: TRecord = {
     enable: true,
-    fullName: '',
     birthDay: '',
     gender: '-1',
     address: '',
-    height: 0,
-    weight: 0,
-    bloodPressure: 0,
+    height: 160,
+    weight: 60,
+    bloodPressure: 120,
     temperature: 37,
-    heartBeat: 0,
-    anamnesis: [] as string[],
-    createdAt: new Date(),
+    heartBeat: 80,
+    anamnesis: '',
     diagnosis: '',
     userId: '-1'
 }
 
-export const state = ref(init_state)
-export const other = ref('')
+export const state: Ref<TRecord> = ref(init_state)
+export const selectedAnamnesis: Ref<string[]> = ref([])
+export const otherAnamnesis: Ref<string> = ref('')
 export const anamnesis = ['Tăng huyết áp', 'Viêm gan', 'Đái tháo đường']
 export const users: Ref<TUser[]> = ref([])
 export const search: Ref<string> = ref('')
@@ -50,10 +52,19 @@ export const debouncedFn = useDebounceFn(async () => {
     await fetchUsers()
 }, 600, { maxWait: 5000 })
 
-export const submit = () => {
-
+export const submit = async () => {
+    post<TRecord, TRecord>('/api/healthrecords', state.value).then(response => {
+        if (response?.data) {
+            resetObject(state, init_state)
+            successNotification(response.message)
+        }
+    })
 }
 
-watch(other, (newValue) => {
-    state.value.anamnesis = newValue.split(',').map(str => str.trim());
+watch(selectedAnamnesis, (newValue) => {
+    state.value.anamnesis = newValue.join(', ');
+})
+
+watch(otherAnamnesis, (newValue) => {
+    state.value.anamnesis = newValue;
 })

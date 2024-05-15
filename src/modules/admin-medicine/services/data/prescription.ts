@@ -4,6 +4,7 @@ import { EnableEnum } from '@/core/models/enum'
 
 import type { Header } from 'vue3-easy-data-table'
 import type { TPagination, TPaginationRequest } from '@/core/models/type'
+import type { Rules } from 'async-validator'
 
 export const headers: Header[] = [
   { text: 'table.title', value: 'medicine.title' },

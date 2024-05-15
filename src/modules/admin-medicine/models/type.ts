@@ -22,3 +22,17 @@ export type TPresciption = {
   usage: string
   userId:string
 }
+
+export type TRecord = TRequest & {
+  birthDay: string;
+  gender: string;
+  address: string;
+  height: number;
+  weight: number;
+  bloodPressure: number;
+  temperature: number;
+  heartBeat: number;
+  anamnesis: string;
+  diagnosis: string;
+  userId: string;
+}
