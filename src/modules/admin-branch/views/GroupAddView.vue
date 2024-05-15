@@ -24,14 +24,17 @@
 </template>
 
 <script setup lang="ts">
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
-
-import { state, rules, submit } from '../services/logictics/group'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
 
+import { state, submit } from '../services/logictics/group.add'
+import { rules } from '../services/data/url'
+
 const { pass, errorFields } = useAsyncValidator(state, rules)
+
 </script>

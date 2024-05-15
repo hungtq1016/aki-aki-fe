@@ -4,7 +4,7 @@ import adminOauth2Route from '@/modules/admin-oauth2/router'
 import adminServiceRoute from '@/modules/admin-service/router'
 import adminScheduleRoute from '@/modules/admin-schedule/router'
 import adminUserRoute from '@/modules/admin-user/router'
-import { adminUrlRoute, adminBranchRoute } from '@/modules/admin-branch/route'
+import adminBranchRoute from '@/modules/admin-branch/route'
 
 import type { RouteRecordRaw } from 'vue-router'
 import hasAdminPermission from '@/core/services/middlewares/hasAdminPermission'
@@ -30,14 +30,13 @@ const adminRoute: RouteRecordRaw = {
         title: 'route.admin_message'
       }
     },
-    adminUrlRoute,
-    adminBranchRoute,
     adminOauth2Route,
     adminScheduleRoute,
     adminUserRoute,
     ...adminBlogRoute,
     ...adminMedicineRoute,
-    ...adminServiceRoute
+    ...adminServiceRoute,
+    ...adminBranchRoute
   ]
 }
 

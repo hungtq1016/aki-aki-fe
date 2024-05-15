@@ -1,16 +1,11 @@
-import { reactive, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
+import { v4 } from 'uuid'
 
 import { init_pagination, paginationOptions } from '../data/btype'
-
-import { get, post } from '@/core/services/helpers/request.helper'
+import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TBranchType, TBranchTypeRequest } from '../../models/type'
-
-import type { Rules } from 'async-validator'
-import { successNotification } from '@/core/services/helpers/alert.helper'
-import { resetObject } from '@/core/services/utils/util.object'
-import { v4 } from 'uuid'
+import type { TBranchType } from '../../models/type'
 
 export const items = ref<TBranchType[]>([
   {
@@ -21,7 +16,9 @@ export const items = ref<TBranchType[]>([
     enable: true
   }
 ])
+
 export const pagination = ref<TPagination>({ ...init_pagination })
+
 export const fetch = async () => {
   const response = await get<TPaginationResponse<TBranchType>>(
     '/api/branchtypes/page',
@@ -29,30 +26,6 @@ export const fetch = async () => {
   )
   items.value = response?.data.data || []
   pagination.value = response?.data || { ...init_pagination };
-}
-
-export const init_state: TBranchTypeRequest = {
-  label: '',
-  enable: true
-}
-
-export const state = reactive<TBranchTypeRequest>({ ...init_state })
-
-export const rules: Rules = {
-  label: {
-    type: 'string',
-    min: 5,
-    max: 255,
-    required: true
-  }
-}
-
-export const submit = async () => {
-  const data = await post<TBranchTypeRequest, TBranchType>('/api/branchtypes', state)
-  if (data?.data) {
-    resetObject(state, init_state)
-    successNotification(data.message)
-  }
 }
 
 watch(

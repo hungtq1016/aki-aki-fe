@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <FormLayout :submit="update">
+  <FormLayout :submit="submit">
     <FormItem>
       <FormGroup :has-error="[Boolean(errorFields?.label?.length),Boolean(errorFields?.slug?.length),
       Boolean(errorFields?.type?.length),Boolean(errorFields?.tag?.length)]">
@@ -9,30 +9,30 @@
         </template>
         <template #content>
           <FormInput
-            v-model="stateUpdate.label"
+            v-model="state.label"
             :has-error="Boolean(errorFields?.label?.length)"
             :placeholder="$t('form.place_holder.label')"
           >
             {{ $t('form.label') }}
           </FormInput>
           <FormInput
-            v-model="stateUpdate.slug"
+            v-model="state.slug"
             :has-error="Boolean(errorFields?.slug?.length)"
             :placeholder="$t('form.place_holder.slug')"
           >
             {{ $t('form.slug') }}
           </FormInput>
           <FormSelect
-            v-model="stateUpdate.type"
+            v-model="state.type"
             :has-error="Boolean(errorFields?.type?.length)"
-            :list="type"
+            :list="types"
             :placeholder="$t('form.place_holder.type')"
           >{{ $t('form.type') }}
           </FormSelect>
           <FormSelect
-            v-model="stateUpdate.tag"
+            v-model="state.tag"
             :has-error="Boolean(errorFields?.tag?.length)"
-            :list="elementTags"
+            :list="tags"
             :placeholder="$t('form.place_holder.tag_element')"
           >
             {{ $t('form.tag_element') }}
@@ -45,9 +45,9 @@
         </template>
         <template #content>
           <FormSelect
-            v-model="stateUpdate.groupId"
+            v-model="state.groupId"
             :has-error="Boolean(errorFields?.groupId?.length)"
-            :list="urls"
+            :list="groupurls"
             :placeholder="$t('form.place_holder.groupId')"
           >
             {{ $t('form.groupId') }}
@@ -56,56 +56,40 @@
       </FormGroup>
     </FormItem>
     <FormItem>
-      <PublishView v-model="stateUpdate.enable" :pass="pass" />
-      <ImageView v-model="stateUpdate.imageUrl" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
+      <PublishView v-model="state.enable" :pass="pass" />
+      <ImageView v-model="state.imageUrl" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
     </FormItem>
   </FormLayout>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
-
-import { rules, elementTags, type } from '../services/logictics/url'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import FormSelect from '@/modules/admin-template/components/Form.select.vue'
-import type { TGroupUrlRequest } from '../models/type'
 import ImageView from '@/modules/admin-template/views/ImageView.vue'
-import { onMounted, ref, type Ref } from 'vue'
-import { useRoute } from 'vue-router'
-import { successNotification } from '@/core/services/helpers/alert.helper'
-import { get, put } from '@/core/services/helpers/fetcher.helper'
-import type { TUrlResponse } from '../models/type'
+
+import { rules, tags, types } from '../services/data/url'
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import { state, fetch, submit } from '../services/logictics/url.edit'
+import { get } from '@/core/services/helpers/fetcher.helper'
+import { groupurls } from '../services/logictics/url.add'
+import type { TGroupUrlRequest } from '../models/type'
 
 const route = useRoute()
-const stateUpdate: Ref<TUrlResponse> = ref({} as TUrlResponse)
-  const { pass, errorFields } = useAsyncValidator(stateUpdate, rules)
 
-const fetchUrl = async (): Promise<void> => {
-  get<TUrlResponse>('/api/urls/' + route.params.id).then((response) => {
-    if (response?.data) {
-      stateUpdate.value = response.data
-    }
-  })
-}
-const update = async () => {
-  const data = await put<any, any>('/api/urls/' + stateUpdate.value.id, stateUpdate.value)
-  if (data?.data) {
-    successNotification(data.message)
-  }
-}
+const { pass, errorFields } = useAsyncValidator(state, rules)
 
 onMounted(async () => {
-  await fetchUrl()
-})
-const urls: Ref<TGroupUrlRequest[]> = ref([])
-
-onMounted(() => {
-  get<TGroupUrlRequest[]>('/api/urls').then((response) => {
-    urls.value = response?.data || []
+  await fetch(String(route.params.id))
+  await get<TGroupUrlRequest[]>('/api/groupurls').then((response) => {
+    groupurls.value = response?.data || []
   })
 })
+
 </script>

@@ -157,12 +157,12 @@ export const menus: TMenu[] = [
             slug: '/admin/branches/add'
           },
           {
-            label: 'route.admin_branches_types',
-            slug: '/admin/branches/types'
+            label: 'route.admin_branchtypes',
+            slug: '/admin/types'
           },
           {
-            label: 'route.admin_branches_types_add',
-            slug: '/admin/branches/types/add'
+            label: 'route.admin_branchtypes_add',
+            slug: '/admin/types/add'
           }
         ]
       },
@@ -180,12 +180,12 @@ export const menus: TMenu[] = [
             slug: '/admin/urls/add'
           },
           {
-            label: 'route.admin_urls_groups',
-            slug: '/admin/urls/groups'
+            label: 'route.admin_groupurls',
+            slug: '/admin/groupurls'
           },
           {
-            label: 'route.admin_urls_groups_add',
-            slug: '/admin/urls/groups/add'
+            label: 'route.admin_groupurls_add',
+            slug: '/admin/groupurls/add'
           }
         ]
       }

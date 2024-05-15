@@ -25,14 +25,14 @@
           <FormSelect
             v-model="state.type"
             :has-error="Boolean(errorFields?.type?.length)"
-            :list="type"
+            :list="types"
             :placeholder="$t('form.place_holder.type')"
           >{{ $t('form.type') }}
           </FormSelect>
           <FormSelect
             v-model="state.tag"
             :has-error="Boolean(errorFields?.tag?.length)"
-            :list="elementTags"
+            :list="tags"
             :placeholder="$t('form.place_holder.tag_element')"
           >
             {{ $t('form.tag_element') }}
@@ -63,27 +63,29 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
+import ImageView from '@/modules/admin-template/views/ImageView.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
-
-import { state, rules, submit, elementTags, type } from '../services/logictics/url'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import FormSelect from '@/modules/admin-template/components/Form.select.vue'
-import { onMounted, ref, type Ref } from 'vue'
+
 import { get } from '@/core/services/helpers/request.helper'
+import { groupurls, state, submit } from '../services/logictics/url.add'
+import { rules, tags, types } from '../services/data/url'
+
 import type { TGroupUrlRequest } from '../models/type'
-import ImageView from '@/modules/admin-template/views/ImageView.vue'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
-
-const groupurls: Ref<TGroupUrlRequest[]> = ref([])
 
 onMounted(() => {
   get<TGroupUrlRequest[]>('/api/groupurls').then((response) => {
     groupurls.value = response?.data || []
   })
 })
+
 </script>
