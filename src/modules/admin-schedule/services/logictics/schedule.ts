@@ -26,13 +26,13 @@ export const items = ref<TSchedule[]>([
   }
 ])
 
-
 const init_state: TScheduleRequest = {
   endDay: '',
   startDay: '',
   endTime: '',
   startTime: '',
-  userId: '-1'
+  userId: '-1',
+  enable: true
 }
 
 export const state = reactive({...init_state})

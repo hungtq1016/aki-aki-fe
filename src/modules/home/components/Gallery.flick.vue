@@ -10,8 +10,8 @@
         />
       </div>
       <template #viewport>
-        <span class="flicking-arrow-prev"></span>
-        <span class="flicking-arrow-next"></span>
+        <span class="flicking-arrow-prev before:!bg-cerulean-600 before:hover:!bg-cerulean-500 after:!bg-cerulean-600 after:hover:!bg-cerulean-500"></span>
+        <span class="flicking-arrow-next before:!bg-cerulean-600 before:hover:!bg-cerulean-500 after:!bg-cerulean-600 after:hover:!bg-cerulean-500"></span>
       </template>
     </Flicking>
   </div>

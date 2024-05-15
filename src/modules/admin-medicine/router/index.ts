@@ -20,6 +20,14 @@ const adminMedicineRoute: RouteRecordRaw = {
       }
     },
     {
+      path: 'records',
+      name: 'admin_medicines_records',
+      component: () => import('@/modules/admin-medicine/views/HealthRecordView.vue'),
+      meta: {
+        title: 'route.admin_medicines_records'
+      }
+    },
+    {
       path: 'prescription',
       name: 'admin_medicines_prescription',
       component: () => import('@/modules/admin-medicine/views/PrescriptionView.vue'),

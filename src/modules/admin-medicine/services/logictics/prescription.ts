@@ -12,15 +12,16 @@ export const submit = () => {
   prescriptions.value.push(state.value)
   state.value = init_state
 }
-export const init_state = {
+export const init_state :TPresciption = {
   id: v4(),
   usage: '',
   medicineId: '-1',
-  quantity: 1
+  quantity: 1,
+  userId: '-1'
 }
 
 export const state = ref<TPresciption>({ ...init_state })
-export const medicines = ref<TMedicine[]>()
+export const medicines = ref<TMedicine[]>([])
 export const prescriptions = ref<TPresciption[]>([])
 
 export const fetch = async () => {}

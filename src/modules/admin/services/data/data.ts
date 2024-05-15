@@ -10,7 +10,8 @@ import {
   BuildingStorefrontIcon,
   LockClosedIcon,
   LinkIcon,
-  ClockIcon
+  ClockIcon,
+  UserIcon
 } from '@heroicons/vue/24/outline'
 
 export const target = ref(null)
@@ -85,6 +86,10 @@ export const menus: TMenu[] = [
         label: 'route.admin_medicines',
         slug: '/admin/medicine',
         children: [
+          {
+            label: 'route.admin_medicines_records',
+            slug: '/admin/medicines/records'
+          },
           {
             label: 'route.admin_medicines',
             slug: '/admin/medicines'
@@ -184,6 +189,29 @@ export const menus: TMenu[] = [
     name: 'content.oauth2',
     menuItems: [
       {
+        icon: UserIcon,
+        label: 'route.admin_users',
+        slug: '/admin/users',
+        children: [
+          {
+            label: 'route.admin_users_customer',
+            slug: '/admin/users/customer'
+          },
+          {
+            label: 'route.admin_users_add',
+            slug: '/admin/users/add'
+          },
+          {
+            label: 'route.admin_users_groups',
+            slug: '/admin/users/groups'
+          },
+          {
+            label: 'route.admin_users_groups_add',
+            slug: '/admin/users/groups/add'
+          }
+        ]
+      },
+      {
         icon: LockClosedIcon,
         label: 'route.oauth2',
         slug: '/admin/oauth2/roles',
@@ -205,28 +233,12 @@ export const menus: TMenu[] = [
             slug: '/admin/oauth2/permissions/add'
           },
           {
-            label: 'route.admin_oauth2_users',
-            slug: '/admin/oauth2/users'
-          },
-          {
-            label: 'route.admin_oauth2_users_add',
-            slug: '/admin/oauth2/users/add'
-          },
-          {
             label: 'route.admin_oauth2_assignments',
             slug: '/admin/oauth2/assignments'
           },
           {
             label: 'route.admin_oauth2_assignments_add',
             slug: '/admin/oauth2/assignments/add'
-          },
-          {
-            label: 'route.admin_oauth2_groups',
-            slug: '/admin/oauth2/groups'
-          },
-          {
-            label: 'route.admin_oauth2_groups_add',
-            slug: '/admin/oauth2/groups/add'
           }
         ]
       }

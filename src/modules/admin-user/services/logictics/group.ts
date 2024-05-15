@@ -1,7 +1,7 @@
 import { reactive, ref, watch, type Ref } from 'vue'
 import { v4 } from 'uuid'
 
-import { init_pagination, paginationOptions } from '../data/group'
+import { init_pagination, paginationOptions } from '../../../admin-user/services/data/group'
 
 import { del, get, post } from '@/core/services/helpers/request.helper'
 

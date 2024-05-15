@@ -20,4 +20,5 @@ export type TPresciption = {
   medicine?: TMedicine
   quantity: number
   usage: string
+  userId:string
 }
