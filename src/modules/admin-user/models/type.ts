@@ -26,3 +26,18 @@ export type TUserResponse = TEntity & {
   address: string
   imageUrl: string
 }
+
+export type TGroup = TEntity & {
+  userId: string,
+  roleId: string
+}
+
+export type TGroupRequest = TRequest & {
+  userId: string,
+  roleId: string
+}
+
+export type TGroupResponse = TEntity & {
+  userId: string,
+  roleId: string
+}

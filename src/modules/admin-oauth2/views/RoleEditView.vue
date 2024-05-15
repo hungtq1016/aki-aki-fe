@@ -33,6 +33,8 @@
 </template>
 
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
+import { onMounted } from 'vue'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
@@ -41,8 +43,14 @@ import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 
-import { state, submit } from '../services/logictics/role.add'
+import { state, submit, fetch } from '../services/logictics/role.edit'
 import { rules } from '../services/data/role'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
+
+const route = useRoute()
+
+onMounted(async()=>{
+  await fetch(String(route.params.id))
+})
 </script>

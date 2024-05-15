@@ -4,22 +4,18 @@ import { post } from '@/core/services/helpers/request.helper'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
-import type { TUserRequest, TUser } from '../../models/type'
+import type { TPermission, TPermissionRequest } from '../../models/type'
 
-const init_state: TUserRequest = {
-  fullName: '',
-  email: '',
-  password: 'Th1sIsP@ssword',
-  address: '',
-  phoneNumber: '',
-  imageUrl: '',
+const init_state: TPermissionRequest = {
+  type: '',
+  value: '',
   enable: true
 }
 
-export const state = reactive<TUserRequest>({ ...init_state })
+export const state = reactive<TPermissionRequest>({ ...init_state })
 
 export const submit = async () => {
-  const data = await post<TUserRequest, TUser>('/api/users', state)
+  const data = await post<TPermissionRequest, TPermission>('/api/permissions', state)
   if (data?.data) {
     successNotification(data.message), resetObject(state, init_state)
   }

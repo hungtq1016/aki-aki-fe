@@ -158,11 +158,11 @@ export const menus: TMenu[] = [
           },
           {
             label: 'route.admin_branchtypes',
-            slug: '/admin/types'
+            slug: '/admin/branchtypes'
           },
           {
             label: 'route.admin_branchtypes_add',
-            slug: '/admin/types/add'
+            slug: '/admin/branchtypes/add'
           }
         ]
       },
@@ -226,43 +226,43 @@ export const menus: TMenu[] = [
             slug: '/admin/users/add'
           },
           {
-            label: 'route.admin_users_groups',
-            slug: '/admin/users/groups'
+            label: 'route.admin_groups',
+            slug: '/admin/groups'
           },
           {
-            label: 'route.admin_users_groups_add',
-            slug: '/admin/users/groups/add'
+            label: 'route.admin_groups_add',
+            slug: '/admin/groups/add'
           }
         ]
       },
       {
         icon: LockClosedIcon,
-        label: 'route.oauth2',
-        slug: '/admin/oauth2/roles',
+        label: 'route.admin_roles',
+        slug: '/admin/roles',
         children: [
           {
-            label: 'route.admin_oauth2_roles',
-            slug: '/admin/oauth2/roles'
+            label: 'route.admin_roles',
+            slug: '/admin/roles'
           },
           {
-            label: 'route.admin_oauth2_roles_add',
-            slug: '/admin/oauth2/roles/add'
+            label: 'route.admin_roles_add',
+            slug: '/admin/roles/add'
           },
           {
-            label: 'route.admin_oauth2_permissions',
-            slug: '/admin/oauth2/permissions'
+            label: 'route.admin_permissions',
+            slug: '/admin/permissions'
           },
           {
-            label: 'route.admin_oauth2_permissions_add',
-            slug: '/admin/oauth2/permissions/add'
+            label: 'route.admin_permissions_add',
+            slug: '/admin/permissions/add'
           },
           {
-            label: 'route.admin_oauth2_assignments',
-            slug: '/admin/oauth2/assignments'
+            label: 'route.admin_assignments',
+            slug: '/admin/assignments'
           },
           {
-            label: 'route.admin_oauth2_assignments_add',
-            slug: '/admin/oauth2/assignments/add'
+            label: 'route.admin_assignments_add',
+            slug: '/admin/assignments/add'
           }
         ]
       }

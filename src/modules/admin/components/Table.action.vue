@@ -57,6 +57,6 @@ const copyClipboard = () => {
 }
 
 const view = () => {
-  router.push(`${routes.fullPath}/${props.item.id}`)
+  router.push(`${props.route}/${props.item.id}`)
 }
 </script>

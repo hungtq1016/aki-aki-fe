@@ -28,7 +28,7 @@
       </div>
     </router-link>
     <!-- Dropdown Menu Start -->
-    <div class="dropdown translate transform overflow-hidden" v-show="openDropdown">
+    <div class="dropdown translate transform overflow-hidden" v-if="openDropdown">
       <AsideDropdown v-if="item.children" :items="item.children" :page="item.label" />
     </div>
     <!-- Dropdown Menu End -->
@@ -39,6 +39,7 @@ import { ChevronDownIcon } from '@heroicons/vue/24/outline'
 import type { TMenuItem } from '../models/type'
 import AsideDropdown from './Aside.dropdown.vue'
 import { ref, type Ref } from 'vue'
+
 defineProps<{
   item: TMenuItem
   index: number

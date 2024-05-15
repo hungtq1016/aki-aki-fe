@@ -63,6 +63,9 @@
 </template>
 
 <script setup lang="ts">
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import { onMounted } from 'vue'
+
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
@@ -70,21 +73,13 @@ import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 
 import { get } from '@/core/services/helpers/request.helper'
-import { isChecked, roles, toggleRole, rules, submit, state } from '../services/logictics/group'
+import { isChecked, roles, toggleRole, submit, state, users } from '../services/logictics/group.add'
+import { rules } from '../services/data/user'
 
-import { onMounted, ref } from 'vue'
-
-import type { Ref } from 'vue'
-import type { TRole, TUser } from '../models/type'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import type { TUser } from '../models/type'
+import type { TRole } from '@/modules/admin-oauth2/models/type'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
-
-const users: Ref<TUser[]> = ref([])
-
-defineProps<{
-  hasError: boolean[]
-}>()
 
 onMounted(() => {
   get<TRole[]>('/api/roles').then((response) => {

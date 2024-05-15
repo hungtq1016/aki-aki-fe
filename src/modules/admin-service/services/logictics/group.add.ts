@@ -7,7 +7,7 @@ import { slugify } from '@/core/services/utils/util.string'
 
 import type { TGroupService, TGroupServiceRequest } from '../../models/type'
 
-export const init_state: TGroupServiceRequest = {
+const init_state: TGroupServiceRequest = {
   label: '',
   slug: '',
   enable: true

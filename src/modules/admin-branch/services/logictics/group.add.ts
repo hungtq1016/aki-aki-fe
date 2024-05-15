@@ -6,7 +6,7 @@ import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TGroupUrl, TGroupUrlRequest } from '../../models/type'
 
-export const init_state: TGroupUrlRequest = {
+const init_state: TGroupUrlRequest = {
   label: '',
   enable: true
 }

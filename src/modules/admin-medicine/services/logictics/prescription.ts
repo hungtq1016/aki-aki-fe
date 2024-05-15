@@ -12,7 +12,7 @@ export const submit = () => {
   prescriptions.value.push(state.value)
   state.value = init_state
 }
-export const init_state :TPresciption = {
+const init_state :TPresciption = {
   id: v4(),
   usage: '',
   medicineId: '-1',

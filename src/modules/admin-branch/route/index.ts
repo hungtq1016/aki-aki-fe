@@ -90,7 +90,7 @@ const adminBranchRoute: RouteRecordRaw[] = [
     ]
   },
   {
-    path: 'types',
+    path: 'branchtypes',
     children: [
       {
         path: '',

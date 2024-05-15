@@ -7,7 +7,7 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import type { TGroupUrlRequest, TUrl, TUrlRequest } from '../../models/type'
 import type {Ref} from 'vue'
 
-export const init_state: TUrlRequest = {
+const init_state: TUrlRequest = {
   label: '',
   slug: '',
   imageUrl: '',

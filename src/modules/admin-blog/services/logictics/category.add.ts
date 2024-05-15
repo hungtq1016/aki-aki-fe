@@ -1,5 +1,4 @@
 import { reactive, watch } from 'vue'
-import { v4 } from 'uuid'
 
 import { post } from '@/core/services/helpers/request.helper'
 import { slugify } from '@/core/services/utils/util.string'
@@ -8,7 +7,7 @@ import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TCategory, TCategoryRequest } from '../../models/type'
 
-export const init_state: TCategoryRequest = {
+const init_state: TCategoryRequest = {
   title: '',
   slug: '',
   enable: true

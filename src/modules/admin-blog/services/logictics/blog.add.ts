@@ -10,7 +10,7 @@ import type { TBlog, TBlogRequest, TCategory, TTag } from "../../models/type"
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import UploadAdapter from "@/core/services/classes/UploadFile"
 
-export const init_state: TBlogRequest = {
+const init_state: TBlogRequest = {
     title: '',
     content: '',
     videoEmbed: '',

@@ -10,7 +10,7 @@ import UploadAdapter from '@/core/services/classes/UploadFile'
 import type { TGroupService, TService, TServiceRequest } from '../../models/type'
 import type { Ref } from 'vue'
 
-export const init_state: TServiceRequest = {
+const init_state: TServiceRequest = {
   title: '',
   content: '',
   imageUrl: '',

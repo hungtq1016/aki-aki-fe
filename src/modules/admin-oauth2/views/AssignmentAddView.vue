@@ -64,6 +64,7 @@
 
 <script setup lang="ts">
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import { onMounted, ref } from 'vue'
 
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
@@ -72,16 +73,8 @@ import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 
 import { get } from '@/core/services/helpers/request.helper'
-import {
-  isChecked,
-  permissions,
-  togglePermission,
-  submit,
-  rules,
-  state
-} from '../services/logictics/assignment'
-
-import { onMounted, ref } from 'vue'
+import { isChecked, permissions, togglePermission, submit, state } from '../services/logictics/assignment.add'
+import { rules } from '../services/data/role'
 
 import type { Ref } from 'vue'
 import type { TPermission, TRole } from '../models/type'

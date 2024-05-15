@@ -1,15 +1,11 @@
-import { reactive, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { v4 } from 'uuid'
 
 import { init_pagination, paginationOptions } from '../data/permission'
-
-import { get, post } from '@/core/services/helpers/request.helper'
+import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TPermission, TPermissionRequest } from '../../models/type'
-import type { Rules } from 'async-validator'
-import { successNotification } from '@/core/services/helpers/alert.helper'
-import { resetObject } from '@/core/services/utils/util.object'
+import type { TPermission } from '../../models/type'
 
 export const items = ref<TPermission[]>([
   {
@@ -22,13 +18,6 @@ export const items = ref<TPermission[]>([
   }
 ])
 
-export const init_state: TPermissionRequest = {
-  type: '',
-  value: '',
-}
-
-export const state = reactive<TPermissionRequest>({ ...init_state })
-
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
@@ -38,27 +27,6 @@ export const fetch = async () => {
   )
   items.value = response?.data.data || []
   pagination.value = response?.data || { ...init_pagination };
-}
-
-export const rules: Rules = {
-  type: {
-    type: 'string',
-    min: 5,
-    max: 255,
-    required: true
-  },
-  value: {
-    type: 'string',
-    min: 1,
-    required: true
-  }
-}
-
-export const submit = async () => {
-  const data = await post<TPermissionRequest, TPermission>('/api/permissions', state)
-  if (data?.data) {
-    successNotification(data.message), resetObject(state, init_state)
-  }
 }
 
 watch(

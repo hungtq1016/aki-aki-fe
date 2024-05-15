@@ -25,7 +25,7 @@ export const items = ref<TMedicine[]>([
   }
 ])
 
-export const init_state: TMedicineRequest = {
+const init_state: TMedicineRequest = {
   id: v4(),
   title: '',
   slug: '',

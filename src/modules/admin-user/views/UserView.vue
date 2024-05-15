@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col gap-10">
-    <TableView v-bind:="{ headers, items, pagination, paginationOptions, fetch }" route="users" />
+    <TableView v-bind:="{ headers, items, pagination, paginationOptions, fetch }" route="users"
+    key="users" />
   </div>
 </template>
 

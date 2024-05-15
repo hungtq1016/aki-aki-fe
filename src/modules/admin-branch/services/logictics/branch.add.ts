@@ -7,7 +7,7 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import type { TBranch, TBranchRequest, TBranchType } from '../../models/type'
 import type { Ref } from 'vue'
 
-export const init_state: TBranchRequest = {
+const init_state: TBranchRequest = {
   address1: '',
   address2: '',
   phone1: '',
