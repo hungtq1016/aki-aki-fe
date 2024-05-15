@@ -31,30 +31,30 @@ const adminMedicineRoute: RouteRecordRaw[] = [
     ]
   },
   {
-    path: 'records',
+    path: 'healthrecords',
     children: [
       {
         path: '',
-        name: 'admin_records',
+        name: 'admin_healthrecords',
         component: () => import('@/modules/admin-medicine/views/HealthRecordView.vue'),
         meta: {
-          title: 'route.admin_records'
+          title: 'route.admin_healthrecords'
         }
       },
       {
         path: 'add',
-        name: 'admin_records_add',
+        name: 'admin_healthrecords_add',
         component: () => import('@/modules/admin-medicine/views/HealthRecordAddView.vue'),
         meta: {
-          title: 'route.admin_records_add'
+          title: 'route.admin_healthrecords_add'
         }
       },
       {
         path: ':id',
-        name: 'admin_records_edit',
+        name: 'admin_healthrecords_edit',
         component: () => import('@/modules/admin-medicine/views/HealthRecordEditView.vue'),
         meta: {
-          title: 'route.admin_records_edit'
+          title: 'route.admin_healthrecords_edit'
         }
       }
     ]

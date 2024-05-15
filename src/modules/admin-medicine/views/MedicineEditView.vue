@@ -52,15 +52,26 @@
 </template>
 
 <script setup lang="ts">
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
-
-import { state, rules, submit } from '../services/logictics/medicine'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 
+import { state, fetch, submit } from '../services/logictics/medicine.edit'
+import { rules } from '../services/data/medicine'
+
 const { pass, errorFields } = useAsyncValidator(state, rules)
+
+const route = useRoute()
+
+onMounted(async()=>{
+  await fetch(String(route.params.id))
+})
+
 </script>

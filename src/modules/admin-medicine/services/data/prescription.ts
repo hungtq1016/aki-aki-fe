@@ -30,3 +30,11 @@ export const init_pagination: TPagination = {
   nextPage: 1,
   previousPage: 1
 }
+
+export const rules: Rules = {
+  patientId: {
+    type: 'string',
+    min: 5,
+    required: true
+  },
+}

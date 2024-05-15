@@ -29,7 +29,7 @@
               :has-error="Boolean(errorFields?.gender?.length)"
               :placeholder="$t('form.place_holder.gender')"
             >
-              {{ $t('form.gender') }}
+              {{ $t('form.select_gender') }}
             </FormSelect>
           </div>
           <FormTextarea v-model="state.address" 
@@ -137,7 +137,7 @@ import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.v
 import FormInput from '@/modules/admin-template/components/Form.input.vue';
 import FormSelect from '@/modules/admin-template/components/Form.select.vue';
 
-import { anamnesis, debouncedFn, fetchUsers, selectedAnamnesis, pagination, search, state, submit, users, otherAnamnesis } from '../services/logictics/record.add';
+import { anamnesis, debouncedFn, fetchUsers, selectedAnamnesis, pagination, search, state, submit, users, otherAnamnesis, fetch } from '../services/logictics/record.edit';
 import { paginationOptions } from '../services/data/record';
 import { rules } from '@/modules/admin-medicine/services/data/record';
 
@@ -147,6 +147,7 @@ const { pass, errorFields } = useAsyncValidator(state, rules)
 
 onMounted(async () => {
   await fetchUsers(String(route.query.email || ''))
+  await fetch(String(route.params.id))
 })
 
 </script>

@@ -1,36 +1,18 @@
+import { ref, watch, type Ref } from 'vue'
+import { useDebounceFn } from '@vueuse/core'
 
-import { ref, watch } from 'vue'
-import { useDebounceFn } from "@vueuse/core"
-
+import { get, put } from '@/core/services/helpers/request.helper'
 import { paginationOptions } from "../data/record"
-import { get, post } from "@/core/services/helpers/request.helper"
-import { resetObject } from '@/core/services/utils/util.object'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 
-import type { TPagination, TPaginationResponse } from "@/core/models/type"
-import type { TUser } from "@/modules/admin-oauth2/models/type"
-import type { Ref } from "vue"
-import type { TRecord, TRecordRequest } from '../../models/type'
+import type { TRecord } from '../../models/type'
+import type { TUser } from '@/modules/admin-user/models/type'
+import type { TPagination, TPaginationResponse } from '@/core/models/type'
 
-const init_state: TRecordRequest = {
-    enable: true,
-    birthDay: '',
-    gender: '-1',
-    address: '',
-    height: 160,
-    weight: 60,
-    bloodPressure: 120,
-    temperature: 37,
-    heartBeat: 80,
-    anamnesis: '',
-    diagnosis: '',
-    userId: '-1',
-}
-
-export const state: Ref<TRecordRequest> = ref({...init_state})
+export const state: Ref<TRecord> = ref({} as TRecord)
 export const selectedAnamnesis: Ref<string[]> = ref([])
 export const otherAnamnesis: Ref<string> = ref('')
-export const anamnesis = ['Tăng huyết áp', 'Viêm gan', 'Đái tháo đường','Động kinh','Hạ huyết áp','Đau đầu']
+export const anamnesis = ['Tăng huyết áp', 'Viêm gan', 'Đái tháo đường']
 export const users: Ref<TUser[]> = ref([])
 export const search: Ref<string> = ref('')
 export const pagination: Ref<TPagination> = ref({} as TPagination)
@@ -52,13 +34,20 @@ export const debouncedFn = useDebounceFn(async () => {
     await fetchUsers()
 }, 600, { maxWait: 5000 })
 
+export const fetch = async (id: string): Promise<void> => {
+  get<TRecord>('/api/healthrecords/' + id).then((response) => {
+    if (response?.data) {
+      state.value = response.data
+    }
+  })
+}
+
+
 export const submit = async () => {
-    post<TRecordRequest, TRecord>('/api/healthrecords', state.value).then(response => {
-        if (response?.data) {
-            resetObject(state, init_state)
-            successNotification(response.message)
-        }
-    })
+  const data = await put<any, any>('/api/healthrecords/' + state.value.id, state.value)
+  if (data?.data) {
+    successNotification(data.message)
+  }
 }
 
 watch(selectedAnamnesis, (newValue) => {

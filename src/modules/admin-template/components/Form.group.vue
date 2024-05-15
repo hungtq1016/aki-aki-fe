@@ -2,7 +2,7 @@
 <template>
   <div
     class="dark:border-zinc-950 dark:bg-zinc-950/90 rounded-sm border border-gray-100 bg-white shadow"
-    :class="{ '!border-green-600': areTrue }"
+    :class="{ '!border-green-600': allTrue }"
   >
     <div class="px-6.5 py-4 border-b border-gray-100 dark:border-zinc-950 dark:!bg-zinc-950">
       <h3 class="text-black-1000 font-medium dark:text-white">
@@ -24,5 +24,5 @@ const props = defineProps<{
   hasError: boolean[]
 }>()
 
-const areTrue = computed(() => props.hasError.every((item) => item === false))
+const allTrue = computed(() => props.hasError.every((item) => item === false))
 </script>

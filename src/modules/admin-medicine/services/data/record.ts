@@ -83,6 +83,7 @@ export const rules: Rules = {
   },
   userId: {
     type: 'string',
-    min: 2
+    min: 5,
+    required: true
   }
 }

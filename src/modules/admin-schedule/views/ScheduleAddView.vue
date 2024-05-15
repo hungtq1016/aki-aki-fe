@@ -12,13 +12,13 @@
         </template>
         <template #content>
           <FormInputSlot :has-error="Boolean(errorFields?.content?.length)">
-            <template #label>{{ $t('form.content') }}</template>
+            <template #label>{{ $t('form.pick_date') }}</template>
             <template #content>
               <VueDatePicker v-model="date" inline multi-calendars auto-apply class="!block" range></VueDatePicker>
             </template>
           </FormInputSlot>
           <FormInputSlot :has-error="Boolean(errorFields?.content?.length)">
-            <template #label>{{ $t('form.time') }}</template>
+            <template #label>{{ $t('form.pick_time') }}</template>
             <template #content>
               <VueDatePicker v-model="time" time-picker range auto-apply inline class="!block" />
             </template>

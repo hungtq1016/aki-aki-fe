@@ -31,14 +31,15 @@
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const paths = route.fullPath.split('/')
+const paths = route.fullPath.split('?')
+const path = paths[0].split('/')
 const breadcrumb: string[] = []
 let temp = ''
-for (let i = 1; i < paths.length; i++) {
-  if (route.params.id == paths[i]) {
+for (let i = 1; i < path.length; i++) {
+  if (route.params.id == path[i]) {
     breadcrumb.push(temp + 'edit')
   } else {
-    temp += paths[i]
+    temp += path[i]
     breadcrumb.push(temp)
     temp += '_'
   }

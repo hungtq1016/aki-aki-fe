@@ -53,8 +53,8 @@ export const menus: TMenu[] = [
         slug: '/admin/medicine',
         children: [
           {
-            label: 'route.admin_records_add',
-            slug: '/admin/records/add'
+            label: 'route.admin_healthrecords_add',
+            slug: '/admin/healthrecords/add'
           },
           {
             label: 'route.admin_prescriptions_add',
@@ -69,8 +69,8 @@ export const menus: TMenu[] = [
             slug: '/admin/medicines/add'
           },
           {
-            label: 'route.admin_records',
-            slug: '/admin/records'
+            label: 'route.admin_healthrecords',
+            slug: '/admin/healthrecords'
           },
           {
             label: 'route.admin_prescriptions',

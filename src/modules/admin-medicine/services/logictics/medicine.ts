@@ -1,16 +1,12 @@
-import { reactive, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
+import { v4 } from 'uuid'
 
 import { init_pagination, paginationOptions } from '../data/medicine'
 
-import { get, post } from '@/core/services/helpers/request.helper'
+import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TMedicine, TMedicineRequest } from '../../models/type'
-import { successNotification } from '@/core/services/helpers/alert.helper'
-import { v4 } from 'uuid'
-import { slugify } from '@/core/services/utils/util.string'
-import type { Rules } from 'async-validator'
-import { resetObject } from '@/core/services/utils/util.object'
+import type { TMedicine } from '../../models/type'
 
 export const items = ref<TMedicine[]>([
   {
@@ -25,17 +21,6 @@ export const items = ref<TMedicine[]>([
   }
 ])
 
-const init_state: TMedicineRequest = {
-  id: v4(),
-  title: '',
-  slug: '',
-  brand: '',
-  desc: '',
-  enable: true
-}
-
-export const state = reactive<TMedicineRequest>({ ...init_state })
-
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
@@ -45,40 +30,6 @@ export const fetch = async () => {
   )
   items.value = response?.data.data || []
   pagination.value = response?.data || { ...init_pagination };
-}
-
-watch(
-  state,
-  (newValue) => {
-    state.slug = slugify(newValue.title)
-  },
-  { deep: true }
-)
-
-export const rules: Rules = {
-  title: {
-    type: 'string',
-    min: 5,
-    max: 255,
-    required: true
-  },
-  brand: {
-    type: 'string',
-    min: 5,
-    required: true
-  },
-  desc: {
-    type: 'string',
-    min: 5,
-    required: true
-  }
-}
-
-export const submit = async () => {
-  const data = await post<TMedicineRequest, TMedicine>('/api/medicines', state)
-  if (data?.data) {
-    successNotification(data.message), resetObject(state, init_state)
-  }
 }
 
 watch(

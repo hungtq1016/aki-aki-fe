@@ -1,5 +1,5 @@
 <template>
-  <FormLayout :submit="submit">
+  <FormLayout :submit="handleSubmit">
     <FormItem>
       <FormGroup :has-error="[
         Boolean(errorFields?.birthDay?.length),
@@ -29,7 +29,7 @@
               :has-error="Boolean(errorFields?.gender?.length)"
               :placeholder="$t('form.place_holder.gender')"
             >
-              {{ $t('form.gender') }}
+              {{ $t('form.select_gender') }}
             </FormSelect>
           </div>
           <FormTextarea v-model="state.address" 
@@ -115,6 +115,7 @@
         </template>
         <template #content>
           <FormRadio @update:search="debouncedFn" v-model:id="state.userId" v-model:search="search" :list="users"
+          
             v-bind="{ pagination, paginationOptions }" />
         </template>
       </FormGroup>
@@ -125,7 +126,7 @@
 <script setup lang="ts">
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs';
 import { onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 import FormGroup from '@/modules/admin-template/components/Form.group.vue';
 import FormItem from '@/modules/admin-template/components/Form.item.vue';
@@ -142,8 +143,15 @@ import { paginationOptions } from '../services/data/record';
 import { rules } from '@/modules/admin-medicine/services/data/record';
 
 const route = useRoute()
+const router = useRouter()
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
+
+const handleSubmit = async () => {
+  const findUser = users.value.find(user => user.id === state.value.userId)
+  await router.push('/admin/prescriptions?email='+ findUser?.email)
+  await submit()
+}
 
 onMounted(async () => {
   await fetchUsers(String(route.query.email || ''))
