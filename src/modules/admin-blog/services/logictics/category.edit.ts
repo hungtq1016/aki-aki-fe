@@ -1,11 +1,10 @@
 import { ref, watch, type Ref } from 'vue'
 
-import { get } from '@/core/services/helpers/request.helper'
+import { get, put } from '@/core/services/helpers/request.helper'
 import { slugify } from '@/core/services/utils/util.string'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 
 import type { TCategoryResponse } from '../../models/type'
-import { put } from '@/core/services/helpers/fetcher.helper'
 
 export const state: Ref<TCategoryResponse> = ref({} as TCategoryResponse)
 

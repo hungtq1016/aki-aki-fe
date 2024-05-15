@@ -5,8 +5,7 @@ import { init_pagination, paginationOptions } from './../data/blog'
 import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TBlog, TCategory, TTag } from '../../models/type'
-import type { Ref } from 'vue'
+import type { TBlog } from '../../models/type'
 
 export const items = ref<TBlog[]>([
   {

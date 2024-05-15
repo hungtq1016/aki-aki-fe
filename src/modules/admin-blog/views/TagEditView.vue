@@ -34,7 +34,7 @@ import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 
-import { state, submit } from '../services/logictics/tag.edit'
+import { state, submit, fetch } from '../services/logictics/tag.edit'
 import { rules } from '../services/data/tag'
 
 const route = useRoute()

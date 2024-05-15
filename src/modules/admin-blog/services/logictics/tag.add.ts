@@ -9,7 +9,6 @@ import { resetObject } from '@/core/services/utils/util.object'
 import type { TTagRequest, TTag } from '../../models/type'
 
 const init_state: TTagRequest = {
-  id: v4(),
   title: '',
   slug: '',
   enable: true

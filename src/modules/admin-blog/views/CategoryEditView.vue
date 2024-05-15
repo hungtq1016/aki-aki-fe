@@ -34,7 +34,7 @@ import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 
-import { state, submit } from '../services/logictics/category.edit'
+import { state, submit, fetch } from '../services/logictics/category.edit'
 import { rules } from '../services/data/category'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)

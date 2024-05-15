@@ -9,7 +9,6 @@ import { resetObject } from '@/core/services/utils/util.object'
 import type { TCategory, TCategoryRequest } from '../../models/type'
 
 export const init_state: TCategoryRequest = {
-  id: v4(),
   title: '',
   slug: '',
   enable: true
