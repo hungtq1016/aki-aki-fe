@@ -52,7 +52,7 @@ const adminOauth2Route: RouteRecordRaw[] = [
       {
         path: ':id',
         name: 'admin_permissions_edit',
-        component: () => import('@/modules/admin-oauth2/views/PermissionAddView.vue'),
+        component: () => import('@/modules/admin-oauth2/views/PermissionEditView.vue'),
         meta: {
           title: 'route.admin_permissions_edit'
         }

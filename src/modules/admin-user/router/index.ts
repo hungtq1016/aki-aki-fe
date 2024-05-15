@@ -10,71 +10,45 @@ const adminUserRoute: RouteRecordRaw[] = [
         redirect: { path: '/admin/users/customer' }
       },
       {
+        path: 'all',
+        name: 'admin_users_all',
+        component: () => import('@/modules/admin-user/views/UserView.vue'),
+        meta: {
+          title: 'route.admin_users_all'
+        }
+      },
+      {
         path: 'customer',
-        children: [
-          {
-            path: '',
-            name: 'admin_users_customer',
-            component: () => import('@/modules/admin-user/views/CustomerView.vue'),
-            meta: {
-              title: 'route.admin_users_customer'
-            }
-          }
-        ]
+        name: 'admin_users_customer',
+        component: () => import('@/modules/admin-user/views/CustomerView.vue'),
+        meta: {
+          title: 'route.admin_users_customer'
+        }
       },
       {
         path: 'doctor',
-        children: [
-          {
-            path: '',
-            name: 'admin_users_doctor',
-            component: () => import('@/modules/admin-user/views/DoctorView.vue'),
-            meta: {
-              title: 'route.admin_users_doctor'
-            }
-          }
-        ]
+        name: 'admin_users_doctor',
+        component: () => import('@/modules/admin-user/views/DoctorView.vue'),
+        meta: {
+          title: 'route.admin_users_doctor'
+        }
       },
       {
         path: 'add',
-        children: [
-          {
-            path: '',
-            name: 'admin_users_add',
-            component: () => import('@/modules/admin-user/views/UserAddView.vue'),
-            meta: {
-              title: 'route.admin_users_add'
-            }
-          }
-        ]
-      },
-      {
-        path: 'all',
-        children: [
-          {
-            path: '',
-            name: 'admin_users_all',
-            component: () => import('@/modules/admin-user/views/UserView.vue'),
-            meta: {
-              title: 'route.admin_users_all'
-            }
-          }
-        ]
+        name: 'admin_users_add',
+        component: () => import('@/modules/admin-user/views/UserAddView.vue'),
+        meta: {
+          title: 'route.admin_users_add'
+        }
       },
       {
         path: ':id',
-        children: [
-          {
-            path: '',
-            name: 'admin_users_edit',
-            component: () => import('@/modules/admin-user/views/UserEditView.vue'),
-            meta: {
-              title: 'route.admin_users_edit'
-            }
-          }
-        ]
+        name: 'admin_users_edit',
+        component: () => import('@/modules/admin-user/views/UserEditView.vue'),
+        meta: {
+          title: 'route.admin_users_edit'
+        }
       }
-
     ]
   },
   {
@@ -94,10 +68,10 @@ const adminUserRoute: RouteRecordRaw[] = [
       },
       {
         path: 'add',
-        name: 'admin_users_add',
+        name: 'admin_groups_add',
         component: () => import('@/modules/admin-user/views/GroupAddView.vue'),
         meta: {
-          title: 'route.admin_users_add'
+          title: 'route.admin_groups_add'
         }
       }
     ]

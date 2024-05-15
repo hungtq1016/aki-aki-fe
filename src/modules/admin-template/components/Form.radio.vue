@@ -17,7 +17,7 @@
             type="radio" v-model="id" :id="`checkbox-${index}`" />
           <div
             class="flex justify-between px-4 py-2 bg-gray-100 peer-checked:bg-cerulean-100 dark:peer-checked:!bg-slate-950 dark:bg-zinc-950">
-            <div class="flex gap-x-1 items-center capitalize text-gray-950 text-sm font-semibold dark:text-gray-50">
+            <div class="flex gap-x-1 items-center text-gray-950 text-sm font-semibold dark:text-gray-50">
               {{ data.email || data.title }}
             </div>
           </div>

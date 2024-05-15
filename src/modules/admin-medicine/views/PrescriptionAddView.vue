@@ -79,7 +79,6 @@ import { onMounted, ref, type Ref } from 'vue'
 import { get } from '@/core/services/helpers/request.helper'
 
 import type { TMedicine } from '../models/type'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import { useDebounceFn } from '@vueuse/core'
 import type { TPaginationResponse } from '@/core/models/type'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'

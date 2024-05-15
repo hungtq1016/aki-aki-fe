@@ -57,6 +57,6 @@ const copyClipboard = () => {
 }
 
 const view = () => {
-  router.push(`${props.route}/${props.item.id}`)
+  router.push(`/admin/${props.route}/${props.item.id}`)
 }
 </script>
