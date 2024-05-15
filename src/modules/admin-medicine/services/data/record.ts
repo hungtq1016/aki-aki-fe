@@ -19,8 +19,8 @@ export const headers: Header[] = [
   { text: 'table.anamnesis', value: 'anamnesis' },
   { text: 'table.diagnosis', value: 'diagnosis' },
   { text: 'table.enable', value: 'enable' },
-  // { text: 'table.createdAt', value: 'createdAt' },
-  // { text: 'table.updatedAt', value: 'updatedAt' },
+  { text: 'table.createdAt', value: 'createdAt' },
+  { text: 'table.updatedAt', value: 'updatedAt' },
   { text: 'table.action', value: 'action' },
 ]
 

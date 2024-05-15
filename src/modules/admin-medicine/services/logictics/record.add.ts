@@ -10,9 +10,9 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import type { TPagination, TPaginationResponse } from "@/core/models/type"
 import type { TUser } from "@/modules/admin-oauth2/models/type"
 import type { Ref } from "vue"
-import type { TRecord } from '../../models/type'
+import type { TRecord, TRecordRequest } from '../../models/type'
 
-const init_state: TRecord = {
+const init_state: TRecordRequest = {
     enable: true,
     birthDay: '',
     gender: '-1',
@@ -24,10 +24,10 @@ const init_state: TRecord = {
     heartBeat: 80,
     anamnesis: '',
     diagnosis: '',
-    userId: '-1'
+    userId: '-1',
 }
 
-export const state: Ref<TRecord> = ref(init_state)
+export const state: Ref<TRecordRequest> = ref(init_state)
 export const selectedAnamnesis: Ref<string[]> = ref([])
 export const otherAnamnesis: Ref<string> = ref('')
 export const anamnesis = ['Tăng huyết áp', 'Viêm gan', 'Đái tháo đường']
@@ -53,7 +53,7 @@ export const debouncedFn = useDebounceFn(async () => {
 }, 600, { maxWait: 5000 })
 
 export const submit = async () => {
-    post<TRecord, TRecord>('/api/healthrecords', state.value).then(response => {
+    post<TRecordRequest, TRecord>('/api/healthrecords', state.value).then(response => {
         if (response?.data) {
             resetObject(state, init_state)
             successNotification(response.message)

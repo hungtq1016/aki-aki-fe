@@ -21,7 +21,9 @@ export const items = ref<TRecord[]>([
     heartBeat: 0,
     anamnesis: '',
     diagnosis: '',
-    userId: '-1'
+    userId: '-1',
+    createdAt: '2022-01-01',
+    updatedAt: '2024-01-01',
   }
 ])
 

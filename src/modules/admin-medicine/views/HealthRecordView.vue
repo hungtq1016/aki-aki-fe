@@ -2,7 +2,8 @@
   <div class="flex flex-col gap-10">
     <TableView
       v-bind:="{ headers, items, pagination, paginationOptions, fetch }"
-      route="assignments"
+      route="healthrecords"
+      key="healthrecords"
     />
   </div>
 </template>
