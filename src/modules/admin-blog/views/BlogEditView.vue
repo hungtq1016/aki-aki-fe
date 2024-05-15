@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <FormLayout :submit="update">
+  <FormLayout :submit="submit">
     <FormItem>
       <FormGroup :has-error="[
         Boolean(errorFields?.title?.length),
@@ -11,39 +11,39 @@
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormInput v-model="stateUpdate.title" :has-error="Boolean(errorFields?.title?.length)"
+          <FormInput v-model="state.title" :has-error="Boolean(errorFields?.title?.length)"
             :placeholder="$t('form.place_holder.title')">
             {{ $t('form.title') }}
           </FormInput>
-          <FormInput v-model="stateUpdate.slug" :disabled="true" :placeholder="$t('form.place_holder.slug')">
+          <FormInput v-model="state.slug" :disabled="true" :placeholder="$t('form.place_holder.slug')">
             {{ $t('form.slug') }}
           </FormInput>
-          <FormSelect v-model="stateUpdate.categoryId" :list="categories"
+          <FormSelect v-model="state.categoryId" :list="categories"
             :has-error="Boolean(errorFields?.categoryId?.length)" :placeholder="$t('form.place_holder.category')">
             {{ $t('form.select_category') }}
           </FormSelect>
           <FormInputSlot :has-error="Boolean(errorFields?.content?.length)">
             <template #label>{{ $t('form.content') }}</template>
             <template #content>
-              <ckeditor :editor="editor" v-model="stateUpdate.content" :config="editorConfig"></ckeditor>
+              <ckeditor :editor="editor" v-model="state.content" :config="editorConfig"></ckeditor>
             </template>
           </FormInputSlot>
         </template>
       </FormGroup>
-      <ImageView v-model="stateUpdate.imageUrl" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
+      <ImageView v-model="state.imageUrl" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
     </FormItem>
     <FormItem>
-      <PublishView v-model="stateUpdate.enable" :pass="pass" />
+      <PublishView v-model="state.enable" :pass="pass" />
       <FormGroup :has-error="[Boolean(errorFields?.desc?.length), Boolean(errorFields?.videoEmbed?.length)]">
         <template #heading>
           {{ $t('form.content') }}
         </template>
         <template #content>
-          <FormTextarea v-model="stateUpdate.videoEmbed" :has-error="Boolean(errorFields?.videoEmbed?.length)"
+          <FormTextarea v-model="state.videoEmbed" :has-error="Boolean(errorFields?.videoEmbed?.length)"
             :placeholder="$t('form.place_holder.video_embed')">
             {{ $t('form.video_embed') }}
           </FormTextarea>
-          <FormTextarea v-model="stateUpdate.desc" :has-error="Boolean(errorFields?.desc?.length)"
+          <FormTextarea v-model="state.desc" :has-error="Boolean(errorFields?.desc?.length)"
             :placeholder="$t('form.place_holder.desc')">
             {{ $t('form.desc') }}
           </FormTextarea>
@@ -65,8 +65,9 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import ImageView from '@/modules/admin-template/views/ImageView.vue'
@@ -79,65 +80,26 @@ import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.vue'
 import FormSelectMultiple from '@/modules/admin-template/components/Form.select.multiple.vue'
 
-import { rules, selectedTags } from '../services/logictics/blog'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
-
+import { rules } from '../services/data/blog'
+import { state, submit, fetch } from '../services/logictics/blog.edit'
+import { categories, editor, editorConfig, selectedTags, tags } from '../services/logictics/blog.add'
 import { get } from '@/core/services/helpers/request.helper'
 
-import type { TBlogResponse, TCategory, TTag } from '../models/type'
-import type { Ref } from 'vue'
-import { useRoute } from 'vue-router'
-import { successNotification } from '@/core/services/helpers/alert.helper'
-import { put } from '@/core/services/helpers/fetcher.helper'
-import { slugify } from '@/core/services/utils/util.string'
-import UploadAdapter from '@/core/services/classes/UploadFile'
-
-const editor: Ref<typeof ClassicEditor> = ref(ClassicEditor)
-
-function uploader (editor:any){
-  editor.plugins.get('FileRepository').createUploadAdapter = (loader:any) => {
-    return new UploadAdapter(loader,"/api/images");
-  };
-}
-
-const editorConfig: Ref<any> = ref({
-  extraPlugins: [uploader]
-})
+import type { TCategory, TTag } from '../models/type'
 
 const route = useRoute()
-const stateUpdate: Ref<TBlogResponse> = ref({} as TBlogResponse)
 
-const { pass, errorFields } = useAsyncValidator(stateUpdate, rules)
-
-const categories: Ref<TCategory[]> = ref([])
-const tags: Ref<TTag[]> = ref([])
-
-const fetchBlog = async (): Promise<void> => {
-  get<TBlogResponse>('/api/blogs/' + route.params.id).then((response) => {
-    if (response?.data) {
-      stateUpdate.value = response.data
-    }
-  })
-}
-const update = async () => {
-  const data = await put<any, any>('/api/blogs/' + stateUpdate.value.id, stateUpdate.value)
-  if (data?.data) {
-    successNotification(data.message)
-  }
-}
+const { pass, errorFields } = useAsyncValidator(state, rules)
 
 onMounted(async () => {
   get<TCategory[]>('/api/categories/admin').then((response) => {
     categories.value = response?.data || []
   })
-  get<TCategory[]>('/api/tags').then((response) => {
+  get<TTag[]>('/api/tags').then((response) => {
     tags.value = response?.data || []
   })
-
-  await fetchBlog()
+  await fetch(String(route.params.id))
 })
 
-watch(stateUpdate, (newValue) => {
-  stateUpdate.value.slug = slugify(newValue.title)
-}, { deep: true })
+
 </script>

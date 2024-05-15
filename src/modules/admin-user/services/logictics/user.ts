@@ -1,16 +1,12 @@
-import { reactive, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
+import { v4 } from 'uuid'
 
 import { init_pagination, paginationOptions } from '../data/user'
 
-import { get, post } from '@/core/services/helpers/request.helper'
+import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TUserRequest, TUser } from '../../models/type'
-
-import type { Rules } from 'async-validator'
-import { successNotification } from '@/core/services/helpers/alert.helper'
-import { resetObject } from '@/core/services/utils/util.object'
-import { v4 } from 'uuid'
+import type { TUser } from '../../models/type'
 
 export const items = ref<TUser[]>([
   {
@@ -31,50 +27,6 @@ export const fetch = async () => {
   const response = await get<TPaginationResponse<TUser>>('/api/users/page', paginationOptions.value)
   items.value = response?.data.data || []
   pagination.value = response?.data || { ...init_pagination };
-}
-
-const init_state: TUserRequest = {
-  fullName: '',
-  email: '',
-  password: 'Th1sIsP@ssword',
-  address: '',
-  phoneNumber: '',
-  imageUrl: '',
-}
-
-export const state = reactive<TUserRequest>({ ...init_state })
-
-export const rules: Rules = {
-  email: {
-    type: 'email',
-    min: 5,
-    max: 255,
-    required: true
-  },
-  fullName: {
-    type: 'string',
-    min: 5,
-    max: 255,
-    required: true
-  },
-  phoneNumber: {
-    type: 'string',
-    min: 10,
-    max: 15,
-    required: true
-  },
-  address: {
-    type: 'string',
-    min: 5,
-    required: true
-  }
-}
-
-export const submit = async () => {
-  const data = await post<TUserRequest, TUser>('/api/users', state)
-  if (data?.data) {
-    successNotification(data.message), resetObject(state, init_state)
-  }
 }
 
 watch(

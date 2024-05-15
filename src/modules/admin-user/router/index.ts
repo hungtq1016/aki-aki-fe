@@ -22,6 +22,19 @@ const adminUserRoute: RouteRecordRaw = {
       ]
     },
     {
+      path: 'doctor',
+      children: [
+        {
+          path: '',
+          name: 'admin_users_doctor',
+          component: () => import('@/modules/admin-user/views/DoctorView.vue'),
+          meta: {
+            title: 'route.admin_users_doctor'
+          }
+        }
+      ]
+    },
+    {
       path: 'add',
       children: [
         {
@@ -30,6 +43,32 @@ const adminUserRoute: RouteRecordRaw = {
           component: () => import('@/modules/admin-user/views/UserAddView.vue'),
           meta: {
             title: 'route.admin_users_add'
+          }
+        }
+      ]
+    },
+    {
+      path: 'all',
+      children: [
+        {
+          path: '',
+          name: 'admin_users_all',
+          component: () => import('@/modules/admin-user/views/UserView.vue'),
+          meta: {
+            title: 'route.admin_users_all'
+          }
+        }
+      ]
+    },
+    {
+      path: ':id',
+      children: [
+        {
+          path: '',
+          name: 'admin_users_edit',
+          component: () => import('@/modules/admin-user/views/UserEditView.vue'),
+          meta: {
+            title: 'route.admin_users_edit'
           }
         }
       ]

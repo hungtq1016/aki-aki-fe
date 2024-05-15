@@ -3,6 +3,7 @@
     <TableView
       v-bind:="{ headers, items, pagination, paginationOptions, fetch }"
       route="categories"
+      key="categories"
     />
   </div>
 </template>

@@ -31,14 +31,16 @@
 </template>
 
 <script setup lang="ts">
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
-import HeadingView from '@/modules/admin-template/views/HeadingView.vue'
-import PublishView from '@/modules/admin-template/views/PublishView.vue'
-
-import { state, rules, submit } from '../services/logictics/tag'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
+import PublishView from '@/modules/admin-template/views/PublishView.vue'
+
+import { state, submit } from '../services/logictics/tag.add'
+import { rules } from '../services/data/tag'
+
 const { pass, errorFields } = useAsyncValidator(state, rules)
 </script>

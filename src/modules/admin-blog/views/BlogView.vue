@@ -10,11 +10,14 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
+
+import TableView from '@/modules/admin/views/TableView.vue'
+
 import { paginationOptions, headers } from '../services/data/blog'
 import { pagination, items, fetch } from '../services/logictics/blog'
-import TableView from '@/modules/admin/views/TableView.vue'
 
 onMounted(async () => {
   await fetch()
 })
+
 </script>

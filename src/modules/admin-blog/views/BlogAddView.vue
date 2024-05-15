@@ -90,8 +90,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import { onMounted } from 'vue'
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import ImageView from '@/modules/admin-template/views/ImageView.vue'
@@ -104,37 +104,19 @@ import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.vue'
 import FormSelectMultiple from '@/modules/admin-template/components/Form.select.multiple.vue'
 
-import { state, rules, submit, selectedTags } from '../services/logictics/blog'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
-
 import { get } from '@/core/services/helpers/request.helper'
+import { categories, editor, editorConfig, selectedTags, state, submit, tags } from '../services/logictics/blog.add'
+import { rules } from '../services/data/blog'
 
 import type { TCategory, TTag } from '../models/type'
-import type { Ref } from 'vue'
-import UploadAdapter from '@/core/services/classes/UploadFile'
-
-const editor: Ref<typeof ClassicEditor> = ref(ClassicEditor)
-
-function uploader (editor:any){
-  editor.plugins.get('FileRepository').createUploadAdapter = (loader:any) => {
-    return new UploadAdapter(loader,"/api/images");
-  };
-}
-
-const editorConfig: Ref<any> = ref({
-  extraPlugins: [uploader]
-})
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
-
-const categories: Ref<TCategory[]> = ref([])
-const tags: Ref<TTag[]> = ref([])
 
 onMounted(() => {
   get<TCategory[]>('/api/categories/admin').then((response) => {
     categories.value = response?.data || []
   })
-  get<TCategory[]>('/api/tags').then((response) => {
+  get<TTag[]>('/api/tags').then((response) => {
     tags.value = response?.data || []
   })
 })

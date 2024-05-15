@@ -1,24 +1,22 @@
 import { ref, watch } from 'vue'
 import { v4 } from 'uuid'
 
-import { init_pagination, paginationOptions } from './../data/blog'
+import { init_pagination, paginationOptions } from '../data/user'
+
 import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
-import type { TBlog, TCategory, TTag } from '../../models/type'
-import type { Ref } from 'vue'
+import type { TUser } from '../../models/type'
 
-export const items = ref<TBlog[]>([
+export const items = ref<TUser[]>([
   {
     id: v4(),
-    title: 'mock-data',
-    content: 'mock-data',
-    videoEmbed: '',
-    desc: 'mock-data',
-    slug: 'mock-data',
-    type: 'mock-data',
-    imageUrl: '',
-    categoryId: '',
+    fullName: 'mock-data',
+    email: 'mock-data',
+    password: 'mock-data',
+    address: 'mock-data',
+    phoneNumber: 'mock-data',
+    imageUrl: 'mock-data',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
     enable: true
@@ -28,11 +26,9 @@ export const items = ref<TBlog[]>([
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
-  const response = await get<TPaginationResponse<TBlog>>('/api/blogs/page', paginationOptions.value)
+  const response = await get<TPaginationResponse<TUser>>('/api/users/role/customer/search', paginationOptions.value)
   items.value = response?.data.data || []
   pagination.value = response?.data || { ...init_pagination };
-
-  pagination.value = response?.data || { ...init_pagination }
 }
 
 watch(

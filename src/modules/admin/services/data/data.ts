@@ -60,24 +60,24 @@ export const menus: TMenu[] = [
             slug: '/admin/blogs/add'
           },
           {
-            label: 'route.admin_blogs_comments',
-            slug: '/admin/blogs/comments'
+            label: 'route.admin_comments',
+            slug: '/admin/comments'
           },
           {
-            label: 'route.admin_blogs_categories',
-            slug: '/admin/blogs/categories'
+            label: 'route.admin_categories',
+            slug: '/admin/categories'
           },
           {
-            label: 'route.admin_blogs_categories_add',
-            slug: '/admin/blogs/categories/add'
+            label: 'route.admin_categories_add',
+            slug: '/admin/categories/add'
           },
           {
-            label: 'route.admin_blogs_tags',
-            slug: '/admin/blogs/tags'
+            label: 'route.admin_tags',
+            slug: '/admin/tags'
           },
           {
-            label: 'route.admin_blogs_tags_add',
-            slug: '/admin/blogs/tags/add'
+            label: 'route.admin_tags_add',
+            slug: '/admin/tags/add'
           }
         ]
       },
@@ -196,6 +196,14 @@ export const menus: TMenu[] = [
           {
             label: 'route.admin_users_customer',
             slug: '/admin/users/customer'
+          },
+          {
+            label: 'route.admin_users_doctor',
+            slug: '/admin/users/doctor'
+          },
+          {
+            label: 'route.admin_users_all',
+            slug: '/admin/users/all'
           },
           {
             label: 'route.admin_users_add',

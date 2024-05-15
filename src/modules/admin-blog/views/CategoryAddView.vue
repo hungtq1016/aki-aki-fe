@@ -34,11 +34,12 @@
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
-
-import { state, rules, submit } from '../services/logictics/category'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
+
+import { state, submit } from '../services/logictics/category.add'
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import { rules } from '../services/data/blog'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 </script>

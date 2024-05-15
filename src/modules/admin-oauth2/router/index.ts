@@ -94,64 +94,6 @@ const adminOauth2Route: RouteRecordRaw = {
           }
         }
       ]
-    },
-    {
-      path: 'groups',
-      children: [
-        {
-          path: '',
-          name: 'admin_oauth2_groups',
-          component: () => import('@/modules/admin-oauth2/views/GroupView.vue'),
-          meta: {
-            title: 'route.admin_oauth2_groups'
-          }
-        },
-        {
-          path: 'add',
-          name: 'admin_oauth2_groups_add',
-          component: () => import('@/modules/admin-oauth2/views/GroupAddView.vue'),
-          meta: {
-            title: 'route.admin_oauth2_groups_add'
-          }
-        },
-        {
-          path: ':id',
-          name: 'admin_oauth2_groups_edit',
-          component: () => import('@/modules/admin-oauth2/views/GroupAddView.vue'),
-          meta: {
-            title: 'route.admin_oauth2_groups_edit'
-          }
-        }
-      ]
-    },
-    {
-      path: 'users',
-      children: [
-        {
-          path: '',
-          name: 'admin_oauth2_users',
-          component: () => import('@/modules/admin-oauth2/views/UserView.vue'),
-          meta: {
-            title: 'route.admin_oauth2_users'
-          }
-        },
-        {
-          path: 'add',
-          name: 'admin_oauth2_users_add',
-          component: () => import('@/modules/admin-oauth2/views/UserAddView.vue'),
-          meta: {
-            title: 'route.admin_oauth2_users_add'
-          }
-        },
-        {
-          path: ':id',
-          name: 'admin_oauth2_users_edit',
-          component: () => import('@/modules/admin-oauth2/views/UserAddView.vue'),
-          meta: {
-            title: 'route.admin_oauth2_users_edit'
-          }
-        }
-      ]
     }
   ]
 }

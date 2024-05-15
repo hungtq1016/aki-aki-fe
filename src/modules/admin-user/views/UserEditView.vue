@@ -55,6 +55,9 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
@@ -63,10 +66,15 @@ import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 import ImageView from '@/modules/admin-template/views/ImageView.vue'
 
-import { state, submit } from '../services/logictics/user.add'
+import { state, submit, fetch } from '../services/logictics/user.edit'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import { rules } from '../services/data/user'
 
+const route = useRoute()
+
 const { pass, errorFields } = useAsyncValidator(state, rules)
 
+onMounted(async () => {
+  await fetch(String(route.params.id))
+})
 </script>

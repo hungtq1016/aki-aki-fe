@@ -4,6 +4,7 @@ import { EnableEnum } from '@/core/models/enum'
 
 import type { Header } from 'vue3-easy-data-table'
 import type { TPagination, TPaginationRequest } from '@/core/models/type'
+import type { Rules } from 'async-validator'
 
 export const headers: Header[] = [
   { text: 'table.id', value: 'id', width: 100 },
@@ -33,4 +34,35 @@ export const init_pagination: TPagination = {
   totalRecords: 0,
   nextPage: 1,
   previousPage: 1
+}
+
+export const rules: Rules = {
+  email: {
+    type: 'email',
+    min: 5,
+    max: 255,
+    required: true
+  },
+  fullName: {
+    type: 'string',
+    min: 5,
+    max: 255,
+    required: true
+  },
+  phoneNumber: {
+    type: 'string',
+    min: 10,
+    max: 15,
+    required: true
+  },
+  address: {
+    type: 'string',
+    min: 5,
+    required: true
+  },
+  imageUrl: {
+    type: 'string',
+    min: 5,
+    required: true
+  }
 }

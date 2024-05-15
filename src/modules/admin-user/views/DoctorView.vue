@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { paginationOptions, headers } from '../services/data/user'
-import { pagination, items, fetch } from '../services/logictics/customer'
+import { pagination, items, fetch } from '../services/logictics/doctor'
 import TableView from '@/modules/admin/views/TableView.vue'
 
 onMounted(async () => {
