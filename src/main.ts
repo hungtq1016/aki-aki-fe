@@ -4,6 +4,7 @@ import 'vue3-easy-data-table/dist/style.css'
 import 'vue-toastification/dist/index.css'
 import 'vue-multiselect/dist/vue-multiselect.css'
 import '@vuepic/vue-datepicker/dist/main.css'
+import 'sweetalert2/src/sweetalert2.scss'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

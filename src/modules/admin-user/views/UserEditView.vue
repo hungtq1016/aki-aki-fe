@@ -18,9 +18,9 @@
           <FormInput
             v-model="state.fullName"
             :has-error="Boolean(errorFields?.fullName?.length)"
-            :placeholder="$t('form.place_holder.full_name')"
+            :placeholder="$t('form.place_holder.fullname')"
           >
-            {{ $t('form.full_name') }}
+            {{ $t('form.fullname') }}
           </FormInput>
           <FormInput
             v-model="state.phoneNumber"

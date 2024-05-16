@@ -64,6 +64,12 @@
       <template #item-size="{ size }">
         <p class="whitespace-nowrap">{{ numberToByte(Number(size)) }}</p>
       </template>
+      <template #item-date="{ date }">
+        <div>{{ format(new Date(date), 'dd/m/yyyy') }}</div>
+      </template>
+      <template #item-time="{ time }">
+        <div> {{ formattedTime(JSON.parse(time)) }} </div>
+      </template>
       <template #item-createdAt="{ createdAt }">
         <TableDatetime :date="createdAt" />
       </template>
@@ -109,6 +115,7 @@ import type {
 import type { TPagination, TPaginationRequest } from '@/core/models/type'
 import { TrashIcon } from '@heroicons/vue/24/outline'
 import { imageBuilderUrl } from '@/core/services/utils/util.string'
+import { format } from 'date-fns'
 
 const props = defineProps<{
   headers: Header[]
@@ -145,6 +152,21 @@ const localeHeaders = computed(() => {
 const remove = (id: string): void => {
   itemRef.value = itemRef.value.filter((value) => value.id !== id)
 }
+
+const formattedTime = (time: any, defaultTime = { hours: 0, minutes: 0, seconds: 0 }) => format(
+    new Date().setHours(
+        (time && time.hours) || defaultTime.hours,
+        (time && time.minutes) || defaultTime.minutes,
+        (time && time.seconds) || defaultTime.seconds
+    ),
+    'HH:mm:ss'
+);
+
+// Example usage:
+const time = { hours: 15, minutes: 0, seconds: 0 };
+const defaultTime = { hours: 0, minutes: 0, seconds: 0 };
+console.log(formattedTime(time, defaultTime)); // Output: 15:00:00
+
 
 const selectedHeaders = ref<Header[]>([...props.headers])
 const countItems = computed(() => itemsSelected.value.length)

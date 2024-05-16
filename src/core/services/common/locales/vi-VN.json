@@ -82,7 +82,6 @@
     "email": "E-mail",
     "embed": "Nhúng",
     "firstname": "Họ",
-    "full_name": "Họ và tên",
     "fullname": "Họ và tên",
     "gender": {
       "male": "Nam",
@@ -124,8 +123,7 @@
       "desc": "Nhập mô tả...",
       "diagnosis": "Nhập chẩn đoán...",
       "email": "Nhập email...",
-      "full_name": "Nhập tên đầy đủ...",
-      "fullname": "Nhập tên đầy đủ...",
+      "fullname": "Nhập họ và tên...",
       "gender": "Nhập giới tính...",
       "groupId": "Vui lòng chọn nhóm",
       "group_service": "Vui lòng chọn nhóm dịch vụ",

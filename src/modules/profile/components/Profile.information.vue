@@ -4,14 +4,14 @@
     <div class="mb-5.5 grid grid-cols-1 gap-5.5 sm:grid-cols-2">
       <div>
         <label class="mb-3 block text-sm font-medium text-black-900 dark:text-gray-50" for="fullName">{{
-          $t('form.full_name') }}</label>
+          $t('form.fullname') }}</label>
         <div class="relative">
           <span class="absolute left-4.5 top-4">
             <UserIcon class="w-5 h-5" />
           </span>
           <input
             class="w-full rounded border py-3 pl-11.5 pr-4.5 dark:border-zinc-950 dark:bg-zinc-900 dark:text-gray-50 text-gray-900 border-gray-100 !bg-gray-50 bg-transparent font-normal outline-none transition disabled:cursor-default disabled:!bg-gray-200 disabled:!border-gray-400 disabled:!text-gray-600 dark:disabled:!bg-stone-950 dark:disabled:!text-gray-50"
-            type="text" v-model="state.fullName" id="fullName" :placeholder="$t('form.place_holder.full_name')" />
+            type="text" v-model="state.fullName" id="fullName" :placeholder="$t('form.place_holder.fullname')" />
         </div>
       </div>
       <div>

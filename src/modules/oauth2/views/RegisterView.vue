@@ -20,9 +20,9 @@
         </AuthInput>
       </div>
       <div class="sm:col-span-6">
-        <AuthInput v-model="state.fullName" :placeholder="$t('form.place_holder.full_name')"
+        <AuthInput v-model="state.fullName" :placeholder="$t('form.place_holder.fullname')"
           :has-error="Boolean(errorFields?.fullName?.length)">
-          {{ $t('form.full_name') }}
+          {{ $t('form.fullname') }}
         </AuthInput>
       </div>
       <div class="sm:col-span-6">

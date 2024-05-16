@@ -3,24 +3,25 @@
   <FormLayout :submit="submit">
     <FormItem>
       <FormGroup :has-error="[
-        Boolean(errorFields?.title?.length),
-        Boolean(errorFields?.categoryId?.length),
-        Boolean(errorFields?.content?.length)
+        Boolean(errorFields?.time?.length),
+        Boolean(errorFields?.date?.length)
       ]">
         <template #heading>
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormInputSlot :has-error="Boolean(errorFields?.content?.length)">
+          <div>{{ state }}</div>
+          <FormInputSlot :has-error="Boolean(errorFields?.date?.length)">
             <template #label>{{ $t('form.pick_date') }}</template>
             <template #content>
-              <VueDatePicker v-model="date" inline multi-calendars auto-apply class="!block" range></VueDatePicker>
+              <VueDatePicker v-model="state.date" :format-locale="vi" format="E" class="!block"
+              inline multi-calendars auto-apply></VueDatePicker>
             </template>
           </FormInputSlot>
-          <FormInputSlot :has-error="Boolean(errorFields?.content?.length)">
+          <FormInputSlot :has-error="Boolean(errorFields?.time?.length)">
             <template #label>{{ $t('form.pick_time') }}</template>
             <template #content>
-              <VueDatePicker v-model="time" time-picker range auto-apply inline class="!block" />
+              <VueDatePicker v-model="time" time-picker auto-apply inline class="!block" />
             </template>
           </FormInputSlot>
         </template>
@@ -47,6 +48,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import { vi } from 'date-fns/locale';
 
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
@@ -55,15 +57,12 @@ import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.vue'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 
-import { state, submit, fetchUsers, pagination, users, date, debouncedFn, search, time } from '../services/logictics/schedule.add'
+import { state, submit, fetchUsers, pagination, users, debouncedFn, search, time } from '../services/logictics/schedule.add'
 import { paginationOptions, rules } from '../services/data/schedule'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 
 onMounted(async () => {
-  const startDate = new Date()
-  const endDate = new Date(new Date().setDate(startDate.getDate() + 7))
-  date.value = [startDate, endDate]
   await fetchUsers()
 })
 

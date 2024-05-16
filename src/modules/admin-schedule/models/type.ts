@@ -1,25 +1,34 @@
 import type { TEntity, TRequest } from '@/core/models/type'
 
 export type TSchedule = TEntity & {
-  userId: string
-  startDay: string
-  endDay: string
-  startTime: string
-  endTime: string
+  date: Date;
+  fullName: string;
+  phoneNumber: string;
+  time: string;
+  email: string;
+  desc: string;
+  branchId: string;
+  serviceId: string;
 }
 
 export type TScheduleResponse = TEntity & {
-  userId: string
-  startDay: string
-  endDay: string
-  startTime: string
-  endTime: string
+  date: Date;
+  fullName: string;
+  phoneNumber: string;
+  time: string;
+  email: string;
+  desc: string;
+  branchId: string;
+  serviceId: string;
 }
 
 export type TScheduleRequest = TRequest & {
-  userId: string
-  startDay: string
-  endDay: string
-  startTime: string
-  endTime: string
+  date: Date;
+  fullName: string;
+  phoneNumber: string;
+  time: string;
+  email: string;
+  desc: string;
+  branchId: string;
+  serviceId: string;
 }

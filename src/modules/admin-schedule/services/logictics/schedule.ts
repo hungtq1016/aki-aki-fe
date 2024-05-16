@@ -10,11 +10,14 @@ import type { TSchedule } from '../../models/type'
 export const items = ref<TSchedule[]>([
   {
     id: v4(),
-    endDay: '',
-    startDay: '',
-    endTime: '',
-    startTime: '',
-    userId: '-1',
+    date: new Date(),
+    branchId: '-1',
+    desc: '',
+    fullName: '',
+    phoneNumber: '',
+    serviceId: '-1',
+    time: "{\"hello\":\"world\"}",
+    email: '-1',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
     enable: true

@@ -1,4 +1,4 @@
-import { reactive, ref, type Ref } from 'vue'
+import { reactive, ref, watch, type Ref } from 'vue'
 
 import { init_pagination, paginationOptions } from '../data/schedule'
 import { get, post } from '@/core/services/helpers/request.helper'
@@ -11,18 +11,21 @@ import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TSchedule, TScheduleRequest } from '../../models/type'
 
 const init_state: TScheduleRequest = {
-  endDay: '',
-  startDay: '',
-  endTime: '',
-  startTime: '',
-  userId: '-1',
-  enable: true
+  date: new Date(),
+    branchId: '-1',
+    desc: '',
+    fullName: '',
+    phoneNumber: '',
+    serviceId: '-1',
+    time: "",
+    email: '-1',
+    enable: true
 }
 export const time = ref()
 export const state = reactive({...init_state})
 export const pagination = ref<TPagination>({ ...init_pagination })
 export const users: Ref<TUser[]> = ref([])
-export const date = ref()
+
 export const search: Ref<string> = ref('')
 
 export const debouncedFn = useDebounceFn(async () => {
@@ -48,3 +51,6 @@ export const submit = async () => {
     successNotification(data.message), resetObject(state, init_state)
   }
 }
+watch(time,(newValue)=>{
+  state.time = JSON.stringify(newValue)
+},{deep:true})
