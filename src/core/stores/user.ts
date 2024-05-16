@@ -5,11 +5,12 @@ import type { TUser } from '@/modules/admin-oauth2/models/type'
 import { get } from '../services/helpers/fetcher.helper'
 import { deleteValue, firstOrUpdate, readValue } from '../services/helpers/localStorage.helper'
 import { useAuthInfo } from '../services/helpers/indexedDB.helper'
+import { useRouter } from 'vue-router'
 
 export const useUserstore = defineStore('user', () => {
   const user: Ref<TUser> = ref({} as TUser)
   const isLogin: Ref<boolean> = ref(false)
-
+  const router = useRouter()
   const fetchUser = async (): Promise<void> => {
     const data = await get<TUser>('/api/authenticate/user')
     if (data?.data) {
@@ -22,6 +23,7 @@ export const useUserstore = defineStore('user', () => {
     user.value = {} as TUser
     toggleLogin(false)
     deleteValue('user')
+    router.push('/')
     await deleteAuthAsync()
   }
 

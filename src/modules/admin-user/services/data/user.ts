@@ -51,8 +51,7 @@ export const rules: Rules = {
   },
   phoneNumber: {
     type: 'string',
-    min: 10,
-    max: 15,
+    min: 2,
     required: true
   },
   address: {

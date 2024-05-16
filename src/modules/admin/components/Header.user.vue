@@ -38,11 +38,11 @@
             </router-link>
           </li>
         </ul>
-        <button
+        <button type="button" @click="logout"
           class="flex items-center gap-3.5 py-4 px-6 text-sm font-medium duration-300 ease-in-out hover:text-cerulean-600 lg:text-base"
         >
           <ArrowLeftStartOnRectangleIcon class="w-6 h-6" />
-          <span>{{ $t('oauth2.signout') }}</span>
+          <span>{{ $t('route.logout') }}</span>
         </button>
       </div>
       <!-- Dropdown End -->
@@ -51,17 +51,19 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowLeftStartOnRectangleIcon, GlobeAltIcon, UserIcon } from '@heroicons/vue/24/outline'
+import { ArrowLeftStartOnRectangleIcon } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { onClickOutside } from '@vueuse/core'
 import { ref } from 'vue'
-import type { TMenu } from '../models/type'
+
 import { useUserstore } from '@/core/stores/user'
 import { imageBuilderUrl } from '@/core/services/utils/util.string'
 
+import type { TMenu } from '../models/type'
+
 const target = ref(null)
 const dropdownOpen = ref(false)
-const { user } = useUserstore()
+const { user,logout } = useUserstore()
 
 onClickOutside(target, () => {
   dropdownOpen.value = false

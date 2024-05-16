@@ -45,8 +45,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, type Ref } from 'vue'
-import { useDebounceFn } from '@vueuse/core'
+import { onMounted } from 'vue'
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
@@ -55,27 +55,17 @@ import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.vue'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 
-import { state, rules, submit, fetchUsers, pagination, users } from '../services/logictics/schedule'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
-import { paginationOptions } from '../services/data/schedule'
+import { state, submit, fetchUsers, pagination, users, date, debouncedFn, search, time } from '../services/logictics/schedule.add'
+import { paginationOptions, rules } from '../services/data/schedule'
 
-const date = ref()
-const search: Ref<string> = ref('')
-
-  const debouncedFn = useDebounceFn(async () => {
-  await fetchUsers(search.value)
-}, 600, { maxWait: 5000 })
+const { pass, errorFields } = useAsyncValidator(state, rules)
 
 onMounted(async () => {
   const startDate = new Date()
   const endDate = new Date(new Date().setDate(startDate.getDate() + 7))
   date.value = [startDate, endDate]
-
-  await fetchUsers(search.value)
+  await fetchUsers()
 })
-
-const time = ref()
-const { pass, errorFields } = useAsyncValidator(state, rules)
 
 </script>
 

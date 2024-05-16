@@ -26,6 +26,7 @@
             v-model="state.phoneNumber"
             :has-error="Boolean(errorFields?.phoneNumber?.length)"
             :placeholder="$t('form.place_holder.phone_number')"
+            @keyup="formatToPhone" @keydown="enforceFormat"
           >
             {{ $t('form.phone_number') }}
           </FormInput>
@@ -66,6 +67,7 @@ import ImageView from '@/modules/admin-template/views/ImageView.vue'
 import { state, submit } from '../services/logictics/user.add'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import { rules } from '../services/data/user'
+import { enforceFormat, formatToPhone } from '@/core/services/utils/util.number'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 
