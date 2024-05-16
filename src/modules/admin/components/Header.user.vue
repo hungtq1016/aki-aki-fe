@@ -2,9 +2,8 @@
 <template>
   <li>
     <div class="relative" ref="target">
-      <router-link
+      <button
         class="flex items-center gap-4"
-        to="#"
         @click.prevent="dropdownOpen = !dropdownOpen"
       >
         <span class="hidden text-right lg:block">
@@ -18,7 +17,7 @@
         </span>
 
         <ChevronDownIcon class="w-4 h-5" :class="dropdownOpen && 'rotate-180'" />
-      </router-link>
+      </button>
 
       <!-- Dropdown Start -->
       <div
@@ -51,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowLeftStartOnRectangleIcon } from '@heroicons/vue/24/outline'
+import { ArrowLeftStartOnRectangleIcon, UserIcon } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { onClickOutside } from '@vueuse/core'
 import { ref } from 'vue'
@@ -71,6 +70,10 @@ onClickOutside(target, () => {
 
 const menuProfile: TMenu = {
   name: 'route.profile',
-  menuItems: []
+  menuItems: [{
+    label: 'route.profile',
+    slug: '/profile',
+    icon: UserIcon
+  }]
 }
 </script>

@@ -3,7 +3,7 @@
   <Menu as="div" class="relative inline-block text-left">
     <div>
       <MenuButton
-        class="flex gap-x-1 items-center p-2 border border-cerulean-600 rounded-md bg-cerulean-600 text-cerulean-50">
+        class="flex gap-x-1 items-center p-2 border border-cerulean-600 rounded-md bg-cerulean-600 text-white">
         <div class="uppercase text-sm relative font-semibold pl-2">
           <span class="text-cerulean-50">{{ user.fullName }}</span>
         </div>
@@ -15,7 +15,7 @@
       enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75"
       leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
       <MenuItems
-        class="absolute right-0 z-50 mt-2 w-56 origin-top-right divide-y divide-cerulean-100 rounded-md bg-cerulean-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        class="absolute right-0 z-50 mt-2 w-56 origin-top-right divide-y divide-cerulean-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
         <div class="py-1">
           <MenuItem v-slot="{ active }" v-for="(data,index) in navigations" :key="index">
           <router-link :to="data.slug"
