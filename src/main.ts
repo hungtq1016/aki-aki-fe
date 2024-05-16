@@ -8,15 +8,14 @@ import 'sweetalert2/src/sweetalert2.scss'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-
 import App from './App.vue'
-import router from './router'
 import Vue3EasyDataTable from 'vue3-easy-data-table'
 import Toast from 'vue-toastification'
 import CKEditor from '@ckeditor/ckeditor5-vue'
 import VueDatePicker from '@vuepic/vue-datepicker'
 
 import { i18n } from '@/core/services/base/translation'
+import router from './router'
 
 const app = createApp(App)
 

@@ -291,7 +291,8 @@
     "team": "Medical Team",
     "profile":"Profile",
     "schedule":"Schedule",
-    "logout":"Logout"
+    "logout":"Logout",
+    "notifcation":"Notification"
   },
   "table": {
     "action": "Action",
