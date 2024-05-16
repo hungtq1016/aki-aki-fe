@@ -6,15 +6,15 @@
         <img :src="imageBuilderUrl(user.imageUrl)" :alt="user.fullName" />
       </div>
       <div>
-        <span class="mb-1.5 font-medium text-black-900 dark:text-gray-50">Edit your photo</span
+        <span class="mb-1.5 font-medium text-black-900 dark:text-gray-50">{{ $t('content.update_image') }}</span
         ><span class="flex gap-2.5">
           <button
             @click="removeImage"
             type="button"
             class="text-sm font-medium hover:text--black-900"
           >
-            Delete</button
-          ><button class="text-sm font-medium hover:text--black-900">Update</button></span
+            {{ $t('content.delete') }}</button
+          ><button class="text-sm font-medium hover:text--black-900">{{ $t('content.update') }}</button></span
         >
       </div>
     </div>

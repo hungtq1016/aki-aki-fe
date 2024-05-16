@@ -10,6 +10,8 @@
                 :placeholder="placeholder"
                 :disabled="disabled"
                 :class="{ '!ring-red-600': hasError }"
+                @keyup="$emit('keyup',$event)"
+                @keydown="$emit('keydown', $event)"
                 class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-inset focus:ring-cerulean-600 sm:text-sm sm:leading-6" />
         </div>
     </div>
@@ -43,6 +45,7 @@ const props = defineProps({
 const id = props.type + v4()
 
 const model: ModelRef<string> = defineModel({required:true})
+  const emits: (event: 'keyup' | 'keydown', ...args: any[]) => void = defineEmits(['keyup', 'keydown']);
 
 </script>
 

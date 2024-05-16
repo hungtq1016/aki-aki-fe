@@ -26,8 +26,11 @@
         </AuthInput>
       </div>
       <div class="sm:col-span-6">
-        <AuthInput v-model="state.phoneNumber" :placeholder="$t('form.place_holder.phone_number')"
-          :has-error="Boolean(errorFields?.phoneNumber?.length)">
+        <AuthInput v-model="state.phoneNumber" 
+          :placeholder="$t('form.place_holder.phone_number')"
+          :has-error="Boolean(errorFields?.phoneNumber?.length)"
+          @keyup="formatToPhone" @keydown="enforceFormat"
+          >
           {{ $t('form.phone_number') }}
         </AuthInput>
       </div>
@@ -56,6 +59,7 @@ import { useUserstore } from '@/core/stores/user';
 import { successNotification } from '@/core/services/helpers/alert.helper';
 import { i18n } from '@/core/services/base/translation';
 import { useRouter } from 'vue-router';
+import { enforceFormat, formatToPhone } from '@/core/services/utils/util.number';
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 

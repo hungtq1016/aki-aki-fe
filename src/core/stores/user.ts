@@ -3,7 +3,8 @@ import type { Ref } from 'vue'
 import { defineStore } from 'pinia'
 import type { TUser } from '@/modules/admin-oauth2/models/type'
 import { get } from '../services/helpers/fetcher.helper'
-import { firstOrUpdate, readValue } from '../services/helpers/localStorage.helper'
+import { deleteValue, firstOrUpdate, readValue } from '../services/helpers/localStorage.helper'
+import { useAuthInfo } from '../services/helpers/indexedDB.helper'
 
 export const useUserstore = defineStore('user', () => {
   const user: Ref<TUser> = ref({} as TUser)
@@ -16,6 +17,14 @@ export const useUserstore = defineStore('user', () => {
     }
   }
 
+  const logout = async () => {
+    const { deleteAuthAsync } = useAuthInfo()
+    user.value = {} as TUser
+    toggleLogin(false)
+    deleteValue('user')
+    await deleteAuthAsync()
+  }
+
   const updateData = (payload: TUser): void => {
     user.value = payload
     firstOrUpdate('user', payload)
@@ -26,9 +35,13 @@ export const useUserstore = defineStore('user', () => {
     if (data !== null) {
       const userData: TUser = JSON.parse(data)
       user.value = userData
-      isLogin.value = true
+      toggleLogin(true)
     }
   }
 
-  return { user, fetchUser, isLogin, isUserExist, updateData }
+  const toggleLogin = (value: boolean) => {
+    isLogin.value = value
+  }
+
+  return { user, fetchUser, isLogin, isUserExist, updateData, logout, toggleLogin }
 })

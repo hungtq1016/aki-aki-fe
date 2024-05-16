@@ -71,12 +71,13 @@ const { pass, errorFields } = useAsyncValidator(state, rules)
 const router = useRouter()
 
 const submitLogin = async (): Promise<void> => {
-  const { fetchUser } = useUserstore()
+  const { fetchUser, toggleLogin } = useUserstore()
 
   const response = await submit()
 
   if (response) {
     successNotification(i18n.global.t('message.login_success'))
+    toggleLogin(true)
     await fetchUser()
     router.push('/')
   }

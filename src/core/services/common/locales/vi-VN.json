@@ -16,6 +16,11 @@
     "submit": "Nộp"
   },
   "content": {
+    "your_profile":"Thông tin của bạn",
+    "image":"Hình ảnh",
+    "update_image":"Tải lên ảnh của bạn",
+    "delete":"Xóa",
+    "update":"Cập nhật",
     "active": "Hoạt động",
     "assistance_contact": "Cần hỗ trợ thêm vui lòng liên hệ với chúng tôi qua",
     "back_home": "Quay lại trang chủ",
@@ -285,7 +290,10 @@
     "service": "Dịch vụ",
     "setting": "Cài đặt",
     "specialist": "Chuyên gia y tế",
-    "team": "Đội y tế"
+    "team": "Đội ngũ của chúng tôi",
+    "profile":"Thông tin cá nhân",
+    "schedule":"Lịch hẹn",
+    "logout":"Đăng xuất"
   },
   "table": {
     "action": "Hoạt động",

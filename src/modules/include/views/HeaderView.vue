@@ -10,7 +10,8 @@
         ${isZero ? 'h-auto' : 'h-0 invisible'}`"
     >
       <div class="pt-5">
-        <ul class="flex gap-x-10 flex-row-reverse">
+        <ul class="flex gap-x-2 flex-row-reverse">
+          <HeaderLogin/>
           <HeaderContact v-for="data in contacts" :key="data.label" :data="data" />
         </ul>
       </div>
@@ -82,6 +83,7 @@ import { useRouter } from 'vue-router'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import ScrollToTop from '@/core/components/buttons/ScrollToTop.vue'
 import ChatBubbleView from './ChatBubbleView.vue'
+import HeaderLogin from '../components/Header.login.vue'
 const isScrollDown = ref<boolean>(false)
 const isZero = ref<boolean>(true)
 const router = useRouter()

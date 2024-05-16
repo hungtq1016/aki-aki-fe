@@ -11,6 +11,8 @@
       :type="type"
       :disabled="disabled"
       :placeholder="placeholder"
+      @keyup="$emit('keyup',$event)"
+      @keydown="$emit('keydown', $event)"
       :class="{ '!border-red-600': hasError }"
       class="dark:!border-zinc-950 dark:!bg-zinc-900 dark:text-gray-50 text-gray-900 w-full rounded-lg border border-gray-100 !bg-gray-50 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:!bg-gray-200 disabled:!border-gray-400 disabled:!text-gray-600 dark:disabled:!bg-stone-950 dark:disabled:!text-gray-50"
     />
@@ -40,6 +42,8 @@ defineProps({
     default: 'text'
   }
 })
+
+const emits: (event: 'keyup' | 'keydown', ...args: any[]) => void = defineEmits(['keyup', 'keydown']);
 
 const model: ModelRef<string> = defineModel({ required: true })
 </script>

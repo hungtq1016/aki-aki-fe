@@ -13,13 +13,6 @@ import type { BaseINavigation } from '@/core/models/interface'
 const contacts = ref<Array<TContact>>([
   {
     type: AnchorType.url,
-    icon: ArrowRightEndOnRectangleIcon,
-    label: 'route.login',
-    tag: 'router',
-    url: '/oauth2'
-  },
-  {
-    type: AnchorType.url,
     icon: BuildingStorefrontIcon,
     label: 'shop',
     tag: 'a',

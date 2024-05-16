@@ -34,10 +34,14 @@
             v-model="state.phone1"
             :has-error="Boolean(errorFields?.phone1?.length)"
             :placeholder="$t('form.place_holder.phone1')"
+            @keyup="formatToPhone" @keydown="enforceFormat"
           >
             {{ $t('form.phone1') }}
           </FormInput>
-          <FormInput v-model="state.phone2" :placeholder="$t('form.place_holder.phone2')">
+          <FormInput v-model="state.phone2" 
+          :placeholder="$t('form.place_holder.phone2')"
+          @keyup="formatToPhone" @keydown="enforceFormat"
+          >
             {{ $t('form.phone2') }}
           </FormInput>
         </template>
@@ -90,6 +94,7 @@ import { rules } from '../services/data/branch'
 import { get } from '@/core/services/helpers/request.helper'
 
 import type { TBranchType } from '../models/type'
+import { enforceFormat, formatToPhone } from '@/core/services/utils/util.number'
 
 const route = useRoute()
 

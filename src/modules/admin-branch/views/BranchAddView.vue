@@ -22,11 +22,18 @@
           <FormInput v-model="state.address2" :placeholder="$t('form.place_holder.address2')">
             {{ $t('form.address2') }}
           </FormInput>
-          <FormInput v-model="state.phone1" :has-error="Boolean(errorFields?.phone1?.length)"
-            :placeholder="$t('form.place_holder.phone1')">
+          <FormInput v-model="state.phone1" 
+            :has-error="Boolean(errorFields?.phone1?.length)"
+            :placeholder="$t('form.place_holder.phone1')"
+            @keyup="formatToPhone" @keydown="enforceFormat"
+            >
             {{ $t('form.phone1') }}
           </FormInput>
-          <FormInput v-model="state.phone2" :placeholder="$t('form.place_holder.phone2')">
+          <FormInput
+           v-model="state.phone2" 
+           :placeholder="$t('form.place_holder.phone2')"
+           @keyup="formatToPhone" @keydown="enforceFormat"
+          >
             {{ $t('form.phone2') }}
           </FormInput>
         </template>
@@ -70,6 +77,7 @@ import { get } from '@/core/services/helpers/request.helper'
 import { rules } from '../services/data/branch'
 
 import type { TBranchType } from '@/modules/admin-branch/models/type'
+import { enforceFormat, formatToPhone } from '@/core/services/utils/util.number'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 

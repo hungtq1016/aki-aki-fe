@@ -16,6 +16,11 @@
     "submit": "Submit"
   },
   "content": {
+    "your_profile":"Your profile",
+    "image":"Image",
+    "update_image":"Update your image",
+    "delete":"Delete",
+    "update":"Update",
     "active": "Active",
     "assistance_contact": "Need further assistance, please contact us via",
     "back_home": "Back to Homepage",
@@ -285,7 +290,10 @@
     "service": "Service",
     "setting": "Setting",
     "specialist": "Medical specialist",
-    "team": "Medical Team"
+    "team": "Medical Team",
+    "profile":"Profile",
+    "schedule":"Schedule",
+    "logout":"Logout"
   },
   "table": {
     "action": "Action",
