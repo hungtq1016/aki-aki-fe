@@ -85,7 +85,7 @@ import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 import TableView from '@/modules/admin/views/TableView.vue'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 
-import { paginationOptions, headers, rules } from '../services/data/prescription'
+import { paginationOptions, headers, rules } from '../services/data/prescription.table'
 import { debouncedMedicine, debouncedUser, emailSearch, fetchMedicines, medicineSearch, fetchUsers, users, medicines, pagination, prescriptions, state, submit, presciption, submitPrescription  } from '../services/logictics/prescription.add'
 import { useUserstore } from '@/core/stores/user'
 

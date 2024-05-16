@@ -14,7 +14,14 @@ export type TMedicineRequest = TRequest & {
   desc: string
 }
 
-export type TPresciptionDetailRequest = TRequest & {
+export type TPrescriptionDetail = TEntity & {
+  prescriptionId: string
+  medicineId: string
+  quantity: number
+  usage: string
+}
+
+export type TPrescriptionDetailRequest = TRequest & {
   prescriptionId: string
   medicineId: string
   medicine?: TMedicine
@@ -22,17 +29,17 @@ export type TPresciptionDetailRequest = TRequest & {
   usage: string
 }
 
-export type TPresciptionRequest = TRequest & {
+export type TPrescriptionRequest = TRequest & {
   doctorId: string
   patientId: string
 }
 
-export type TPresciption = TEntity & {
+export type TPrescription = TEntity & {
   doctorId: string
   patientId: string
 }
 
-export type TPresciptionResponse = TEntity & {
+export type TPrescriptionResponse = TEntity & {
   prescriptionId: string
   medicineId: string
   medicine?: TMedicine

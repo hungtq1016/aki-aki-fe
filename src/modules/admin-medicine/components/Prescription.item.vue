@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import { TrashIcon } from '@heroicons/vue/24/outline'
-import type { TPresciption } from '../models/type'
+import type { TPrescription } from '../models/type'
 
 defineProps<{
   data: TPresciption

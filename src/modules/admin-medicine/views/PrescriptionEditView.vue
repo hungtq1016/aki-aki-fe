@@ -2,27 +2,27 @@
   <div class="flex flex-col gap-10">
     <FormLayout :submit="submit">
       <FormItem>
-        <FormGroup :has-error="[false]">
+        <FormGroup :has-error="[Boolean(errorFields?.medicineId?.length)]">
           <template #heading>
             {{ $t('form.medicine') }}
           </template>
           <template #content>
-            <FormRadio @update:search="debouncedFn" v-model:id="state.medicineId" v-model:search="search"
+            <FormRadio @update:search="debouncedMedicine" v-model:id="state.medicineId" v-model:search="medicineSearch"
               :list="medicines" v-bind="{ pagination, paginationOptions }" />
           </template>
         </FormGroup>
-        <FormGroup :has-error="[false]">
+        <FormGroup :has-error="[Boolean(errorFields?.patientId?.length)]">
           <template #heading>
             {{ $t('form.customer') }}
           </template>
           <template #content>
-            <FormRadio @update:search="debouncedUserFn" v-model:id="state.userId" v-model:search="search" :list="users"
-              v-bind="{ pagination, paginationOptions }" />
+            <FormRadio @update:search="debouncedUser" v-model:id="prescription.patientId" v-model:search="emailSearch"
+              :list="users" v-bind="{ pagination, paginationOptions }" />
           </template>
         </FormGroup>
       </FormItem>
       <FormItem>
-        <PublishView v-model="allPass" :pass="true" />
+        <PublishView v-model="pass" :pass="true" />
         <FormGroup :has-error="[false]">
           <template #heading>
             {{ $t('form.content') }}
@@ -38,32 +38,42 @@
         </FormGroup>
       </FormItem>
     </FormLayout>
-    <FormGroup :has-error="[true]">
-      <template #heading>
-        {{ $t('content.prescription') }}
-      </template>
-      <template #content>
-        <div class="flex flex-wrap items-center justify-end gap-3.5">
-          <button
-            class="inline-flex items-center gap-2.5 rounded bg-green-600 px-4 py-2 font-medium text-white hover:bg-opacity-90">
-            <PrinterIcon class="w-5 h-5" />
-            <span>{{ $t('button.print') }}</span>
-          </button>
-          <button
-            class="inline-flex items-center gap-2.5 rounded bg-cerulean-600 px-4 py-2 font-medium text-white hover:bg-opacity-90">
-            <DocumentIcon class="w-5 h-5" />
-            <span>{{ $t('button.save_as', { title: 'PDF' }) }}</span>
-          </button>
-        </div>
-        <TableView :headers="headers" :items="prescriptions" :pagination="pagination"
-          :pagination-options="paginationOptions" :fetch="fetch" route="pre" key="pre" />
-      </template>
-    </FormGroup>
+    <FormLayout :submit="handleSubmit">
+      <FormGroup :has-error="[pass]" class="col-span-2">
+        <template #heading>
+          {{ $t('content.prescription') }}
+        </template>
+        <template #content>
+          <div class="flex flex-wrap items-center justify-end gap-3.5">
+            <button type="button"
+              class="inline-flex items-center gap-2.5 rounded bg-transparent px-4 py-2 font-medium text-green-600 border border-green-600 hover:bg-opacity-90">
+              <DocumentIcon class="w-5 h-5" />
+              <span>{{ $t('button.save_as', { name: 'PDF' }) }}</span>
+            </button>
+            <button
+              class="inline-flex items-center gap-2.5 rounded bg-green-600 px-4 py-2 font-medium text-white hover:bg-opacity-90">
+              <PrinterIcon class="w-5 h-5" />
+              <span>{{ $t('button.print') }}</span>
+            </button>
+            <button type="submit" :disabled="!pass" class="inline-flex items-center gap-2.5 rounded bg-cerulean-600 px-4 py-2 font-medium text-white hover:bg-opacity-90
+            disabled:bg-cerulean-300">
+              <span>{{ $t('button.submit') }}</span>
+            </button>
+
+          </div>
+          <TableView :headers="headers" :items="prescriptions" :pagination="pagination"
+            :pagination-options="paginationOptions" :fetch="async () => { }" route="pre" key="pre" />
+        </template>
+      </FormGroup>
+    </FormLayout>
   </div>
 </template>
 
 <script setup lang="ts">
 import { DocumentIcon, PrinterIcon } from '@heroicons/vue/24/outline'
+import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
@@ -72,62 +82,24 @@ import FormInput from '@/modules/admin-template/components/Form.input.vue'
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 import TableView from '@/modules/admin/views/TableView.vue'
-
-import { paginationOptions, headers } from '../services/data/prescription'
-import { fetch, medicines, pagination, prescriptions, state, submit } from '../services/logictics/prescription'
-import { onMounted, ref, type Ref } from 'vue'
-import { get } from '@/core/services/helpers/request.helper'
-
-import type { TMedicine } from '../models/type'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
-import { useDebounceFn } from '@vueuse/core'
-import type { TPaginationResponse } from '@/core/models/type'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
-import type { TUser } from '@/modules/admin-oauth2/models/type'
-import { useRoute } from 'vue-router'
+
+import { paginationOptions, headers, rules } from '../services/data/prescription.table'
+import { debouncedMedicine, debouncedUser, emailSearch, fetch, fetchMedicines, medicineSearch, fetchUsers, users, medicines, pagination, prescriptions, state, submit, prescription, submitPrescription, fetchPrescriptionDetail } from '../services/logictics/prescription.edit'
 
 const route = useRoute()
-// const { pass, errorFields } = useAsyncValidator(state, rules)
+
+const { pass, errorFields } = useAsyncValidator(prescription, rules)
+
+const handleSubmit = async () => {
+  await submitPrescription()
+}
+
 onMounted(async () => {
-  await fetchMedicines(search.value)
-  await fetchUsers(useEmail.value)
+  await fetch(String(route.params.id))
+  await fetchPrescriptionDetail(String(route.params.id))
+  await fetchMedicines()
+  await fetchUsers(String(route.query.email))
 })
-const users: Ref<TUser[]> = ref([])
-const fetchMedicines = async (value: string) => {
-  const options = { ...paginationOptions.value, value }
-
-  get<TPaginationResponse<TMedicine>>(`/api/medicines/page`, options).then((response) => {
-    if (response?.data) {
-      const { data, ...page } = response.data
-      medicines.value = data
-      pagination.value = page
-    }
-  })
-}
-
-const useEmail: Ref<string> = ref(route.query.email ? String(route.query.email) : '')
-
-const fetchUsers = async (value: string, role: string = 'customer'): Promise<void> => {
-
-  const options = { paginationOptions, value }
-
-  get<TPaginationResponse<TUser>>(`/api/users/role/${role}/search`, options).then((response) => {
-    if (response?.data) {
-      const { data, ...page } = response.data
-      users.value = data
-      pagination.value = page
-    }
-  })
-}
-
-const search: Ref<string> = ref('')
-const allPass = true
-const debouncedFn = useDebounceFn(async () => {
-  await fetchMedicines(search.value)
-}, 600, { maxWait: 5000 })
-
-const debouncedUserFn = useDebounceFn(async () => {
-  await fetchUsers(useEmail.value)
-}, 600, { maxWait: 5000 })
 
 </script>

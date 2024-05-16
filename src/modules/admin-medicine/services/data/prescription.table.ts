@@ -7,14 +7,11 @@ import type { TPagination, TPaginationRequest } from '@/core/models/type'
 import type { Rules } from 'async-validator'
 
 export const headers: Header[] = [
-  { text: 'table.id', value: 'id' },
-  { text: 'table.patientId', value: 'patientId' },
-  { text: 'table.patientId', value: 'patientId' },
-  { text: 'table.doctorId', value: 'doctorId' },
-  { text: 'table.enable', value: 'enable' },
-  { text: 'table.createdAt', value: 'createdAt' },
-  { text: 'table.updatedAt', value: 'updatedAt' },
-  { text: 'table.action', value: 'action' }
+  { text: 'table.title', value: 'medicine.title' },
+  { text: 'table.brand', value: 'medicine.brand', sortable: true },
+  { text: 'table.quantity', value: 'quantity' },
+  { text: 'table.usage', value: 'usage' },
+  { text: 'table.delete', value: 'delete' }
 ]
 
 export const paginationOptions = ref<TPaginationRequest>({

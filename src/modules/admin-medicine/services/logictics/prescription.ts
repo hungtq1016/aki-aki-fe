@@ -1,27 +1,39 @@
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { v4 } from 'uuid'
 
-import type { TMedicine, TPresciption } from '../../models/type'
-import { init_pagination } from '../data/prescription'
-import type { TPagination } from '@/core/models/type'
+import { init_pagination, paginationOptions } from '../data/prescription'
+import { get } from '@/core/services/helpers/request.helper'
+
+import type { TPagination, TPaginationResponse } from '@/core/models/type'
+import type { TPrescription } from '../../models/type'
+
+export const items = ref<TPrescription[]>([
+  {
+    id: v4(),
+    enable: true,
+    doctorId: '-1',
+    patientId: '-1',
+    createdAt: '2022-01-01',
+    updatedAt: '2024-01-01',
+  }
+])
 
 export const pagination = ref<TPagination>({ ...init_pagination })
 
-export const submit = () => {
-  state.value.medicine = medicines.value?.find((item) => item.id === state.value.medicineId)
-  prescriptions.value.push(state.value)
-  state.value = init_state
-}
-const init_state :TPresciption = {
-  id: v4(),
-  usage: '',
-  medicineId: '-1',
-  quantity: 1,
-  userId: '-1'
+export const fetch = async () => {
+  await get<TPaginationResponse<TPrescription>>('/api/prescriptions/page', paginationOptions.value).then(response => {
+    if (response?.data) {
+      const { data, ...page } = response.data
+      items.value = data
+      pagination.value = page
+    }
+  })
 }
 
-export const state = ref<TPresciption>({ ...init_state })
-export const medicines = ref<TMedicine[]>([])
-export const prescriptions = ref<TPresciption[]>([])
-
-export const fetch = async () => {}
+watch(
+  paginationOptions,
+  async () => {
+    await fetch()
+  },
+  { deep: true }
+)

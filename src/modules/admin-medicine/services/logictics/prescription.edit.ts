@@ -3,14 +3,14 @@ import { ref } from 'vue'
 import { v4 } from 'uuid'
 
 import { init_pagination, paginationOptions } from '../data/prescription'
-import { get, post } from '@/core/services/helpers/request.helper'
-import { resetObject } from '@/core/services/utils/util.object'
+import { post, get, put, del } from '@/core/services/helpers/request.helper'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 
 import type { Ref } from 'vue'
 import type { TUser } from '@/modules/admin-oauth2/models/type'
-import type { TMedicine, TPrescription, TPrescriptionDetailRequest, TPrescriptionRequest } from '../../models/type'
+import type { TMedicine, TPrescription, TPrescriptionDetail, TPrescriptionDetailRequest, TPrescriptionRequest } from '../../models/type'
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
+
 
 const init_state: TPrescriptionDetailRequest = {
   prescriptionId: '-1',
@@ -19,17 +19,15 @@ const init_state: TPrescriptionDetailRequest = {
   quantity: 1,
 }
 
-const init_presciption: TPrescriptionRequest = {
-  doctorId: '-1',
-  patientId: '-1'
-}
-
 export const state = ref<TPrescriptionDetailRequest>({ ...init_state })
-export const presciption = ref<TPrescriptionRequest>({ ...init_presciption })
+export const prescription = ref<TPrescription>({} as TPrescription)
 
 export const medicines: Ref<TMedicine[]> = ref([])
 export const users: Ref<TUser[]> = ref([])
 export const prescriptions: Ref<TPrescriptionDetailRequest[]> = ref([])
+
+const oldPrescriptions: Ref<TPrescriptionDetail[]> = ref([])
+const newPrescriptions: Ref<TPrescriptionDetailRequest[]> = ref([])
 
 export const emailSearch: Ref<string> = ref('')
 export const medicineSearch: Ref<string> = ref('')
@@ -37,6 +35,14 @@ export const medicineSearch: Ref<string> = ref('')
 export const medicinePagination: Ref<TPagination> = ref({} as TPagination)
 export const userPagination: Ref<TPagination> = ref({} as TPagination)
 export const pagination = ref<TPagination>({ ...init_pagination })
+
+export const fetch = async (id: string) => {
+  await get<TPrescription>('/api/prescriptions/'+ id).then(response => {
+    if (response?.data) {
+      prescription.value = response.data
+    }
+  })
+}
 
 export const fetchMedicines = async () => {
 
@@ -69,29 +75,42 @@ export const submit = () => {
 
   state.value.medicine = medicine
 
-  prescriptions.value.push(state.value)
+  prescriptions.value = prescriptions.value.concat(newPrescriptions.value);
+
+  oldPrescriptions.value = oldPrescriptions.value.filter(oldPrescription =>
+    !newPrescriptions.value.some(newPrescription =>
+      newPrescription.id === oldPrescription.id
+    )
+  )
 
   state.value = init_state
 }
 
-export const submitPrescription = async (doctorId: string) => {
-  const id = v4()
-  const payload = {
-      ...presciption.value,
-      id: id,
-      doctorId
-  }
-  
-  await post<TPrescriptionRequest, TPrescription>('/api/prescriptions', payload).then(response => {
+export const fetchPrescriptionDetail = async (id: string) => {
+
+  get<TPrescriptionDetail[]>(`/api/prescriptiondetails/prescription/`+id).then((response) => {
+    if (response?.data) {
+      oldPrescriptions.value = response.data
+      prescriptions.value = oldPrescriptions.value
+    }
+  })
+}
+
+export const submitPrescription = async () => {
+
+  await put<TPrescriptionRequest, TPrescription>('/api/prescriptions/'+ prescription.value.id, prescription).then(response => {
     if (response?.data) {
       successNotification(response.message)
-      resetObject(presciption, init_presciption)
     }
   })
 
   prescriptions.value.forEach(async data => {
-    data.prescriptionId = id
-    await post<TPrescriptionRequest, TPrescription>('/api/prescriptiondetails', data)
+    await del<TPrescriptionRequest, TPrescription>('/api/prescriptiondetails/'+ data.id)
+  })
+
+  newPrescriptions.value.forEach(async data => {
+    data.prescriptionId = prescription.value.id
+    await post<TPrescriptionRequest, TPrescription>('/api/prescriptiondetails',data)
   })
 }
 
