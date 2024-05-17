@@ -128,11 +128,24 @@ const clientRoute: RouteRecordRaw = {
         },
         {
           path: 'health-record',
-          name: 'health_record',
-          component: () => import('@/modules/profile/views/HealthRecordView.vue'),
-          meta: {
-            title: 'route.health_record'
-          }
+          children:[
+            {
+              path: '',
+              name: 'health_record',
+              component: () => import('@/modules/profile/views/HealthRecordView.vue'),
+              meta: {
+                title: 'route.health_record'
+              }
+            },
+            {
+              path: ':id',
+              name: 'health_record_edit',
+              component: () => import('@/modules/profile/views/HealthRecordView.vue'),
+              meta: {
+                title: 'route.health_record_detail'
+              }
+            }
+          ]
         },
         {
           path: 'invoice',
