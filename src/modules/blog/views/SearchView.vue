@@ -3,9 +3,9 @@
     <span class="font-medium">{{ $t('content.search_result') }}:</span>
     <span class="text-gray-600">{{ route.query.q }}</span>
   </div>
-
+<!-- 
   <BlogList :list="updateData" title="search" />
-  <BlogPagination />
+  <BlogPagination /> -->
 </template>
 
 <script setup lang="ts">
@@ -17,13 +17,4 @@ import { computed } from 'vue'
 import BlogPagination from '../components/Blog.pagination.vue'
 const route = useRoute()
 
-function getValueByKey(obj: TBlog, key: string): TBlogItem[] {
-  if (key in obj) {
-    return obj[key]
-  } else {
-    return []
-  }
-}
-
-const updateData = computed(() => getValueByKey(data, String(route.params.slug)))
 </script>

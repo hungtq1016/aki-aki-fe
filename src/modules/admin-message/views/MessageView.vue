@@ -165,8 +165,8 @@
         </div>
         <div class="max-h-full space-y-3.5 overflow-auto px-6 py-7.5">
           <template v-for="data in messages" :key="data.content">
-            <MessageItemLeft v-if="data.author !== user" :data="data" />
-            <MessageItemRight v-else :data="data" />
+            <!-- <MessageItemLeft v-if="data.author !== user" :data="data" />
+            <MessageItemRight v-else :data="data" /> -->
           </template>
         </div>
         <div

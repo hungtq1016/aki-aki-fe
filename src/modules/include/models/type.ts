@@ -28,3 +28,11 @@ export type TChat = {
   isBot: boolean,
   message: string
 }
+
+export type TAddress = {
+  name: string;
+  address1: string;
+  address2?: string;
+  phone1: string;
+  phone2?: string;
+}

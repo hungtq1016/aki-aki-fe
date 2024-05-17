@@ -35,7 +35,7 @@
         </template>
         <template #content>
           <FormRadio @update:search="debouncedFn"
-          v-model:id="state.userId"
+          v-model:id="id"
           v-model:search="search"
             :list="users"
             v-bind="{ pagination, paginationOptions }"/>
@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import { vi } from 'date-fns/locale';
 
@@ -61,7 +61,7 @@ import { state, submit, fetchUsers, pagination, users, debouncedFn, search, time
 import { paginationOptions, rules } from '../services/data/schedule'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
-
+const id = ref('')
 onMounted(async () => {
   await fetchUsers()
 })
