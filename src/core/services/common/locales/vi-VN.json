@@ -46,7 +46,9 @@
     "share": "Chia sẻ",
     "specialist": "Chuyên gia",
     "support": "Hỗ trợ",
-    "menu_other": "Khác"
+    "menu_other": "Khác",
+    "doctor_ai":"Bác sĩ AI",
+    "go_to_schedule":"Đến lịch hện"
   },
   "error": {
     "not_found": {
@@ -112,6 +114,7 @@
     "pick_date": "Ngày hẹn",
     "pick_time": "Thời gian hẹn",
     "place_holder": {
+      "chat":"Nhập câu hỏi ở đây",
       "address": "Nhập địa chỉ...",
       "address1": "Nhập địa chỉ 1",
       "address2": "Nhập địa chỉ 2",

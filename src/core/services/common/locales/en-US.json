@@ -46,7 +46,9 @@
     "search_result": "Search results for",
     "share": "Share",
     "specialist": "Specialist",
-    "support": "Support"
+    "support": "Support",
+    "doctor_ai":"Doctor AI",
+    "go_to_schedule":"Go to schedule"
   },
   "error": {
     "not_found": {

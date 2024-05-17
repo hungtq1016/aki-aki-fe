@@ -1,7 +1,7 @@
 <template>
-  <section class="pb-10">
-    <div class="relative w-full overflow-hidden bg-white">
-      <div class="relative w-[830px] max-w-full pb-11.5 px-4 block mx-auto">
+  <section class="pb-10 !z-0">
+    <div class="relative w-full  !z-0">
+      <div class="relative w-full max-w-3xl pb-11.5 px-4 block mx-auto !z-0">
         <div class="text-center pb-6">
           <h2 class="text-5xl text-cerulean-400 leading-[55px] md:leading-[72px] capitalize">
             Đặt lịch hẹn
@@ -9,7 +9,7 @@
           <HeartIcon class="w-5 h-5 block mx-auto mt-3 text-cerulean-300" />
         </div>
         <form @submit.prevent="submit">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 z-0">
             <select required
               id="service"
               v-model="state.serviceId"

@@ -13,6 +13,14 @@ const clientRoute: RouteRecordRaw = {
       }
     },
     {
+      path: '/helloworld',
+      name: 'helloworld',
+      component: () => import('@/core/views/HelloworldView.vue'),
+      meta: {
+        title: 'helloworld'
+      }
+    },
+    {
       path: 'about',
       component: () => import('@/core/views/AboutView.vue'),
       children: [

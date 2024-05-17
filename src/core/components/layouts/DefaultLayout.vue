@@ -1,6 +1,6 @@
 <template>
   <HeaderView />
-  <main class="overflow-hidden">
+  <main class="overflow-hidden z-0">
     <BreadcrumbView v-if="route.name !== 'home'" />
     <RouterView />
   </main>

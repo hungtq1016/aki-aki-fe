@@ -172,14 +172,7 @@
         <div
           class="sticky bottom-0 border-t border-zumthor-100 bg-white py-5 px-6 dark:border-oxford-blue-900 dark:bg-zinc-950"
         >
-          <form
-            @submit.prevent="
-              () => {
-                console.log('hello')
-              }
-            "
-            class="flex items-center justify-between space-x-4.5"
-          >
+          <form @submit.prevent=" () => { console.log('hello') } " class="flex items-center justify-between space-x-4.5" >
             <div class="relative w-full">
               <input
                 type="text"

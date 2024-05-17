@@ -9,11 +9,13 @@ const target = ref(null)
 const dropdownOpen = ref(false)
 const notifying = ref(false)
 
-
 socket.onmessage = (event) => {
   const message = JSON.parse(event.data);
   if(Object.keys(message)[0] == "schedule")
+  {
+    notifying.value = true
     notificationItems.value.push(message);
+  }
 }
 
 onClickOutside(target, () => {
@@ -44,10 +46,10 @@ const notificationItems :Ref<any>= ref([
     <!-- Dropdown Start -->
     <div
       v-show="dropdownOpen"
-      class="absolute -right-[108px] mt-2.5 flex h-[360px] w-[300px] flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-zinc-950 sm:right-0 sm:w-80"
+      class="absolute justify-between -right-[108px] mt-2.5 flex h-[360px] w-[300px] flex-col rounded-sm border border-zumthor-100 bg-white shadow-default dark:border-oxford-blue-900 dark:bg-zinc-950 sm:right-0 sm:w-80"
     >
       <div class="px-[18px] py-3">
-        <h5 class="text-sm font-medium text-regent-gray-600">{{ $t('route.notifcation') }}</h5>
+        <h5 class="text-sm font-medium text-regent-gray-600">{{ $t('route.notification') }}</h5>
       </div>
 
       <ul class="flex h-auto flex-col overflow-y-auto">
@@ -68,8 +70,8 @@ const notificationItems :Ref<any>= ref([
         </template>
       </ul>
       <div class="px-[18px] py-3">
-        <router-link to="/admin/notification" class="text-sm font-medium text-regent-gray-600">{{
-          $t('content.go_to_notification')
+        <router-link to="/admin/schedules" class="text-sm font-medium text-regent-gray-600">{{
+          $t('content.go_to_schedule')
         }}</router-link>
       </div>
     </div>

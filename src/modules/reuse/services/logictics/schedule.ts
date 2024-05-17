@@ -4,13 +4,13 @@ import Swal from 'sweetalert2'
 import { get, post } from '@/core/services/helpers/fetcher.helper'
 import { socket } from '@/core/services/helpers/socket.helper'
 import { datetimeToTimeJSON } from '@/core/services/utils/util.datetime'
+import { resetObject } from '@/core/services/utils/util.object'
 
 import type { Ref } from "vue"
 import type { TService } from '../../models/type'
 import type { TBranch } from '@/modules/admin-branch/models/type'
 import type { TScheduleRequest } from '@/modules/admin-schedule/models/type'
 import type { TPaginationResponse } from '@/core/models/type'
-import { resetObject } from '@/core/services/utils/util.object'
 
 const init_state: TScheduleRequest = {
     email: '',
@@ -38,7 +38,7 @@ export const submit = async () => {
             icon: 'success',
             confirmButtonText: 'OK'
         })
-        resetObject(state,init_state)
+        resetObject(state.value,init_state)
     })
 }
 
@@ -49,7 +49,7 @@ watch(dateTime, (newValue) => {
 
 export const fetchServices = async () => {
 
-    get<TPaginationResponse<TService>>('/api/services/group/chuyen-khoa?pageNumber=1&pageSize=100&enable=1').then(response => {
+    get<TPaginationResponse<TService>>('/api/services/group/chuyen-khoa?pageNumber=1&pageSize=20&enable=1').then(response => {
         if (response?.data) {
             services.value = response.data.data
         }

@@ -58,9 +58,8 @@ const messagesList = ref([
 
 <template>
   <li class="relative" ref="target">
-    <router-link
+    <button
       class="relative flex h-['34px'] w-['34px'] items-center justify-center rounded-full border-[0.5px] border-zumthor-100 bg-zircon-50 hover:text-cerulean-600 dark:border-oxford-blue-900 dark:bg-oxford-blue-900 dark:text-white"
-      to="#"
       @click.prevent="(dropdownOpen = !dropdownOpen), (notifying = false)"
     >
       <span
@@ -72,7 +71,7 @@ const messagesList = ref([
         ></span>
       </span>
       <ChatBubbleOvalLeftEllipsisIcon class="w-5 h-5 duration-300 ease-in-out" />
-    </router-link>
+    </button>
 
     <!-- Dropdown Start -->
     <div

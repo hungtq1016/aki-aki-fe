@@ -23,3 +23,8 @@ export type TSocial = {
   url: string
   imageUrl: string
 }
+
+export type TChat = {
+  isBot: boolean,
+  message: string
+}
