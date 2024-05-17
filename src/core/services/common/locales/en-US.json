@@ -114,6 +114,8 @@
     "phone_number": "Phone number",
     "pick_date": "Pick up date",
     "pick_time": "Pick up time",
+    "select_service":"Select service",
+    "select_branch":"Select branch",
     "place_holder":{
       "address": "Enter address...",
       "address1": "Enter address 1",
@@ -121,6 +123,8 @@
       "address_embed": "Please paste address embed here...",
       "branchtype": "Please type of branch",
       "brand": "Enter brand...",
+      "branch": "Please select branch",
+      "service": "Please select service",
       "category": "Please select category...",
       "content": "Enter content...",
       "desc": "Enter description...",
@@ -175,17 +179,6 @@
     "usage": "Usage",
     "user": "User",
     "username": "Username",
-    "validation": {
-      "address": "Address must be at least 6 characters",
-      "birthday": "Invalid birthday",
-      "email": "Invalid email",
-      "fullname": "Fullname must be at least 6 characters",
-      "password": "Invalid password",
-      "phone": "Invalid phone number",
-      "re_password": "Password does not match",
-      "required": "This field is required",
-      "username": "Username must be at least 6 characters"
-    },
     "value": "Value",
     "video_embed": "Video Embed",
     "weight": "Weight"
@@ -295,7 +288,8 @@
     "profile":"Profile",
     "schedule":"Schedule",
     "logout":"Logout",
-    "notifcation":"Notification"
+    "notifcation":"Notification",
+    "blogs_detail":"Blog detail"
   },
   "table": {
     "action": "Action",

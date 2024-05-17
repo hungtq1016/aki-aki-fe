@@ -51,7 +51,7 @@ const { isSidebarOpen, toggleSidebar } = useSidebarStore()
       </div>
 
       <!-- Dark Mode Toggler -->
-      <!-- <HeaderSearch /> -->
+      <div></div>
       <!-- Dark Mode Toggler -->
 
       <div class="flex items-center gap-3 2xsm:gap-7">

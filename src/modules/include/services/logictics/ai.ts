@@ -24,7 +24,7 @@ export async function createCompletionsChat() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer sk-proj-gAJle3jEYq9vQWJjaKdPT3BlbkFJlP9olNNpblh0G6jcg6Sa`,
+        Authorization: `Bearer ${import.meta.env.VITE_CHAT_GPT_KEY}`,
       },
       body: requestData,
     }

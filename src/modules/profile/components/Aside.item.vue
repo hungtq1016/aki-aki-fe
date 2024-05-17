@@ -18,7 +18,7 @@ defineProps<{
 }>()
 </script>
 
-<style>
+<style scoped>
 .router-link-active.router-link-exact-active{
   @apply bg-cerulean-100 text-cerulean-600
 }

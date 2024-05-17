@@ -107,13 +107,15 @@
     "old_password": "Mật khẩu cũ",
     "other_anamnesis": "Tiền sử khác",
     "password": "Mật khẩu",
-    "permission": "Sự cho phép",
+    "permission": "Phân quyền",
     "phone": "Số điện thoại",
     "phone1": "Số điện thoại 1",
     "phone2": "Số điện thoại 2",
     "phone_number": "Số điện thoại",
     "pick_date": "Ngày hẹn",
     "pick_time": "Thời gian hẹn",
+    "select_service":"Chọn dịch vụ",
+    "select_branch":"Chọn chi nhánh",
     "place_holder": {
       "chat":"Nhập câu hỏi ở đây",
       "address": "Nhập địa chỉ...",
@@ -125,6 +127,8 @@
       "category": "Vui lòng chọn danh mục...",
       "content": "Nhập nội dung...",
       "desc": "Nhập mô tả...",
+      "branch": "Vui lòng chọn chi nhánh",
+      "service": "Vui lòng chọn dịch vụ",
       "diagnosis": "Nhập chẩn đoán...",
       "email": "Nhập email...",
       "fullname": "Nhập họ và tên...",
@@ -176,17 +180,6 @@
     "usage": "Cách sử dụng",
     "user": "Người dùng",
     "username": "tên tài khoản",
-    "validation": {
-      "address": "Địa chỉ phải có ít nhất 6 ký tự",
-      "birthday": "sinh nhật không hợp lệ",
-      "email": "Email không hợp lệ",
-      "fullname": "Tên đầy đủ phải có ít nhất 6 ký tự",
-      "password": "Mật khẩu không hợp lệ",
-      "phone": "Số điện thoại không hợp lệ",
-      "re_password": "Mật khẩu không hợp lệ",
-      "required": "Trường này là bắt buộc",
-      "username": "Tên người dùng phải có ít nhất 6 ký tự"
-    },
     "value": "Giá trị",
     "video_embed": "Nhúng Video",
     "weight": "Cân nặng"
@@ -209,8 +202,8 @@
   "route": {
     "about": "Thông tin",
     "admin": "Bảng điều khiển",
-    "admin_assignments": "Danh sách nhiệm vụ",
-    "admin_assignments_add": "Thêm bài tập",
+    "admin_assignments": "Danh sách phân quyền",
+    "admin_assignments_add": "Thêm phân quyền",
     "admin_blogs": "Danh sách blog",
     "admin_blogs_add": "Thêm blog",
     "admin_blogs_edit": "Chỉnh sửa blog",
@@ -295,7 +288,8 @@
     "team": "Đội ngũ của chúng tôi",
     "profile":"Thông tin cá nhân",
     "schedule":"Lịch hẹn",
-    "logout":"Đăng xuất"
+    "logout":"Đăng xuất",
+    "blogs_detail":"Chi tiết bài viết"
   },
   "table": {
     "action": "Hoạt động",

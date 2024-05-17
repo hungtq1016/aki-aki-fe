@@ -4,7 +4,9 @@
       <div class="flex flex-auto flex-col overflow-auto basis-2/3">
         <CalendarTime />
       </div>
-      <VueDatePicker  inline multi-calendars auto-apply :format-locale="vi" format="E"
+      <VueDatePicker  
+      :min-date="new Date()"
+      inline multi-calendars auto-apply :format-locale="vi" format="E"
       class="basis-1/3 bg-white dark:border-[1px] dark:border-gray-900 dark:bg-gray-800 rounded-lg shadow-lg"
       v-model="date" />
     </div>

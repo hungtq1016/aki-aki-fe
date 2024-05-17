@@ -35,7 +35,7 @@ export const init_pagination: TPagination = {
 }
 
 export const rules: Rules = {
-  userId: {
+  email: {
     type: 'string',
     min: 5,
     required: true
@@ -46,6 +46,17 @@ export const rules: Rules = {
   },
   time: {
     type: 'string',
+    min: 5,
+    required: true
+  },
+  serviceId: {
+    type: 'string',
+    min: 5,
+    required: true
+  },
+  branchId: {
+    type: 'string',
+    min: 5,
     required: true
   }
 }

@@ -74,15 +74,18 @@ import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.vue'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 
-import { state, submit, fetchUsers, pagination, users, debouncedFn, search, time, id, fetchBranches, fetchServices, services, branches } from '../services/logictics/schedule.add'
+import { state, submit, fetchUsers, pagination, users, debouncedFn, search, time, id, fetchBranches, fetchServices, services, branches, fetch } from '../services/logictics/schedule.edit'
 import { paginationOptions, rules } from '../services/data/schedule'
 import FormSelect from '@/modules/admin-template/components/Form.select.vue';
+import { useRoute } from 'vue-router';
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
+const route = useRoute()
 
 onMounted(async () => {
   await fetchUsers()
   await fetchBranches()
+  await fetch(String(route.params.id))
   await fetchServices()
 })
 

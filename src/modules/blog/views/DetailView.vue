@@ -9,12 +9,8 @@
       <span class="relative mr-3">{{ $t('content.share') }}:</span>
       <ul class="flex gap-x-2">
         <li>
-          <a
-            class="inline-block"
-            :href="`https://www.facebook.com/sharer.php?u=${url}`"
-            target="_blank"
-            onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes, width=SomeSize, height=SomeSize'); return false;"
-          >
+          <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=${url}&amp;src=sdkpreparse`" class="fb-xfbml-parse-ignore">
+
             <SVGFacebook class="w-5 h-5 fill-cerulean-400" />
           </a>
         </li>
@@ -23,7 +19,6 @@
             class="inline-block"
             :href="`https://twitter.com/share?url=${url}&amp;text=Hi%20everyone,%20please%20check%20this%20out:%20`"
             target="_blank"
-            onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes, width=SomeSize, height=SomeSize'); return false;"
           >
             <SVGTwitterX class="w-5 h-5" />
           </a>
@@ -68,15 +63,27 @@ import type { TBlogResponse } from '@/modules/admin-blog/models/type'
 import { get } from '@/core/services/helpers/fetcher.helper'
 import { imageBuilderUrl } from '@/core/services/utils/util.string'
 import CommentView from './CommentView.vue'
+import Swal from 'sweetalert2'
+
 const route = useRoute()
 const router = useRouter()
 const url = new URL(window.location.href)
 const copyToClipboard = async () => {
   try {
     await navigator.clipboard.writeText(String(url))
-    alert(`Copied: ${String(url)}`)
+    Swal.fire({
+            title: 'Thành công!',
+            text: `Copied: ${String(url)}`,
+            icon: 'success',
+            confirmButtonText: 'OK'
+        })
   } catch ($e) {
-    alert('Cannot copy')
+    Swal.fire({
+            title: 'Error',
+            text: 'Something gone wrong',
+            icon: 'error',
+            confirmButtonText: 'Confirm'
+        })
   }
 }
 
