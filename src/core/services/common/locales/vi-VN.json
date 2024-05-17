@@ -13,7 +13,8 @@
     "print": "In",
     "save": "Lưu",
     "save_as": "Lưu dưới dạng {name}",
-    "submit": "Nộp"
+    "submit": "Gửi",
+    "send_request":"Gửi yêu cầu"
   },
   "content": {
     "your_profile":"Thông tin của bạn",
@@ -278,7 +279,7 @@
     "introduction": "Giới thiệu bệnh viện",
     "login": "Đăng nhập",
     "login_by_email": "Đăng nhập bằng email",
-    "medical_record": "Hồ sơ sức khỏe",
+    "health_record": "Hồ sơ sức khỏe",
     "message": "Tin nhắn",
     "notification": "Thông báo",
     "oauth2": "Ủy quyền",

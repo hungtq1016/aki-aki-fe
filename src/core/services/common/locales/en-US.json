@@ -13,7 +13,8 @@
     "print": "Print",
     "save": "Save",
     "save_as": "Save as {name}",
-    "submit": "Submit"
+    "submit": "Submit",
+    "send_request":"Send request"
   },
   "content": {
     "your_profile":"Your profile",

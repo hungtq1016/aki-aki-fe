@@ -89,8 +89,7 @@ import { HeartIcon } from '@heroicons/vue/24/solid'
 import { onMounted } from 'vue';
 
 import { enforceFormat, formatToPhone } from '@/core/services/utils/util.number';
-import { branches, dateTime, fetchBranches, fetchServices, state, submit } from '../services/logictics/schedule';
-import { services } from '../services/data/data';
+import { branches, dateTime, fetchBranches, fetchServices, services, state, submit } from '../services/logictics/schedule';
 
 onMounted(async () => {
     await fetchBranches()

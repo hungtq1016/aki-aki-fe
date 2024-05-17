@@ -50,6 +50,10 @@ const navigations = [
   {
     label:'route.schedule',
     slug: '/profile/schedule'
+  },
+  {
+    label:'route.health_record',
+    slug: '/profile/health-record'
   }
 ]
 

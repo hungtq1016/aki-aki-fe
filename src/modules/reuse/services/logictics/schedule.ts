@@ -7,10 +7,10 @@ import { datetimeToTimeJSON } from '@/core/services/utils/util.datetime'
 import { resetObject } from '@/core/services/utils/util.object'
 
 import type { Ref } from "vue"
-import type { TService } from '../../models/type'
 import type { TBranch } from '@/modules/admin-branch/models/type'
 import type { TScheduleRequest } from '@/modules/admin-schedule/models/type'
 import type { TPaginationResponse } from '@/core/models/type'
+import type { TService } from '@/modules/admin-service/models/type'
 
 const init_state: TScheduleRequest = {
     email: '',

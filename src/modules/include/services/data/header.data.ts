@@ -51,10 +51,6 @@ const navigations = ref<BaseINavigation[]>([
   {
     href: '/contact',
     title: 'route.contact'
-  },
-  {
-    href: '/profile/medical-record',
-    title: 'route.medical_record'
   }
 ])
 
