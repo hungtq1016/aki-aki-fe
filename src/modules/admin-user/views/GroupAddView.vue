@@ -7,14 +7,6 @@
           {{ $t('form.user') }}
         </template>
         <template #content>
-          <!-- <FormSelect
-            v-model="state.userId"
-            :list="users"
-            :has-error="Boolean(errorFields?.userId?.length)"
-            :placeholder="$t('form.place_holder.select_email')"
-          >
-            {{ $t('form.user') }}
-          </FormSelect> -->
           <FormRadio @update:search="debouncedFn" v-model:id="state.userId" v-model:search="search" :list="users"
             v-bind="{ pagination, paginationOptions }" />
         </template>

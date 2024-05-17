@@ -43,7 +43,7 @@ defineProps({
   }
 })
 
-const emits: (event: 'keyup' | 'keydown', ...args: any[]) => void = defineEmits(['keyup', 'keydown']);
+const emits: (event: 'keyup' | 'keydown' | 'blur', ...args: any[]) => void = defineEmits(['keyup', 'keydown','blur']);
 
 const model: ModelRef<string> = defineModel({ required: true })
 </script>

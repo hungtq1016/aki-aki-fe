@@ -1,6 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="py-5">
+  <label class="text-black-900 py-1 block text-sm font-medium dark:text-gray-50">
+      <slot>{{ $t('form.select_default') }} </slot>
+  </label>
+  <div class="py-1">
     <input
       v-model="search"
       type="text"

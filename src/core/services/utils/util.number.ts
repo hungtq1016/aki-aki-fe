@@ -49,3 +49,12 @@ export const formatToPhone = (event: any) => {
   else if(input.length > 3){event.target.value = `(${areaCode}) ${middle}`;}
   else if(input.length > 0){event.target.value = `(${areaCode}`;}
 };
+
+export const currency = (number: number) => {
+  const formatter = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VNĐ',
+  });
+
+  return formatter.format(number)
+}

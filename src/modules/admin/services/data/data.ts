@@ -12,7 +12,8 @@ import {
   LinkIcon,
   ClockIcon,
   UserIcon,
-  RectangleStackIcon
+  RectangleStackIcon,
+  ClipboardDocumentCheckIcon
 } from '@heroicons/vue/24/outline'
 
 export const target = ref(null)
@@ -75,6 +76,29 @@ export const menus: TMenu[] = [
           {
             label: 'route.admin_prescriptions',
             slug: '/admin/prescriptions'
+          },
+        ]
+      },
+      {
+        icon: ClipboardDocumentCheckIcon,
+        label: 'route.admin_invoices',
+        slug: '/admin/invoices',
+        children: [
+          {
+            label: 'route.admin_invoices',
+            slug: '/admin/invoices'
+          },
+          {
+            label: 'route.admin_invoices_add',
+            slug: '/admin/invoices/add'
+          },
+          {
+            label: 'route.admin_serviceprices',
+            slug: '/admin/serviceprices'
+          },
+          {
+            label: 'route.admin_serviceprices_add',
+            slug: '/admin/serviceprices/add'
           },
         ]
       },

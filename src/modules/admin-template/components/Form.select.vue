@@ -21,7 +21,7 @@
           class="text-gray-900 dark:text-gray-100"
           :value="data.id"
         >
-          {{ data.title || data.label || data.name || data.email || data.userName }}
+          {{ data.title || data.label || data.name || data.email || data.userName || data.createdAt }}
         </option>
       </select>
       <span class="absolute right-4 top-1/2 z-10 -translate-y-1/2">
