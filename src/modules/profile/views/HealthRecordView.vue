@@ -23,5 +23,3 @@ onMounted(async () => {
     await fetch()
 })
 </script>
-
-<style scoped></style>
