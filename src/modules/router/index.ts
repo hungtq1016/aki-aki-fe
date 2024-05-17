@@ -125,6 +125,22 @@ const clientRoute: RouteRecordRaw = {
           meta: {
             title: 'route.schedule'
           }
+        },
+        {
+          path: 'health-record',
+          name: 'health_record',
+          component: () => import('@/modules/profile/views/HealthRecordView.vue'),
+          meta: {
+            title: 'route.health_record'
+          }
+        },
+        {
+          path: 'invoice',
+          name: 'invoice',
+          component: () => import('@/modules/profile/views/InvoiceView.vue'),
+          meta: {
+            title: 'route.invoice'
+          }
         }
       ]
     },

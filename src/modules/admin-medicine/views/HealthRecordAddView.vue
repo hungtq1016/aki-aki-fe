@@ -115,7 +115,6 @@
         </template>
         <template #content>
           <FormRadio @update:search="debouncedFn" v-model:id="state.userId" v-model:search="search" :list="users"
-          
             v-bind="{ pagination, paginationOptions }" />
         </template>
       </FormGroup>

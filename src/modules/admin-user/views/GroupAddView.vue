@@ -7,14 +7,16 @@
           {{ $t('form.user') }}
         </template>
         <template #content>
-          <FormSelect
+          <!-- <FormSelect
             v-model="state.userId"
             :list="users"
             :has-error="Boolean(errorFields?.userId?.length)"
             :placeholder="$t('form.place_holder.select_email')"
           >
             {{ $t('form.user') }}
-          </FormSelect>
+          </FormSelect> -->
+          <FormRadio @update:search="debouncedFn" v-model:id="state.userId" v-model:search="search" :list="users"
+            v-bind="{ pagination, paginationOptions }" />
         </template>
       </FormGroup>
     </FormItem>
@@ -70,14 +72,14 @@ import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
-import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 
 import { get } from '@/core/services/helpers/request.helper'
-import { isChecked, roles, toggleRole, submit, state, users } from '../services/logictics/group.add'
-import { rules } from '../services/data/user'
+import { isChecked, roles, toggleRole, submit, state, users, pagination, debouncedFn, search } from '../services/logictics/group.add'
+import { paginationOptions, rules } from '../services/data/group'
 
 import type { TUser } from '../models/type'
 import type { TRole } from '@/modules/admin-oauth2/models/type'
+import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 

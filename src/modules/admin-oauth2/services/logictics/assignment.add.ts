@@ -24,7 +24,7 @@ export function isChecked(permission: TPermission) {
 
 export function togglePermission(permission: TPermission) {
   const index = checkedPermission.value.map((e) => e.id).indexOf(permission.id)
-  if (index !== -1) {
+  if (index !== -1) { 
     checkedPermission.value.splice(index, 1) // Remove item if it exists
   } else {
     checkedPermission.value.push(permission) // Add item if it doesn't exist

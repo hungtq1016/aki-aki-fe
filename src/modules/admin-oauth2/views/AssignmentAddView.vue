@@ -74,7 +74,7 @@ import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 
 import { get } from '@/core/services/helpers/request.helper'
 import { isChecked, permissions, togglePermission, submit, state } from '../services/logictics/assignment.add'
-import { rules } from '../services/data/role'
+import { rules } from '../services/data/assignment'
 
 import type { Ref } from 'vue'
 import type { TPermission, TRole } from '../models/type'

@@ -7,6 +7,9 @@ import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TGroup, TGroupRequest, TUser } from '../../models/type'
 import type { TRole, TRoleResponse } from '@/modules/admin-oauth2/models/type'
+import type { TPagination, TPaginationResponse } from '@/core/models/type'
+import { useDebounceFn } from '@vueuse/core'
+import { paginationOptions } from '../data/group'
 
 export const init_state: TGroupRequest = {
   userId: '-1',
@@ -19,6 +22,8 @@ export const users: Ref<TUser[]> = ref([])
 export const roles: Ref<TRole[]> = ref([])
 export const rolesById: Ref<TRoleResponse[]> = ref([])
 export const checkedRole: Ref<TRole[]> = ref([])
+export const search: Ref<string> = ref('')
+export const pagination: Ref<TPagination> = ref({} as TPagination)
 
 export function isChecked(role: TRole) {
   return rolesById.value.find((item) => item.id === role.id) ? true : false
@@ -56,6 +61,23 @@ export const submit = async () => {
     }
   })
 }
+
+export const fetchUsers = async (value?: string) => {
+  search.value = value || ''
+  const options = { ...paginationOptions.value, value: search.value }
+
+  get<TPaginationResponse<TUser>>(`/api/users/page`, options).then((response) => {
+      if (response?.data) {
+          const { data, ...page } = response.data
+          users.value = data
+          pagination.value = page
+      }
+  })
+}
+
+export const debouncedFn = useDebounceFn(async () => {
+  await fetchUsers()
+}, 600, { maxWait: 5000 })
 
 watch(
   () => state.userId,

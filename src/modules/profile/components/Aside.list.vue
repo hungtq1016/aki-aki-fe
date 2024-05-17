@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import AsideItem from './Aside.item.vue'
-import { UserIcon, ClockIcon } from '@heroicons/vue/24/outline'
+import { UserIcon, ClockIcon, ClipboardDocumentListIcon, CircleStackIcon } from '@heroicons/vue/24/outline'
 const aside = [
   {
     id: '1',
@@ -21,10 +21,22 @@ const aside = [
     icon: UserIcon
   },
   {
-    id: '1',
+    id: '2',
     label: 'route.schedule',
     slug: '/profile/schedule',
     icon: ClockIcon
+  },
+  {
+    id: '3',
+    label: 'route.health_record',
+    slug: '/profile/health-record',
+    icon: ClipboardDocumentListIcon
+  },
+  {
+    id: '4',
+    label: 'route.invocie',
+    slug: '/profile/invoice',
+    icon: CircleStackIcon
   }
 ]
 </script>
