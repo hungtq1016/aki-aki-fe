@@ -7,17 +7,27 @@
             {{ $t('form.medicine') }}
           </template>
           <template #content>
-            <FormRadio @update:search="debouncedMedicine" v-model:id="state.medicineId" v-model:search="medicineSearch"
-              :list="medicines" v-bind="{ pagination, paginationOptions }" />
+            <FormRadio @update:search="debouncedMedicine" 
+            v-model:id="state.medicineId" 
+            v-model:search="medicineSearch"
+              :list="medicines" 
+              v-bind="{ pagination, paginationOptions }">
+              {{ $t('form.select_medicine') }}
+            </FormRadio>
           </template>
         </FormGroup>
         <FormGroup :has-error="[Boolean(errorFields?.patientId?.length)]">
           <template #heading>
-            {{ $t('form.customer') }}
+            {{ $t('form.patient') }}
           </template>
           <template #content>
-            <FormRadio @update:search="debouncedUser" v-model:id="presciption.patientId" v-model:search="emailSearch" :list="users"
-              v-bind="{ pagination, paginationOptions }" />
+            <FormRadio @update:search="debouncedUser" 
+            v-model:id="presciption.patientId"
+             v-model:search="emailSearch" 
+             :list="users"
+              v-bind="{ pagination, paginationOptions }" >
+              {{ $t('form.select_patient') }}
+            </FormRadio>
           </template>
         </FormGroup>
       </FormItem>
@@ -87,10 +97,10 @@ import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 
 import { paginationOptions, headers, rules } from '../services/data/prescription.table'
 import { debouncedMedicine, debouncedUser, emailSearch, fetchMedicines, medicineSearch, fetchUsers, users, medicines, pagination, prescriptions, state, submit, presciption, submitPrescription  } from '../services/logictics/prescription.add'
-import { useUserstore } from '@/core/stores/user'
+import { useUserStore } from '@/core/stores/user'
 
 const route = useRoute()
-const { user } = useUserstore()
+const { user } = useUserStore()
 
 const { pass, errorFields } = useAsyncValidator(presciption, rules)
 
@@ -100,7 +110,7 @@ const handleSubmit = async () => {
 
 onMounted(async () => {
   await fetchMedicines()
-  await fetchUsers(String(route.query.email))
+  await fetchUsers(String(route.query.email || ''))
 })
 
 </script>

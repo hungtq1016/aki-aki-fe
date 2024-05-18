@@ -72,7 +72,7 @@ import { imageBuilderUrl } from '@/core/services/utils/util.string'
 import { isLoading, paginationOptions, submit } from '../services/logictics/comment'
 import { get } from '@/core/services/helpers/fetcher.helper'
 import { warningNotification } from '@/core/services/helpers/alert.helper'
-import { useUserstore } from '@/core/stores/user'
+import { useUserStore } from '@/core/stores/user'
 
 import type { TPaginationResponse } from '@/core/models/type'
 import type { TCommentRequest, TCommentResponse } from '../models/type'
@@ -80,7 +80,7 @@ import { v4 } from 'uuid'
 import { i18n } from '@/core/services/base/translation'
 import { PaperAirplaneIcon } from '@heroicons/vue/24/outline'
 
-const { user, isLogin } = useUserstore()
+const { user, isLogin } = useUserStore()
 
 const props = defineProps<{
   data: TCommentResponse

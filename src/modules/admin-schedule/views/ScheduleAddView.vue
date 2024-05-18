@@ -2,7 +2,6 @@
 <template>
   <FormLayout :submit="submit">
     <FormItem>
-      <div>{{state}}</div>
       <FormGroup :has-error="[
         Boolean(errorFields?.time?.length),
         Boolean(errorFields?.date?.length)
@@ -56,7 +55,10 @@
           v-model:id="id"
           v-model:search="search"
             :list="users"
-            v-bind="{ pagination, paginationOptions }"/>
+            v-bind="{ pagination, paginationOptions }">
+            {{ $t('form.select_patient') }}
+          </FormRadio>
+            
         </template>
       </FormGroup>
     </FormItem>

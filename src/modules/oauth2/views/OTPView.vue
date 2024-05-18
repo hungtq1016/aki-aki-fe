@@ -15,7 +15,7 @@ import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator'
 import { state, rules, submit } from '../services/logictics/otp'
 import { useRouter, useRoute } from 'vue-router'
 import AuthOTP from '../components/Auth.otp.vue';
-import { useUserstore } from '@/core/stores/user';
+import { useUserStore } from '@/core/stores/user';
 import { successNotification } from '@/core/services/helpers/alert.helper';
 import { i18n } from '@/core/services/base/translation';
 
@@ -29,7 +29,7 @@ if (!route.query.email) {
 
 const submitOTP = async (): Promise<void> => {
 
-  const { fetchUser } = useUserstore()
+  const { fetchUser } = useUserStore()
 
   const response = await submit(String(route.query.email))
 

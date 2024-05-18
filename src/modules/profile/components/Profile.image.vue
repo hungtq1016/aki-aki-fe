@@ -64,13 +64,13 @@ import { i18n } from '@/core/services/base/translation'
 import { errorNotification, successNotification } from '@/core/services/helpers/alert.helper'
 import { put, upload } from '@/core/services/helpers/fetcher.helper'
 import { imageBuilderUrl } from '@/core/services/utils/util.string'
-import { useUserstore } from '@/core/stores/user'
+import { useUserStore } from '@/core/stores/user'
 import type { TFileResponse } from '@/modules/admin-blog/models/type'
 import type { TUser, TUserRequest } from '@/modules/admin-oauth2/models/type'
 import { ArrowUpTrayIcon } from '@heroicons/vue/24/outline'
 import { computed, onMounted, ref, type ComputedRef, type Ref } from 'vue'
 
-const { user, updateData } = useUserstore()
+const { user, updateData } = useUserStore()
 
 const fileInput: Ref<HTMLInputElement | null> = ref(null)
 const selectedFile: Ref<File | null> = ref(null)

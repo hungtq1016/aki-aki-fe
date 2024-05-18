@@ -8,7 +8,7 @@ import type { Rules } from 'async-validator'
 
 export const headers: Header[] = [
   { text: 'table.id', value: 'id', width: 100 },
-  { text: 'table.name', value: 'name', sortable: true },
+  { text: 'table.title', value: 'title', sortable: true },
   { text: 'table.slug', value: 'slug' },
   { text: 'table.desc', value: 'desc' },
   { text: 'table.brand', value: 'brand' },

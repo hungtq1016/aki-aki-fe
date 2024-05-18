@@ -13,12 +13,12 @@
 </template>
 
 <script setup lang="ts">
-import { useUserstore } from '@/core/stores/user';
+import { useUserStore } from '@/core/stores/user';
 import HeaderUser from './Header.user.vue';
 import { ArrowRightEndOnRectangleIcon } from '@heroicons/vue/24/outline';
 import { storeToRefs } from 'pinia'
 
-const store = useUserstore()
+const store = useUserStore()
 
 const { isLogin } = storeToRefs(store)
 

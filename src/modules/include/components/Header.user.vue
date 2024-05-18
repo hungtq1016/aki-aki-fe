@@ -36,11 +36,11 @@
 </template>
 
 <script setup lang="ts">
-import { useUserstore } from '@/core/stores/user';
+import { useUserStore } from '@/core/stores/user';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 
-const { user, logout } = useUserstore()
+const { user, logout } = useUserStore()
 
 const navigations = [
   {
@@ -54,6 +54,10 @@ const navigations = [
   {
     label:'route.health_record',
     slug: '/profile/health-record'
+  },
+  {
+    label:'route.invoice',
+    slug: '/profile/invoice'
   }
 ]
 

@@ -41,11 +41,11 @@ import { comments, content, fetch, isLast, isLoading, submit } from '../services
 import { warningNotification } from '@/core/services/helpers/alert.helper'
 import { i18n } from '@/core/services/base/translation'
 
-import { useUserstore } from '@/core/stores/user'
+import { useUserStore } from '@/core/stores/user'
 
 import type { TCommentRequest } from '../models/type'
 
-const { user, isLogin } = useUserstore()
+const { user, isLogin } = useUserStore()
 
 const props = defineProps<{
   blogId: string

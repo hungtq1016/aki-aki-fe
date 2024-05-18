@@ -7,7 +7,7 @@ import { deleteValue, firstOrUpdate, readValue } from '../services/helpers/local
 import { useAuthInfo } from '../services/helpers/indexedDB.helper'
 import { useRouter } from 'vue-router'
 
-export const useUserstore = defineStore('user', () => {
+export const useUserStore = defineStore('user', () => {
   const user: Ref<TUser> = ref({} as TUser)
   const isLogin: Ref<boolean> = ref(false)
   const router = useRouter()

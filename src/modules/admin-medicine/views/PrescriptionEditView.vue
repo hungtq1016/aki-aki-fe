@@ -8,16 +8,20 @@
           </template>
           <template #content>
             <FormRadio @update:search="debouncedMedicine" v-model:id="state.medicineId" v-model:search="medicineSearch"
-              :list="medicines" v-bind="{ pagination, paginationOptions }" />
+              :list="medicines" v-bind="{ pagination, paginationOptions }">
+              {{ $t('form.select_medicine') }}
+              </FormRadio>
           </template>
         </FormGroup>
         <FormGroup :has-error="[Boolean(errorFields?.patientId?.length)]">
           <template #heading>
-            {{ $t('form.customer') }}
+            {{ $t('form.patient') }}
           </template>
           <template #content>
             <FormRadio @update:search="debouncedUser" v-model:id="prescription.patientId" v-model:search="emailSearch"
-              :list="users" v-bind="{ pagination, paginationOptions }" />
+              :list="users" v-bind="{ pagination, paginationOptions }">
+              {{ $t('form.select_patient') }}
+              </FormRadio>
           </template>
         </FormGroup>
       </FormItem>
@@ -99,7 +103,7 @@ onMounted(async () => {
   await fetch(String(route.params.id))
   await fetchPrescriptionDetail(String(route.params.id))
   await fetchMedicines()
-  await fetchUsers(String(route.query.email))
+  await fetchUsers(String(route.query.email || ''))
 })
 
 </script>

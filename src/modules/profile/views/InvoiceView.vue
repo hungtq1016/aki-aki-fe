@@ -24,10 +24,10 @@ import TableClientView from '@/modules/admin/views/TableClientView.vue'
 
 import { paginationOptions, headers } from '../services/data/invoice'
 import { pagination, items, fetch, userId, state } from '../services/logictics/invoice'
-import { useUserstore } from '@/core/stores/user';
+import { useUserStore } from '@/core/stores/user';
 import { FunnelIcon } from '@heroicons/vue/24/outline';
 
-const { user } = useUserstore()
+const { user } = useUserStore()
 
 onMounted(async () => {
     userId.value = user.id

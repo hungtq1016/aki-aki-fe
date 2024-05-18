@@ -46,9 +46,9 @@ export const fetch = async (id: string) => {
 
 export const fetchMedicines = async () => {
 
-  const options = { ...paginationOptions.value, value: emailSearch.value }
+  const options = { ...paginationOptions.value, value: medicineSearch.value }
 
-  get<TPaginationResponse<TMedicine>>(`/api/medicines/page`, options).then((response) => {
+  get<TPaginationResponse<TMedicine>>(`/api/medicines/search`, options).then((response) => {
     if (response?.data) {
       const { data, ...page } = response.data
       medicines.value = data

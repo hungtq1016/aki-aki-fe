@@ -55,7 +55,7 @@ import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs';
 import AuthForm from '../components/Auth.form.vue';
 import AuthInput from '../components/Auth.input.vue';
 import { rules, state, submit } from '../services/logictics/register';
-import { useUserstore } from '@/core/stores/user';
+import { useUserStore } from '@/core/stores/user';
 import { successNotification } from '@/core/services/helpers/alert.helper';
 import { i18n } from '@/core/services/base/translation';
 import { useRouter } from 'vue-router';
@@ -66,7 +66,7 @@ const { pass, errorFields } = useAsyncValidator(state, rules)
 const router = useRouter()
 
 const submitLogin = async (): Promise<void> => {
-  const { fetchUser } = useUserstore()
+  const { fetchUser } = useUserStore()
 
   const response = await submit()
 

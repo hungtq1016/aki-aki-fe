@@ -1,6 +1,6 @@
 import type { TEntity, TRequest } from '@/core/models/type'
 import type { TInvoiceDetailResponse } from '@/modules/admin-invoice/models/type'
-import type { TUser } from '@/modules/admin-user/models/type'
+import type { TUser, TUserResponse } from '@/modules/admin-user/models/type'
 
 export type TMedicine = TEntity & {
   title: string
@@ -62,6 +62,21 @@ export type TRecord = TEntity & {
   anamnesis: string;
   diagnosis: string;
   userId: string;
+}
+export type TRecordResponse = TEntity & {
+  birthDay: string;
+  gender: string;
+  address: string;
+  height: number;
+  weight: number;
+  bloodPressure: number;
+  temperature: number;
+  heartBeat: number;
+  anamnesis: string;
+  diagnosis: string;
+  userId: string;
+  user: TUserResponse;
+  invoices: TInvoiceResponse[];
 }
 
 export type TRecordRequest = TRequest & {

@@ -55,14 +55,14 @@ import { ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { onClickOutside } from '@vueuse/core'
 import { ref } from 'vue'
 
-import { useUserstore } from '@/core/stores/user'
+import { useUserStore } from '@/core/stores/user'
 import { imageBuilderUrl } from '@/core/services/utils/util.string'
 
 import type { TMenu } from '../models/type'
 
 const target = ref(null)
 const dropdownOpen = ref(false)
-const { user,logout } = useUserstore()
+const { user,logout } = useUserStore()
 
 onClickOutside(target, () => {
   dropdownOpen.value = false

@@ -4,9 +4,9 @@
 <script setup lang="ts">
 
 import { onMounted } from 'vue'
-import { useUserstore } from './core/stores/user'
+import { useUserStore } from './core/stores/user'
 
-const { isUserExist } = useUserstore()
+const { isUserExist } = useUserStore()
 
 onMounted(() => {
   isUserExist()

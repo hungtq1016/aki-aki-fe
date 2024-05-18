@@ -23,7 +23,6 @@
     </FormItem>
     <FormItem>
       <PublishView v-model="state.enable" :pass="pass" />
-      <div>{{ selectedServices }}</div>
       <FormGroup :has-error="[
           Boolean(errorFields?.healthRecordId?.length)
         ]">

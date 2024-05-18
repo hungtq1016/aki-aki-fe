@@ -73,13 +73,13 @@ import { i18n } from '@/core/services/base/translation'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { get, put } from '@/core/services/helpers/fetcher.helper'
 import { enforceFormat, formatToPhone } from '@/core/services/utils/util.number'
-import { useUserstore } from '@/core/stores/user'
+import { useUserStore } from '@/core/stores/user'
 
 import type { Ref } from 'vue'
 import type { TUser, TUserRequest } from '@/modules/admin-oauth2/models/type'
 
 const state: Ref<TUser> = ref({} as TUser)
-const { user, updateData } = useUserstore()
+const { user, updateData } = useUserStore()
 
 const isChange: Ref<boolean> = ref(false)
 

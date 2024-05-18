@@ -60,7 +60,7 @@ import SVGFacebook from '@/core/components/svg/SVG.facebook.vue'
 import SVGTwitterX from '@/core/components/svg/SVG.twitter.x.vue'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator'
 import { state, rules, submit } from '../services/logictics/login'
-import { useUserstore } from '@/core/stores/user'
+import { useUserStore } from '@/core/stores/user'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { i18n } from '@/core/services/base/translation'
 import { useRouter } from 'vue-router'
@@ -71,7 +71,7 @@ const { pass, errorFields } = useAsyncValidator(state, rules)
 const router = useRouter()
 
 const submitLogin = async (): Promise<void> => {
-  const { fetchUser, toggleLogin } = useUserstore()
+  const { fetchUser, toggleLogin } = useUserStore()
 
   const response = await submit()
 
