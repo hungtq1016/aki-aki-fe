@@ -3,7 +3,7 @@
     <DisclosureButton
       class="flex w-full justify-between rounded-lg bg-cerulean-100 px-4 py-2 text-left text-sm font-medium text-cerulean-900 hover:bg-cerulean-200 focus:outline-none focus-visible:ring focus-visible:ring-cerulean-500/75"
     >
-      <span>{{ data.title }}</span>
+      <span>{{ data.question }}</span>
       <ChevronUpIcon
         :class="open ? 'rotate-180 transform' : ''"
         class="h-5 w-5 text-cerulean-500"
@@ -18,9 +18,9 @@
 <script setup lang="ts">
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { ChevronUpIcon } from '@heroicons/vue/20/solid'
-import type { TFaQ } from '../models/type'
+import type { TFaq } from '@/modules/admin-faq/models/type';
 
 defineProps<{
-  data: TFaQ
+  data: TFaq
 }>()
 </script>

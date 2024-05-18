@@ -17,6 +17,7 @@
     "send_request":"Send request"
   },
   "content": {
+    "schedule":"Schedule",
     "patient_record":"Pantient health record",
     "full_name":"Full name",
     "birth_day":"Birth day",

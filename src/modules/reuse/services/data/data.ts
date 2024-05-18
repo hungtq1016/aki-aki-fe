@@ -1,6 +1,6 @@
 import { ref } from 'vue'
-import type { TFaQ } from '../../models/type'
 import type { TService } from '@/modules/admin-service/models/type'
+import type { TFaq } from '@/modules/admin-faq/models/type'
 
 const specialists = ref<Array<TService>>([
   {
@@ -14,7 +14,7 @@ const specialists = ref<Array<TService>>([
     id: '',
     updatedAt: '',
     videoEmbed: '',
-    desc:''
+    desc: ''
   },
   {
     imageUrl: 'special2.png',
@@ -27,30 +27,50 @@ const specialists = ref<Array<TService>>([
     id: '',
     updatedAt: '',
     videoEmbed: '',
-    desc:''
+    desc: ''
   }
 ])
 
-const faqs = ref<Array<TFaQ>>([
+const faqs = ref<Array<TFaq>>([
   {
-    title: 'AKIAKI có phải là Phòng khám tốt nhất không bạn?',
+    question: 'AKIAKI có phải là Phòng khám tốt nhất không bạn?',
     answer:
-      'Đội ngũ nhân viên chuyên nghiệp, cơ sở thiết bị hiện đại, là bệnh viện lâu đời tại khu vực TPHCM'
+      'Đội ngũ nhân viên chuyên nghiệp, cơ sở thiết bị hiện đại, là bệnh viện lâu đời tại khu vực TPHCM',
+    src: '',
+    id: '',
+    createdAt: '',
+    updatedAt: '',
+    enable: true
   },
   {
-    title: 'Đội ngũ y Bác sĩ có nhận đào tạo học viên?',
+    question: 'Đội ngũ y Bác sĩ có nhận đào tạo học viên?',
     answer:
-      'AKIAKI luôn nhận đào tạo học viên, tạo cơ hội cho các bạn sinh viên được thực hành với công việc, và hỗ trợ lập nghiệp khi được đào tạo ở AKIAKI'
+      'AKIAKI luôn nhận đào tạo học viên, tạo cơ hội cho các bạn sinh viên được thực hành với công việc, và hỗ trợ lập nghiệp khi được đào tạo ở AKIAKI',
+    src: '',
+    id: '',
+    createdAt: '',
+    updatedAt: '',
+    enable: true
   },
   {
-    title: 'AKIAKI thành lập từ khi nào?',
+    question: 'AKIAKI thành lập từ khi nào?',
     answer:
-      'AKIAKI được thành lập từ năm 1998, đến nay đã có hơn 20 năm kinh nghiệm trong quá trình điều trị và chữa bệnh cho bạn'
+      'AKIAKI được thành lập từ năm 1998, đến nay đã có hơn 20 năm kinh nghiệm trong quá trình điều trị và chữa bệnh cho bạn',
+    src: '',
+    id: '',
+    createdAt: '',
+    updatedAt: '',
+    enable: true
   },
   {
-    title: 'Giá cả ở AKIAKI có mắc quá không bạn ?',
+    question: 'Giá cả ở AKIAKI có mắc quá không bạn ?',
     answer:
-      'Chi phí, giá cả rất phù hợp với chất lượng dịch vụ, có nhiều khung giá để bạn chọn lựa phù hợp với thu nhập của mình'
+      'Chi phí, giá cả rất phù hợp với chất lượng dịch vụ, có nhiều khung giá để bạn chọn lựa phù hợp với thu nhập của mình',
+    src: '',
+    id: '',
+    createdAt: '',
+    updatedAt: '',
+    enable: true
   }
 ])
 
@@ -60,12 +80,12 @@ const services = ref<Array<TService>>([
     title: 'Khám bệnh tại nhà',
     slug: '#',
     desc: 'Dịch vụ khám bệnh tại nhà',
-    content:'',
-    createdAt:'',
-    updatedAt:'',
-    groupId:'',
-    videoEmbed:'',
-    id:'1',
+    content: '',
+    createdAt: '',
+    updatedAt: '',
+    groupId: '',
+    videoEmbed: '',
+    id: '1',
     enable: true
   },
   {
@@ -73,12 +93,12 @@ const services = ref<Array<TService>>([
     title: 'Chăm sóc răng miệng',
     slug: '#',
     desc: 'Dịch vụ chăm sóc răng miệng',
-    content:'',
-    createdAt:'',
-    updatedAt:'',
-    groupId:'',
-    videoEmbed:'',
-    id:'1',
+    content: '',
+    createdAt: '',
+    updatedAt: '',
+    groupId: '',
+    videoEmbed: '',
+    id: '1',
     enable: true
   },
   {
@@ -86,12 +106,12 @@ const services = ref<Array<TService>>([
     title: 'Bảo hiểm',
     slug: '#',
     desc: 'Dịch vụ bảo hiểm cho khách hàng',
-    content:'',
-    createdAt:'',
-    updatedAt:'',
-    groupId:'',
-    videoEmbed:'',
-    id:'1',
+    content: '',
+    createdAt: '',
+    updatedAt: '',
+    groupId: '',
+    videoEmbed: '',
+    id: '1',
     enable: true
   },
   {
@@ -99,12 +119,12 @@ const services = ref<Array<TService>>([
     title: 'Xét nghiệm',
     slug: '#',
     desc: 'Dịch vụ xét nghiệm',
-    content:'',
-    createdAt:'',
-    updatedAt:'',
-    groupId:'',
-    videoEmbed:'',
-    id:'1',
+    content: '',
+    createdAt: '',
+    updatedAt: '',
+    groupId: '',
+    videoEmbed: '',
+    id: '1',
     enable: true
   }
 ])

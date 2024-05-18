@@ -1,4 +1,6 @@
 import type { TEntity, TRequest } from '@/core/models/type'
+import type { TBranch } from '@/modules/admin-branch/models/type';
+import type { TService } from '@/modules/admin-service/models/type';
 
 export type TSchedule = TEntity & {
   date: Date;
@@ -19,7 +21,9 @@ export type TScheduleResponse = TEntity & {
   email: string;
   desc: string;
   branchId: string;
+  branch: TBranch;
   serviceId: string;
+  service: TService
 }
 
 export type TScheduleRequest = TRequest & {

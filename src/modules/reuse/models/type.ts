@@ -1,7 +1,3 @@
-export type TFaQ = {
-  title: string
-  answer: string
-}
 
 export type TSpecialist = {
   name: string
