@@ -30,7 +30,7 @@ async function makeRequest<TRequest, TResponse>(
   if (token?.accessToken) {
     headers['Authorization'] = 'Bearer ' + token.accessToken
   }
-
+  
   const options: AxiosRequestConfig = {
     url: url,
     method,

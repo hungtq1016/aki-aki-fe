@@ -14,7 +14,6 @@ import hasAdminPermission from '@/core/services/middlewares/hasAdminPermission'
 const adminRoute: RouteRecordRaw = {
   path: 'admin',
   component: () => import('@/core/components/layouts/AdminLayout.vue'),
-  // beforeEnter:hasAdminPermission,
   children: [
     {
       path: '',
@@ -27,6 +26,7 @@ const adminRoute: RouteRecordRaw = {
     {
       path: 'message',
       name: 'admin_message',
+      beforeEnter:hasAdminPermission,
       component: () => import('@/modules/admin-message/views/MessageView.vue'),
       meta: {
         title: 'route.admin_message'

@@ -16,8 +16,10 @@ const state = ref<TFaq[]>(faqs.value)
 
 const route = useRoute()
 
+const path = route.path.split('/')[1]
+
 onMounted(()=>{
-  get<TFaq[]>('/api/faqs?src='+String(route.path)).then(response => {
+  get<TFaq[]>('/api/faqs/src/'+path).then(response => {
     if(response?.data) state.value = response.data
   })
 })
