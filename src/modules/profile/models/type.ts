@@ -1,4 +1,6 @@
 import type { TEntity, TRequest } from '@/core/models/type'
+import type { TInvoiceDetailResponse } from '@/modules/admin-invoice/models/type'
+import type { TUser } from '@/modules/admin-user/models/type'
 
 export type TMedicine = TEntity & {
   title: string
@@ -91,4 +93,15 @@ export type TInvoiceRequest = TRequest & {
   patientId: string;
   nurseId: string;
   healthRecordId: string;
+}
+
+export type TInvoiceResponse = TEntity & {
+  total: number;
+  tax: number;
+  patientId: string;
+  pantient:TUser
+  nurse:TUser
+  nurseId: string;
+  healthRecordId: string;
+  invoiceDetails: TInvoiceDetailResponse[];
 }

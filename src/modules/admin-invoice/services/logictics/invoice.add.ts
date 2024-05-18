@@ -42,17 +42,19 @@ export const submit = async () => {
     await post<TInvoiceRequest, TInvoice>('/api/invoices', payload).then(response => {
         if (response?.data) {
             successNotification(response.message),
-                resetObject(state, init_state)
+            resetObject(state, init_state)
+  
+            selectedServices.value.forEach(async service => {
+                const payload: TInvoiceDetailRequest = {
+                    invoiceId: id,
+                    servicePriceId: service.id
+                }
+                await post('/api/invoicedetails', payload)
+            })
         }
-    })
+    }).then(()=>selectedServices.value = [])
 
-    selectedServices.value.forEach(async service => {
-        const payload: TInvoiceDetailRequest = {
-            invoiceId: id,
-            servicePriceId: service.id
-        }
-        await post('/api/invoicedetails', payload)
-    })
+
 }
 
 export const fetchHealthRecord = async (id: string) => {
@@ -112,8 +114,8 @@ export const debouncedCustomers = useDebounceFn(async () => {
 }, 600, { maxWait: 5000 })
 
 watch(() => state.patientId, async (newValue) => {
-    if(newValue !== '-1')
-    await fetchHealthRecord(newValue)
+    if (newValue !== '-1')
+        await fetchHealthRecord(newValue)
     selectedServices.value = []
 })
 

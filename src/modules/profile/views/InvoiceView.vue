@@ -13,7 +13,7 @@
             </button>
         </div>
         </form>
-        <TableClientView v-bind:="{ headers, items, pagination, paginationOptions, fetch }" route="profile/health-invoice" key="health-invoice" />
+        <TableClientView v-bind:="{ headers, items, pagination, paginationOptions, fetch }" route="profile/invoice" key="invoice" />
     </div>
 </template>
 

@@ -19,28 +19,24 @@
     <table class="w-full mb-8">
         <thead>
             <tr>
-                <th class="text-left font-bold text-gray-700">Description</th>
-                <th class="text-right font-bold text-gray-700">Amount</th>
+                <th class="text-left font-bold text-gray-700">{{$t('content.desc')}}</th>
+                <th class="text-right font-bold text-gray-700">{{$t('content.amount')}}</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="text-left text-gray-700">Product 1</td>
-                <td class="text-right text-gray-700">$100.00</td>
-            </tr>
-            <tr>
-                <td class="text-left text-gray-700">Product 2</td>
-                <td class="text-right text-gray-700">$50.00</td>
-            </tr>
-            <tr>
-                <td class="text-left text-gray-700">Product 3</td>
-                <td class="text-right text-gray-700">$75.00</td>
+            <tr v-for="item in state.invoiceDetails" :key="item.id">
+                <td class="text-left text-gray-700">{{ item.servicePrice.label }}</td>
+                <td class="text-right text-gray-700">{{ currency(item.servicePrice.price) }}</td>
             </tr>
         </tbody>
-        <tfoot>
+        <tfoot class="border-t mt-2">
             <tr>
-                <td class="text-left font-bold text-gray-700">Total</td>
-                <td class="text-right font-bold text-gray-700">$225.00</td>
+                <td class="text-left text-gray-700">{{ $t('content.tax')}}</td>
+                <td class="text-right text-gray-700">{{ currency(state.tax) }}</td>
+            </tr>
+            <tr>
+                <td class="text-left font-bold text-gray-700">{{ $t('content.total')}}</td>
+                <td class="text-right font-bold text-gray-700">{{ currency(state.total) }}</td>
             </tr>
         </tfoot>
     </table>
@@ -50,9 +46,15 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { fetch, state } from '../services/logictics/invoice.detail';
+import { currency } from '@/core/services/utils/util.number';
+
+const route = useRoute()
+
+onMounted(async()=>{
+    await fetch(String(route.params.id))
+})
 
 </script>
-
-<style scoped>
-
-</style>

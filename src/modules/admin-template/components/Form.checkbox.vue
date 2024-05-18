@@ -8,7 +8,7 @@
     <li v-for="(item, index) in list" :key="index">
       <label :for="`checkbox-${index}`">
         <div class="border border-gray-100 relative dark:border-zinc-900 rounded-md">
-          <input :checked="isChecked(item)" @click="toggleRole(item)" :disabled="disabled"
+          <input :checked="isChecked(item)" @change="toggleRole(item)" :disabled="disabled"
             class="absolute top-2 right-4 w-4 h-4 peer text-cerulean-600 bg-gray-100 border-gray-300 rounded checked:accent-cerulean-600"
             type="checkbox" :value="item" :id="`checkbox-${index}`" />
           <div
@@ -28,46 +28,48 @@
 </template>
 
 <script setup lang="ts">
-
-import { ref, watch, type Ref } from 'vue';
-import { type ModelRef } from 'vue';
+import { ref, watch, defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
   list: {
-    type: [Object, Array],
+    type: [Array,Object],
     required: true
   },
-  fetchedData:{
+  fetchedData: {
     type: Array,
-    required: false
+    required: false,
+    default: () => []
   },
-  disabled:{
+  disabled: {
     type: Boolean,
-    require: false
+    required: false,
+    default: false
   }
-})
+});
 
-const model: ModelRef<any> = defineModel({ required: true })
-const fetched: Ref<any> = ref(props.fetchedData || [])
+const emit = defineEmits(['update:modelValue']);
 
-const isChecked = (item: any) => fetched.value.find((data:any) => data.id === item.id)
+const fetched = ref(props.fetchedData);
+
+const isChecked = (item: any) => fetched.value.some((data: any) => data.id === item.id);
 
 function toggleRole(item: any) {
-  const index = model.value.map((e:any) => e.id).indexOf(item.id)
+  const index = fetched.value.findIndex((data: any) => data.id === item.id);
   if (index !== -1) {
-    model.value.splice(index, 1) // Remove item if it exists
+    fetched.value.splice(index, 1); // Remove item if it exists
   } else {
-    model.value.push(item) // Add item if it doesn't exist
+    fetched.value.push(item); // Add item if it doesn't exist
   }
+  emit('update:modelValue', fetched.value);
 }
 
 watch(
   () => props.fetchedData,
   (newValue) => {
     if (newValue) {
-      fetched.value = [...newValue]
+      fetched.value = [...newValue];
     }
   },
   { deep: true }
-)
+);
 </script>

@@ -53,7 +53,7 @@ export const formatToPhone = (event: any) => {
 export const currency = (number: number) => {
   const formatter = new Intl.NumberFormat('vi-VN', {
     style: 'currency',
-    currency: 'VNĐ',
+    currency: 'VND',
   });
 
   return formatter.format(number)
