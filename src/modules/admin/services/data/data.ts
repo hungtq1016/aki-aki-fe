@@ -16,6 +16,7 @@ import {
   ClipboardDocumentCheckIcon,
   QuestionMarkCircleIcon
 } from '@heroicons/vue/24/outline'
+import { hasPermission } from '@/core/services/hooks/usePermission'
 
 export const target = ref(null)
 

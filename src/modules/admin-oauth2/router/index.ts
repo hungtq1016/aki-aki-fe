@@ -1,8 +1,10 @@
+import hasAdminPermission from '@/core/services/middlewares/hasAdminPermission'
 import type { RouteRecordRaw } from 'vue-router'
 
 const adminOauth2Route: RouteRecordRaw[] = [
   {
     path: 'roles',
+    beforeEnter:hasAdminPermission,
     children: [
       {
         path: '',

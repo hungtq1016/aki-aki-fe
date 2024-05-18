@@ -226,20 +226,18 @@
     "browserNotSupport": "Trình duyệt của bạn không hỗ trợ phần tử {element}."
   },
   "message": {
-    "message": {
-      "confirm_delete": "Bạn có chắc chắn muốn xóa {name}?",
-      "copy_success": "Sao chép {name} thành công",
-      "delete_success": "Xóa {name} thành công",
-      "farewell": "Tạm biệt, {name}!",
-      "greeting": "Xin chào, {name}!",
-      "loading": "Đang tải...",
-      "login_success": "Đăng nhập thành công",
-      "not_available": "Nội dung không khả dụng",
-      "update_success": "Cập nhật thành công",
-      "welcome": "Chào mừng!",
-      "ty_order": "Cảm ơn bạn đã sử dụng phòng khám của chúng tôi!",
-      "check_email": "Vui lòng kiểm tra email của bạn."
-    }
+    "confirm_delete": "Bạn có chắc chắn muốn xóa {name}?",
+    "copy_success": "Sao chép {name} thành công",
+    "delete_success": "Xóa {name} thành công",
+    "farewell": "Tạm biệt, {name}!",
+    "greeting": "Xin chào, {name}!",
+    "loading": "Đang tải...",
+    "login_success": "Đăng nhập thành công",
+    "not_available": "Nội dung không khả dụng",
+    "update_success": "Cập nhật thành công",
+    "welcome": "Chào mừng!",
+    "ty_order": "Cảm ơn bạn đã sử dụng phòng khám của chúng tôi!",
+    "check_email": "Vui lòng kiểm tra email của bạn."
   },
   "route": {
     "otp":"Đăng nhập bằng OTP",
@@ -255,9 +253,9 @@
     "admin_serviceprices": "Danh sách dịch vụ",
     "admin_serviceprices_add": "Thêm dịch vụ",
     "admin_serviceprices_edit": "Chỉnh sửa dịch vụ",
-    "admin_faqs": "Danh sách câu hỏi thường gặp",
-    "admin_faqs_add": "Thêm câu hỏi thường gặp",
-    "admin_faqs_edit": "Chỉnh sửa câu hỏi thường gặp",
+    "admin_faqs": "Danh sách faq",
+    "admin_faqs_add": "Thêm faq",
+    "admin_faqs_edit": "Chỉnh sửa faq",
     "admin_assignments": "Danh sách công việc",
     "admin_assignments_add": "Thêm công việc",
     "admin_blogs": "Danh sách blog",

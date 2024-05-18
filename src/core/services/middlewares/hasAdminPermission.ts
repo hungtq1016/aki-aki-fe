@@ -6,7 +6,8 @@ export default async function hasAdminPermission(
   from: RouteLocationNormalized,
   next: NavigationGuardNext
 ) {
+
   const data = await hasPermission(String(to.name))
-  if (!data) next('/oauth2')
+  if (!data) next(from.fullPath)
   next()
 }

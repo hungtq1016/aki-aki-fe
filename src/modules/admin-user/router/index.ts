@@ -1,3 +1,4 @@
+import hasAdminPermission from '@/core/services/middlewares/hasAdminPermission'
 import type { RouteRecordRaw } from 'vue-router'
 
 const adminUserRoute: RouteRecordRaw[] = [
@@ -12,6 +13,7 @@ const adminUserRoute: RouteRecordRaw[] = [
       {
         path: 'all',
         name: 'admin_users_all',
+        beforeEnter:hasAdminPermission,
         component: () => import('@/modules/admin-user/views/UserView.vue'),
         meta: {
           title: 'route.admin_users_all'
