@@ -242,6 +242,7 @@
     }
   },
   "route": {
+    "otp":"Đăng nhập bằng OTP",
     "about": "Về chúng tôi",
     "admin": "Bảng điều khiển",
     "invoice_detail": "Chi tiết hóa đơn",

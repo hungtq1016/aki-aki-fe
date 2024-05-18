@@ -29,12 +29,13 @@ if (!route.query.email) {
 
 const submitOTP = async (): Promise<void> => {
 
-  const { fetchUser } = useUserStore()
+  const { fetchUser,toggleLogin } = useUserStore()
 
   const response = await submit(String(route.query.email))
 
   if (response) {
     successNotification(i18n.global.t('message.login_success'))
+    toggleLogin(true)
     await fetchUser()
     router.push('/')
   }

@@ -343,7 +343,8 @@
     "schedule":"Schedule",
     "logout":"Logout",
     "notifcation":"Notification",
-    "blogs_detail":"Blog detail"
+    "blogs_detail":"Blog detail",
+    "otp":"OTP Login"
   },
   "table": {
     "price":"Price",

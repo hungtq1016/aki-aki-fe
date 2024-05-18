@@ -25,7 +25,7 @@ const router = useRouter()
 const submitEmail = async (): Promise<void> => {
 
   const response = await submit()
-
+ 
   if (response) {
     router.push('/oauth2')
   }

@@ -2,8 +2,6 @@ import { ref } from 'vue'
 import type { TContact } from '../../models/type'
 import { AnchorType } from '../../models/enum'
 import {
-  ArrowRightEndOnRectangleIcon,
-  BuildingStorefrontIcon,
   HomeIcon,
   NewspaperIcon,
   PhoneIcon
@@ -11,13 +9,7 @@ import {
 import type { BaseINavigation } from '@/core/models/interface'
 
 const contacts = ref<Array<TContact>>([
-  {
-    type: AnchorType.url,
-    icon: BuildingStorefrontIcon,
-    label: 'shop',
-    tag: 'a',
-    url: 'https://shopee.vn/'
-  },
+
   {
     type: AnchorType.tel,
     icon: PhoneIcon,
