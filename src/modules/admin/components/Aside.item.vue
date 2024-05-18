@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <li>
+  <li v-if="item.show">
     <router-link
       to="?"
       v-if="item.children"

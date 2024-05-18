@@ -9,6 +9,7 @@ export type TMenuItem = {
   icon?: string | BaseTypeIcon
   label: string
   slug: string
+  show: boolean
   children?: TMenuItem[]
 }
 

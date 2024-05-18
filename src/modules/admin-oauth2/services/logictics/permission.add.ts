@@ -7,7 +7,7 @@ import { resetObject } from '@/core/services/utils/util.object'
 import type { TPermission, TPermissionRequest } from '../../models/type'
 
 const init_state: TPermissionRequest = {
-  type: '',
+  type: 'permission',
   value: '',
   enable: true
 }

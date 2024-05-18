@@ -34,10 +34,15 @@ export const useUserStore = defineStore('user', () => {
 
   const isUserExist = (): void => {
     const data = readValue('user')
+
     if (data !== null) {
-      const userData: TUser = JSON.parse(data)
-      user.value = userData
-      toggleLogin(true)
+      try {
+        const userData: TUser = data
+        user.value = userData
+        toggleLogin(true)
+      } catch (error) {
+        console.error('Failed to parse user data:', error)
+      }
     }
   }
 
