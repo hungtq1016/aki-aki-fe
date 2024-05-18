@@ -13,7 +13,8 @@ import {
   ClockIcon,
   UserIcon,
   RectangleStackIcon,
-  ClipboardDocumentCheckIcon
+  ClipboardDocumentCheckIcon,
+  QuestionMarkCircleIcon
 } from '@heroicons/vue/24/outline'
 
 export const target = ref(null)
@@ -222,7 +223,22 @@ export const menus: TMenu[] = [
         icon: ChatBubbleOvalLeftIcon,
         label: 'route.message',
         slug: '/admin/message'
-      }
+      },
+      {
+        icon: QuestionMarkCircleIcon,
+        label: 'route.admin_faqs',
+        slug: '/admin/faqs',
+        children: [
+          {
+            label: 'route.admin_faqs',
+            slug: '/admin/faqs'
+          },
+          {
+            label: 'route.admin_faqs_add',
+            slug: '/admin/faqs/add'
+          }
+        ]
+      },
     ]
   },
   {

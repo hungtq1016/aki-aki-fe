@@ -6,6 +6,7 @@ import adminScheduleRoute from '@/modules/admin-schedule/router'
 import adminUserRoute from '@/modules/admin-user/router'
 import adminInvoiceRoute from '@/modules/admin-invoice/router'
 import adminBranchRoute from '@/modules/admin-branch/route'
+import adminFaqRoute from '@/modules/admin-faq/router'
 
 import type { RouteRecordRaw } from 'vue-router'
 import hasAdminPermission from '@/core/services/middlewares/hasAdminPermission'
@@ -32,6 +33,7 @@ const adminRoute: RouteRecordRaw = {
       }
     },
     adminScheduleRoute,
+    ...adminFaqRoute,
     ...adminInvoiceRoute,
     ...adminUserRoute,
     ...adminBlogRoute,

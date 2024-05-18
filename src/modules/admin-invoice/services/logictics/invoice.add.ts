@@ -117,8 +117,8 @@ watch(() => state.patientId, async (newValue) => {
     selectedServices.value = []
 })
 
-watch(selectedServices,()=>{
-    state.total = selectedServices.value.reduce((total: number,service: TServicePrice)=>total+Math.round(service.price),0)
-    state.tax = 0.1*state.total
-},{deep:true})
-
+watch(() => selectedServices.value, () => {
+    const total = selectedServices.value.reduce((total: number, service: TServicePrice) => total + Math.round(service.price), 0)
+    state.total = Math.round(total * 1.1)
+    state.tax = 0.1 * total
+}, { deep: true })

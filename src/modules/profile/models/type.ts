@@ -45,7 +45,7 @@ export type TPrescriptionResponse = TEntity & {
   medicine?: TMedicine
   quantity: number
   usage: string
-  userId:string
+  userId: string
 }
 
 export type TRecord = TEntity & {
@@ -74,4 +74,21 @@ export type TRecordRequest = TRequest & {
   anamnesis: string;
   diagnosis: string;
   userId: string;
+}
+
+
+export type TInvoice = TEntity & {
+  total: number;
+  tax: number;
+  patientId: string;
+  nurseId: string;
+  healthRecordId: string;
+}
+
+export type TInvoiceRequest = TRequest & {
+  total: number;
+  tax: number;
+  patientId: string;
+  nurseId: string;
+  healthRecordId: string;
 }

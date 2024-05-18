@@ -117,6 +117,7 @@
     "select_service":"Select service",
     "select_branch":"Select branch",
     "place_holder":{
+      "heart_beat": "Enter heart beat...",
       "address": "Enter address...",
       "address1": "Enter address 1",
       "address2": "Enter address 2",

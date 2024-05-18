@@ -149,11 +149,24 @@ const clientRoute: RouteRecordRaw = {
         },
         {
           path: 'invoice',
-          name: 'invoice',
-          component: () => import('@/modules/profile/views/InvoiceView.vue'),
-          meta: {
-            title: 'route.invoice'
-          }
+          children:[
+            {
+              path: '',
+              name: 'invoice',
+              component: () => import('@/modules/profile/views/InvoiceView.vue'),
+              meta: {
+                title: 'route.invoice'
+              }
+            },
+            {
+              path: ':id',
+              name: 'invoice_edit',
+              component: () => import('@/modules/profile/views/InvoiceDetailView.vue'),
+              meta: {
+                title: 'route.invoice_edit'
+              }
+            }
+          ]
         }
       ]
     },
