@@ -65,7 +65,7 @@
         <p class="whitespace-nowrap">{{ numberToByte(Number(size)) }}</p>
       </template>
       <template #item-date="{ date }">
-        <div>{{ format(new Date(date), 'dd/m/yyyy') }}</div>
+        <div>{{ format(new Date(date), 'dd/MM/yyyy') }}</div>
       </template>
       <template #item-time="{ time }">
         <div> {{ formattedTime(JSON.parse(time)) }} </div>

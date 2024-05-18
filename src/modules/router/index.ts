@@ -139,8 +139,8 @@ const clientRoute: RouteRecordRaw = {
             },
             {
               path: ':id',
-              name: 'health_record_edit',
-              component: () => import('@/modules/profile/views/HealthRecordView.vue'),
+              name: 'health_record_detail',
+              component: () => import('@/modules/profile/views/HealthRecordDetailView.vue'),
               meta: {
                 title: 'route.health_record_detail'
               }

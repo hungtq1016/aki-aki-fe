@@ -11,6 +11,7 @@ import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TSchedule, TScheduleRequest } from '../../models/type'
 import type { TService } from '@/modules/admin-service/models/type'
 import type { TBranch } from '@/modules/admin-branch/models/type'
+import { format } from 'date-fns'
 
 const init_state: TScheduleRequest = {
   date: new Date(),
@@ -24,6 +25,7 @@ const init_state: TScheduleRequest = {
     enable: true
 }
 export const time = ref()
+export const date = ref(new Date)
 export const state = reactive({...init_state})
 export const pagination = ref<TPagination>({ ...init_pagination })
 export const users: Ref<TUser[]> = ref([])

@@ -3,7 +3,7 @@
         <form @submit.prevent="fetch">
             <div class="flex gap-y-2 gap-x-4 py-2">
             <input type="number" v-model="state.heartBeat"
-            class="border rounded" :placeholder="$t('form.place_holder.hearth_beat')"/>
+            class="border rounded" :placeholder="$t('form.place_holder.heart_beat')"/>
             <input type="number" v-model="state.bloodPressure"
             class="border rounded" :placeholder="$t('form.place_holder.blood_pressure')"/>
             <input type="date" v-model="state.startFrom"

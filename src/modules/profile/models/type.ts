@@ -99,7 +99,7 @@ export type TInvoiceResponse = TEntity & {
   total: number;
   tax: number;
   patientId: string;
-  pantient:TUser
+  patient:TUser
   nurse:TUser
   nurseId: string;
   healthRecordId: string;

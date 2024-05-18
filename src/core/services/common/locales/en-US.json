@@ -17,6 +17,15 @@
     "send_request":"Send request"
   },
   "content": {
+    "invoice":"Invoice",
+    "invoiceId":"Id",
+    "date":"Date",
+    "tax":"Tax",
+    "total":"Total",
+    "information":"Information",
+    "nurse":"Nurse",
+    "amount":"Amount",
+    "service":"Service",
     "your_profile":"Your profile",
     "image":"Image",
     "update_image":"Update your image",
@@ -117,7 +126,10 @@
     "select_service":"Select service",
     "select_branch":"Select branch",
     "place_holder":{
+      "chat":"Nhắn tin thôi!",
       "heart_beat": "Enter heart beat...",
+      "blood_pressure": "Enter blood pressure...",
+      "total": "Enter total...",
       "address": "Enter address...",
       "address1": "Enter address 1",
       "address2": "Enter address 2",
@@ -197,11 +209,17 @@
     "login_success": "Login success",
     "not_available": "Content not available",
     "update_success": "Update success",
-    "welcome": "Welcome!"
+    "welcome": "Welcome!",
+    "ty_order":"Thank you for use my clinic!",
+    "check_email":"Please check your email."
   },
   "route": {
     "about": "About",
     "admin": "Dashboard",
+    "invoice_detail":"Invoice detail",
+    "invoice":"Invoice",
+    "health_record":"Health record",
+    "health_record_detail":"Health record detail",
     "admin_assignments": "List of assignments",
     "admin_assignments_add": "Add assignment",
     "admin_blogs": "List of blogs",
@@ -293,6 +311,11 @@
     "blogs_detail":"Blog detail"
   },
   "table": {
+    "view":"View detail",
+    "healthRecordId":"HR Id",
+    "nurse":"Nurse",
+    "tax":"Tax",
+    "total":"Total",
     "action": "Action",
     "address": "Address",
     "address1": "Address 1",
