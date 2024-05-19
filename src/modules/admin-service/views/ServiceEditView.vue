@@ -72,8 +72,8 @@ import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.vue'
 
 import { get } from '@/core/services/helpers/request.helper'
-import { editor, editorConfig, groups } from '../services/logictics/service.add'
-import { state, submit } from '../services/logictics/service.edit'
+import { editor, editorConfig, groups } from '../services/logictics/service.edit'
+import { state, submit, fetch } from '../services/logictics/service.edit'
 import { rules } from '../services/data/service'
 
 import type { TGroupService } from '../models/type'

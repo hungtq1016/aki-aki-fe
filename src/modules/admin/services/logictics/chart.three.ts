@@ -30,15 +30,10 @@ const endpoints = [
 ];
 
 export const total = computed(()=>state.value.series.reduce((total,num)=>total+=num,0))
-function resetObject(target: any, source: any) {
-    Object.keys(target).forEach(key => {
-      delete target[key];
-    });
-    Object.assign(target, source);
-  }
-  
+
 export const fetch = async () => {
-  resetObject(state.value, init_state);
+  state.value.series = [];
+  state.value.labels = [];
   const requests = endpoints.map(endpoint => 
     get<number>(endpoint.url, { timeperiod: timeperiod.value }).then(response => {
       if (response?.data) {
@@ -56,7 +51,7 @@ export const apexOptions = {
     type: 'donut',
     width: 380,
   },
-  colors: ['#1b7dae', '#32a4d5', '#8dceec', '#4db5e3'],
+  colors: ["#c3e3f4", "#8dceec", "#51b5df", "#32a4d5", "#1b7dae", "#17648d", "#175575", "#194861"],
   labels: state.value.labels,
   legend: {
     show: false,

@@ -43,7 +43,7 @@ onMounted(async()=>{
         />
       </div>
     </div>
-    <div class="-mx-8 flex flex-wrap items-center justify-center gap-y-3">
+    <div class="flex flex-wrap items-center justify-center gap-y-3">
       <div class="w-full px-8 sm:w-1/2" v-for="(label,index) in state.labels" :key="label">
         <div class="flex w-full items-center">
           <span class="mr-2 block h-3 w-full max-w-3 rounded-full bg-cerulean-600"></span>
