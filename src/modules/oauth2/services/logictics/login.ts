@@ -30,7 +30,7 @@ const rules: Rules = {
 }
 
 const submit = async (): Promise<boolean> => {
-  const { updateAuthAsync, createAuthAsync } = useAuthInfo()
+  const { deleteAuthAsync, createAuthAsync } = useAuthInfo()
 
   try {
     const response = await post<TLoginRequest, TTokenResponse>('/api/authenticate/login', state)
@@ -38,7 +38,9 @@ const submit = async (): Promise<boolean> => {
     if (response?.data) {
       const token: TTokenResponse = response.data
 
-      const saveResult: boolean = await updateAuthAsync(token) || await createAuthAsync(token)
+      await deleteAuthAsync() 
+
+      const saveResult: boolean = await createAuthAsync(token)
 
       resetObject(state, init_state)
 

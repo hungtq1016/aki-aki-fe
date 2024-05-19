@@ -39,7 +39,7 @@ import FormInput from '@/modules/admin-template/components/Form.input.vue'
 
 import { state, submit } from '../services/logictics/category.add'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
-import { rules } from '../services/data/blog'
+import { rules } from '../services/data/category'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 </script>
