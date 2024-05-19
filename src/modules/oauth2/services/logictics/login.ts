@@ -34,19 +34,25 @@ const submit = async (): Promise<boolean> => {
 
   try {
     const response = await post<TLoginRequest, TTokenResponse>('/api/authenticate/login', state)
+    
+    if (response?.data) {
+      const token: TTokenResponse = response.data
 
-    if (!response?.data) return false
+      const saveResult: boolean = await updateAuthAsync(token) || await createAuthAsync(token)
 
-    const auth: TTokenResponse = response.data
-    const saveResult: boolean = await updateAuthAsync(auth) || await createAuthAsync(auth)
+      resetObject(state, init_state)
 
-    resetObject(state, init_state)
-    return saveResult
+      return saveResult
+    }
+    
+    return false
+
   } catch (error) {
     errorNotification(String(error))
     return false
   }
 }
+
 
 
 export { state, rules, submit }

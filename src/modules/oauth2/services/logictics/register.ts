@@ -51,14 +51,19 @@ const submit = async (): Promise<boolean> => {
   try {
     const response = await post<TRegisterRequest, TTokenResponse>('/api/authenticate/register', state)
 
-    if (!response?.data) return false
+    if (response?.data) {
+      const token: TTokenResponse = response.data
 
-    const auth: TTokenResponse = response.data
-    await deleteAuthAsync()
-    const saveResult: boolean = await createAuthAsync(auth)
+      await deleteAuthAsync()
 
-    resetObject(state, init_state)
-    return saveResult
+      const saveResult: boolean = await createAuthAsync(token)
+
+      resetObject(state, init_state)
+
+      return saveResult
+    }
+    
+    return false
 
   } catch (error) {
     errorNotification(String(error))
