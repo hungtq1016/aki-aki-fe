@@ -91,10 +91,22 @@ export async function del<TRequest, TResponse>(
 export async function upload<TResponse>(path: string, formData: FormData) {
   try {
     const url: string = urlBuilder(path)
-
+    const { readAuthAsync } = useAuthInfo()
+    const token: TTokenResponse | undefined = await readAuthAsync()
+  
+    const headers: Record<string, string> = {
+      Accept: 'application/json',
+    
+    }
+  
+    if (token?.accessToken) {
+      headers['Authorization'] = 'Bearer ' + token.accessToken
+    }
+  
     return await axios<Response<TResponse>>(url, {
       method: 'POST',
-      data: formData
+      data: formData,
+      headers: headers
     })
   } catch (err: any) {
     console.log(i18n.global.t('error.server_error.message'), err)
