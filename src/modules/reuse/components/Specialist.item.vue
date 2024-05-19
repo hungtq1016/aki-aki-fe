@@ -7,7 +7,7 @@
       :alt="data.title"
     />
     <div
-      class="text-base md:text-[28px] leading-[42px] text-cerulean-600 mt-3 md:mt-6 text-center capitalize"
+      class="text-base md:text-[28px] leading-[42px] text-cerulean-600 mt-3 md:mt-6 text-center capitalize line-clamp-2"
     >
       {{ data.title }}
     </div>
