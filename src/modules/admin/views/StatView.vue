@@ -22,7 +22,7 @@ const routes: TStat[] = [
     icon: UserIcon
   },
   {
-    slug: '/api/invoices/totals',
+    slug: '/api/invoices/total',
     label: 'Total',
     default: 'currentday',
     icon: CurrencyDollarIcon,

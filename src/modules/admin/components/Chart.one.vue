@@ -1,176 +1,14 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { get } from '@/core/services/helpers/request.helper';
-import { onMounted, ref, watch } from 'vue';
 // @ts-ignore
 import VueApexCharts from 'vue3-apexcharts';
 import ChartTabs from './Chart.tabs.vue';
-
-type InputFormat = {
-  last: { [key: string]: number };
-  current: { [key: string]: number };
-};
-
-type OutputFormat = {
-  series: Array<{
-    name: string;
-    data: number[];
-  }>;
-  labels: string[];
-};
-
-const highestValue = ref(40);
-
-const transformData = (input: InputFormat): OutputFormat => {
-  const lastData = Object.values(input.last);
-  const currentData = Object.values(input.current);
-  const labels = Object.keys(input.last);
-
-  highestValue.value = Math.max(...lastData, ...currentData);
-
-  return {
-    series: [
-      {
-        name: 'Last Period',
-        data: lastData
-      },
-      {
-        name: 'Current Period',
-        data: currentData
-      }
-    ],
-    labels: labels
-  };
-};
-
-const state = ref<InputFormat>({
-  current:{},
-  last:{}
-} as InputFormat);
-const chartData = ref(transformData(state.value));
-
-const chart = ref(null);
-
-const apexOptions = ref({
-  legend: {
-    show: false,
-    position: 'top',
-    horizontalAlign: 'left'
-  },
-  colors: ['#3C50E0', '#80CAEE'],
-  chart: {
-    fontFamily: 'Satoshi, sans-serif',
-    height: 335,
-    type: 'area',
-    dropShadow: {
-      enabled: true,
-      color: '#623CEA14',
-      top: 10,
-      blur: 4,
-      left: 0,
-      opacity: 0.1
-    },
-    toolbar: {
-      show: false
-    }
-  },
-  responsive: [
-    {
-      breakpoint: 1024,
-      options: {
-        chart: {
-          height: 300
-        }
-      }
-    },
-    {
-      breakpoint: 1366,
-      options: {
-        chart: {
-          height: 350
-        }
-      }
-    }
-  ],
-  stroke: {
-    width: [2, 2],
-    curve: 'straight'
-  },
-  labels: {
-    show: false,
-    position: 'top'
-  },
-  grid: {
-    xaxis: {
-      lines: {
-        show: true
-      }
-    },
-    yaxis: {
-      lines: {
-        show: true
-      }
-    }
-  },
-  dataLabels: {
-    enabled: false
-  },
-  markers: {
-    size: 4,
-    colors: '#fff',
-    strokeColors: ['#3056D3', '#80CAEE'],
-    strokeWidth: 3,
-    strokeOpacity: 0.9,
-    strokeDashArray: 0,
-    fillOpacity: 1,
-    discrete: [],
-    hover: {
-      size: undefined,
-      sizeOffset: 50
-    }
-  },
-  xaxis: {
-    type: 'category',
-    categories: chartData.value.labels,
-    axisBorder: {
-      show: false
-    },
-    axisTicks: {
-      show: false
-    }
-  },
-  yaxis: {
-    title: {
-      style: {
-        fontSize: '0px'
-      }
-    },
-    min: 0,
-    max: 25
-  }
-});
-
-const timeperiod = ref('week');
-
-const fetch = async () => {
-  await get<InputFormat>('/api/invoices/total-count', { timeperiod: timeperiod.value }).then(response => {
-    if (response?.data) {
-      state.value = response.data;
-    }
-  });
-};
+import { apexOptions, state, timeperiod, fetch } from '../services/logictics/chart.one';
+import { onMounted } from 'vue';
 
 onMounted(async () => {
-  await fetch();
+    await fetch();
 });
-
-watch(state, (newValue) => {
-  chartData.value = transformData(newValue);
-}, { deep: true });
-
-watch(timeperiod, async() => {
-  await fetch()
-}, { deep: true });
 
 </script>
 
@@ -188,7 +26,7 @@ watch(timeperiod, async() => {
           </span>
           <div class="w-full">
             <p class="font-semibold text-cerulean-600">Hóa đơn</p>
-            <p class="text-sm font-medium">Tuần trước</p>
+            <p class="text-sm font-medium">last {{ timeperiod }}</p>
           </div>
         </div>
         <div class="flex min-w-[190px]">
@@ -199,7 +37,7 @@ watch(timeperiod, async() => {
           </span>
           <div class="w-full">
             <p class="font-semibold text-cerulean-300">Hóa đơn</p>
-            <p class="text-sm font-medium">Tuần này</p>
+            <p class="text-sm font-medium">current {{ timeperiod }}</p>
           </div>
         </div>
       </div>
@@ -214,7 +52,7 @@ watch(timeperiod, async() => {
           type="area"
           height="350"
           :options="apexOptions"
-          :series="chartData.series"
+          :series="state.series"
           ref="chart"
         />
       </div>

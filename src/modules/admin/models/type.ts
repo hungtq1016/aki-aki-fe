@@ -29,3 +29,16 @@ export type TStat = {
   default: string
   format?: boolean
 }
+
+export type TInputFormat = {
+  last: { [key: string]: number };
+  current: { [key: string]: number };
+};
+
+export type TOutputFormat = {
+  series: Array<{
+    name: string;
+    data: number[];
+  }>;
+  labels: string[];
+};
