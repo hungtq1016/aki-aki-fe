@@ -67,4 +67,13 @@ onMounted(async () => {
     }
   })
 })
+
+watch(()=>route.fullPath,async()=>{
+  get<TCategoryResponse>(`/api/categories/slug/${route.params.slug}`).then((res) => {
+    if (res?.data) {
+      data.value = res.data
+    }
+  })
+  await fetch()
+})
 </script>

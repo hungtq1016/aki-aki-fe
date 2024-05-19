@@ -9,7 +9,7 @@
         </h1>
         <div class="mb-10">
           <ul class="grid grid-cols-2 gap-x-10 gap-y-5 py-5">
-            <FooterItem v-for="data in branches" :key="data.id" :data="data" />
+            <FooterItem v-for="(data) in branches" :key="data.id" :data="data"/>
           </ul>
           <ul class="grid grid-cols-2 gap-x-10 gap-y-5 py-5">
             <FooterContact v-for="data in contacts" :key="data.id" :data="data" />
