@@ -3,7 +3,7 @@
 
 // @ts-ignore
 import VueApexCharts from 'vue3-apexcharts'
-import { apexOptions, state, fetch, categories, timeperiod, total } from '../services/logictics/chart.three';
+import { apexOptions, state, fetch, categories, timeperiod, total, colors } from '../services/logictics/chart.three';
 import { onMounted } from 'vue';
 
 onMounted(async()=>{
@@ -19,14 +19,14 @@ onMounted(async()=>{
     <div class="mb-3 justify-between gap-4 sm:flex">
       <div>
    
-        <h4 class="text-xl font-bold text-slate-950 dark:text-white">Visitors Analytics</h4>
+        <h4 class="text-xl font-bold text-slate-950 dark:text-white">Analytics</h4>
       </div>
       <div>
         <div class="relative z-20 inline-block">
           <select v-model="timeperiod" @change="fetch"
             class="relative z-20 inline-flex bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
           >
-            <option             v-for="category in categories" :key="category"
+            <option v-for="category in categories" :key="category"
             :value="category">{{category}}</option>
           </select>
         </div>
@@ -46,7 +46,7 @@ onMounted(async()=>{
     <div class="flex flex-wrap items-center justify-center gap-y-3">
       <div class="w-full px-8 sm:w-1/2" v-for="(label,index) in state.labels" :key="label">
         <div class="flex w-full items-center">
-          <span class="mr-2 block h-3 w-full max-w-3 rounded-full bg-cerulean-600"></span>
+          <span class="mr-2 block h-3 w-full max-w-3 rounded-full" :style="{backgroundColor:colors[index]}"></span>
           <p class="flex w-full justify-between text-sm font-medium text-slate-950 dark:text-white">
             <span> {{label}} </span>
             <span> {{ (state.series[index]/total*100).toFixed(2) }} %</span>

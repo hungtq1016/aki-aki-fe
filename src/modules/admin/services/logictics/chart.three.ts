@@ -46,12 +46,14 @@ export const fetch = async () => {
   await Promise.all(requests);
 };
 
+export const colors =["#8dceec", "#51b5df", "#32a4d5", "#1b7dae", "#17648d", "#175575", "#194861"]
+
 export const apexOptions = {
   chart: {
     type: 'donut',
     width: 380,
   },
-  colors: ["#c3e3f4", "#8dceec", "#51b5df", "#32a4d5", "#1b7dae", "#17648d", "#175575", "#194861"],
+  colors: colors,
   labels: state.value.labels,
   legend: {
     show: false,

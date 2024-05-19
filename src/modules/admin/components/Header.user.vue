@@ -73,7 +73,8 @@ const menuProfile: TMenu = {
   menuItems: [{
     label: 'route.profile',
     slug: '/profile',
-    icon: UserIcon
+    icon: UserIcon,
+    show: true
   }]
 }
 </script>

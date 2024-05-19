@@ -1,14 +1,15 @@
 
 import { ref } from "vue";
-import type { TInputFormat, TOutputFormat } from "../../models/type";
 import { watch } from "vue";
 import { get } from '@/core/services/helpers/request.helper';
 import { transformData } from "./chart";
 
+import type { TInputFormat, TOutputFormat } from "../../models/type";
+
 export const state = ref<TOutputFormat>({
     series: [],
     labels: []
-} as TOutputFormat);
+});
 
 export const timeperiod = ref('week');
 
@@ -20,14 +21,13 @@ export const fetch = async () => {
     });
 };
 
-
-export const apexOptions = ref({
+export const apexOptions = {
     legend: {
         show: false,
         position: 'top',
         horizontalAlign: 'left'
     },
-    colors: ['#3C50E0', '#80CAEE'],
+    colors: ["#32a4d5", "#1b7dae", "#17648d", "#175575", "#194861"],
     chart: {
         fontFamily: 'Satoshi, sans-serif',
         height: 335,
@@ -66,10 +66,7 @@ export const apexOptions = ref({
         width: [2, 2],
         curve: 'straight'
     },
-    labels: {
-        show: false,
-        position: 'top'
-    },
+    labels: [],
     grid: {
         xaxis: {
             lines: {
@@ -114,11 +111,9 @@ export const apexOptions = ref({
             style: {
                 fontSize: '0px'
             }
-        },
-        min: 0,
-        max: 25
+        }
     }
-});
+}
 
 watch(timeperiod, async () => {
     await fetch()

@@ -2,6 +2,7 @@ import { ref } from "vue";
 import type { TInputFormat, TOutputFormat } from "../../models/type";
 import { get } from "@/core/services/helpers/request.helper";
 import { transformData } from "./chart";
+import type { ApexOptions } from "apexcharts";
 
 export const state = ref<TOutputFormat>({
     series: [],
@@ -21,8 +22,8 @@ export const fetch = async () => {
     })
 }
 
-export const apexOptions = {
-    colors: ['#3056D3', '#80CAEE'],
+export const apexOptions : ApexOptions = {
+    colors: ["#32a4d5", "#17648d"],
     chart: {
         type: 'bar',
         height: 335,
@@ -69,7 +70,6 @@ export const apexOptions = {
         fontFamily: 'Satoshi',
         fontWeight: 500,
         fontSize: '14px',
-
         markers: {
             radius: 99
         }
