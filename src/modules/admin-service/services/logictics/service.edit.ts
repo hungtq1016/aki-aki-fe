@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 import { successNotification } from "@/core/services/helpers/alert.helper"
 import { get, put } from "@/core/services/helpers/request.helper"
@@ -7,6 +7,7 @@ import type { TGroupService, TServiceResponse } from "../../models/type"
 import type { Ref } from "vue"
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import UploadAdapter from '@/core/services/classes/UploadFile'
+import { slugify } from '@/core/services/utils/util.string'
 
 export const state: Ref<TServiceResponse> = ref({} as TServiceResponse)
 export const groups: Ref<TGroupService[]> = ref([])
@@ -37,3 +38,7 @@ function uploader(editor: any) {
 export const editorConfig: Ref<any> = ref({
     extraPlugins: [uploader]
 })
+
+watch(state, (newValue) => {
+  state.value.slug = slugify(newValue.title)
+}, { deep: true })
