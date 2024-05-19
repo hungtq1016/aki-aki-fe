@@ -23,8 +23,9 @@ export type TChat = {
 }
 
 export type TStat = {
-  icon: string
-  title: string
-  total: string
-  growthRate: number
+  icon: BaseTypeIcon
+  label: string
+  slug: string
+  default: string
+  format?: boolean
 }

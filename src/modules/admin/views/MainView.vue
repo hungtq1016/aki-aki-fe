@@ -14,7 +14,7 @@ import StatView from './StatView.vue'
     <ChartView />
 
     <!-- ====== Map One Start -->
-    <MapView />
+    <!-- <MapView /> -->
     <!-- ====== Map One End -->
 
     <!-- ====== Table One Start -->
@@ -22,7 +22,7 @@ import StatView from './StatView.vue'
     <!-- ====== Table One End -->
 
     <!-- ====== Chat Card Start -->
-    <ChatView />
+    <!-- <ChatView /> -->
     <!-- ====== Chat Card End -->
   </div>
 </template>

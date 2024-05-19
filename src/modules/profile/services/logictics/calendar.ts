@@ -9,7 +9,7 @@ export const email = ref('')
 export const fetch = async () => {
 
     const options = {date: format(date.value,"yyyy-MM-dd"),email:email.value}
-    await get<TScheduleResponse>('/api/schedules/date',options).then(response => {
+    await get<TScheduleResponse>('/api/schedules/client',options).then(response => {
         if (response?.data) {
             state.value = response.data
         }

@@ -1,9 +1,33 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<script setup lang="ts">
-import StatItem from '../components/Stat.item.vue'
-import { cardItems } from '../services/data/stat'
-</script>
-
 <template>
-  <StatItem v-for="data in cardItems" :key="data.title" :data="data" />
+  <StatItem v-for="data in routes" :key="data.label" :data="data" />
 </template>
+
+<script setup lang="ts">
+import { BookOpenIcon, CurrencyDollarIcon, UserIcon } from '@heroicons/vue/24/outline';
+import StatItem from '../components/Stat.item.vue'
+import type { TStat } from '../models/type';
+
+const routes: TStat[] = [
+  {
+    slug: '/api/blogs/count',
+    label: 'Blogs today',
+    default: 'currentweek',
+    icon: BookOpenIcon
+  },
+  {
+    slug: '/api/users/count',
+    label: 'Customer',
+    default: 'all',
+    icon: UserIcon
+  },
+  {
+    slug: '/api/invoices/totals',
+    label: 'Total',
+    default: 'currentday',
+    icon: CurrencyDollarIcon,
+    format: true
+  }
+]
+
+</script>
