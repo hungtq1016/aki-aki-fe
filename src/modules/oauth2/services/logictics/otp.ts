@@ -50,23 +50,24 @@ const submit = async (email: string): Promise<boolean> => {
     otp: state.n1 + state.n2 + state.n3 + state.n4 + state.n5 + state.n6,
     email: email
   }
-  const { updateAuthAsync } = useAuthInfo()
+  
+  const { updateAuthAsync, createAuthAsync } = useAuthInfo()
 
   try {
-    const data = await post<any, TTokenResponse>('/api/authenticate/receive-otp', payload)
+    const response = await post<any, TTokenResponse>('/api/authenticate/receive-otp', payload)
 
-    if (data?.data) {
-      const auth: TTokenResponse = data.data
-      const saveResult: boolean | undefined = await updateAuthAsync(auth)
+    if (response?.data) {
+      const token: TTokenResponse = response.data
+
+      const saveResult: boolean = await updateAuthAsync(token) || await createAuthAsync(token)
 
       resetObject(state, init_state)
 
-      if (saveResult) return true
-
-      return false
+      return saveResult
     }
-
+    
     return false
+
   } catch (error) {
     errorNotification(String(error))
     return false

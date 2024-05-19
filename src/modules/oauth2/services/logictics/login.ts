@@ -53,6 +53,4 @@ const submit = async (): Promise<boolean> => {
   }
 }
 
-
-
 export { state, rules, submit }
