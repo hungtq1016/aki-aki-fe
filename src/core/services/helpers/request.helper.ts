@@ -11,49 +11,77 @@ import { urlBuilder } from '@/core/services/utils/util.url'
 import type { AxiosRequestConfig } from 'axios'
 import type { Response, TTokenResponse } from '@/core/models/type'
 
-// Define a helper function for making API requests
+async function refreshToken() {
+  try {
+    const response = await axios.post('/api/authenticate/refresh-token', {
+      // Include any necessary payload like current refresh token
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error refreshing token:', error);
+    throw error;
+  }
+}
+
 async function makeRequest<TRequest, TResponse>(
   method: string,
   path: string,
   data?: TRequest,
   header: Record<string, string> = { 'Content-Type': 'application/json' },
   queryParams?: any
-) {
-  const url: string = urlBuilder(path, queryParams)
-  const { readAuthAsync } = useAuthInfo()
-  const token: TTokenResponse | undefined = await readAuthAsync()
+): Promise<Response<TResponse> | undefined> {
+  const url: string = urlBuilder(path, queryParams);
+  const { readAuthAsync, updateAuthAsync } = useAuthInfo();
+  const token: TTokenResponse | undefined = await readAuthAsync();
 
   const headers: Record<string, string> = {
     Accept: 'application/json',
-    ...header
-  }
+    ...header,
+  };
 
   if (token?.accessToken) {
-    headers['Authorization'] = 'Bearer ' + token.accessToken
+    headers['Authorization'] = 'Bearer ' + token.accessToken;
   }
 
   const options: AxiosRequestConfig = {
     url: url,
     method,
-    headers: headers
-  }
+    headers: headers, // Initialize headers here to avoid undefined error
+  };
 
   // Add request body if data is provided
   if (data) {
-    options.data = stringify(data)
+    options.data = stringify(data);
   }
 
   // Make the API request
   try {
-    const response = await axios<Response<TResponse>>(options)
-    return response.data
+    const response = await axios<Response<TResponse>>(options);
+    return response.data;
   } catch (err: any) {
-    console.log(i18n.global.t('error.server_error.message'), err)
-    errorHandling(err.response.data.message, err.response.status)
+    if (err.response.status === 401 && headers['x-retry'] ) {
+      try {
+        const newToken = await refreshToken();
+        await updateAuthAsync(newToken); // Save the new token
+        headers['Authorization'] = 'Bearer ' + newToken.accessToken;
+        headers['x-retry'] = 'true'; // Prevent infinite retry loop
+        options.headers = header
+        const retryResponse = await axios<Response<TResponse>>(options);
+        return retryResponse.data;
+      } catch (refreshError) {
+        console.error('Token refresh failed:', refreshError);
+        // Optional: Redirect to login or handle refresh token failure
+        window.location.href = '/login';
+        throw refreshError;
+      }
+    } else {
+      console.log(i18n.global.t('error.server_error.message'), err);
+      errorHandling(err.response.data.message, err.response.status);
+      throw err;
+    }
   }
-
-  // Return the response data
 }
+
 
 // Define your REST API request methods
 export async function get<TResponse>(
