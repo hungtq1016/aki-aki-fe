@@ -3,7 +3,6 @@ import { errorNotification, warningNotification } from './alert.helper'
 import { post } from './request.helper';
 import { useAuthInfo } from './indexedDB.helper';
 import type { TTokenResponse } from '@/core/models/type';
-import { useRouter } from 'vue-router';
 
 export const errorHandling = async (
   message: string = i18n.global.t('error.server_error.title'),
