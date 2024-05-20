@@ -20,7 +20,7 @@ const init_state: TInvoiceRequest = {
     healthRecordId: '-1',
     nurseId: '-1',
     patientId: '-1',
-    status: StatusEnum.Active
+    status: StatusEnum.NotPaid
 }
 
 export const state = reactive<TInvoiceRequest>({ ...init_state })

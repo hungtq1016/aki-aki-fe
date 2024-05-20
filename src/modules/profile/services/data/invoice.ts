@@ -1,7 +1,5 @@
 import { ref } from 'vue'
 
-import { StatusEnum } from '@/core/models/enum'
-
 import type { Header } from 'vue3-easy-data-table'
 import type { TPagination, TPaginationRequest } from '@/core/models/type'
 

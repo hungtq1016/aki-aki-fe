@@ -22,7 +22,7 @@ const init_state: TScheduleRequest = {
     serviceId: '-1',
     time: "",
     email: '-1',
-    status: StatusEnum.Active
+    status: StatusEnum.Pending
 }
 export const time = ref()
 export const date = ref(new Date)
