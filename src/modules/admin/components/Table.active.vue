@@ -51,7 +51,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-import { CheckCircleIcon, CheckIcon, ClockIcon, NoSymbolIcon, TrashIcon, XMarkIcon, ChevronDownIcon } from '@heroicons/vue/24/outline'
+import { ChevronDownIcon } from '@heroicons/vue/24/solid'
 
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { put } from '@/core/services/helpers/request.helper'
@@ -59,6 +59,7 @@ import { i18n } from '@/core/services/base/translation'
 import { StatusEnum } from '@/core/models/enum'
 
 import type { Item } from 'vue3-easy-data-table'
+import { status } from '@/core/services/data/status'
 
 const props = defineProps<{
   item: Item
@@ -78,50 +79,12 @@ watch(()=>props.item,(newValue)=>{
 },{deep:true})
 
 
-const status = [
-  {
-    label : 'table.active',
-    value : StatusEnum.Active,
-    classes: 'text-green-600 bg-green-100 disabled:bg-green-50 disabled:text-green-300',
-    icon: CheckIcon
-  },
-  {
-    label : 'table.inactive',
-    value : StatusEnum.Inactive,
-    classes: 'text-gray-600 bg-gray-100 disabled:bg-gray-50 disabled:text-gray-300',
-    icon: NoSymbolIcon
-  },
-  {
-    label : 'table.pending',
-    value : StatusEnum.Pending,
-    classes: 'text-yellow-600 bg-yellow-100 disabled:bg-yellow-50 disabled:text-yellow-300',
-    icon: ClockIcon
-  },
-  {
-    label : 'table.completed',
-    value : StatusEnum.Completed,
-    classes: 'text-blue-600 bg-blue-100 disabled:bg-blue-50 disabled:text-blue-300',
-    icon: CheckCircleIcon
-  },
-  {
-    label : 'table.canceled',
-    value : StatusEnum.Canceled,
-    classes: 'text-red-600 bg-red-100 disabled:bg-red-50 disabled:text-red-300',
-    icon: XMarkIcon
-  },
-  {
-    label : 'table.remove',
-    value : StatusEnum.Remove,
-    classes: 'text-black-600 bg-black-100 disabled:bg-black-50 disabled:text-black-300',
-    icon: TrashIcon
-  }
-]
-
 const toggle = async (value: StatusEnum) => {
   state.value = {...state.value,status:value}
-  put(`/api/${props.route}/${state.value.id}`, state.value).then(response => {
+  put(`/api/${props.route}/${state.value.id}`, state.value).then(async response => {
     if (response?.data) {
       successNotification(i18n.global.t('message.update_success'))
+      await props.fetch()
     }
   })
 

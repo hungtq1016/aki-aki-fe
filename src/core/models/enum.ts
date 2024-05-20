@@ -10,5 +10,11 @@ export enum StatusEnum {
   Pending,
   Completed,
   Canceled,
-  Remove
+  Remove,
+  Accepted,
+  Rejected,
+  NotPaid,
+  HalfPaid,
+  FullyPaid,
+  Overdue
 }

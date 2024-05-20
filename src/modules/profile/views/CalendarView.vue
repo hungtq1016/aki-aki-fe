@@ -23,8 +23,8 @@ import { useUserStore } from '@/core/stores/user';
 const { user } = useUserStore()
 
 onMounted(async()=>{
+  email.value = String(user.email)
   await fetch()
-  email.value = String(user.email || '')
 })
 
 </script>

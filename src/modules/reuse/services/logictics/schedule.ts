@@ -11,6 +11,7 @@ import type { TBranch } from '@/modules/admin-branch/models/type'
 import type { TScheduleRequest } from '@/modules/admin-schedule/models/type'
 import type { TPaginationResponse } from '@/core/models/type'
 import type { TService } from '@/modules/admin-service/models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TScheduleRequest = {
     email: '',
@@ -20,7 +21,8 @@ const init_state: TScheduleRequest = {
     phoneNumber: '',
     time: '',
     serviceId: '-1',
-    branchId: '-1'
+    branchId: '-1',
+    status: StatusEnum.Pending
 }
 
 export const services: Ref<TService[]> = ref([])

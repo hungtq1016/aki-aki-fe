@@ -1,8 +1,10 @@
+import { format } from 'date-fns';
 import { ref } from "vue";
 import type { TInputFormat, TOutputFormat } from "../../models/type";
 import { get } from "@/core/services/helpers/request.helper";
 import { transformData } from "./chart";
 import type { ApexOptions } from "apexcharts";
+import { currency } from '@/core/services/utils/util.number';
 
 export const state = ref<TOutputFormat>({
     series: [],
@@ -60,9 +62,14 @@ export const apexOptions : ApexOptions = {
     dataLabels: {
         enabled: false
     },
+    yaxis:{
+        labels:{
+            formatter:currency
+        } 
+    },
     xaxis: {
         type: 'category',
-        categories: state.value.labels
+        categories: state.value.labels,
     },
     legend: {
         position: 'top',

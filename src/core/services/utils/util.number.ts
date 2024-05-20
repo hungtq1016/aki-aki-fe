@@ -50,11 +50,11 @@ export const formatToPhone = (event: any) => {
   else if(input.length > 0){event.target.value = `(${areaCode}`;}
 };
 
-export const currency = (number: number) => {
+export const currency = (number: number | string) => {
   const formatter = new Intl.NumberFormat('vi-VN', {
     style: 'currency',
     currency: 'VND',
   });
 
-  return formatter.format(number)
+  return formatter.format(Number(number))
 }
