@@ -11,9 +11,10 @@ import type { TPagination, TPaginationResponse } from "@/core/models/type"
 import type { TUser } from "@/modules/admin-oauth2/models/type"
 import type { Ref } from "vue"
 import type { TRecord, TRecordRequest } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TRecordRequest = {
-    enable: true,
+    status: StatusEnum.Active,
     birthDay: '',
     gender: '-1',
     address: '',

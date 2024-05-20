@@ -6,11 +6,12 @@ import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TInvoice } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 export const items = ref<TInvoice[]>([
   {
     id: v4(),
-    enable: true,
+    status: StatusEnum.Active,
     total: 0,
     tax: 0,
     patientId: '-1',

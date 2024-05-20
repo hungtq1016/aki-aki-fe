@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 
-import { EnableEnum } from '@/core/models/enum'
+import { StatusEnum } from '@/core/models/enum'
 
 import type { Header } from 'vue3-easy-data-table'
 import type { TPagination, TPaginationRequest } from '@/core/models/type'
@@ -23,7 +23,7 @@ export type TClientRequest = {
 export const paginationOptions = ref<TPaginationRequest>({
   pageNumber: 1,
   pageSize: 10,
-  enable: EnableEnum.ALL
+  status: StatusEnum.Active
 })
 
 export const init_pagination: TPagination = {

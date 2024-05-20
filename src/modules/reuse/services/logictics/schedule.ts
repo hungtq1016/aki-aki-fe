@@ -49,7 +49,7 @@ watch(dateTime, (newValue) => {
 
 export const fetchServices = async () => {
 
-    get<TPaginationResponse<TService>>('/api/services/group/chuyen-khoa?pageNumber=1&pageSize=20&enable=1').then(response => {
+    get<TPaginationResponse<TService>>('/api/services/group/chuyen-khoa?pageNumber=1&pageSize=20&status=1').then(response => {
         if (response?.data) {
             services.value = response.data.data
         }

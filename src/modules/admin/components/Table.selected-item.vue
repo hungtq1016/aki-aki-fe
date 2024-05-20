@@ -2,7 +2,7 @@
   <Menu as="div" class="relative inline-block text-left mt-2">
     <MenuButton
       :disabled="total === 0"
-      class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-alabaster-500 hover:enabled:bg-gray-50 disabled:bg-gray-100 disabled:ring-0 disabled:text-gray-600"
+      class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-alabaster-500 hover:statusd:bg-gray-50 disabled:bg-gray-100 disabled:ring-0 disabled:text-gray-600"
     >
       {{ total ? $t('table.select_rows', { count: total }) : $t('table.select_action') }}
       <ChevronDownIcon class="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -61,9 +61,9 @@ const props = defineProps<{
 const route = getPath('api.' + props.route)
 const actions = [
   {
-    text: 'table.disable_all',
+    text: 'table.inactive_all',
     action: async () => {
-      props.items.map((item) => (item.enable = false))
+      props.items.map((item) => (item.status = false))
       await put<any, boolean>(route, props.items)
       await props.fetch()
     },
@@ -80,9 +80,9 @@ const actions = [
     class: 'text-red-600'
   },
   {
-    text: 'table.enable_all',
+    text: 'table.active_all',
     action: async () => {
-      props.items.map((item) => (item.enable = true))
+      props.items.map((item) => (item.status = true))
       await put<any, boolean>(route, props.items)
       await props.fetch()
     },

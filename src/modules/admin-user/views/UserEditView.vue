@@ -49,7 +49,7 @@
       </FormGroup>
     </FormItem>
     <FormItem>
-      <PublishView v-model="state.enable" :pass="pass" />
+      <PublishView v-model="state.status" :pass="pass" />
       <ImageView v-model="state.imageUrl" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
     </FormItem>
   </FormLayout>

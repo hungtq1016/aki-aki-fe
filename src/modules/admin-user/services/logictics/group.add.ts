@@ -10,11 +10,12 @@ import type { TRole, TRoleResponse } from '@/modules/admin-oauth2/models/type'
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import { useDebounceFn } from '@vueuse/core'
 import { paginationOptions } from '../data/group'
+import { StatusEnum } from '@/core/models/enum'
 
 export const init_state: TGroupRequest = {
   userId: '-1',
   roleId: '-1',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive({ ...init_state })
@@ -52,7 +53,7 @@ export const submit = async () => {
       id: v4(),
       userId: state.userId,
       roleId: element.id,
-      enable: true
+      status: StatusEnum.Active
     }
     const data = await post<TGroupRequest, TGroup>('/api/groups', payload)
     if (data?.data) {

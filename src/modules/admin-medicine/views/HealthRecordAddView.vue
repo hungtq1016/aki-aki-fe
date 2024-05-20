@@ -108,7 +108,7 @@
       </FormGroup>
     </FormItem>
     <FormItem>
-      <PublishView v-model="state.enable" :pass="pass" />
+      <PublishView v-model="state.status" :pass="pass" />
       <FormGroup :has-error="[Boolean(errorFields?.userId?.length)]">
         <template #heading>
           {{ $t('form.information') }}

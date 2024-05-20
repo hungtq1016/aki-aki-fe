@@ -6,6 +6,7 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 
 import type { TBranch, TBranchRequest, TBranchType } from '../../models/type'
 import type { Ref } from 'vue'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TBranchRequest = {
   address1: '',
@@ -15,7 +16,7 @@ const init_state: TBranchRequest = {
   addressEmbed: '',
   name: '',
   typeId: '-1',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive<TBranchRequest>({ ...init_state })

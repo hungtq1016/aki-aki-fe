@@ -5,10 +5,11 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TBranchType, TBranchTypeRequest } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TBranchTypeRequest = {
   label: '',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive<TBranchTypeRequest>({ ...init_state })

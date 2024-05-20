@@ -7,6 +7,7 @@ import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TServicePrice } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 export const items = ref<TServicePrice[]>([
   {
@@ -15,7 +16,7 @@ export const items = ref<TServicePrice[]>([
     price: 0,
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    enable: true
+    status: StatusEnum.Active
   }
 ])
 

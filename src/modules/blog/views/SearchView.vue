@@ -16,7 +16,7 @@ import BlogPagination from '../components/Blog.pagination.vue'
 import { get } from '@/core/services/helpers/fetcher.helper'
 import type { TBlog, TCategoryResponse } from '@/modules/admin-blog/models/type'
 import type { TPagination, TPaginationRequest, TPaginationResponse } from '@/core/models/type'
-import { EnableEnum } from '@/core/models/enum'
+import { StatusEnum } from '@/core/models/enum'
 import { i18n } from '@/core/services/base/translation'
 
 const route = useRoute()
@@ -25,7 +25,7 @@ const blogs: Ref<TBlog[]> = ref([])
 const data: Ref<TCategoryResponse> = ref({
   blogs: [],
   createdAt: '',
-  enable: true,
+  status: StatusEnum.Active,
   id: '',
   slug: 'search',
   title: 'search',
@@ -35,7 +35,7 @@ const data: Ref<TCategoryResponse> = ref({
 const paginationOptions = ref<TPaginationRequest>({
   pageNumber: 1,
   pageSize: 12,
-  enable: EnableEnum.ALL
+  status: StatusEnum.Active
 })
 
 const init_pagination: TPagination = {

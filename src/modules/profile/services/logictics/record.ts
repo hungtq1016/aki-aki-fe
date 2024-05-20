@@ -6,11 +6,12 @@ import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TRecord } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 export const items = ref<TRecord[]>([
   {
     id: v4(),
-    enable: true,
+    status: StatusEnum.Active,
     birthDay: '',
     gender: '-1',
     address: '',

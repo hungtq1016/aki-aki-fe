@@ -11,7 +11,7 @@ import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TSchedule, TScheduleRequest } from '../../models/type'
 import type { TService } from '@/modules/admin-service/models/type'
 import type { TBranch } from '@/modules/admin-branch/models/type'
-import { format } from 'date-fns'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TScheduleRequest = {
   date: new Date(),
@@ -22,7 +22,7 @@ const init_state: TScheduleRequest = {
     serviceId: '-1',
     time: "",
     email: '-1',
-    enable: true
+    status: StatusEnum.Active
 }
 export const time = ref()
 export const date = ref(new Date)
@@ -53,7 +53,7 @@ export const fetchUsers = async (): Promise<void> => {
 
 export const fetchServices = async () => {
 
-  get<TPaginationResponse<TService>>('/api/services/group/chuyen-khoa?pageNumber=1&pageSize=20&enable=1').then(response => {
+  get<TPaginationResponse<TService>>('/api/services/group/chuyen-khoa?pageNumber=1&pageSize=20&status=1').then(response => {
       if (response?.data) {
           services.value = response.data.data
       }

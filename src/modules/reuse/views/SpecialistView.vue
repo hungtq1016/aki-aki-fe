@@ -34,7 +34,7 @@ const isHomePage = computed(() => route.name == 'home')
 const specialists = ref<TService[]>(data.value)
 
 onMounted(() => {
-  get<TPaginationResponse<TService>>('/api/services/group/chuyen-khoa?pageNumber=1&pageSize=6&enable=1').then(
+  get<TPaginationResponse<TService>>('/api/services/group/chuyen-khoa?pageNumber=1&pageSize=6&status=1').then(
     (res) => {
       if (res?.data) {
         specialists.value = res.data.data

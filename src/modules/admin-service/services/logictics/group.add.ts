@@ -6,11 +6,12 @@ import { resetObject } from '@/core/services/utils/util.object'
 import { slugify } from '@/core/services/utils/util.string'
 
 import type { TGroupService, TGroupServiceRequest } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TGroupServiceRequest = {
   label: '',
   slug: '',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive<TGroupServiceRequest>({ ...init_state })

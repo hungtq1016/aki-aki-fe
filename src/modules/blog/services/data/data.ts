@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import type { TBlog, TBlogDetail } from '../../models/type'
 import type { TCategory } from '@/modules/admin-blog/models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const categories = ref<Array<TCategory>>([
   {
@@ -8,7 +9,7 @@ const categories = ref<Array<TCategory>>([
     slug: '/healthcare',
     createdAt: '',
     updatedAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     id: '2'
   },
   {
@@ -16,7 +17,7 @@ const categories = ref<Array<TCategory>>([
     slug: '/service',
     createdAt: '',
     updatedAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     id: '3'
   },
   {
@@ -24,7 +25,7 @@ const categories = ref<Array<TCategory>>([
     slug: '/sale',
     createdAt: '',
     updatedAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     id: '4'
   },
   {
@@ -32,7 +33,7 @@ const categories = ref<Array<TCategory>>([
     slug: '/information',
     createdAt: '',
     updatedAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     id: '5'
   }
 ])

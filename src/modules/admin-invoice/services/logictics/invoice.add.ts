@@ -11,6 +11,7 @@ import { paginationOptions } from "../data/invoice"
 import { useDebounceFn } from "@vueuse/core"
 import type { TRecord } from "@/modules/admin-medicine/models/type"
 import { v4 } from "uuid"
+import { StatusEnum } from "@/core/models/enum"
 
 
 const init_state: TInvoiceRequest = {
@@ -19,7 +20,7 @@ const init_state: TInvoiceRequest = {
     healthRecordId: '-1',
     nurseId: '-1',
     patientId: '-1',
-    enable: true
+    status: StatusEnum.Active
 }
 
 export const state = reactive<TInvoiceRequest>({ ...init_state })

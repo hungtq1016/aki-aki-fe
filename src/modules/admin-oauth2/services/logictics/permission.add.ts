@@ -5,11 +5,12 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TPermission, TPermissionRequest } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TPermissionRequest = {
   type: 'permission',
   value: '',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive<TPermissionRequest>({ ...init_state })

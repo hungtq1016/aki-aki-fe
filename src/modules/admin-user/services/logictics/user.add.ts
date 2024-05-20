@@ -5,6 +5,7 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TUserRequest, TUser } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TUserRequest = {
   fullName: '',
@@ -13,7 +14,7 @@ const init_state: TUserRequest = {
   address: '',
   phoneNumber: '',
   imageUrl: '',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive<TUserRequest>({ ...init_state })

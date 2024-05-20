@@ -5,10 +5,11 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TGroupUrl, TGroupUrlRequest } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TGroupUrlRequest = {
   label: '',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive<TGroupUrlRequest>({ ...init_state })

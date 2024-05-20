@@ -1,5 +1,5 @@
 import type { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
-import type { EnableEnum } from './enum'
+import type { StatusEnum } from './enum'
 
 export type BaseTypeIcon = FunctionalComponent<HTMLAttributes & VNodeProps, {}, any, {}>
 export type BaseInputType =
@@ -61,7 +61,7 @@ export type TSidebarItem = {
 export type TPaginationRequest = {
   pageNumber: number
   pageSize: number
-  enable: EnableEnum
+  status: StatusEnum
 }
 
 export type TOption = {
@@ -73,10 +73,10 @@ export type TEntity = {
   id: string
   createdAt: string
   updatedAt: string
-  enable: boolean
+  status: StatusEnum
 }
 
 export type TRequest = {
   id?: string
-  enable?: boolean
+  status?: StatusEnum
 }

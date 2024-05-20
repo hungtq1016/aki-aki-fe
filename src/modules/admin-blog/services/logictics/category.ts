@@ -7,6 +7,7 @@ import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TCategory } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 export const items = ref<TCategory[]>([
   {
@@ -15,7 +16,7 @@ export const items = ref<TCategory[]>([
     slug: 'mock-data',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    enable: true
+    status: StatusEnum.Active
   }
 ])
 

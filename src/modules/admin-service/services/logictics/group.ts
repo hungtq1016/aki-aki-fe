@@ -6,6 +6,7 @@ import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TGroupService } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 export const items = ref<TGroupService[]>([
   {
@@ -14,7 +15,7 @@ export const items = ref<TGroupService[]>([
     slug: '',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    enable: true
+    status: StatusEnum.Active
   }
 ])
 

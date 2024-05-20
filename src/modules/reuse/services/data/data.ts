@@ -9,7 +9,7 @@ const specialists = ref<Array<TService>>([
     slug: '/specialist/khoa-nhiem',
     content: '',
     createdAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     groupId: '',
     id: '',
     updatedAt: '',
@@ -22,7 +22,7 @@ const specialists = ref<Array<TService>>([
     slug: '/specialist/khoa-nhiem',
     content: '',
     createdAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     groupId: '',
     id: '',
     updatedAt: '',
@@ -40,7 +40,7 @@ const faqs = ref<Array<TFaq>>([
     id: '',
     createdAt: '',
     updatedAt: '',
-    enable: true
+    status: StatusEnum.Active
   },
   {
     question: 'Đội ngũ y Bác sĩ có nhận đào tạo học viên?',
@@ -50,7 +50,7 @@ const faqs = ref<Array<TFaq>>([
     id: '',
     createdAt: '',
     updatedAt: '',
-    enable: true
+    status: StatusEnum.Active
   },
   {
     question: 'AKIAKI thành lập từ khi nào?',
@@ -60,7 +60,7 @@ const faqs = ref<Array<TFaq>>([
     id: '',
     createdAt: '',
     updatedAt: '',
-    enable: true
+    status: StatusEnum.Active
   },
   {
     question: 'Giá cả ở AKIAKI có mắc quá không bạn ?',
@@ -70,7 +70,7 @@ const faqs = ref<Array<TFaq>>([
     id: '',
     createdAt: '',
     updatedAt: '',
-    enable: true
+    status: StatusEnum.Active
   }
 ])
 
@@ -86,7 +86,7 @@ const services = ref<Array<TService>>([
     groupId: '',
     videoEmbed: '',
     id: '1',
-    enable: true
+    status: StatusEnum.Active
   },
   {
     imageUrl: 'special2.png',
@@ -99,7 +99,7 @@ const services = ref<Array<TService>>([
     groupId: '',
     videoEmbed: '',
     id: '1',
-    enable: true
+    status: StatusEnum.Active
   },
   {
     imageUrl: 'special1.png',
@@ -112,7 +112,7 @@ const services = ref<Array<TService>>([
     groupId: '',
     videoEmbed: '',
     id: '1',
-    enable: true
+    status: StatusEnum.Active
   },
   {
     imageUrl: 'special2.png',
@@ -125,7 +125,7 @@ const services = ref<Array<TService>>([
     groupId: '',
     videoEmbed: '',
     id: '1',
-    enable: true
+    status: StatusEnum.Active
   }
 ])
 

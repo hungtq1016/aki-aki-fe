@@ -14,13 +14,14 @@ import { categories as data } from '../services/data/data'
 import { onMounted, ref, type Ref } from 'vue'
 import type { TCategory } from '@/modules/admin-blog/models/type'
 import { get } from '@/core/services/helpers/fetcher.helper'
+import { StatusEnum } from '@/core/models/enum'
 
 const all = {
   title: 'route.blogs',
   slug: '',
   createdAt: '',
   updatedAt: '',
-  enable: true,
+  status: StatusEnum.Active,
   id: '1'
 }
 

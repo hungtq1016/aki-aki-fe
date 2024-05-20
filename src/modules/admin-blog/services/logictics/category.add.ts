@@ -6,11 +6,12 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TCategory, TCategoryRequest } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TCategoryRequest = {
   title: '',
   slug: '',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive<TCategoryRequest>({ ...init_state })

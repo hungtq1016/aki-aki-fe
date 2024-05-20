@@ -9,6 +9,7 @@ import UploadAdapter from '@/core/services/classes/UploadFile'
 
 import type { TGroupService, TService, TServiceRequest } from '../../models/type'
 import type { Ref } from 'vue'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TServiceRequest = {
   title: '',
@@ -18,7 +19,7 @@ const init_state: TServiceRequest = {
   desc: '',
   videoEmbed: '',
   groupId: '-1',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive<TServiceRequest>({ ...init_state })

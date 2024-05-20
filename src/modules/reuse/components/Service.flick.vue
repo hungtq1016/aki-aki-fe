@@ -29,7 +29,7 @@ const plugins = [new Arrow()]
 const services = ref<TService[]>(data.value)
 
 onMounted(() => {
-  get<TPaginationResponse<TService>>('/api/services/group/dich-vu?pageNumber=1&pageSize=6&enable=1').then(
+  get<TPaginationResponse<TService>>('/api/services/group/dich-vu?pageNumber=1&pageSize=6&status=1').then(
     (res) => {
       if (res?.data) {
         services.value = res.data.data

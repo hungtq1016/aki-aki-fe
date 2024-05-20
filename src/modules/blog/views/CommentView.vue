@@ -44,6 +44,7 @@ import { i18n } from '@/core/services/base/translation'
 import { useUserStore } from '@/core/stores/user'
 
 import type { TCommentRequest } from '../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const { user, isLogin } = useUserStore()
 
@@ -62,7 +63,7 @@ const submitComment = async () => {
       content: content.value,
       parentId: commentId,
       id: commentId,
-      enable: true,
+      status: StatusEnum.Active,
       left: 1,
       right: 1
     }

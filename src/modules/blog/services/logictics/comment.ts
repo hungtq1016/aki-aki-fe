@@ -2,7 +2,7 @@ import { get, post } from '@/core/services/helpers/fetcher.helper'
 import type { TCommentRequest, TCommentResponse } from '../../models/type'
 import { ref, type Ref } from 'vue'
 import type { TPagination, TPaginationRequest, TPaginationResponse } from '@/core/models/type'
-import { EnableEnum } from '@/core/models/enum'
+import { StatusEnum } from '@/core/models/enum'
 
 export const comments: Ref<TCommentResponse[]> = ref([])
 
@@ -24,7 +24,7 @@ export const isLast: Ref<boolean> = ref(false)
 export const paginationOptions = ref<TPaginationRequest>({
   pageNumber: 1,
   pageSize: 5,
-  enable: EnableEnum.ALL
+  status: StatusEnum.Active
 })
 export const fetch = async (blogId: string): Promise<void> => {
   if (!isLast.value) {

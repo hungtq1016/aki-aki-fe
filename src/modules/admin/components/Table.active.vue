@@ -1,28 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <!-- <div v-swi></div>
-  <button
-    v-if="item.enable"
-    @click="toggle"
-    class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 whitespace-nowrap"
-  >
-    {{ $t('content.active') }}
-  </button>
-  <button
-    v-else
-    @click="toggle"
-    class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20 whitespace-nowrap"
-  >
-    {{ $t('content.inactive') }}
-  </button> -->
   <Menu as="div" class="relative inline-block text-left">
       <div>
-        <MenuButton
-          class="inline-flex w-full justify-center rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+        <MenuButton :class="[className.classes]"
+          class="inline-flex justify-center rounded-md m-1 p-2 text-sm font-medium  hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
         >
-          Options
+          <span >{{$t(className.label)}}</span>
           <ChevronDownIcon
-            class="-mr-1 ml-2 h-5 w-5 text-violet-200 hover:text-violet-100"
+            class="-mr-1 ml-2 h-5 w-5"
             aria-hidden="true"
           />
         </MenuButton>
@@ -37,22 +22,22 @@
         leave-to-class="transform scale-95 opacity-0"
       >
         <MenuItems
-          class="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+          class="absolute z-10 right-0 origin-top-right divide-y divide-gray-100 bg-gray-50 rounded-md ring-1 ring-black/5 focus:outline-none"
         >
-          <div class="px-1 py-1">
-            <MenuItem v-slot="{ active }">
-              <button
-                :class="[
-                  active ? 'bg-violet-500 text-white' : 'text-gray-900',
-                  'group flex w-full items-center rounded-md px-2 py-2 text-sm',
-                ]"
+          <div class="py-2">
+            <MenuItem v-slot="{ active }"
+            v-for="stat in status" :key="stat.value">
+              <button @click="()=>toggle(stat.value)"
+              :disabled="stat === className"
+                :class="[ 'group flex w-full items-center px-2 py-2 text-sm min-w-46',stat.classes ]"
               >
-                <EditIcon
+                <component :is="stat.icon"
                   :active="active"
-                  class="mr-2 h-5 w-5 text-violet-400"
+                  class="mr-2 h-5 w-5 !bg-transparent"
+                 
                   aria-hidden="true"
                 />
-                Edit
+                {{ $t(stat.label) }}
               </button>
             </MenuItem>
            
@@ -64,13 +49,14 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ref, watch } from 'vue'
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+import { CheckCircleIcon, CheckIcon, ClockIcon, NoSymbolIcon, TrashIcon, XMarkIcon, ChevronDownIcon } from '@heroicons/vue/24/outline'
+
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { put } from '@/core/services/helpers/request.helper'
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 import { i18n } from '@/core/services/base/translation'
-
-import { getPath } from '@/core/services/utils/util.url'
+import { StatusEnum } from '@/core/models/enum'
 
 import type { Item } from 'vue3-easy-data-table'
 
@@ -80,23 +66,64 @@ const props = defineProps<{
   route: string
 }>()
 
+const state = ref(props.item)
+// eslint-disable-next-line vue/return-in-computed-property
+const className = computed(()=>{
+  const result = status.find(item => item.value == props.item.status) || status[0]
+  return result
+})
+
+watch(()=>props.item,(newValue)=>{
+  state.value = newValue
+},{deep:true})
+
+
 const status = [
   {
     label : 'table.active',
-    value : 'active',
-    classes: '',
-    
+    value : StatusEnum.Active,
+    classes: 'text-green-600 bg-green-100 disabled:bg-green-50 disabled:text-green-300',
+    icon: CheckIcon
+  },
+  {
+    label : 'table.inactive',
+    value : StatusEnum.Inactive,
+    classes: 'text-gray-600 bg-gray-100 disabled:bg-gray-50 disabled:text-gray-300',
+    icon: NoSymbolIcon
+  },
+  {
+    label : 'table.pending',
+    value : StatusEnum.Pending,
+    classes: 'text-yellow-600 bg-yellow-100 disabled:bg-yellow-50 disabled:text-yellow-300',
+    icon: ClockIcon
+  },
+  {
+    label : 'table.completed',
+    value : StatusEnum.Completed,
+    classes: 'text-blue-600 bg-blue-100 disabled:bg-blue-50 disabled:text-blue-300',
+    icon: CheckCircleIcon
+  },
+  {
+    label : 'table.canceled',
+    value : StatusEnum.Canceled,
+    classes: 'text-red-600 bg-red-100 disabled:bg-red-50 disabled:text-red-300',
+    icon: XMarkIcon
+  },
+  {
+    label : 'table.remove',
+    value : StatusEnum.Remove,
+    classes: 'text-black-600 bg-black-100 disabled:bg-black-50 disabled:text-black-300',
+    icon: TrashIcon
   }
 ]
 
-const toggle = async () => {
-  // eslint-disable-next-line vue/no-mutating-props
-  props.item.enable = !props.item.enable
+const toggle = async (value: StatusEnum) => {
+  state.value = {...state.value,status:value}
+  put(`/api/${props.route}/${state.value.id}`, state.value).then(response => {
+    if (response?.data) {
+      successNotification(i18n.global.t('message.update_success'))
+    }
+  })
 
-  const response = await put(`${getPath('api.' + props.route)}/${props.item.id}`, props.item)
-  if (response?.isError == false) {
-    await props.fetch()
-    successNotification(i18n.global.t('message.update_success'))
-  }
 }
 </script>

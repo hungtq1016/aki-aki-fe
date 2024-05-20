@@ -7,6 +7,7 @@ import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TUser } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 export const items = ref<TUser[]>([
   {
@@ -19,7 +20,7 @@ export const items = ref<TUser[]>([
     imageUrl: 'mock-data',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    enable: true
+    status: StatusEnum.Active
   }
 ])
 export const pagination = ref<TPagination>({ ...init_pagination })

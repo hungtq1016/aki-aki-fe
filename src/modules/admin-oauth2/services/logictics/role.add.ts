@@ -5,11 +5,12 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TRole, TRoleRequest } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TRoleRequest = {
   note: '',
   name: '',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive<TRoleRequest>({ ...init_state })

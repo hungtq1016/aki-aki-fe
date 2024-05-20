@@ -6,6 +6,7 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 
 import type { TGroupUrlRequest, TUrl, TUrlRequest } from '../../models/type'
 import type {Ref} from 'vue'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TUrlRequest = {
   label: '',
@@ -14,7 +15,7 @@ const init_state: TUrlRequest = {
   type: '',
   tag: '',
   groupId: '-1',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const groupurls: Ref<TGroupUrlRequest[]> = ref([])

@@ -6,11 +6,12 @@ import { errorNotification, successNotification } from '@/core/services/helpers/
 import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TAssignment, TAssignmentRequest, TPermission, TPermissionResponse } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state : TAssignmentRequest = {
   roleId: '-1',
   permissionId: '-1',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive({ ...init_state })
@@ -47,7 +48,7 @@ export const submit = async () => {
       id: v4(),
       roleId: state.roleId,
       permissionId: element.id,
-      enable: true
+      status: StatusEnum.Active
     }
     const data = await post<TAssignmentRequest, TAssignment>('/api/assignments', payload)
     if (data?.data) {

@@ -6,11 +6,12 @@ import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TPrescription } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 export const items = ref<TPrescription[]>([
   {
     id: v4(),
-    enable: true,
+    status: StatusEnum.Active,
     doctorId: '-1',
     patientId: '-1',
     createdAt: '2022-01-01',

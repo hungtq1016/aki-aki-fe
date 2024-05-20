@@ -1,4 +1,4 @@
-import { EnableEnum } from './../../../../core/models/enum'
+import { StatusEnum } from './../../../../core/models/enum'
 import { ref } from 'vue'
 import type { TContact, TSocial } from '../../models/type'
 import { AnchorType } from '../../models/enum'
@@ -8,7 +8,7 @@ import type { TBranch, TUrl } from '@/modules/admin-branch/models/type'
 const address = ref<Array<TBranch>>([
   {
     id: '1',
-    enable: Boolean(EnableEnum.ENABLE),
+    status: StatusEnum.Active,
     createdAt: '',
     updatedAt: '',
     name: 'Trụ sở chính: PHÒNG KHÁM AKIAKI',
@@ -21,7 +21,7 @@ const address = ref<Array<TBranch>>([
   },
   {
     id: '1',
-    enable: Boolean(EnableEnum.ENABLE),
+    status: StatusEnum.Active,
     createdAt: '',
     updatedAt: '',
     name: 'PHÒNG KHÁM AKIAKI CỘNG HÒA',
@@ -34,7 +34,7 @@ const address = ref<Array<TBranch>>([
   },
   {
     id: '',
-    enable: Boolean(EnableEnum.ENABLE),
+    status: StatusEnum.Active,
     createdAt: '',
     updatedAt: '',
     name: 'PHÒNG KHÁM AKIAKI TÂN BÌNH',
@@ -46,7 +46,7 @@ const address = ref<Array<TBranch>>([
   },
   {
     id: '1',
-    enable: Boolean(EnableEnum.ENABLE),
+    status: StatusEnum.Active,
     createdAt: '',
     updatedAt: '',
     name: 'PHÒNG KHÁM AKIAKI BÌNH TÂN',
@@ -62,7 +62,7 @@ const contacts = ref<Array<TUrl>>([
   {
     id: '1',
     createdAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     groupId: '',
     imageUrl: '',
     updatedAt: '',
@@ -74,7 +74,7 @@ const contacts = ref<Array<TUrl>>([
   {
     id: '2',
     createdAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     groupId: '',
     imageUrl: '',
     updatedAt: '',
@@ -89,7 +89,7 @@ const socials = ref<Array<TUrl>>([
   {
     id: '1',
     createdAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     groupId: '',
     imageUrl: '',
     updatedAt: '',
@@ -101,7 +101,7 @@ const socials = ref<Array<TUrl>>([
   {
     id: '1',
     createdAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     groupId: '',
     imageUrl: '',
     updatedAt: '',
@@ -113,7 +113,7 @@ const socials = ref<Array<TUrl>>([
   {
     id: '2',
     createdAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     groupId: '',
     imageUrl: '',
     updatedAt: '',
@@ -125,7 +125,7 @@ const socials = ref<Array<TUrl>>([
   {
     id: '3',
     createdAt: '',
-    enable: true,
+    status: StatusEnum.Active,
     groupId: '',
     imageUrl: '',
     updatedAt: '',

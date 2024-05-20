@@ -33,7 +33,7 @@
       <ImageView v-model="state.imageUrl" :has-error="[Boolean(errorFields?.imageUrl?.length)]" />
     </FormItem>
     <FormItem>
-      <PublishView v-model="state.enable" :pass="pass" />
+      <PublishView v-model="state.status" :pass="pass" />
       <FormGroup :has-error="[Boolean(errorFields?.desc?.length), Boolean(errorFields?.videoEmbed?.length)]">
         <template #heading>
           {{ $t('form.content') }}

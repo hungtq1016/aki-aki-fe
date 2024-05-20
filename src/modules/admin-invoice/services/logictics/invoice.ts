@@ -6,6 +6,7 @@ import { get } from '@/core/services/helpers/request.helper'
 
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import type { TInvoice } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 export const items = ref<TInvoice[]>([
   {
@@ -17,7 +18,7 @@ export const items = ref<TInvoice[]>([
     total: 0,
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    enable: true
+    status: StatusEnum.Active
   }
 ])
 

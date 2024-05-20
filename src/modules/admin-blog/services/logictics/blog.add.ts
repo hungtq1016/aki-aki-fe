@@ -9,6 +9,7 @@ import { resetObject } from "@/core/services/utils/util.object"
 import type { TBlog, TBlogRequest, TCategory, TTag } from "../../models/type"
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import UploadAdapter from "@/core/services/classes/UploadFile"
+import { StatusEnum } from "@/core/models/enum"
 
 const init_state: TBlogRequest = {
     title: '',
@@ -18,7 +19,7 @@ const init_state: TBlogRequest = {
     slug: '',
     imageUrl: '',
     categoryId: '-1',
-    enable: true
+    status: StatusEnum.Active
 }
 
 export const categories: Ref<TCategory[]> = ref([])

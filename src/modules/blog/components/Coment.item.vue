@@ -79,6 +79,7 @@ import type { TCommentRequest, TCommentResponse } from '../models/type'
 import { v4 } from 'uuid'
 import { i18n } from '@/core/services/base/translation'
 import { PaperAirplaneIcon } from '@heroicons/vue/24/outline'
+import { StatusEnum } from '@/core/models/enum'
 
 const { user, isLogin } = useUserStore()
 
@@ -124,7 +125,7 @@ const submitComment = async () => {
       content: content.value,
       parentId: props.data.id,
       id: v4(),
-      enable: true,
+      status: StatusEnum.Active,
       left: 1,
       right: 1
     }

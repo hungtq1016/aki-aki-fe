@@ -5,12 +5,13 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TFaq, TFaqRequest } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TFaqRequest = {
   question: '',
   answer: '',
   src:'',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive<TFaqRequest>({ ...init_state })

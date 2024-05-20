@@ -7,11 +7,12 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TTagRequest, TTag } from '../../models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TTagRequest = {
   title: '',
   slug: '',
-  enable: true
+  status: StatusEnum.Active
 }
 
 export const state = reactive<TTagRequest>({ ...init_state })

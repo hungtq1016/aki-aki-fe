@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 
-import { EnableEnum } from '@/core/models/enum'
+import { StatusEnum } from '@/core/models/enum'
 
 import type { Header } from 'vue3-easy-data-table'
 import type { TPagination, TPaginationRequest } from '@/core/models/type'
@@ -11,7 +11,7 @@ export const headers: Header[] = [
   { text: 'table.email', value: 'email' },
   { text: 'table.date', value: 'date' },
   { text: 'table.time', value: 'time' },
-  { text: 'table.enable', value: 'enable' },
+  { text: 'table.status', value: 'status' },
   { text: 'table.createdAt', value: 'createdAt' },
   { text: 'table.updatedAt', value: 'updatedAt' },
   { text: 'table.action', value: 'action' }
@@ -20,7 +20,7 @@ export const headers: Header[] = [
 export const paginationOptions = ref<TPaginationRequest>({
   pageNumber: 1,
   pageSize: 10,
-  enable: EnableEnum.ALL
+  status: StatusEnum.Active
 })
 
 export const init_pagination: TPagination = {
