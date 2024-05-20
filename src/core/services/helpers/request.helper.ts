@@ -71,7 +71,7 @@ async function makeRequest<TRequest, TResponse>(
       } catch (refreshError) {
         console.error('Token refresh failed:', refreshError);
         // Optional: Redirect to login or handle refresh token failure
-        window.location.href = '/login';
+  
         throw refreshError;
       }
     } else {

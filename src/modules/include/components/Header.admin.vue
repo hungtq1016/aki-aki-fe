@@ -19,7 +19,7 @@ const isAdmin = ref<boolean>(false)
 onMounted(async()=>{
   await hasPermission("admin").then(response=>{
     isAdmin.value = response
-    console.log(response)
+
   })
   
 })

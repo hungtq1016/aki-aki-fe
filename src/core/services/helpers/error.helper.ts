@@ -13,7 +13,7 @@ export const errorHandling = async (
       warningNotification(message)
       break;
     case 401:
-        await refreshToken()
+      warningNotification(message)
       break;
     default:
 

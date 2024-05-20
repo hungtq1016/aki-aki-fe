@@ -58,7 +58,7 @@
       <template #item-imageUrl="{ imageUrl }">
         <img :src="imageBuilderUrl(imageUrl)" :alt="imageUrl" class="w-10 h-10 object-cover" />
       </template>
-      <template #item-enable="item">
+      <template #item-status="item">
         <TableActive :item="item" :fetch="fetch" :route="route"/>
       </template>
       <template #item-size="{ size }">

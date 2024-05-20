@@ -1,6 +1,6 @@
 import type { TMenu } from '../../models/type'
 import { NewspaperIcon, HomeIcon, ArrowUturnLeftIcon, ChatBubbleOvalLeftIcon, BriefcaseIcon, BookmarkIcon, BuildingStorefrontIcon, LockClosedIcon, LinkIcon, ClockIcon, UserIcon, RectangleStackIcon, ClipboardDocumentCheckIcon, QuestionMarkCircleIcon } from '@heroicons/vue/24/outline'
-import { checkPermission } from '@/core/services/hooks/usePermission'
+// import { checkPermission } from '@/core/services/hooks/usePermission'
 import { ref } from 'vue'
 export const target = ref()
 export const menus: TMenu[] = [
@@ -185,7 +185,7 @@ export const menus: TMenu[] = [
       },
       {
         icon: BuildingStorefrontIcon,
-        show: checkPermission('admin_branches'),
+        show: true,
         label: 'route.admin_branches',
         slug: '/admin/branches',
         children: [
@@ -285,12 +285,12 @@ export const menus: TMenu[] = [
             slug: '/admin/users/customer'
           },
           {
-            show: checkPermission('admin_users_doctor'),
+            show: true,
             label: 'route.admin_users_doctor',
             slug: '/admin/users/doctor'
           },
           {
-            show: checkPermission('admin_users_all'),
+            show: true,
             label: 'route.admin_users_all',
             slug: '/admin/users/all'
           },
@@ -300,12 +300,12 @@ export const menus: TMenu[] = [
             slug: '/admin/users/add'
           },
           {
-            show: checkPermission('admin_groups'),
+            show: true,
             label: 'route.admin_groups',
             slug: '/admin/groups'
           },
           {
-            show: checkPermission('admin_groups_add'),
+            show: true,
             label: 'route.admin_groups_add',
             slug: '/admin/groups/add'
           }

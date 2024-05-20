@@ -69,13 +69,12 @@ async function makeRequest<TRequest, TResponse>(
         return retryResponse.data;
       } catch (refreshError) {
         console.error('Token refresh failed:', refreshError);
-        // Optional: Redirect to login or handle refresh token failure
-        window.location.href = '/login';
+
         throw refreshError;
       }
     } else {
       console.log(i18n.global.t('error.server_error.message'), err);
-      errorHandling(err.response.data.message, err.response.status);
+      // errorHandling(err.response.data.message, err.response.status);
       throw err;
     }
   }

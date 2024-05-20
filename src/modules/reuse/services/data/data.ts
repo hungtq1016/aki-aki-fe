@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import type { TService } from '@/modules/admin-service/models/type'
 import type { TFaq } from '@/modules/admin-faq/models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const specialists = ref<Array<TService>>([
   {
