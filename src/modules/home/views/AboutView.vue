@@ -12,7 +12,7 @@
               v-html="blog.title"
             />
 
-            <div class="text-justify text-gray-600 max-w-lg">
+            <div class="text-justify text-gray-600 max-w-lg m-auto">
               <p style="font-size: 1rem" v-html="formatText(blog.desc)" />
             </div>
           </div>
@@ -30,7 +30,7 @@ import { get } from '@/core/services/helpers/fetcher.helper'
 const blog: Ref<TBlog> = ref({} as TBlog)
 
 onMounted(() => {
-  get<TBlog>('/api/blogs/slug/tieu-chuan-y-khoa-the-gioi?show=true').then((res) => {
+  get<TBlog>('/api/blogs/slug/tu-van-ve-benh-sau-rang-nguyen-nhan-trieu-chung-va-phong-ngua?show=true').then((res) => {
     if (res?.data) {
       blog.value = res.data
     }
