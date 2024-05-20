@@ -20,10 +20,10 @@ const rules: Rules = {
 
 const submit = async () => {
     try {
-        const data = await post<TEmailRequest, string>('/api/authenticate/send-email', state)
+        const response = await post<TEmailRequest, string>('/api/authenticate/send-email', state)
     
-        if (data?.data) {
-            successNotification(data.data)
+        if (response?.data) {
+            successNotification(response.data)
             return true
         }
         resetObject(state,init_state)

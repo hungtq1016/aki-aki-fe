@@ -55,7 +55,6 @@ const submitSendMail = async () => {
   }
   const response = await submit(payload)
   if (response) {
-    successNotification(i18n.global.t('message.update_success'))
     router.push('/oauth2')
   }
 }

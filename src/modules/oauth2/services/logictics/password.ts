@@ -2,7 +2,8 @@ import { reactive } from 'vue'
 import type { TResetPasswordRequest, TResetPaswordRequest } from '../../models/type'
 import type { InternalRuleItem, Rules, ValidateOption, Values } from 'async-validator'
 import { post } from '@/core/services/helpers/request.helper'
-import { errorNotification } from '@/core/services/helpers/alert.helper'
+import { errorNotification, successNotification } from '@/core/services/helpers/alert.helper'
+import { resetObject } from '@/core/services/utils/util.object'
 
 
 const init_state: TResetPaswordRequest = {
@@ -37,13 +38,15 @@ function passwordConfirming(rule: InternalRuleItem, value: any, callback: (error
   }
 }
 
-const submit = async (payload:TResetPasswordRequest) => {
+const submit = async (payload: TResetPasswordRequest) => {
 
   try {
-    await post<TResetPasswordRequest, boolean>('/api/authenticate/send-reset-password', payload).then(response=>{
-      if (response?.data) return true   
-      return false
-    })
+    const response = await post<TResetPasswordRequest, boolean>('/api/authenticate/send-reset-password', payload)
+    if (response?.data) {
+      successNotification(""+response.data)
+      return true
+    }
+    return false
   } catch (error) {
     errorNotification(String(error))
     return false
