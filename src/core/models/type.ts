@@ -61,7 +61,7 @@ export type TSidebarItem = {
 export type TPaginationRequest = {
   pageNumber: number
   pageSize: number
-  status: StatusEnum
+  status?: StatusEnum
 }
 
 export type TOption = {

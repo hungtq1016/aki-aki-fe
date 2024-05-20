@@ -23,7 +23,6 @@ export type TClientRequest = {
 export const paginationOptions = ref<TPaginationRequest>({
   pageNumber: 1,
   pageSize: 10,
-  status: StatusEnum.Active
 })
 
 export const init_pagination: TPagination = {
