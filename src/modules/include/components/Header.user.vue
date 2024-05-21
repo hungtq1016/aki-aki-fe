@@ -25,7 +25,7 @@
 
         <div class="py-1">
           <MenuItem v-slot="{ active }">
-          <button type="button" @click="logout"
+          <button type="button" @click="userStore.logout"
             class="w-full text-left"
             :class="[active ? 'bg-cerulean-100 text-cerulean-900' : 'text-cerulean-950', 'block px-4 py-2 text-sm']">{{ $t('route.logout') }}</button>
           </MenuItem>
@@ -39,8 +39,13 @@
 import { useUserStore } from '@/core/stores/user';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
+import { storeToRefs } from 'pinia';
+import { onMounted } from 'vue';
 
-const { user, logout } = useUserStore()
+const userStore = useUserStore()
+const { user } = storeToRefs(userStore)
+
+onMounted(()=>userStore.fetchUser())
 
 const navigations = [
   {
