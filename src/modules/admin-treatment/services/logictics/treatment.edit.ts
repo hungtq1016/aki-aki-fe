@@ -32,11 +32,15 @@ export const fetch = async (id: string): Promise<void> => {
   })
 }
 
+export const activityTitle = (id:string) => {
+  return activities.value.find(act => act.id == id)?.title
+}
 
 export const addToDetails = () => {
   selectedDetails.value.push({
     activityId: activity.value,
-    treatmentId: v4()
+    treatmentId: v4(),
+    date: new Date()
   })
   const detail = activities.value.find(e => e.id == activity.value)
   if (detail !== undefined) details.value.push(detail)
@@ -44,8 +48,8 @@ export const addToDetails = () => {
 }
 
 export const removeFromDetail = (index: number) => {
-  if (index >= 0 && index < details.value.length) {
-    details.value.splice(index, 1);
+  if (index >= 0 && index < selectedDetails.value.length) {
+    selectedDetails.value.splice(index, 1);
   }
 }
 

@@ -30,7 +30,7 @@
             </button>
           </div>
           <div class="flex flex-col gap-2">
-            <div v-for="(data,index) in details" :key="index">
+            <div v-for="(data,index) in selectedDetails" :key="index">
               <div class="border border-gray-100 relative dark:border-zinc-900 rounded-md">
                 <button type="button" @click="()=>removeFromDetail(index)"
                   class="absolute top-2 right-4 w-4 h-4 peer text-cerulean-600 bg-gray-100 border-gray-300 rounded checked:accent-cerulean-600"
@@ -38,14 +38,18 @@
                   <XMarkIcon class="w-4 h-4"/>
                   </button>
                 <div
-                  class="flex justify-between px-4 py-2 bg-gray-100 peer-checked:bg-cerulean-100 dark:peer-checked:!bg-slate-950 dark:bg-zinc-950">
-                  <div class="flex gap-x-1 items-center text-gray-950 text-sm font-semibold dark:text-gray-50">
-                    {{ $t('content.week') }} {{ index+1 }}
+                  class="flex gap-4 px-4 py-2 bg-gray-100 peer-checked:bg-cerulean-100 dark:peer-checked:!bg-slate-950 dark:bg-zinc-950">
+                  <div>
+                    <VueDatePicker 
+                      v-model="data.date" 
+                      :min-date="minDate(index)"
+                      :format-locale="vi" format="dd/MM/yyyy" 
+                      auto-apply />
                   </div>
                 </div>
                 <div
                   class="border-t border-gray-100 bg-gray-50 px-4 dark:border-zinc-900 py-2 text-xs text-gray-600 peer-checked:bg-cerulean-50 dark:bg-zinc-800 dark:text-gray-300 dark:peer-checked:!bg-slate-900">
-                    {{ data?.title }}
+                    {{ activityTitle(data.activityId) }}
                 </div>
               </div>
             </div>
@@ -84,18 +88,25 @@ import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
 import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 
-import { debouncedPatient, activities, fetchActivities, fetchPatients, pagination, patients, searchPatient, state, submit, removeFromDetail, details, activity, addToDetails } from '../services/logictics/treatment.add'
+import { debouncedPatient, activities, fetchActivities, fetchPatients, pagination, patients, searchPatient, state, submit, removeFromDetail, details, activity, addToDetails, selectedDetails, activityTitle } from '../services/logictics/treatment.add'
 import { paginationOptions, rules } from '../services/data/treatment'
 import { useRoute } from 'vue-router'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 import { PlusIcon } from '@heroicons/vue/24/outline'
 import { XMarkIcon } from '@heroicons/vue/24/solid'
+import { vi } from 'date-fns/locale';
 
 
 const route = useRoute()
 const { pass, errorFields } = useAsyncValidator(state, rules) 
 
+const minDate = (index:number) => {
+  if (index == 0) {
+    return new Date()
+  }
+  return new Date(selectedDetails.value[index-1].date)
+}
 
 onMounted(async() => {
   await fetchPatients(String(route.query.email || ''))

@@ -33,16 +33,21 @@ export const selectedDetails = ref<TTreatmentDetailRequest[]>([])
 export const addToDetails = () => {
   selectedDetails.value.push({
     activityId: activity.value,
-    treatmentId: v4()
+    treatmentId: v4(),
+    date: new Date()
   })
   const detail = activities.value.find(e => e.id == activity.value)
   if(detail !== undefined) details.value.push(detail)
   activity.value = ''
 }
 
+export const activityTitle = (id:string) => {
+  return activities.value.find(act => act.id == id)?.title
+}
+
 export const removeFromDetail = (index: number) => {
-  if (index >= 0 && index < details.value.length) {
-    details.value.splice(index, 1);
+  if (index >= 0 && index < selectedDetails.value.length) {
+    selectedDetails.value.splice(index, 1);
   }
 }
 

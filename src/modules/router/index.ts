@@ -14,14 +14,6 @@ const clientRoute: RouteRecordRaw = {
       }
     },
     {
-      path: '/helloworld',
-      name: 'helloworld',
-      component: () => import('@/core/views/HelloworldView.vue'),
-      meta: {
-        title: 'helloworld'
-      }
-    },
-    {
       path: 'about',
       component: () => import('@/core/views/AboutView.vue'),
       children: [
@@ -168,6 +160,27 @@ const clientRoute: RouteRecordRaw = {
               }
             }
           ]
+        },
+        {
+          path: 'treatment',
+          children:[
+            {
+              path: '',
+              name: 'treatment',
+              component: () => import('@/modules/profile/views/TreatmentView.vue'),
+              meta: {
+                title: 'route.treatment'
+              }
+            },
+            {
+              path: ':id',
+              name: 'treatment_detail',
+              component: () => import('@/modules/profile/views/TreatmentDetailView.vue'),
+              meta: {
+                title: 'route.treatment_detail'
+              }
+            }
+          ]
         }
       ]
     },
@@ -208,7 +221,15 @@ const clientRoute: RouteRecordRaw = {
           }
         }
       ]
-    }
+    },
+    {
+      path: '/helloworld',
+      name: 'helloworld',
+      component: () => import('@/core/views/HelloworldView.vue'),
+      meta: {
+        title: 'helloworld'
+      }
+    },
   ]
 }
 

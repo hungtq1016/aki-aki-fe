@@ -120,3 +120,9 @@ export type TInvoiceResponse = TEntity & {
   healthRecordId: string;
   invoiceDetails: TInvoiceDetailResponse[];
 }
+
+
+export type DateMonth = {
+  month: number,
+  year: number
+}

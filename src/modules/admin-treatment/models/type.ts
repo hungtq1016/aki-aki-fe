@@ -21,16 +21,19 @@ export type TTreatmentPlantRequest = TRequest & {
 export type TTreatmentDetail = TEntity & {
   treatmentId: string
   activityId: string
+  date: Date
 }
 
 export type TTreatmentDetailResponse = TEntity & {
   treatmentId: string
   activityId: string
+  date: Date
 }
 
 export type TTreatmentDetailRequest = TRequest & {
   treatmentId: string
   activityId: string
+  date: Date
 }
 
 export type TActivity = TEntity & {

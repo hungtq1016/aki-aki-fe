@@ -37,6 +37,12 @@ const aside = [
     label: 'route.invoice',
     slug: '/profile/invoice',
     icon: CircleStackIcon
+  },
+  {
+    id: '5',
+    label: 'route.treatment',
+    slug: '/profile/treatment',
+    icon: CircleStackIcon
   }
 ]
 </script>
