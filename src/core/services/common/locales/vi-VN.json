@@ -89,6 +89,7 @@
     }
   },
   "form": {
+    "select_doctor":"Chọn bác sĩ điều trị",
     "address": "Địa chỉ",
     "address1": "Địa chỉ 1",
     "address2": "Địa chỉ 2",

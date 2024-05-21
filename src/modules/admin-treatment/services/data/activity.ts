@@ -8,7 +8,8 @@ import type { Rules } from 'async-validator'
 
 export const headers: Header[] = [
   { text: 'table.id', value: 'id', width: 100 },
-  { text: 'table.label', value: 'label', sortable: true },
+  { text: 'table.title', value: 'title', sortable: true },
+  { text: 'table.desc', value: 'description' },
   { text: 'table.status', value: 'status' },
   { text: 'table.createdAt', value: 'createdAt' },
   { text: 'table.updatedAt', value: 'updatedAt' },
@@ -33,7 +34,13 @@ export const init_pagination: TPagination = {
 }
 
 export const rules: Rules = {
-  label: {
+  title: {
+    type: 'string',
+    min: 5,
+    max: 255,
+    required: true
+  },
+  description: {
     type: 'string',
     min: 5,
     max: 255,

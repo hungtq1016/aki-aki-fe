@@ -1,47 +1,49 @@
 import type { TEntity, TRequest } from '@/core/models/type'
 
-export type TService = TEntity & {
+export type TTreatmentPlant = TEntity & {
+  title: string,
+  description: string,
+  patientId: string,
+}
+
+export type TTreatmentPlantResponse = TEntity & {
+  title: string,
+  description: string,
+  patientId: string,
+}
+
+export type TTreatmentPlantRequest = TRequest & {
+  title: string,
+  description: string,
+  patientId: string,
+}
+
+export type TTreatmentDetail = TEntity & {
+  treatmentId: string
+  activityId: string
+}
+
+export type TTreatmentDetailResponse = TEntity & {
+  treatmentId: string
+  activityId: string
+}
+
+export type TTreatmentDetailRequest = TRequest & {
+  treatmentId: string
+  activityId: string
+}
+
+export type TActivity = TEntity & {
   title: string
-  slug: string
-  content: string
-  imageUrl: string
-  groupId: string
-  desc: string
-  videoEmbed: string
+  description: string
 }
 
-export type TServiceResponse = TEntity & {
+export type TActivityResponse = TEntity & {
   title: string
-  slug: string
-  content: string
-  imageUrl: string
-  groupId: string
-  desc: string
-  videoEmbed: string
+  description: string
 }
 
-export type TServiceRequest = TRequest & {
+export type TActivityRequest = TRequest & {
   title: string
-  slug: string
-  content: string
-  imageUrl: string
-  desc: string
-  groupId: string
-  videoEmbed: string
-}
-
-export type TGroupService = TEntity & {
-  label: string
-  slug: string
-}
-
-export type TGroupServiceResponse = TEntity & {
-  label: string
-  slug: string
-  services: TService[]
-}
-
-export type TGroupServiceRequest = TRequest & {
-  label: string
-  slug: string
+  description: string
 }

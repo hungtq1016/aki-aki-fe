@@ -2,23 +2,25 @@
 <template>
   <FormLayout :submit="submit">
     <FormItem>
-      <FormGroup :has-error="[Boolean(errorFields?.label?.length)]">
+      <FormGroup :has-error="[Boolean(errorFields?.title?.length),Boolean(errorFields?.description?.length)]">
         <template #heading>
           {{ $t('form.heading') }}
         </template>
         <template #content>
           <FormInput
-            v-model="state.label"
-            :has-error="Boolean(errorFields?.label?.length)"
-            :placeholder="$t('form.place_holder.label')"
+            v-model="state.title"
+            :has-error="Boolean(errorFields?.title?.length)"
+            :placeholder="$t('form.place_holder.title')"
           >
-            {{ $t('form.label') }}
+            {{ $t('form.title') }}
           </FormInput>
-          <FormInput
-            v-model="state.slug"
-            :disabled="true"
-            :placeholder="$t('form.place_holder.slug')"
-          ></FormInput>
+          <FormTextarea
+              v-model="state.description"
+              :has-error="Boolean(errorFields?.description?.length)"
+              :placeholder="$t('form.place_holder.desc')"
+            >
+            {{ $t('form.desc') }}
+          </FormTextarea>
         </template>
       </FormGroup>
     </FormItem>
@@ -29,24 +31,17 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted} from 'vue'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
-import { useRoute } from 'vue-router'
 
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
+import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 
-import { state, submit, fetch } from '../services/logictics/group.edit'
-import { rules } from '../services/data/service'
+import { state, submit } from '../services/logictics/activity.edit'
+import { rules } from '../services/data/activity'
 
-const route = useRoute()
 const { pass, errorFields } = useAsyncValidator(state, rules)
-
-onMounted(async () => {
-  await fetch(String(route.params.id))
-})
-
 </script>

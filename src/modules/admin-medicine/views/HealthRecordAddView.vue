@@ -114,10 +114,14 @@
           {{ $t('form.information') }}
         </template>
         <template #content>
-          <FormRadio @update:search="debouncedFn" v-model:id="state.userId" v-model:search="search" :list="users"
+          <FormRadio @update:search="debouncedPatient" v-model:id="state.patientId" v-model:search="searchPatient" :list="patients"
             v-bind="{ pagination, paginationOptions }">
             {{ $t('form.select_patient') }}
-            </FormRadio>
+          </FormRadio>
+          <FormRadio @update:search="debouncedDoctor" v-model:id="state.doctorId" v-model:search="searchDoctor" :list="doctors"
+            v-bind="{ pagination, paginationOptions }">
+            {{ $t('form.select_doctor') }}
+          </FormRadio>
         </template>
       </FormGroup>
     </FormItem>
@@ -139,7 +143,7 @@ import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.v
 import FormInput from '@/modules/admin-template/components/Form.input.vue';
 import FormSelect from '@/modules/admin-template/components/Form.select.vue';
 
-import { anamnesis, debouncedFn, fetchUsers, selectedAnamnesis, pagination, search, state, submit, users, otherAnamnesis } from '../services/logictics/record.add';
+import { anamnesis, selectedAnamnesis, pagination, state, submit, otherAnamnesis, fetchPatients, patients, doctors, debouncedDoctor, debouncedPatient, searchPatient, searchDoctor, fetchDoctors } from '../services/logictics/record.add';
 import { paginationOptions } from '../services/data/record';
 import { rules } from '@/modules/admin-medicine/services/data/record';
 
@@ -149,13 +153,15 @@ const router = useRouter()
 const { pass, errorFields } = useAsyncValidator(state, rules)
 
 const handleSubmit = async () => {
-  const findUser = users.value.find(user => user.id === state.value.userId)
-  await router.push('/admin/prescriptions?email='+ findUser?.email)
+  const findPatients = patients.value.find(patient => patient.id === state.value.patientId)
+
+  await router.push('/admin/prescriptions/add?email='+ findPatients?.email)
   await submit()
 }
 
 onMounted(async () => {
-  await fetchUsers(String(route.query.email || ''))
+  await fetchPatients(String(route.query.email || ''))
+  await fetchDoctors(String(route.query.email || ''))
 })
 
 </script>

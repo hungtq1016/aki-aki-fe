@@ -89,6 +89,7 @@
     }
   },
   "form": {
+    "select_doctor":"Select doctor",
     "address": "Address",
     "address1": "Address 1",
     "address2": "Address 2",

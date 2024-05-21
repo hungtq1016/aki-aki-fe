@@ -1,28 +1,20 @@
-import { ref, watch } from 'vue'
 import { v4 } from 'uuid'
 
-import { init_pagination, paginationOptions } from './../data/service'
+import { init_pagination, paginationOptions } from '../data/activity'
 
-import { get, } from '@/core/services/helpers/request.helper'
-
-import type { TPagination, TPaginationResponse } from '@/core/models/type'
-
-import type { TService } from '../../models/type'
+import type { TActivity } from '../../models/type'
+import { ref, watch } from 'vue'
 import { StatusEnum } from '@/core/models/enum'
+import type { TPagination, TPaginationResponse } from '@/core/models/type'
+import { get } from '@/core/services/helpers/request.helper'
 
-
-export const items = ref<TService[]>([
+export const items = ref<TActivity[]>([
   {
     id: v4(),
     title: 'mock-data',
-    groupId: 'mock-data',
-    imageUrl: '',
-    content: 'mock-data',
-    slug: '',
+    description: '',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
-    videoEmbed: '',
-    desc: '',
     status: StatusEnum.Active
   }
 ])
@@ -30,8 +22,8 @@ export const items = ref<TService[]>([
 export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
-  await get<TPaginationResponse<TService>>(
-    '/api/services/page',
+  await get<TPaginationResponse<TActivity>>(
+    '/api/activities/page',
     paginationOptions.value
   ).then(response => {
     if (response?.data) {

@@ -9,11 +9,8 @@ import type { Rules } from 'async-validator'
 export const headers: Header[] = [
   { text: 'table.id', value: 'id', width: 100 },
   { text: 'table.title', value: 'title', sortable: true },
-  { text: 'table.slug', value: 'slug' },
-  { text: 'table.videoEmbed', value: 'videoEmbed' },
-  { text: 'table.imageUrl', value: 'imangeUrl' },
-  { text: 'table.content', value: 'content' },
-  { text: 'table.groupId', value: 'groupId' },
+  { text: 'table.desc', value: 'description' },
+  { text: 'table.patientId', value: 'patientId' },
   { text: 'table.status', value: 'status' },
   { text: 'table.createdAt', value: 'createdAt' },
   { text: 'table.updatedAt', value: 'updatedAt' },
@@ -44,27 +41,12 @@ export const rules: Rules = {
     max: 255,
     required: true
   },
-  content: {
+  description: {
     type: 'string',
     min: 5,
     required: true
   },
-  videoEmbed: {
-    type: 'string',
-    min: 5,
-    required: true
-  },
-  imageUrl: {
-    type: 'string',
-    min: 5,
-    required: true
-  },
-  groupId: {
-    type: 'string',
-    min: 5,
-    required: true
-  },
-  desc: {
+  patientId: {
     type: 'string',
     min: 5,
     required: true

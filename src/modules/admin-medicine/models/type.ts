@@ -73,5 +73,6 @@ export type TRecordRequest = TRequest & {
   heartBeat: number;
   anamnesis: string;
   diagnosis: string;
-  userId: string;
+  patientId: string;
+  doctorId: string;
 }

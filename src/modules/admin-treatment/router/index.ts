@@ -1,64 +1,64 @@
 import type { RouteRecordRaw } from 'vue-router'
 
-const adminServiceRoute: RouteRecordRaw[] = [
+const adminTreatmentRoute: RouteRecordRaw[] = [
   {
-    path: 'services',
+    path: 'treatmentplants',
     children: [
       {
         path: '',
-        name: 'admin_services',
-        component: () => import('@/modules/admin-service/views/ServiceView.vue'),
+        name: 'admin_treatmentplants',
+        component: () => import('@/modules/admin-treatment/views/TreatmentView.vue'),
         meta: {
-          title: 'route.admin_services'
+          title: 'route.admin_treatmentplants'
         }
       },
       {
         path: 'add',
-        name: 'admin_serveices_add',
-        component: () => import('@/modules/admin-service/views/ServiceAddView.vue'),
+        name: 'admin_treatmentplants_add',
+        component: () => import('@/modules/admin-treatment/views/TreatmentAddView.vue'),
         meta: {
-          title: 'route.admin_services_add'
+          title: 'route.admin_treatmentplants_add'
         }
       },
       {
         path: ':id',
-        name: 'admin_services_edit',
-        component: () => import('@/modules/admin-service/views/ServiceEditView.vue'),
+        name: 'admin_treatmentplants_edit',
+        component: () => import('@/modules/admin-treatment/views/TreatmentEditView.vue'),
         meta: {
-          title: 'route.admin_services_edit'
+          title: 'route.admin_treatmentplants_edit'
         }
       }
     ]
   },
   {
-    path: 'groupservices',
+    path: 'activities',
     children: [
       {
         path: '',
-        name: 'admin_groupservices',
-        component: () => import('@/modules/admin-service/views/GroupView.vue'),
+        name: 'admin_activities',
+        component: () => import('@/modules/admin-treatment/views/ActivityView.vue'),
         meta: {
-          title: 'route.admin_groupservices'
+          title: 'route.admin_activities'
         }
       },
       {
         path: 'add',
-        name: 'admin_groupservices_add',
-        component: () => import('@/modules/admin-service/views/GroupAddView.vue'),
+        name: 'admin_activities_add',
+        component: () => import('@/modules/admin-treatment/views/ActivityAddView.vue'),
         meta: {
-          title: 'route.admin_groupservices_add'
+          title: 'route.admin_activities_add'
         }
       },
       {
         path: ':id',
-        name: 'admin_groupservices_edit',
-        component: () => import('@/modules/admin-service/views/GroupEditView.vue'),
+        name: 'admin_activities_edit',
+        component: () => import('@/modules/admin-treatment/views/ActivityEditView.vue'),
         meta: {
-          title: 'route.admin_groupservices_edit'
+          title: 'route.admin_activities_edit'
         }
       }
     ]
   }
 ]
 
-export default adminServiceRoute
+export default adminTreatmentRoute

@@ -1,5 +1,5 @@
 import type { TMenu } from '../../models/type'
-import { NewspaperIcon, HomeIcon, ArrowUturnLeftIcon, ChatBubbleOvalLeftIcon, BriefcaseIcon, BookmarkIcon, BuildingStorefrontIcon, LockClosedIcon, LinkIcon, ClockIcon, UserIcon, RectangleStackIcon, ClipboardDocumentCheckIcon, QuestionMarkCircleIcon } from '@heroicons/vue/24/outline'
+import { NewspaperIcon, HomeIcon, ArrowUturnLeftIcon, ChatBubbleOvalLeftIcon, BriefcaseIcon, BookmarkIcon, BuildingStorefrontIcon, LockClosedIcon, LinkIcon, ClockIcon, UserIcon, RectangleStackIcon, ClipboardDocumentCheckIcon, QuestionMarkCircleIcon, ListBulletIcon } from '@heroicons/vue/24/outline'
 // import { checkPermission } from '@/core/services/hooks/usePermission'
 import { ref } from 'vue'
 export const target = ref()
@@ -101,6 +101,34 @@ export const menus: TMenu[] = [
             show: true,
             label: 'route.admin_serviceprices_add',
             slug: '/admin/serviceprices/add'
+          },
+        ]
+      },
+      {
+        icon: ListBulletIcon,
+        show: true,
+        label: 'route.admin_treatmentplants',
+        slug: '/admin/treatmentplants',
+        children: [
+          {
+            show: true,
+            label: 'route.admin_treatmentplants',
+            slug: '/admin/treatmentplants'
+          },
+          {
+            show: true,
+            label: 'route.admin_treatmentplants_add',
+            slug: '/admin/treatmentplants/add'
+          },
+          {
+            show: true,
+            label: 'route.admin_activities',
+            slug: '/admin/activities'
+          },
+          {
+            show: true,
+            label: 'route.admin_activities_add',
+            slug: '/admin/activities/add'
           },
         ]
       },

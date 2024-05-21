@@ -25,32 +25,52 @@ const init_state: TRecordRequest = {
     heartBeat: 80,
     anamnesis: '',
     diagnosis: '',
-    userId: '-1',
+    patientId: '-1',
+    doctorId: '-1',
 }
 
 export const state: Ref<TRecordRequest> = ref({...init_state})
 export const selectedAnamnesis: Ref<string[]> = ref([])
 export const otherAnamnesis: Ref<string> = ref('')
 export const anamnesis = ['Tăng huyết áp', 'Viêm gan', 'Đái tháo đường','Động kinh','Hạ huyết áp','Đau đầu']
-export const users: Ref<TUser[]> = ref([])
-export const search: Ref<string> = ref('')
+export const doctors: Ref<TUser[]> = ref([])
+export const patients: Ref<TUser[]> = ref([])
+export const searchPatient: Ref<string> = ref('')
+export const searchDoctor: Ref<string> = ref('')
 export const pagination: Ref<TPagination> = ref({} as TPagination)
 
-export const fetchUsers = async (value?: string) => {
-    search.value = value || ''
-    const options = { ...paginationOptions.value, value: search.value }
+export const fetchPatients = async (value?: string) => {
+    searchPatient.value = value || ''
+    const options = { ...paginationOptions.value, value: searchPatient.value }
 
     get<TPaginationResponse<TUser>>(`/api/users/role/customer/search`, options).then((response) => {
         if (response?.data) {
             const { data, ...page } = response.data
-            users.value = data
+            patients.value = data
             pagination.value = page
         }
     })
 }
 
-export const debouncedFn = useDebounceFn(async () => {
-    await fetchUsers()
+export const fetchDoctors = async (value?: string) => {
+    searchDoctor.value = value || ''
+    const options = { ...paginationOptions.value, value: searchDoctor.value }
+
+    get<TPaginationResponse<TUser>>(`/api/users/role/doctor/search`, options).then((response) => {
+        if (response?.data) {
+            const { data, ...page } = response.data
+            doctors.value = data
+            pagination.value = page
+        }
+    })
+}
+
+export const debouncedPatient = useDebounceFn(async () => {
+    await fetchPatients()
+}, 600, { maxWait: 5000 })
+
+export const debouncedDoctor = useDebounceFn(async () => {
+    await fetchPatients()
 }, 600, { maxWait: 5000 })
 
 export const submit = async () => {
