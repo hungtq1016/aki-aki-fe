@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-mutating-props -->
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div
@@ -14,8 +15,20 @@
         :items="itemsSelected"
         :route="route"
         :fetch="fetch"
-        v-bind="{}"
+    
       />
+      <input
+        v-model="search"
+        type="text"
+        :placeholder="$t('form.place_holder.search')"
+        class="dark:!border-zinc-950 dark:!bg-zinc-900 dark:text-gray-50 text-gray-900 rounded-lg border border-gray-100 !bg-gray-50 bg-transparent px-4 font-normal outline-none transition disabled:cursor-default disabled:!bg-gray-200 disabled:!border-gray-400 disabled:!text-gray-600 dark:disabled:!bg-stone-950 dark:disabled:!text-gray-50"
+      />  
+      <button 
+      @click="()=>{paginationOptions.search = search}"
+      type="button" 
+      class="flex items-center justify-center px-3.5 rounded bg-cerulean-600">
+        <FunnelIcon class="w-5 h-5 text-cerulean-50"/>
+      </button>
     </div>
 
     <EasyDataTable
@@ -113,7 +126,7 @@ import type {
   BodyItemClassNameFunction
 } from 'vue3-easy-data-table'
 import type { TPagination, TPaginationRequest } from '@/core/models/type'
-import { TrashIcon } from '@heroicons/vue/24/outline'
+import { TrashIcon, FunnelIcon } from '@heroicons/vue/24/outline'
 import { imageBuilderUrl } from '@/core/services/utils/util.string'
 import { format } from 'date-fns'
 
@@ -162,14 +175,10 @@ const formattedTime = (time: any, defaultTime = { hours: 0, minutes: 0, seconds:
     'HH:mm:ss'
 );
 
-// Example usage:
-const time = { hours: 15, minutes: 0, seconds: 0 };
-const defaultTime = { hours: 0, minutes: 0, seconds: 0 };
-console.log(formattedTime(time, defaultTime)); // Output: 15:00:00
-
 
 const selectedHeaders = ref<Header[]>([...props.headers])
 const countItems = computed(() => itemsSelected.value.length)
+const search = ref('')
 
 watch(
   () => props.items,

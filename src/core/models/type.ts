@@ -62,6 +62,7 @@ export type TPaginationRequest = {
   pageNumber: number
   pageSize: number
   status?: StatusEnum
+  search?: string
 }
 
 export type TOption = {

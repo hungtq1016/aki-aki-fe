@@ -6,9 +6,9 @@
     multiple
     @update:modelValue="(value) => emit('update:modelValue', value)"
   >
-    <div class="relative mt-2">
+    <div class="relative">
       <ListboxButton
-        class="relative cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-alabaster-500 focus:outline-none focus:ring-2 focus:ring-cerulean-500 sm:text-sm sm:leading-6"
+        class="relative cursor-default py-2.5 pl-3 pr-10 dark:!border-zinc-950 dark:!bg-zinc-900 dark:text-gray-50 text-gray-900 rounded-lg border border-gray-100 !bg-gray-50 bg-transparent px-4 font-normal outline-none transition disabled:cursor-default disabled:!bg-gray-200 disabled:!border-gray-400 disabled:!text-gray-600 dark:disabled:!bg-stone-950 dark:disabled:!text-gray-50"
       >
         <span class="flex items-center">
           {{
