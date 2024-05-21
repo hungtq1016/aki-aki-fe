@@ -15,8 +15,7 @@ export const headers: Header[] = [
 export type TClientRequest = {
   startFrom: string;
   endFrom: string;
-  heartBeat: number;
-  bloodPressure: number;
+  title: number;
 }
 
 export const paginationOptions = ref<TPaginationRequest>({

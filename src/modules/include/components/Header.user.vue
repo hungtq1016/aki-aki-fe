@@ -63,6 +63,10 @@ const navigations = [
   {
     label:'route.invoice',
     slug: '/profile/invoice'
+  },
+  {
+    label:'route.treatment',
+    slug: '/profile/treatment'
   }
 ]
 

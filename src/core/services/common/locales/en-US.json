@@ -195,7 +195,8 @@
       "usage": "Enter usage...",
       "username": "Enter username...",
       "value": "Enter value...",
-      "video_embed": "Please paste youtube embed here..."
+      "video_embed": "Please paste youtube embed here...",
+      "treatment":"Select treatment"
     },
     "publish": "Publish",
     "quantity": "Quantity",
@@ -219,7 +220,8 @@
     "username": "Username",
     "value": "Value",
     "video_embed": "Video Embed",
-    "weight": "Weight"
+    "weight": "Weight",
+    "select_treatment":"Select treatment"
   },
   "html": {
     "browserNotSupport": "Your browser does not support the {element} element."
@@ -239,6 +241,13 @@
     "check_email": "Please check your email."
   },
   "route": {
+    "treatment":"Treatment",
+    "admin_treatmentplants":"Treatment plants",
+    "admin_treatmentplants_add":"Add treatment plant",
+    "admin_treatmentplants_edit":"Edit treatment plant",
+    "admin_activities":"Activities",
+    "admin_activities_add":"Add activity",
+    "admin_activities_edit":"Edit activity",
     "about": "About",
     "admin": "Dashboard",
     "invoice_detail": "Invoice detail",

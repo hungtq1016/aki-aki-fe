@@ -2,7 +2,7 @@
     <div>
         <form @submit.prevent="fetch">
             <div class="flex gap-y-2 gap-x-4 py-2">
-            <input type="number" v-model="state.title"
+            <input type="text" v-model="state.title"
             class="border rounded" :placeholder="$t('form.place_holder.total')"/>
             <input type="date" v-model="state.startFrom"
             class="border rounded"/>

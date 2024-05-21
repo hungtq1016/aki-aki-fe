@@ -148,7 +148,9 @@
     "service_price": "Dịch vụ",
     "price": "Giá",
     "select_default": "Tiêu đề",
+    "select_treatment":"Chọn hoạt động",
     "place_holder": {
+      "treatment":"Vui lòng chọn kế hoạch",
       "health_record_id":"Vui lòng chọn bệnh án",
       "chat": "Nhắn tin thôi!",
       "heart_beat": "Nhập nhịp tim...",
@@ -239,6 +241,13 @@
     "check_email": "Vui lòng kiểm tra email của bạn."
   },
   "route": {
+    "treatment":"Kế hoạch điều trị",
+    "admin_treatmentplants":"Danh sách kế hoạc",
+    "admin_treatmentplants_add":"Thêm kế hoạch",
+    "admin_treatmentplants_edit":"Chỉnh sửa kế hoạch",
+    "admin_activities":"Danh sách hoạt động",
+    "admin_activities_add":"Thêm hoạt động",
+    "admin_activities_edit":"Chỉnh sửa hoạt động",
     "otp":"Đăng nhập bằng OTP",
     "about": "Về chúng tôi",
     "admin": "Bảng điều khiển",
