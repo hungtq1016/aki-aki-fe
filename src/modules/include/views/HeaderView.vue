@@ -71,6 +71,7 @@
   </header>
   <ScrollToTop v-if="!isZero" />
   <ChatBubbleView />
+  <ChatWithAdminView />
 </template>
 
 <script setup lang="ts">
@@ -86,6 +87,7 @@ import ScrollToTop from '@/core/components/buttons/ScrollToTop.vue'
 import ChatBubbleView from './ChatBubbleView.vue'
 import HeaderLogin from '../components/Header.login.vue'
 import HeaderLocale from '../components/Header.locale.vue'
+import ChatWithAdminView from './ChatWithAdminView.vue'
 
 const isScrollDown = ref<boolean>(false)
 const isZero = ref<boolean>(true)

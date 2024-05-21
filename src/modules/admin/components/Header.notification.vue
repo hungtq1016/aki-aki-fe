@@ -1,6 +1,5 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { socket } from '@/core/services/helpers/socket.helper';
 import { BellIcon } from '@heroicons/vue/24/outline'
 import { onClickOutside } from '@vueuse/core'
 import { ref, type Ref } from 'vue'
@@ -8,15 +7,6 @@ import { ref, type Ref } from 'vue'
 const target = ref(null)
 const dropdownOpen = ref(false)
 const notifying = ref(false)
-
-socket.onmessage = (event) => {
-  const message = JSON.parse(event.data);
-  if(Object.keys(message)[0] == "schedule")
-  {
-    notifying.value = true
-    notificationItems.value.push(message);
-  }
-}
 
 onClickOutside(target, () => {
   dropdownOpen.value = false

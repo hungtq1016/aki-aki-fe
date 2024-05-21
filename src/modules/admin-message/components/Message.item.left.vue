@@ -3,7 +3,7 @@
   <div class="max-w-md">
    
     <div class="mb-2.5 rounded-2xl rounded-tl-none bg-zircon-50 py-3 px-5 dark:bg-shark-950">
-      <p class="font-medium">{{ data.message }}</p>
+      <p class="font-medium">{{ message }}</p>
     </div>
 
   </div>
@@ -11,10 +11,8 @@
 
 <script setup lang="ts">
 
-import type { TChat } from '@/modules/include/models/type'
-
 defineProps<{
-  data: TChat
+  message: string
 }>()
 
 

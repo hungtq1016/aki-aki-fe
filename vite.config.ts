@@ -12,6 +12,14 @@ export default defineConfig({
     vueJsx(),
     VueDevTools(),
   ],
+  server: {
+    proxy: {
+      '/socket.io': {
+        target: 'https://server-bd3t.onrender.com',
+        ws: true
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
