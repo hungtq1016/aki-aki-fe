@@ -31,10 +31,9 @@ import MessageItemRight from './Message.item.right.vue';
 import { ref } from 'vue';
 import MessageItemLeft from './Message.item.left.vue';
 
-const props = defineProps<{
+defineProps<{
   data: any
 }>()
-
 
 const input = ref("");
 const emit = defineEmits(['input']);
