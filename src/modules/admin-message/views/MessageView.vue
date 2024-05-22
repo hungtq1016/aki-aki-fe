@@ -52,14 +52,15 @@
 </template>
 
 <script setup lang="ts">
-import { MagnifyingGlassIcon   } from '@heroicons/vue/24/solid'
-
+import { MagnifyingGlassIcon } from '@heroicons/vue/24/solid'
 import MessageItem from '../components/Message.user.vue'
+import MessageChat from '../components/Message.chat.vue'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { socket } from '@/core/services/helpers/socket.helper'
-import MessageChat from '../components/Message.chat.vue'
 
 const usernameAlreadySelected = ref(false);
+const selectedUser = ref<any>(null);
+const users = ref<any>([]);
 
 const onUsernameSelection = (username: string) => {
   usernameAlreadySelected.value = true;
@@ -72,10 +73,8 @@ const handleConnectError = (err: any) => {
     usernameAlreadySelected.value = false;
   }
 };
-const selectedUser = ref<any>(null);
-const users = ref<any>([]);
 
-const onMessage = (content:any) => {
+const onMessage = (content: any) => {
   if (selectedUser.value) {
     socket.emit("private message", {
       content,
@@ -88,20 +87,20 @@ const onMessage = (content:any) => {
   }
 };
 
-const onSelectUser = (user:any) => {
+const onSelectUser = (user: any) => {
   selectedUser.value = user;
   user.hasNewMessages = false;
 };
 
-const initReactiveProperties = (user:any) => {
+const initReactiveProperties = (user: any) => {
   user.connected = true;
   user.messages = [];
   user.hasNewMessages = false;
 };
 
-onMounted(() => {
+const handleSocketEvents = () => {
   socket.on("connect", () => {
-    users.value.forEach((user:any) => {
+    users.value.forEach((user: any) => {
       if (user.self) {
         user.connected = true;
       }
@@ -109,7 +108,7 @@ onMounted(() => {
   });
 
   socket.on("disconnect", () => {
-    users.value.forEach((user:any) => {
+    users.value.forEach((user: any) => {
       if (user.self) {
         user.connected = false;
       }
@@ -117,32 +116,31 @@ onMounted(() => {
   });
 
   socket.on("users", (usersList) => {
-    usersList.forEach((user:any) => {
+    usersList.forEach((user: any) => {
       user.self = user.userID === socket.id;
       initReactiveProperties(user);
     });
-    users.value = usersList.sort((a:any, b:any) => {
+    users.value = usersList.sort((a: any, b: any) => {
       if (a.self) return -1;
       if (b.self) return 1;
-      if (a.username < b.username) return -1;
-      return a.username > b.username ? 1 : 0;
+      return a.username.localeCompare(b.username);
     });
   });
 
-  socket.on("user connected", (user:any) => {
+  socket.on("user connected", (user: any) => {
     initReactiveProperties(user);
     users.value.push(user);
   });
 
   socket.on("user disconnected", (id) => {
-    const user = users.value.find((user:any) => user.userID === id);
+    const user = users.value.find((user: any) => user.userID === id);
     if (user) {
       user.connected = false;
     }
   });
 
   socket.on("private message", ({ content, from }) => {
-    const user = users.value.find((user:any) => user.userID === from);
+    const user = users.value.find((user: any) => user.userID === from);
     if (user) {
       user.messages.push({
         content,
@@ -153,6 +151,23 @@ onMounted(() => {
       }
     }
   });
+
+  socket.on("connect_error", handleConnectError);
+};
+
+const checkAdminExistence = () => {
+  const adminExists = users.value.some((user: any) => user.username === "admin");
+  if (adminExists) {
+    onUsernameSelection("admin");
+  } else {
+    onUsernameSelection("admin")
+    // Code to create new admin or handle the case where admin doesn't exist
+  }
+};
+
+onMounted(() => {
+  handleSocketEvents();
+  checkAdminExistence();
 });
 
 onBeforeUnmount(() => {
@@ -162,14 +177,6 @@ onBeforeUnmount(() => {
   socket.off("user connected");
   socket.off("user disconnected");
   socket.off("private message");
-});
-
-onMounted(() => {
-  onUsernameSelection("admin")
-  socket.on("connect_error", handleConnectError);
-});
-
-onBeforeUnmount(() => {
   socket.off("connect_error", handleConnectError);
 });
 

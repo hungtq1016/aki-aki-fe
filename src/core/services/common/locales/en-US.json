@@ -17,6 +17,8 @@
     "send_request": "Send request"
   },
   "content": {
+    "me":"Me",
+    "chat_admin":"Chat with admin",
     "schedule": "Schedule",
     "patient_record": "Pantient health record",
     "full_name": "Full name",
@@ -196,7 +198,8 @@
       "username": "Enter username...",
       "value": "Enter value...",
       "video_embed": "Please paste youtube embed here...",
-      "treatment":"Select treatment"
+      "treatment":"Select treatment",
+      "name_to_chat":"Enter name to chat..."
     },
     "publish": "Publish",
     "quantity": "Quantity",

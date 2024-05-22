@@ -17,6 +17,8 @@
     "send_request": "Gửi yêu cầu"
   },
   "content": {
+    "me":"Tôi",
+    "chat_admin":"Nhắn tin với QTV",
     "schedule":"Lịch hẹn",
     "patient_record": "Bệnh án của bênh nhân",
     "full_name": "Họ và tên",
@@ -196,7 +198,8 @@
       "usage": "Nhập cách sử dụng...",
       "username": "Nhập tên đăng nhập...",
       "value": "Nhập giá trị...",
-      "video_embed": "Vui lòng dán nhúng video youtube vào đây..."
+      "video_embed": "Vui lòng dán nhúng video youtube vào đây...",
+      "name_to_chat":"Nhập tên để chat..."
     },
     "publish": "Đăng",
     "quantity": "Số lượng",
