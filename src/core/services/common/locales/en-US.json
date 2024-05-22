@@ -242,6 +242,7 @@
   },
   "route": {
     "treatment":"Treatment",
+    "treatment_detail":"Treatment detail",
     "admin_treatmentplants":"Treatment plants",
     "admin_treatmentplants_add":"Add treatment plant",
     "admin_treatmentplants_edit":"Edit treatment plant",

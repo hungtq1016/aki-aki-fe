@@ -1,3 +1,4 @@
+import { activity } from './../services/logictics/treatment.add';
 import type { TEntity, TRequest } from '@/core/models/type'
 
 export type TTreatmentPlant = TEntity & {
@@ -27,6 +28,7 @@ export type TTreatmentDetail = TEntity & {
 export type TTreatmentDetailResponse = TEntity & {
   treatmentId: string
   activityId: string
+  activity: TActivity
   date: Date
 }
 

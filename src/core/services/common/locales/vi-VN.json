@@ -241,6 +241,7 @@
     "check_email": "Vui lòng kiểm tra email của bạn."
   },
   "route": {
+    "treatment_detail":"Chi tiết kế hoạch",
     "treatment":"Kế hoạch điều trị",
     "admin_treatmentplants":"Danh sách kế hoạc",
     "admin_treatmentplants_add":"Thêm kế hoạch",

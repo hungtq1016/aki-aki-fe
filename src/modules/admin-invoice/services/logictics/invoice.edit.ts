@@ -23,11 +23,8 @@ export const fetchedServicePrice: Ref<TServicePrice[]> = ref([])
 export const oldDetail: Ref<TServicePrice[]> = ref([])
 
 export const submit = async () => {
-    const id = v4()
 
-    const payload = { ...state, id }
-
-    await put<TInvoiceRequest, TInvoice>('/api/invoices', payload).then(response => {
+    await put<TInvoiceRequest, TInvoice>('/api/invoices/'+state.value.id, state.value).then(response => {
         if (response?.data) {
             successNotification(response.message)
         }
@@ -39,7 +36,7 @@ export const submit = async () => {
 
     selectedServices.value.forEach(async service => {
         const payload: TInvoiceDetailRequest = {
-            invoiceId: id,
+            invoiceId: state.value.id,
             servicePriceId: service.id
         }
         await post('/api/invoicedetails', payload)

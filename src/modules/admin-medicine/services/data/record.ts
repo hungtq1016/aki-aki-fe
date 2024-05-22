@@ -81,7 +81,12 @@ export const rules: Rules = {
     min: 5,
     required: true
   },
-  userId: {
+  patientId: {
+    type: 'string',
+    min: 5,
+    required: true
+  },
+  doctorId: {
     type: 'string',
     min: 5,
     required: true

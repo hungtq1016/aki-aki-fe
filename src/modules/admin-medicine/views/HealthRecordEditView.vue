@@ -109,7 +109,7 @@
     </FormItem>
     <FormItem>
       <PublishView v-model="state.status" :pass="pass" />
-      <FormGroup :has-error="[Boolean(errorFields?.userId?.length)]">
+      <FormGroup :has-error="[Boolean(errorFields?.patientId?.length),Boolean(errorFields?.doctorId?.length)]">
         <template #heading>
           {{ $t('form.information') }}
         </template>

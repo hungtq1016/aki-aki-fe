@@ -31,9 +31,8 @@ export const dateTime: Ref<Date> = ref(new Date())
 export const state: Ref<TScheduleRequest> = ref({...init_state})
 
 export const submit = async () => {
-    post('/api/schedules', state.value).then(() => {
-        socket.onopen
-        socket.send(JSON.stringify({schedule:state.value}))
+    await post('/api/schedules', state.value).then(async() => {
+        await post('/api/email/schedule',{email:state.value.email,template:state.value.phoneNumber})
         Swal.fire({
             title: 'Thành công!',
             text: 'Kiểm tra email của bạn',
@@ -42,6 +41,7 @@ export const submit = async () => {
         })
         resetObject(state.value,init_state)
     })
+    
 }
 
 watch(dateTime, (newValue) => {

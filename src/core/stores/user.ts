@@ -33,8 +33,8 @@ export const useUserStore = defineStore('user', () => {
   }
 
   const isUserExist = (): void => {
-    const data = readValue('user')
-
+    const data: TUser = JSON.parse(readValue('user'))
+ 
     if (data !== null) {
       try {
         const userData: TUser = data

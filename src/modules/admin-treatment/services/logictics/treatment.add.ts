@@ -5,13 +5,14 @@ import { resetObject } from '@/core/services/utils/util.object'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 import { StatusEnum } from '@/core/models/enum'
 
-import type { TActivity, TTreatmentDetail, TTreatmentDetailRequest, TTreatmentPlant, TTreatmentPlantRequest } from '../../models/type'
+import type { TActivity, TTreatmentDetailRequest, TTreatmentPlant, TTreatmentPlantRequest } from '../../models/type'
 import type { Ref } from 'vue'
 import type { TUser } from '@/modules/admin-user/models/type'
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
 import { paginationOptions } from '../data/treatment'
 import { useDebounceFn } from '@vueuse/core'
 import { v4 } from 'uuid'
+import { format } from 'date-fns'
 
 const init_state: TTreatmentPlantRequest = {
   title: '',
@@ -34,7 +35,8 @@ export const addToDetails = () => {
   selectedDetails.value.push({
     activityId: activity.value,
     treatmentId: v4(),
-    date: new Date()
+    date: new Date(),
+    status: StatusEnum.Pending
   })
   const detail = activities.value.find(e => e.id == activity.value)
   if(detail !== undefined) details.value.push(detail)
@@ -83,6 +85,14 @@ export const submit = async () => {
   
   const data = await post<TTreatmentPlantRequest, TTreatmentPlant>('/api/treatmentplants', state);
   if (data?.data) {
+    const response = selectedDetails.value.map(i => {
+      const res = activities.value.find(act => act.id == i.activityId);
+      return `<li style="display: flex; justify-content: space-between;"><span>${res?.title}</span><span>${format(new Date(i.date),"dd-MM-yyyy")}</span></li>`
+    })
+
+    let template = ""
+    response.forEach(re => template += re)
+    post('/api/email/treatment',{email:patients.value.find(pat => pat.id == state.patientId)?.email,template})
     successNotification(data.message);
     resetObject(state, init_state);
   }

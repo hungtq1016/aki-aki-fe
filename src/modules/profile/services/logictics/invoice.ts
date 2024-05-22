@@ -28,6 +28,7 @@ export const pagination = ref<TPagination>({ ...init_pagination })
 
 export const fetch = async () => {
   const options = {...paginationOptions.value, ...state.value}
+
   await get<TPaginationResponse<TInvoice>>('/api/invoices/user/'+userId.value, options).then(response => {
     if (response?.data) {
       const { data, ...page } = response.data

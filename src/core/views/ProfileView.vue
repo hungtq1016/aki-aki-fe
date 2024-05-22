@@ -34,5 +34,3 @@
 <script setup lang="ts">
 import AsideList from '@/modules/profile/components/Aside.list.vue'
 </script>
-
-<style scoped></style>

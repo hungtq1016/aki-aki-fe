@@ -9,10 +9,10 @@
                     :class="day.className"
                     class="p-2 relative">
                         <time :datetime="day.date" :class="day.className">{{ formatDate(new Date(day.date),"dd") }}</time>
-                        <div class="absolute"></div>
+                        <div v-if="day.label"
+                         class="absolute inset-x-2 bottom-2" v-html="day.label" />
                     </div>
                 </div>
-               
             </div>
         </div>
     </div>
@@ -24,6 +24,7 @@ import { ref, watch, type PropType } from 'vue';
 import type { DateMonth } from '../models/type';
 import type { TTreatmentDetailResponse } from '@/modules/admin-treatment/models/type';
 import { status } from '@/core/services/data/status';
+import { i18n } from '@/core/services/base/translation';
 
 const props = defineProps({
     date : {
@@ -35,6 +36,7 @@ const props = defineProps({
         required: true
     }
 })
+
 
 function generateCalendar(year: number, month: number) {
     const firstDayOfMonth = startOfMonth(new Date(year, month - 1));
@@ -53,7 +55,8 @@ function generateCalendar(year: number, month: number) {
 
     const formattedDays = days.map(day => ({
         date: format(day.date, 'yyyy-MM-dd'),
-        className: day.isCurrentMonth ? getDayClass(format(new Date(day.date), 'd')) : 'bg-gray-100 text-gray-500'
+        className: day.isCurrentMonth ? getDayClass(format(new Date(day.date), 'd')) : 'bg-gray-100 text-gray-500',
+        label: getLabel(format(new Date(day.date), 'd'))
     }));
 
     return formattedDays;
@@ -66,6 +69,14 @@ const getDayClass = (day: string) => {
         return e?.classes
     }
     return 'bg-white text-gray-950'
+};
+
+const getLabel = (day: string) => {
+    const result = props.data.find(item => format(new Date(item.date), 'd') === day)
+    if (result) {
+        const e = status.find(e => e.value == result.status) 
+        return `<div class="flex flex-col-reverse items-end justify-between text-sm"><p class="text-xs">${i18n.global.t(String(e?.label))}</p><p>${result.activity.title}</p></div>`
+    }
 };
 
 const calendar = ref(generateCalendar(props.date.year,props.date.month));
