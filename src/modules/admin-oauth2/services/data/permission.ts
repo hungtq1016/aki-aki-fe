@@ -9,6 +9,7 @@ import type { Rules } from 'async-validator'
 export const headers: Header[] = [
   { text: 'table.id', value: 'id', width: 100 },
   { text: 'table.type', value: 'type', sortable: true },
+  { text: 'table.label', value: 'label', sortable: true },
   { text: 'table.value', value: 'value' },
   { text: 'table.status', value: 'status' },
   { text: 'table.createdAt', value: 'createdAt' },
@@ -41,6 +42,11 @@ export const rules: Rules = {
     required: true
   },
   value: {
+    type: 'string',
+    min: 1,
+    required: true
+  },
+  label: {
     type: 'string',
     min: 1,
     required: true

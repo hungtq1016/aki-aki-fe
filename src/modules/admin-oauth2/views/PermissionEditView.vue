@@ -17,6 +17,13 @@
             {{ $t('form.type') }}
           </FormInput>
           <FormInput
+            v-model="state.label"
+            :has-error="Boolean(errorFields?.label?.length)"
+            :placeholder="$t('form.place_holder.label')"
+          >
+            {{ $t('form.label') }}
+          </FormInput>
+          <FormInput
             v-model="state.value"
             :has-error="Boolean(errorFields?.value?.length)"
             :placeholder="$t('form.place_holder.value')"

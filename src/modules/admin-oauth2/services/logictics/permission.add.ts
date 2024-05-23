@@ -10,6 +10,7 @@ import { StatusEnum } from '@/core/models/enum'
 const init_state: TPermissionRequest = {
   type: 'permission',
   value: '',
+  label: '',
   status: StatusEnum.Active
 }
 

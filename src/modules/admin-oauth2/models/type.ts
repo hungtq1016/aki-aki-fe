@@ -3,17 +3,20 @@ import type { TEntity, TRequest } from '@/core/models/type'
 export type TPermission = TEntity & {
   type: string
   value: string
+  label: string
 }
 
 export type TPermissionResponse = TEntity & {
   assignments: TAssignment[]
   type: string
   value: string
+  label: string
 }
 
 export type TPermissionRequest = TRequest & {
   type: string
   value: string
+  label: string
 }
 
 export type TRole = TEntity & {

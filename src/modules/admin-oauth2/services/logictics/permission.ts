@@ -11,6 +11,7 @@ import { StatusEnum } from '@/core/models/enum'
 export const items = ref<TPermission[]>([
   {
     id: v4(),
+    label: '',
     type: 'mock-data',
     value: 'mock-data',
     createdAt: '2022-01-01',
