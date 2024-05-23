@@ -200,7 +200,12 @@
       "username": "Nhập tên đăng nhập...",
       "value": "Nhập giá trị...",
       "video_embed": "Vui lòng dán nhúng video youtube vào đây...",
-      "name_to_chat":"Nhập tên để chat..."
+      "name_to_chat":"Nhập tên để chat...",
+      "height":"Chiều cao",
+      "weight":"Cân nặng",
+      "heartBeat":"Nhịp tim",
+      "anamnesis":"Tiền sử bệnh"
+
     },
     "publish": "Đăng",
     "quantity": "Số lượng",
@@ -329,7 +334,7 @@
     "admin_users_nurse": "Danh sách y tá",
     "blogs": "Blog",
     "chart": "Biểu đồ",
-    "contact": "Liên hệ",
+    "contact": "Đặt lịch hẹn",
     "customer": "Khách hàng nói về AkiAki",
     "equipment": "Thiết bị",
     "forgot_password": "Quên mật khẩu?",
