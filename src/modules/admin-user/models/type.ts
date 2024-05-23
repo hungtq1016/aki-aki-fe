@@ -38,6 +38,7 @@ export type TGroupRequest = TRequest & {
 }
 
 export type TGroupResponse = TEntity & {
-  userId: string,
+  userId: string
+  user: TUser
   roleId: string
 }

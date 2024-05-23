@@ -1,56 +1,48 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <FormLayout :submit="submit">
-    <FormItem>
-      <FormGroup
-        :has-error="[Boolean(errorFields?.name?.length), Boolean(errorFields?.note?.length)]"
-      >
-        <template #heading>
-          {{ $t('form.heading') }}
-        </template>
-        <template #content>
-          <FormInput
-            v-model="state.name"
-            :has-error="Boolean(errorFields?.name?.length)"
-            :placeholder="$t('form.place_holder.name')"
+  <div class="w-full  sm:px-0">
+    <TabGroup>
+      <TabList class="flex space-x-1 rounded-xl bg-cerulean-900/20 p-1">
+        <Tab
+          v-for="category in categories"
+          as="template"
+          :key="category"
+          v-slot="{ selected }"
+        >
+          <button
+            :class="[
+              'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
+              'ring-white/60 ring-offset-2 ring-offset-cerulean-400 focus:outline-none focus:ring-2',
+              selected
+                ? 'bg-white text-cerulean-700 shadow'
+                : 'text-cerulean-100 hover:bg-white/[0.12] hover:text-white',
+            ]"
           >
-            {{ $t('form.name') }}
-          </FormInput>
-          <FormInput
-            v-model="state.note"
-            :has-error="Boolean(errorFields?.note?.length)"
-            :placeholder="$t('form.place_holder.note')"
-          >
-            {{ $t('form.note') }}
-          </FormInput>
-        </template>
-      </FormGroup>
-    </FormItem>
-    <FormItem>
-      <PublishView v-model="state.status" :pass="pass" />
-    </FormItem>
-  </FormLayout>
+            {{ category }}
+          </button>
+        </Tab>
+      </TabList>
+
+      <TabPanels class="mt-2">
+        <TabPanel>
+          <RolePermissionView/>
+        </TabPanel>
+        <TabPanel>
+          <RoleMemberView/>
+        </TabPanel>
+        <TabPanel>
+          <RoleUpdateView/>
+        </TabPanel>
+      </TabPanels>
+    </TabGroup>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import { onMounted } from 'vue'
-import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
+import { ref } from 'vue'
+import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
+import RolePermissionView from './RolePermissionView.vue';
+import RoleMemberView from './RoleMemberView.vue';
+import RoleUpdateView from './RoleUpdateView.vue';
 
-import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
-import FormItem from '@/modules/admin-template/components/Form.item.vue'
-import PublishView from '@/modules/admin-template/views/PublishView.vue'
-import FormInput from '@/modules/admin-template/components/Form.input.vue'
-import FormGroup from '@/modules/admin-template/components/Form.group.vue'
-
-import { state, submit, fetch } from '../services/logictics/role.edit'
-import { rules } from '../services/data/role'
-
-const { pass, errorFields } = useAsyncValidator(state, rules)
-
-const route = useRoute()
-
-onMounted(async()=>{
-  await fetch(String(route.params.id))
-})
+const categories = ref(["content.permissions","content.members","content.edit"])
 </script>

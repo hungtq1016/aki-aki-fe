@@ -72,6 +72,7 @@
   <ScrollToTop v-if="!isZero" />
   <ChatBubbleView />
   <ChatWithAdminView />
+  
 </template>
 
 <script setup lang="ts">

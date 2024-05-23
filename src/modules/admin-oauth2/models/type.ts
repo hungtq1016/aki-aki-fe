@@ -50,6 +50,15 @@ export type TUserRequest = TRequest & {
   imageUrl: string
 }
 
+export type TUserResponse = TEntity & {
+  fullName: string
+  email: string
+  password: string
+  phoneNumber: string
+  address: string
+  imageUrl: string
+}
+
 export type TAssignment = TEntity & {
   roleId: string
   permissionId: string
