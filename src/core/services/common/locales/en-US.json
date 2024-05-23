@@ -152,6 +152,10 @@
     "service_price": "Service",
     "price": "Price",
     "select_default": "Title",
+    "default_title":"Default title",
+    "question":"Question",
+    "src":"Source",
+    "answer":"Answer",
     "place_holder": {
       "health_record_id": "Select record id",
       "chat": "Go chatting!",
@@ -200,7 +204,18 @@
       "value": "Enter value...",
       "video_embed": "Please paste youtube embed here...",
       "treatment":"Select treatment",
-      "name_to_chat":"Enter name to chat..."
+      "name_to_chat":"Enter name to chat...",
+      "temperature":"Enter your temperature",
+      "weight":"Enter your weight",
+      "height":"Enter your height",
+      "birth_day":"Birth day",
+      "default":"Default",
+      "quantity":"Quantity",
+      "tax":"Tax",
+      "price":"Price",
+      "question":"Question",
+      "answer":"Answer",
+      "src":"Source"
     },
     "publish": "Publish",
     "quantity": "Quantity",
@@ -356,7 +371,10 @@
     "logout": "Logout",
     "notifcation": "Notification",
     "blogs_detail": "Blog detail",
-    "otp": "OTP Login"
+    "otp": "OTP Login",
+    "admin_serveices_add":"Add service",
+    "branches":"Branch",
+    "urls":"url"
   },
   "table": {
     "inactive": "Inactive",

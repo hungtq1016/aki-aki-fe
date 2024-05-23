@@ -152,6 +152,11 @@
     "price": "Giá",
     "select_default": "Tiêu đề",
     "select_treatment":"Chọn hoạt động",
+    "patient":"Bệnh nhân",
+    "default_title":"Tiêu đề mặt định",
+    "question":"Question",
+    "src":"Nguồn",
+    "answer":"Câu trả lời",
     "place_holder": {
       "treatment":"Vui lòng chọn kế hoạch",
       "health_record_id":"Vui lòng chọn bệnh án",
@@ -204,8 +209,18 @@
       "height":"Chiều cao",
       "weight":"Cân nặng",
       "heartBeat":"Nhịp tim",
-      "anamnesis":"Tiền sử bệnh"
-
+      "anamnesis":"Tiền sử bệnh",
+      "temperature":"Nhập nhiệt độ",
+      "birth_day":"Ngày sinh",
+      "default":"Mặc định",
+      "quantity":"Số lượng",
+      "tax":"Thuế",
+      "price":"Price",
+      "multiple_select_default":"chọn nhiều",
+      "question":"Nhập câu hỏi",
+      "answer":"Nhập câu trả lời",
+      "src":"Nguồn"
+      
     },
     "publish": "Đăng",
     "quantity": "Số lượng",
@@ -360,7 +375,10 @@
     "profile": "Hồ sơ",
     "schedule": "Lịch hẹn",
     "logout": "Đăng xuất",
-    "blogs_detail": "Chi tiết blog"
+    "blogs_detail": "Chi tiết blog",
+    "admin_serveices_add":"Thêm dịch vụ",
+    "branches":"Chi nhánh",
+    "urls":"url"
   },
   "table": {
     "inactive": "Ngừng hoạt động",
