@@ -6,14 +6,14 @@ export const res = ref('✅ The answer will be displayed here.')
 export const isLoading: Ref<boolean> = ref(false)
 export const isOpen: Ref<boolean> = ref(false)
 export const messages: Ref<TChat[]> = ref([])
-export const prompt: Ref<string> = ref("Tôi muốn bạn đóng vai một bác sĩ ảo. Tôi sẽ mô tả các triệu chứng của tôi và bạn sẽ đưa ra kế hoạch chẩn đoán và điều trị. Bạn chỉ nên trả lời về chẩn đoán và kế hoạch điều trị của mình, không có gì khác. Đừng viết lời giải thích. Yêu cầu đầu tiên của tôi là")
+export const prompt: Ref<string> = ref("Tôi muốn bạn đóng vai một bác sĩ ảo. Tôi sẽ mô tả các triệu chứng của tôi và bạn sẽ đưa ra kế hoạch chẩn đoán và điều trị. Bạn chỉ nên trả lời về chẩn đoán và kế hoạch điều trị của mình, không có gì khác. Đừng viết lời giải thích. Yêu cầu đầu tiên của tôi là: ")
 
 export async function createCompletionsChat() {
   try {
     isLoading.value = true
 
     const userMessages = [{ role: 'user', content: prompt.value + content.value }]
-    messages.value.push({ isBot: false, message: content.value })
+    messages.value.push({ isBot: false, content: content.value })
     const requestData = JSON.stringify({
       model: 'gpt-3.5-turbo',
       messages: userMessages,
@@ -46,7 +46,7 @@ export async function createCompletionsChat() {
         .filter((line) => line !== '[DONE]')
         .map((line) => JSON.parse(line))
       for (const line of lines) {
-        console.log(line)
+       
         const {
           choices: [
             {
@@ -65,7 +65,7 @@ export async function createCompletionsChat() {
     res.value = error.response.data.error.message
   } finally {
     isLoading.value = false
-    messages.value.push({ isBot: true, message: res.value })
+    messages.value.push({ isBot: true, content: res.value })
     prompt.value = ""
     content.value = ""
   }

@@ -7,9 +7,10 @@
           {{ item.fromSelf ? "(yourself)" : data.username }}
       </div>
       <MessageItemLeft v-if="!item.fromSelf"
-      :message="item.content" />
+      :username="data.username"
+      :data="item" />
       <MessageItemRight v-else
-       :message="item.content" />
+       :data="item" />
     </template>
   </div>
   <div

@@ -26,7 +26,7 @@ export type TSocial = {
 
 export type TChat = {
   isBot: boolean,
-  message: string
+  content: string
 }
 
 export type TAddress = {

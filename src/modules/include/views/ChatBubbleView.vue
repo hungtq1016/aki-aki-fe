@@ -29,9 +29,13 @@
         </button>
       </div>
       <div class="max-h-[320px] h-full space-y-3.5 overflow-y-auto px-6 py-7.5 !bg-white">
-        <template v-for="data in messages" :key="data.message">
-          <MessageItemLeft v-if="data.isBot" :message="data.message" />
-          <MessageItemRight v-else :message="data.message" />
+        <template v-for="data in messages" :key="data.content">
+          <MessageItemLeft 
+          v-if="data.isBot" 
+          :data="data" 
+          username="Doctor"/>
+          <MessageItemRight v-else 
+          :data="data" />
         </template>
       </div>
       <div
