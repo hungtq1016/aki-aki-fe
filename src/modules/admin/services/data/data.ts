@@ -326,16 +326,6 @@ export const menus: TMenu[] = [
             show: true,
             label: 'route.admin_users_add',
             slug: '/admin/users/add'
-          },
-          {
-            show: true,
-            label: 'route.admin_groups',
-            slug: '/admin/groups'
-          },
-          {
-            show: true,
-            label: 'route.admin_groups_add',
-            slug: '/admin/groups/add'
           }
         ]
       },
@@ -364,16 +354,6 @@ export const menus: TMenu[] = [
             show: true,
             label: 'route.admin_permissions_add',
             slug: '/admin/permissions/add'
-          },
-          {
-            show: true,
-            label: 'route.admin_assignments',
-            slug: '/admin/assignments'
-          },
-          {
-            show: true,
-            label: 'route.admin_assignments_add',
-            slug: '/admin/assignments/add'
           }
         ]
       }

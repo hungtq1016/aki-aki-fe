@@ -52,31 +52,6 @@ const adminUserRoute: RouteRecordRaw[] = [
         }
       }
     ]
-  },
-  {
-    path: 'groups',
-    children: [
-      {
-        path: '',
-        name: 'admin_groups',
-        component: () => import('@/modules/admin-user/views/GroupView.vue'),
-        meta: {
-          title: 'route.admin_groups'
-        }
-      },
-      {
-        path: ':id',
-        redirect: { path: '/admin/groups' }
-      },
-      {
-        path: 'add',
-        name: 'admin_groups_add',
-        component: () => import('@/modules/admin-user/views/GroupAddView.vue'),
-        meta: {
-          title: 'route.admin_groups_add'
-        }
-      }
-    ]
   }
 ]
 

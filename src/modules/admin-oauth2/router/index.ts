@@ -60,31 +60,6 @@ const adminOauth2Route: RouteRecordRaw[] = [
         }
       }
     ]
-  },
-  {
-    path: 'assignments',
-    children: [
-      {
-        path: '',
-        name: 'admin_assignments',
-        component: () => import('@/modules/admin-oauth2/views/AssignmentView.vue'),
-        meta: {
-          title: 'route.admin_assignments'
-        }
-      },
-      {
-        path: 'add',
-        name: 'admin_assignments_add',
-        component: () => import('@/modules/admin-oauth2/views/AssignmentAddView.vue'),
-        meta: {
-          title: 'route.admin_assignments_add'
-        }
-      },
-      {
-        path: ':id',
-        redirect:{name:'admin_assignments'}
-      }
-    ]
   }
 ]
 
