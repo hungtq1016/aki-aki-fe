@@ -39,10 +39,7 @@ export const submit = async (roleId: string) => {
         permissionId: element.id,
         status: StatusEnum.Active
       }
-      const data = await post<TAssignmentRequest, TAssignment>('/api/assignments', payload)
-      if (data?.data) {
-        successNotification(data.message)
-      }
+      await post<TAssignmentRequest, TAssignment>('/api/assignments', payload)
     })
   
   }

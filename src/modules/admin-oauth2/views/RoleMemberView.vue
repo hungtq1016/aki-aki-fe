@@ -9,6 +9,7 @@
         <div class="flex gap-2">
             <input 
                 id="search"
+                @change="onChange"
                 v-model="search" type="text" 
                 :placeholder="$t('form.place_holder.search')"
                 class="dark:!border-zinc-950 dark:!bg-zinc-900 dark:text-gray-50 text-gray-900 w-full rounded-lg border border-gray-100 !bg-gray-100 bg-transparent px-5 py-3 font-normal outline-none transition disabled:cursor-default disabled:!bg-gray-200 disabled:!border-gray-400 disabled:!text-gray-600 dark:disabled:!bg-stone-950 dark:disabled:!text-gray-50" />
@@ -19,7 +20,7 @@
     </div>
     <div class="">
         <ul class="flex flex-col gap-2 max-w-lg m-auto">
-            <li v-for="(item, index) in users" :key="index">
+            <li v-for="(item, index) in filteredUsers" :key="index">
             <label :for="`checkbox-${index}`">
                 <div class="border border-gray-100 relative dark:border-zinc-900 rounded-md">
                 <div
@@ -45,7 +46,7 @@
 
 <script setup lang="ts">
 
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
 import { search, fetch, users, submitGroups, remove } from '../services/logictics/role.member';
 import { useRoute } from 'vue-router';
 import MemberSearch from '../components/Member.search.vue';
@@ -70,6 +71,22 @@ const handleDelete = (index: number) => {
             await remove(index)
         } 
     })
+}
+
+let filteredUsers = computed(() =>
+  search.value === ''
+    ? users.value
+    : users.value.filter((user) =>
+        user.fullName
+          .toLowerCase()
+          .replace(/\s+/g, '')
+          .includes(search.value.toLowerCase().replace(/\s+/g, ''))
+      )
+)
+
+function onChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    search.value = target.value;
 }
 
 onMounted(async () => {
