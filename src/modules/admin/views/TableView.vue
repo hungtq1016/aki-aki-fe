@@ -81,7 +81,7 @@
         <div>{{ format(new Date(date), 'dd/MM/yyyy') }}</div>
       </template>
       <template #item-time="{ time }">
-        <div> {{ formattedTime(JSON.parse(time)) }} </div>
+        <div> {{ formattedTime(JSON.parse(time || "{\"hours\":\"1\"}")) }} </div>
       </template>
       <template #item-createdAt="{ createdAt }">
         <TableDatetime :date="createdAt" />

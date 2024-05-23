@@ -17,7 +17,7 @@ export const items = ref<TSchedule[]>([
     fullName: '',
     phoneNumber: '',
     serviceId: '-1',
-    time: "{\"hello\":\"world\"}",
+    time: "{\"hours\":\"1\"}",
     email: '-1',
     createdAt: '2022-01-01',
     updatedAt: '2024-01-01',
