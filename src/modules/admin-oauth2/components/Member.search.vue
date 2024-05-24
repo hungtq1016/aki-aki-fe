@@ -20,11 +20,11 @@
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
-        <div class="fixed inset-0 bg-black/25" />
+        <div class="fixed inset-0 bg-black-1000/25 z-[100]" />
       </TransitionChild>
 
-      <div class="fixed inset-0 overflow-y-auto">
-        <div class="flex min-h-full items-center justify-center p-4 text-center">
+      <div class="fixed inset-0 overflow-y-auto z-[100] mt-20">
+        <div class="flex min-h-full  items-center justify-center p-4 text-center">
           <TransitionChild
             as="template"
             enter="duration-300 ease-out"
@@ -50,7 +50,7 @@
                 </div>
                 <FormCheckbox v-else
                 :list="users" v-model="selectedUsers">
-                  {{ $t('form.service_price') }}
+                  {{ $t('form.member') }}
                 </FormCheckbox>
               </div>
 
