@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <li v-if="item.show">
+  <li v-if="show">
     <router-link
       to="?"
       v-if="item.children"
@@ -38,12 +38,15 @@
 import { ChevronDownIcon } from '@heroicons/vue/24/outline'
 import type { TMenuItem } from '../models/type'
 import AsideDropdown from './Aside.dropdown.vue'
-import { ref, type Ref } from 'vue'
+import { computed, ref, type Ref } from 'vue'
+import { permissions } from '@/core/services/hooks/usePermission';
 
-defineProps<{
+const props = defineProps<{
   item: TMenuItem
   index: number
 }>()
-
+const show = computed(()=>{
+  return permissions.value.find(data => data.value === props.item.label.split('.')[1] || (data.type === 'admin' && data.value === 'all'));
+})
 const openDropdown: Ref<boolean> = ref(false)
 </script>

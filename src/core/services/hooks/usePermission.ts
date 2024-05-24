@@ -10,7 +10,7 @@ export const hasPermission = async (payload: string) => {
   return false
 }
 
-const permissions =  ref<TPermission[]>([])
+export const permissions =  ref<TPermission[]>([])
 
 export const getPermissions = async () => {
   const data = await post<any,TPermission[]>('/api/roles/permissions')
@@ -19,6 +19,9 @@ export const getPermissions = async () => {
   }
 }
 
-export const checkPermission = (permission:string) => {
-    return permissions.value.find(data=>data.type == permission || (data.type == 'admin' && data.value == 'all')) ? true : false
+export const checkPermission = (value: string): boolean => {
+
+  const res = permissions.value.find(data => data.value === value || (data.type === 'admin' && data.value === 'all'));
+ 
+  return res ? true : false;
 }

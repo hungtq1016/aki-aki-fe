@@ -1,6 +1,5 @@
-import { getPermissions } from '@/core/services/hooks/usePermission'
 import type { RouteRecordRaw } from 'vue-router'
-// await getPermissions()
+
 const clientRoute: RouteRecordRaw = {
   path: '/',
   component: () => import('@/core/components/layouts/DefaultLayout.vue'),

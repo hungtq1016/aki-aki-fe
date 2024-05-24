@@ -66,7 +66,6 @@ export const submit = async (roleId: string) => {
     }
 
     const response = newAssignments.map(async element => {
-
         await post<TAssignmentRequest, TAssignment>('/api/assignments', element);
     })
 

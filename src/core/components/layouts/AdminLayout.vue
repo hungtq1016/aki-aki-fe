@@ -24,11 +24,17 @@
   <!-- ===== Page Wrapper End ===== -->
 </template>
 <script setup lang="ts">
+import { getPermissions } from '@/core/services/hooks/usePermission';
 import AsideView from '@/modules/admin/views/AsideView.vue'
 import BreadcrumbView from '@/modules/admin/views/BreadcrumbView.vue'
 import HeaderView from '@/modules/admin/views/HeaderView.vue'
+import { onMounted } from 'vue';
 
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+
+onMounted(async()=>{
+  await getPermissions()
+})
 </script>
