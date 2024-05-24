@@ -53,7 +53,7 @@
 <script setup lang="ts">
 
 import { computed, onMounted } from 'vue';
-import { search, fetch, checkedPermission, fetchChecked, permissions, submit } from '../services/logictics/role.permission';
+import { search, fetch, checkedPermission, fetchChecked, permissions, submit, constPermission } from '../services/logictics/role.permission';
 import type { TPermissionResponse } from '../models/type';
 import { useRoute } from 'vue-router';
 
