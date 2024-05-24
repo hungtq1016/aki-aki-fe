@@ -26,32 +26,52 @@ export const fetchChecked = async (roleId: string) => {
 
 export const submit = async (roleId: string) => {
     disabled.value = true
-    let assignments: TAssignment[] = [];
-   
-    // Gather all assignments related to the roleId
+    // Fetch current assignments from the server
+    const currentAssignments: TAssignment[] = [];
     constPermission.value.forEach(permission => {
-        const filteredAssignments = permission.assignments.filter(assignment => assignment.roleId === roleId);
-        assignments = assignments.concat(filteredAssignments);
+        permission.assignments.forEach(assignment => {
+            if (assignment.roleId === roleId) {
+                currentAssignments.push(assignment);
+            }
+        });
     });
-   
-    // Delete all gathered assignments
-    if (assignments.length > 0) {
-        await del<TAssignmentRequest, TAssignment>('/api/assignments', assignments);
+
+    const newAssignments: TAssignmentRequest[] = [];
+    const toDelete: TAssignment[] = [];
+
+    // Determine assignments to delete
+    currentAssignments.forEach(currentAssignment => {
+        const found = checkedPermission.value.some(checked => checked.id === currentAssignment.permissionId);
+        if (!found) {
+            toDelete.push(currentAssignment);
+        }
+    });
+
+    // Determine assignments to add
+    checkedPermission.value.forEach(checked => {
+        const found = currentAssignments.some(current => current.permissionId === checked.id);
+        if (!found) {
+            newAssignments.push({
+                id: v4(),
+                roleId: roleId,
+                permissionId: checked.id,
+                status: StatusEnum.Active
+            });
+        }
+    });
+
+    // Perform delete and add operations
+    if (toDelete.length > 0) {
+        await del<TAssignmentRequest, TAssignment>('/api/assignments', toDelete);
     }
 
-    // Post the checked assignments
-    const response = checkedPermission.value.map(async element => {
-        const payload: TAssignmentRequest = {
-            id: v4(),
-            roleId: roleId,
-            permissionId: element.id,
-            status: StatusEnum.Active
-        };
-        await post<TAssignmentRequest, TAssignment>('/api/assignments', payload);
+    const response = newAssignments.map(async element => {
+
+        await post<TAssignmentRequest, TAssignment>('/api/assignments', element);
     })
 
-    Promise.all(response).finally(()=>{
+    Promise.all(response).finally(() => {
         successNotification("Thành công!")
         disabled.value = false
     })
-}
+};

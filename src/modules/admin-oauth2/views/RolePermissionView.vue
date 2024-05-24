@@ -26,7 +26,7 @@
             <label :for="`checkbox-${index}`">
                 <div class="border border-gray-100 relative dark:border-zinc-900 rounded-md">
                 <input 
-                :disabled="item.value == 'admin'"
+                :disabled="item.type == 'admin'"
                 :checked="isChecked(item)" 
                 @change="toggleRole(item)"
                     class="absolute top-2 right-4 w-4 h-4 peer text-cerulean-600 bg-gray-100 border-gray-300 rounded checked:accent-cerulean-600"
