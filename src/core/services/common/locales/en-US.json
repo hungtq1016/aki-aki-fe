@@ -75,7 +75,10 @@
     "specialist": "Specialist",
     "support": "Support",
     "doctor_ai": "Doctor AI",
-    "go_to_schedule": "Go to schedule"
+    "go_to_schedule": "Go to schedule",
+    "permissions":"Permission",
+    "members":"Members",
+    "edit":"Edit"
   },
   "error": {
     "not_found": {
@@ -156,6 +159,7 @@
     "question":"Question",
     "src":"Source",
     "answer":"Answer",
+    "permssions":"Permission",
     "place_holder": {
       "health_record_id": "Select record id",
       "chat": "Go chatting!",
