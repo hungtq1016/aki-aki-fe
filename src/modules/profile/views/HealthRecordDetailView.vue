@@ -6,7 +6,7 @@
                 <div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">{{$t('content.full_name')}}</label>
-                        <p class="text-gray-700">{{ state?.user?.fullName }}</p>
+                        <p class="text-gray-700">{{ state?.patient?.fullName }}</p>
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">{{$t('content.birth_day')}}</label>
@@ -18,11 +18,11 @@
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">{{$t('content.phone_number')}}</label>
-                        <p class="text-gray-700">{{ state?.user?.phoneNumber }}</p>
+                        <p class="text-gray-700">{{ state?.patient?.phoneNumber }}</p>
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">{{$t('content.address')}}</label>
-                        <p class="text-gray-700">{{ state?.user?.address }}</p>
+                        <p class="text-gray-700">{{ state?.patient?.address }}</p>
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">{{$t('content.height')}}</label>
@@ -59,6 +59,10 @@
                         <p class="text-gray-700">{{ state.diagnosis }}</p>
                     </div>
                     <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">{{$t('content.doctor')}}</label>
+                        <p class="text-gray-700">{{ state?.doctor?.fullName }}</p>
+                    </div>
+                    <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">{{$t('content.invoices')}}</label>
                         <p v-for="item in state.invoices" :key="item.id"
                         class="text-gray-700 flex items-center gap-x-1">
@@ -77,18 +81,13 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import { fetch, state } from '../services/logictics/record.detail';
-import { currency } from '@/core/services/utils/util.number';
-import { format } from 'date-fns';
 import { ChevronRightIcon } from '@heroicons/vue/24/solid';
 
 const route = useRoute()
-const router = useRouter()
 
 onMounted(async () => {
-
-    const response = await fetch(String(route.params.id))
-
+    await fetch(String(route.params.id))
 })
 </script>

@@ -74,8 +74,10 @@ export type TRecordResponse = TEntity & {
   heartBeat: number;
   anamnesis: string;
   diagnosis: string;
-  userId: string;
-  user: TUserResponse;
+  patientId: string;
+  patient: TUserResponse;
+  doctorId: string;
+  doctor: TUserResponse;
   invoices: TInvoiceResponse[];
 }
 
