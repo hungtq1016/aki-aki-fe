@@ -5,6 +5,7 @@ import HeaderMessage from '../components/Header.message.vue'
 import HeaderUser from '../components/Header.user.vue'
 // import HeaderSearch from '../components/Header.search.vue'
 import { useSidebarStore } from '../stores/sidebar'
+import SearchModal from '../components/Search.modal.vue'
 
 const { isSidebarOpen, toggleSidebar } = useSidebarStore()
 </script>
@@ -51,7 +52,7 @@ const { isSidebarOpen, toggleSidebar } = useSidebarStore()
       </div>
 
       <!-- Dark Mode Toggler -->
-      <div></div>
+      <SearchModal/>
       <!-- Dark Mode Toggler -->
 
       <div class="flex items-center gap-3 2xsm:gap-7">

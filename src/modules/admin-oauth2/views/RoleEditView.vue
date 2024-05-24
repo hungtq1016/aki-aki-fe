@@ -17,7 +17,7 @@
                 : 'text-cerulean-100 hover:bg-white/[0.12] hover:text-white',
             ]"
           >
-            {{ category }}
+            {{ $t(category) }}
           </button>
         </Tab>
       </TabList>
