@@ -12,7 +12,7 @@ import adminTreatmentRoute from '@/modules/admin-treatment/router'
 import type { RouteRecordRaw } from 'vue-router'
 import hasAdminPermission from '@/core/services/middlewares/hasAdminPermission'
 import { getPermissions } from '@/core/services/hooks/usePermission'
-// getPermissions()
+getPermissions()
 const adminRoute: RouteRecordRaw = {
   path: 'admin',
   component: () => import('@/core/components/layouts/AdminLayout.vue'),

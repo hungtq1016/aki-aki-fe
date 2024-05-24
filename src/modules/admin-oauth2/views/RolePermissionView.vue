@@ -6,6 +6,7 @@
             <span for="search">{{ $t('form.permssions') }}</span>
             <button
             @click="handleSubmit"
+            :disabled = "disabled"
             class="bg-cerulean-600 text-cerulean-100 flex justify-center rounded px-6 py-2 font-medium hover:bg-opacity-90 dark:bg-cerulean-500 dark:text-cerulean-50 disabled:!bg-cerulean-100 disabled:!text-cerulean-600"
             type="button"
             >{{ $t('button.publish') }}</button>
@@ -24,7 +25,10 @@
             <li v-for="(item, index) in filteredPermissions" :key="index">
             <label :for="`checkbox-${index}`">
                 <div class="border border-gray-100 relative dark:border-zinc-900 rounded-md">
-                <input :checked="isChecked(item)" @change="toggleRole(item)"
+                <input 
+                :disabled="item.value == 'admin'"
+                :checked="isChecked(item)" 
+                @change="toggleRole(item)"
                     class="absolute top-2 right-4 w-4 h-4 peer text-cerulean-600 bg-gray-100 border-gray-300 rounded checked:accent-cerulean-600"
                     type="checkbox" :value="item" :id="`checkbox-${index}`" />
                 <div
@@ -54,7 +58,7 @@
 <script setup lang="ts">
 
 import { computed, onMounted } from 'vue';
-import { search, fetch, checkedPermission, fetchChecked, permissions, submit, constPermission } from '../services/logictics/role.permission';
+import { search, fetch, checkedPermission, fetchChecked, permissions, submit, disabled } from '../services/logictics/role.permission';
 import type { TPermissionResponse } from '../models/type';
 import { useRoute } from 'vue-router';
 
