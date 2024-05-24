@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <section class="bg-white py-10">
+
         <div class="text-black-900 py-1 text-sm font-medium dark:text-gray-50 flex justify-between max-w-lg m-auto items-center">
             <span for="search">{{ $t('form.permssions') }}</span>
             <button
@@ -59,18 +60,16 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute()
 
-const isChecked = (item : TPermissionResponse) => checkedPermission.value.some((data: TPermissionResponse) => data.id === item.id);
+const isChecked = (item: TPermissionResponse) => checkedPermission.value.some((data: TPermissionResponse) => data.id === item.id);
 
 function toggleRole(item: TPermissionResponse) {
-
   const index = checkedPermission.value.findIndex((data: TPermissionResponse) => data.id === item.id);
   if (index !== -1) {
     checkedPermission.value.splice(index, 1); 
   } else {
-    checkedPermission.value.push(item); 
+    checkedPermission.value.push({ ...item });  // Create a shallow copy of item
   }
 }
-
 
 let filteredPermissions = computed(() =>
   search.value === ''
@@ -81,19 +80,20 @@ let filteredPermissions = computed(() =>
           .replace(/\s+/g, '')
           .includes(search.value.toLowerCase().replace(/\s+/g, ''))
       )
-)
-async function handleSubmit () {
-    await submit(String(route.params.id))
+);
+
+async function handleSubmit() {
+  await submit(String(route.params.id));
 }
 
 function onChange(event: Event) {
-    const target = event.target as HTMLInputElement;
-    search.value = target.value;
+  const target = event.target as HTMLInputElement;
+  search.value = target.value;
 }
 
 onMounted(async () => {
-    await fetch()
-    await fetchChecked(String(route.params.id))
-})
+  await fetch();
+  await fetchChecked(String(route.params.id));
+});
 
 </script>
