@@ -158,6 +158,8 @@
     "src":"Nguồn",
     "answer":"Câu trả lời",
     "permssions":"Phân quyền",
+    "members":"Thành viên",
+    "edit":"Chỉnh sửa",
     "place_holder": {
       "treatment":"Vui lòng chọn kế hoạch",
       "health_record_id":"Vui lòng chọn bệnh án",
