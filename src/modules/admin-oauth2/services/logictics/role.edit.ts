@@ -4,15 +4,18 @@ import { get, put } from '@/core/services/helpers/request.helper'
 import { successNotification } from '@/core/services/helpers/alert.helper'
 
 import type { TRole } from '../../models/type'
+import { useRouter } from 'vue-router'
 
 export const state: Ref<TRole> = ref({} as TRole)
 
 export const fetch = async (id: string): Promise<void> => {
+  const router = useRouter()
+
   get<TRole>('/api/roles/' + id).then((response) => {
     if (response?.data) {
       state.value = response.data
     }
-  })
+  }).catch(err=>{router.push("/admin")})
 }
 
 export const submit = async () => {

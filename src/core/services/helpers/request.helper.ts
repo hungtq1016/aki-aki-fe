@@ -12,8 +12,9 @@ import type { AxiosRequestConfig } from 'axios'
 import type { Response, TTokenResponse } from '@/core/models/type'
 
 async function refreshToken() {
+  const { updateAuthAsync } = useAuthInfo();
   try {
-    const response = await axios.post('/api/authenticate/refresh-token', {
+    const response = await axios.post<any,Response<TTokenResponse>>('/api/authenticate/refresh-token', {
       // Include any necessary payload like current refresh token
     });
     return response.data;

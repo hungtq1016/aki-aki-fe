@@ -14,6 +14,7 @@ export const headers: Header[] = [
   { text: 'table.status', value: 'status' },
   { text: 'table.createdAt', value: 'createdAt' },
   { text: 'table.updatedAt', value: 'updatedAt' },
+  { text: 'table.createHR', value: 'createHR' },
   { text: 'table.action', value: 'action' }
 ]
 
@@ -30,6 +31,7 @@ export const init_pagination: TPagination = {
   lastPage: 1,
   totalPages: 0,
   totalRecords: 0,
+  
   nextPage: 1,
   previousPage: 1
 }

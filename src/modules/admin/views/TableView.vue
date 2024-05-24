@@ -98,6 +98,9 @@
       <template #expand="item" v-if="expandComponent">
         <expandComponent v-bind="{ item, route }" />
       </template>
+      <template #item-createHR="{ id }">
+        <RouterLink :to="`/admin/healthrecords/add?schedule=${id}`">{{ $t('table.create_record') }}</RouterLink>
+      </template>
     </EasyDataTable>
 
     <TableFooter v-bind="{ pagination, paginationOptions }" />

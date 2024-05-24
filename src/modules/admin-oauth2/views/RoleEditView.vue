@@ -24,13 +24,13 @@
 
       <TabPanels class="mt-2">
         <TabPanel>
+          <RoleUpdateView/>
+        </TabPanel>
+        <TabPanel>
           <RolePermissionView/>
         </TabPanel>
         <TabPanel>
           <RoleMemberView/>
-        </TabPanel>
-        <TabPanel>
-          <RoleUpdateView/>
         </TabPanel>
       </TabPanels>
     </TabGroup>
@@ -44,5 +44,5 @@ import RolePermissionView from './RolePermissionView.vue';
 import RoleMemberView from './RoleMemberView.vue';
 import RoleUpdateView from './RoleUpdateView.vue';
 
-const categories = ref(["content.permissions","content.members","content.edit"])
+const categories = ref(["content.edit","content.permissions","content.members"])
 </script>

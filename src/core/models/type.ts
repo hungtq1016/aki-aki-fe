@@ -68,6 +68,7 @@ export type TPaginationRequest = {
 export type TOption = {
   name: string
   value: string
+  route?: string
 }
 
 export type TEntity = {
