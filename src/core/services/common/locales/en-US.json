@@ -381,6 +381,8 @@
     "urls":"url"
   },
   "table": {
+    "createHR":"Health Record",
+    "create_record":"Create new HR",
     "inactive": "Inactive",
     "active": "Active",
     "pending": "Pending",

@@ -384,6 +384,8 @@
     "urls":"url"
   },
   "table": {
+    "createHR":"Bệnh án",
+    "create_record":"Tạo bệnh án",
     "inactive": "Ngừng hoạt động",
     "active": "Hoạt động",
     "pending": "Đang chờ",
