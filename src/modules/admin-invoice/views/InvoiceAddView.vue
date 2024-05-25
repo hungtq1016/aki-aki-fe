@@ -42,7 +42,7 @@
             </FormInput>
           </div>
           <FormRadio @update:search="debouncedPrescriptions" v-model:id="state.prescriptionId" v-model:search="searchPrescription"
-            :list="nurses"  :pagination="paginationPrescription" v-bind="{ paginationOptions }">
+            :list="prescriptions"  :pagination="paginationPrescription" v-bind="{ paginationOptions }">
             {{ $t('form.select_prescription') }}
           </FormRadio>
           <FormCheckbox :list="servicePrices" v-model="selectedServices">
@@ -63,7 +63,7 @@ import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 
-import { debouncedPatients, state, submit, debouncedNurses, nurses, fetchPatients, fetchServicePrices, fetchNurses, selectedServices, servicePrices, fetchPrescriptions, searchPatient, patients, paginationPatient, searchNurse, paginationNurse, debouncedPrescriptions, searchPrescription, paginationPrescription } from '../services/logictics/invoice.add'
+import { debouncedPatients, state, submit, debouncedNurses, nurses, fetchPatients, fetchServicePrices, fetchNurses, selectedServices, servicePrices, fetchPrescriptions, searchPatient, patients, paginationPatient, searchNurse, paginationNurse, debouncedPrescriptions, searchPrescription, paginationPrescription, prescriptions } from '../services/logictics/invoice.add'
 import { paginationOptions, rules } from '../services/data/invoice'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 import FormCheckbox from '@/modules/admin-template/components/Form.checkbox.vue'
@@ -79,9 +79,9 @@ const handleSubmit = async() => {
 }
 
 onMounted(async() => {
-  await fetchPatients(String(route.params.email || ''))
+  await fetchPatients(String(route.query.email || ''))
   await fetchNurses('')
-  await fetchPrescriptions(String(route.params.prescription || ''))
+  await fetchPrescriptions(String(route.query.prescription || ''))
   await fetchServicePrices()
 })
 </script>

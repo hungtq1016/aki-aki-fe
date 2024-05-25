@@ -102,7 +102,7 @@ export const fetchNurses = async (value: string) => {
 
 export const fetchPrescriptions = async (value: string) => {
     searchPrescription.value = value
-    const options = { ...paginationOptions.value, value: searchPrescription.value }
+    const options = { ...paginationOptions.value, search: searchPrescription.value }
 
     get<TPaginationResponse<TPrescription>>(`/api/prescriptions/page`, options).then((response) => {
         if (response?.data) {
