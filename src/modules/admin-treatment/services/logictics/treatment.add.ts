@@ -13,28 +13,39 @@ import { paginationOptions } from '../data/treatment'
 import { useDebounceFn } from '@vueuse/core'
 import { v4 } from 'uuid'
 import { format } from 'date-fns'
+import type { TRecord } from '@/modules/admin-medicine/models/type'
 
 const init_state: TTreatmentPlantRequest = {
+  id: v4(),
   title: '',
   description: '',
   patientId: '',
+  recordId: '',
   status: StatusEnum.Active
 }
 
 export const state = reactive<TTreatmentPlantRequest>({ ...init_state })
 
 export const activities: Ref<TActivity[]> = ref([])
+export const activity = ref('')
+
 export const patients: Ref<TUser[]> = ref([])
 export const searchPatient: Ref<string> = ref('')
-export const pagination: Ref<TPagination> = ref({} as TPagination)
-export const activity = ref('')
+
+export const records: Ref<TRecord[]> = ref([])
+export const searchRecord: Ref<string> = ref('')
+
 export const details = ref<TActivity[]>([])
 export const selectedDetails = ref<TTreatmentDetailRequest[]>([])
 
+export const pagination: Ref<TPagination> = ref({} as TPagination)
+
 export const addToDetails = () => {
+  const {id} = state
   selectedDetails.value.push({
+    id: v4(),
     activityId: activity.value,
-    treatmentId: v4(),
+    treatmentId: id,
     date: new Date(),
     status: StatusEnum.Pending
   })
@@ -53,8 +64,17 @@ export const removeFromDetail = (index: number) => {
   }
 }
 
-export const fetchPatients = async (value?: string) => {
-  searchPatient.value = value || ''
+export const fetchActivities = async () => {
+ 
+  await get<TActivity[]>(`/api/activities`).then((response) => {
+      if (response?.data) {
+        activities.value = response.data
+      }
+  })
+}
+
+export const fetchPatients = async (value: string) => {
+  searchPatient.value = value 
   const options = { ...paginationOptions.value, value: searchPatient.value }
 
   await get<TPaginationResponse<TUser>>(`/api/users/role/customer/search`, options).then((response) => {
@@ -66,22 +86,29 @@ export const fetchPatients = async (value?: string) => {
   })
 }
 
-export const fetchActivities = async () => {
- 
-  await get<TActivity[]>(`/api/activities`).then((response) => {
+export const fetchRecords = async (value: string) => {
+  searchRecord.value = value 
+  const options = { ...paginationOptions.value, value: searchRecord.value }
+
+  await get<TPaginationResponse<TRecord>>(`/api/healthrecords/page`, options).then((response) => {
       if (response?.data) {
-        activities.value = response.data
+          const { data, ...page } = response.data
+          records.value = data
+          pagination.value = page
       }
   })
 }
 
 export const debouncedPatient = useDebounceFn(async () => {
-  await fetchPatients()
+  await fetchPatients(searchPatient.value)
+}, 600, { maxWait: 5000 })
+
+export const debouncedRecord = useDebounceFn(async () => {
+  await fetchPatients(searchRecord.value)
 }, 600, { maxWait: 5000 })
 
 export const submit = async () => {
-  const treatmentId = v4();
-  state.id = treatmentId;
+  const {id:treatmentId} = state;
   
   const data = await post<TTreatmentPlantRequest, TTreatmentPlant>('/api/treatmentplants', state);
   if (data?.data) {

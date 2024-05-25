@@ -6,8 +6,10 @@ import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TBranchType, TBranchTypeRequest } from '../../models/type'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TBranchTypeRequest = {
+  id: v4(),
   label: '',
   status: StatusEnum.Active
 }

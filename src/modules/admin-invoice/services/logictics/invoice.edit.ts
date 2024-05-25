@@ -8,15 +8,15 @@ import type { TPagination, TPaginationResponse } from "@/core/models/type"
 import type { TUser } from "@/modules/admin-user/models/type"
 import { paginationOptions } from "../data/invoice"
 import { useDebounceFn } from "@vueuse/core"
-import type { TRecord } from "@/modules/admin-medicine/models/type"
-import { v4 } from "uuid"
 
 export const state: Ref<TInvoice> = ref({} as TInvoice)
-export const nurseSearch = ref('')
+
 export const nurses: Ref<TUser[]> = ref([])
-export const healthRecords: Ref<TRecord[]> = ref([])
-export const nursePagination: Ref<TPagination> = ref({} as TPagination)
+export const searchNurse = ref('')
+export const paginationNurse: Ref<TPagination> = ref({} as TPagination)
+
 export const pagination: Ref<TPagination> = ref({} as TPagination)
+
 export const selectedServices: Ref<TServicePrice[]> = ref([])
 export const servicePrices: Ref<TServicePrice[]> = ref([])
 export const fetchedServicePrice: Ref<TServicePrice[]> = ref([])
@@ -43,19 +43,6 @@ export const submit = async () => {
     })
 }
 
-export const fetchHealthRecord = async (id: string) => {
-
-    const options = { ...pagination.value }
-
-    get<TPaginationResponse<TRecord>>(`/api/healthrecords/user/` + id, options).then((response) => {
-        if (response?.data) {
-            const { data, ...page } = response.data
-            healthRecords.value = data
-            pagination.value = page
-        }
-    })
-}
-
 export const fetchServicePrices = async () => {
 
     get<TServicePrice[]>('/api/serviceprices').then((response) => {
@@ -65,19 +52,19 @@ export const fetchServicePrices = async () => {
     })
 }
 
-
-export const fetchNurses = async () => {
-
-    const options = { ...paginationOptions.value, value: nurseSearch.value }
+export const fetchNurses = async (value: string) => {
+    searchNurse.value = value
+    const options = { ...paginationOptions.value, value: searchNurse.value }
 
     get<TPaginationResponse<TUser>>(`/api/users/role/nurse/search`, options).then((response) => {
         if (response?.data) {
             const { data, ...page } = response.data
             nurses.value = data
-            nursePagination.value = page
+            paginationNurse.value = page
         }
     })
 }
+
 
 export const fetch = async (id: string) => {
     get<TInvoice>(`/api/invoices/` + id).then((response) => {
@@ -97,13 +84,8 @@ export const fetchedService = async (id: string) => {
 }
 
 export const debouncedNurses = useDebounceFn(async () => {
-    await fetchNurses()
+    await fetchNurses(searchNurse.value)
 }, 600, { maxWait: 5000 })
-
-watch(() => state.value.patientId, async (newValue) => {
-    if (newValue !== '-1')
-        await fetchHealthRecord(newValue)
-})
 
 watch(() => selectedServices.value, () => {
     const total = selectedServices.value.reduce((total: number, service: TServicePrice) => total + Math.round(service.price), 0)

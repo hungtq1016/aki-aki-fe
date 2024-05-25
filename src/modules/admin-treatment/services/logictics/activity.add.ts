@@ -6,8 +6,10 @@ import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TActivity, TActivityRequest } from '../../models/type'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TActivityRequest = {
+  id: v4(),
   title: '',
   description: '',
   status: StatusEnum.Active

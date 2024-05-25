@@ -7,8 +7,10 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import type { TGroupUrlRequest, TUrl, TUrlRequest } from '../../models/type'
 import type {Ref} from 'vue'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TUrlRequest = {
+  id: v4(),
   label: '',
   slug: '',
   imageUrl: '',

@@ -10,8 +10,8 @@
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormRadio @update:search="debouncedNurses" v-model:id="state.nurseId" v-model:search="nurseSearch"
-            :list="nurses" v-bind="{ paginationOptions }" :pagination="nursePagination">
+          <FormRadio @update:search="debouncedNurses" v-model:id="state.nurseId" v-model:search="searchNurse"
+            :list="nurses" :pagination="paginationNurse" v-bind="{ paginationOptions }">
             {{ $t('form.select_nurse') }}
           </FormRadio>
         </template>
@@ -36,11 +36,6 @@
               {{ $t('form.tax') }}
             </FormInput>
           </div>
-          <FormSelect v-model="state.healthRecordId" :list="healthRecords"
-            :has-error="Boolean(errorFields?.healthRecordId?.length)"
-            :placeholder="$t('form.place_holder.health_record_id')">
-            {{ $t('form.health_record') }}
-          </FormSelect>
           <FormCheckbox :list="servicePrices" 
           :fetched-data="fetchedServicePrice"
           v-model="selectedServices">
@@ -59,21 +54,21 @@ import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
-import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 
-import { state,fetch, submit, debouncedNurses, nurseSearch, nurses, nursePagination, fetchServicePrices, fetchNurses, healthRecords, selectedServices, servicePrices, fetchedServicePrice, fetchedService } from '../services/logictics/invoice.edit'
+import { state,fetch, submit, debouncedNurses, nurses, fetchServicePrices, fetchNurses, selectedServices, servicePrices, fetchedServicePrice, fetchedService, searchNurse } from '../services/logictics/invoice.edit'
 import { paginationOptions, rules } from '../services/data/invoice'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 import FormCheckbox from '@/modules/admin-template/components/Form.checkbox.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
 import { useRoute } from 'vue-router'
+import { paginationNurse } from '../services/logictics/invoice.add'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 const route = useRoute()
 
 onMounted(async() => {
-  await fetchNurses()
+  await fetchNurses(String(route.query.email || ''))
   await fetchServicePrices()
   await fetch(String(route.params.id))
   await fetchedService(String(route.params.id))

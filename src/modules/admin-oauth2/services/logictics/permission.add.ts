@@ -6,8 +6,10 @@ import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TPermission, TPermissionRequest } from '../../models/type'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TPermissionRequest = {
+  id: v4(),
   type: 'permission',
   value: '',
   label: '',

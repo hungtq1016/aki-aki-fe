@@ -11,12 +11,14 @@ export type TTreatmentPlantResponse = TEntity & {
   title: string,
   description: string,
   patientId: string,
+  recordId: string
 }
 
 export type TTreatmentPlantRequest = TRequest & {
   title: string,
   description: string,
   patientId: string,
+  recordId: string
 }
 
 export type TTreatmentDetail = TEntity & {

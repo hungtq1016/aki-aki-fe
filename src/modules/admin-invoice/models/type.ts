@@ -5,7 +5,7 @@ export type TInvoice = TEntity & {
   tax: number;
   patientId: string;
   nurseId: string;
-  healthRecordId: string;
+  prescriptionId: string;
 }
 
 export type TInvoiceRequest = TRequest & {
@@ -13,7 +13,7 @@ export type TInvoiceRequest = TRequest & {
   tax: number;
   patientId: string;
   nurseId: string;
-  healthRecordId: string;
+  prescriptionId: string;
 }
 
 export type TInvoiceResponse = TEntity & {
@@ -21,7 +21,7 @@ export type TInvoiceResponse = TEntity & {
   tax: number;
   patientId: string;
   nurseId: string;
-  healthRecordId: string;
+  prescriptionId: string;
 }
 
 export type TServicePrice = TEntity & {

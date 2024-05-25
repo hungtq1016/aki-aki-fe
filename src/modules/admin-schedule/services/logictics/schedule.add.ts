@@ -12,9 +12,11 @@ import type { TSchedule, TScheduleRequest } from '../../models/type'
 import type { TService } from '@/modules/admin-service/models/type'
 import type { TBranch } from '@/modules/admin-branch/models/type'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TScheduleRequest = {
-  date: new Date(),
+    id: v4(),
+    date: new Date(),
     branchId: '-1',
     desc: '',
     fullName: '',

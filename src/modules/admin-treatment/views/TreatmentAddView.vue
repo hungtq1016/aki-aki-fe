@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <FormLayout :submit="submit">
+  <FormLayout :submit="handleSubmit">
     <FormItem>
       <FormGroup :has-error="[
         Boolean(errorFields?.title?.length),
@@ -56,6 +56,19 @@
           </div>
         </template>
       </FormGroup>
+      <FormGroup :has-error="[
+        Boolean(errorFields?.recordId?.length),
+      ]">
+        <template #heading>
+          {{ $t('form.healthrecord') }}
+        </template>
+        <template #content>
+          <FormRadio @update:search="debouncedRecord" v-model:id="state.recordId" v-model:search="searchRecord"
+            :list="records" v-bind="{ pagination, paginationOptions }">
+            {{ $t('form.select_healthrecord') }}
+          </FormRadio>
+        </template>
+      </FormGroup>
     </FormItem>
     <FormItem>
       <PublishView v-model="state.status" :pass="pass" />
@@ -64,7 +77,7 @@
         Boolean(errorFields?.content?.length)
       ]">
         <template #heading>
-          {{ $t('form.content') }}
+          {{ $t('form.patient') }}
         </template>
         <template #content>
           <FormRadio @update:search="debouncedPatient" v-model:id="state.patientId" v-model:search="searchPatient"
@@ -88,17 +101,22 @@ import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
 import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 
-import { debouncedPatient, activities, fetchActivities, fetchPatients, pagination, patients, searchPatient, state, submit, removeFromDetail, details, activity, addToDetails, selectedDetails, activityTitle } from '../services/logictics/treatment.add'
+import { debouncedPatient, activities, fetchActivities, fetchPatients, pagination, patients, searchPatient, state, submit, removeFromDetail
+  , activity, addToDetails, selectedDetails, activityTitle, 
+  fetchRecords,
+  debouncedRecord,
+  searchRecord,
+  records} from '../services/logictics/treatment.add'
 import { paginationOptions, rules } from '../services/data/treatment'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 import { PlusIcon } from '@heroicons/vue/24/outline'
 import { XMarkIcon } from '@heroicons/vue/24/solid'
 import { vi } from 'date-fns/locale';
 
-
 const route = useRoute()
+const router = useRouter()
 const { pass, errorFields } = useAsyncValidator(state, rules) 
 
 const minDate = (index:number) => {
@@ -108,8 +126,15 @@ const minDate = (index:number) => {
   return new Date(selectedDetails.value[index-1].date)
 }
 
+const handleSubmit = async() => {
+  const findPatients = patients.value.find(patient => patient.id === state.patientId)
+  await submit()
+  await router.push(`/admin/prescriptions/add?email=${findPatients?.email}&treatment=${state.id}`)
+}
+
 onMounted(async() => {
   await fetchPatients(String(route.query.email || ''))
+  await fetchRecords(String(route.query.record || ''))
   await fetchActivities()
 })
 

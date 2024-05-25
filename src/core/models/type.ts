@@ -79,6 +79,6 @@ export type TEntity = {
 }
 
 export type TRequest = {
-  id?: string
+  id: string
   status?: StatusEnum
 }

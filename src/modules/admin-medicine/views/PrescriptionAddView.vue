@@ -21,10 +21,10 @@
             {{ $t('form.patient') }}
           </template>
           <template #content>
-            <FormRadio @update:search="debouncedUser" 
-            v-model:id="presciption.patientId"
-             v-model:search="emailSearch" 
-             :list="users"
+            <FormRadio @update:search="debouncedPatient" 
+            v-model:id="prescription.patientId"
+             v-model:search="searchPatient" 
+             :list="patients"
               v-bind="{ pagination, paginationOptions }" >
               {{ $t('form.select_patient') }}
             </FormRadio>
@@ -44,6 +44,20 @@
             <FormTextarea v-model="state.usage" :has-error="false" :placeholder="$t('form.place_holder.usage')">
               {{ $t('form.usage') }}
             </FormTextarea>
+          </template>
+        </FormGroup>
+        <FormGroup :has-error="[Boolean(errorFields?.treatmentId?.length)]">
+          <template #heading>
+            {{ $t('form.treatment') }}
+          </template>
+          <template #content>
+            <FormRadio @update:search="debouncedTreatment" 
+            v-model:id="prescription.treatmentId"
+             v-model:search="searchTreatment" 
+             :list="treatments"
+              v-bind="{ pagination, paginationOptions }" >
+              {{ $t('form.select_treatment') }}
+            </FormRadio>
           </template>
         </FormGroup>
       </FormItem>
@@ -84,7 +98,7 @@
 import { DocumentIcon, PrinterIcon } from '@heroicons/vue/24/outline'
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import { onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
@@ -96,21 +110,27 @@ import TableView from '@/modules/admin/views/TableView.vue'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 
 import { paginationOptions, headers, rules } from '../services/data/prescription.table'
-import { debouncedMedicine, debouncedUser, emailSearch, fetchMedicines, medicineSearch, fetchUsers, users, medicines, pagination, prescriptions, state, submit, presciption, submitPrescription  } from '../services/logictics/prescription.add'
+import { debouncedMedicine, debouncedPatient, searchPatient, fetchMedicines, medicineSearch, fetchPatients, patients, 
+  medicines, pagination, prescriptions, state, submit, prescription, submitPrescription, 
+  debouncedTreatment, searchTreatment, treatments, fetchTreatments  } from '../services/logictics/prescription.add'
 import { useUserStore } from '@/core/stores/user'
 
 const route = useRoute()
+const router = useRouter()
 const { user } = useUserStore()
 
-const { pass, errorFields } = useAsyncValidator(presciption, rules)
+const { pass, errorFields } = useAsyncValidator(prescription, rules)
 
 const handleSubmit = async () => {
   await submitPrescription(user.id)
+  const findPatients = patients.value.find(patient => patient.id === prescription.value.patientId)
+  await router.push(`/admin/invoices/add?email=${findPatients?.email}&prescription=${prescription.value.id}`)
 }
 
 onMounted(async () => {
   await fetchMedicines()
-  await fetchUsers(String(route.query.email || ''))
+  await fetchPatients(String(route.query.email || ''))
+  await fetchTreatments(String(route.query.treatment||''))
 })
 
 </script>

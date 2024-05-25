@@ -10,8 +10,10 @@ import UploadAdapter from '@/core/services/classes/UploadFile'
 import type { TGroupService, TService, TServiceRequest } from '../../models/type'
 import type { Ref } from 'vue'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TServiceRequest = {
+  id: v4(),
   title: '',
   content: '',
   imageUrl: '',

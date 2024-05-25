@@ -37,7 +37,7 @@ export const init_pagination: TPagination = {
 }
 
 export const rules: Rules = {
-  healthRecordId: {
+  prescriptionId: {
     type: 'string',
     min: 5,
     required: true

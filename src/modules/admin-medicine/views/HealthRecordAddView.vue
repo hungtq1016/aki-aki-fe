@@ -8,7 +8,8 @@
         Boolean(errorFields?.height?.length),
         Boolean(errorFields?.weight?.length),
         Boolean(errorFields?.bloodPressure?.length),
-        Boolean(errorFields?.heartBeat?.length)
+        Boolean(errorFields?.heartBeat?.length),
+        Boolean(errorFields?.scheduleId?.length)
       ]">
         <template #heading>
           {{ $t('form.heading') }}
@@ -160,8 +161,8 @@ const { pass, errorFields } = useAsyncValidator(state, rules)
 
 const handleSubmit = async () => {
   const findPatients = patients.value.find(patient => patient.id === state.value.patientId)
-  await router.push('/admin/treatmentplants/add?email='+ findPatients?.email)
   await submit()
+  await router.push(`/admin/treatmentplants/add?email=${findPatients?.email}&record=${state.value.id}`)
 }
 
 onMounted(async () => {

@@ -7,8 +7,10 @@ import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TCategory, TCategoryRequest } from '../../models/type'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TCategoryRequest = {
+  id: v4(),
   title: '',
   slug: '',
   status: StatusEnum.Active

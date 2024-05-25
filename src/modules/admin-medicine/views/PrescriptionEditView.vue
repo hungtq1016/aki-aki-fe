@@ -18,10 +18,13 @@
             {{ $t('form.patient') }}
           </template>
           <template #content>
-            <FormRadio @update:search="debouncedUser" v-model:id="prescription.patientId" v-model:search="emailSearch"
-              :list="users" v-bind="{ pagination, paginationOptions }">
+            <FormRadio @update:search="debouncedPatient" 
+            v-model:id="prescription.patientId"
+             v-model:search="searchPatient" 
+             :list="patients"
+              v-bind="{ pagination, paginationOptions }" >
               {{ $t('form.select_patient') }}
-              </FormRadio>
+            </FormRadio>
           </template>
         </FormGroup>
       </FormItem>
@@ -38,6 +41,20 @@
             <FormTextarea v-model="state.usage" :has-error="false" :placeholder="$t('form.place_holder.usage')">
               {{ $t('form.usage') }}
             </FormTextarea>
+          </template>
+        </FormGroup>
+        <FormGroup :has-error="[Boolean(errorFields?.treatmentId?.length)]">
+          <template #heading>
+            {{ $t('form.treatment') }}
+          </template>
+          <template #content>
+            <FormRadio @update:search="debouncedTreatment" 
+            v-model:id="prescription.treatmentId"
+             v-model:search="searchTreatment" 
+             :list="treatments"
+              v-bind="{ pagination, paginationOptions }" >
+              {{ $t('form.select_treatment') }}
+            </FormRadio>
           </template>
         </FormGroup>
       </FormItem>
@@ -89,7 +106,14 @@ import TableView from '@/modules/admin/views/TableView.vue'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 
 import { paginationOptions, headers, rules } from '../services/data/prescription.table'
-import { debouncedMedicine, debouncedUser, emailSearch, fetch, fetchMedicines, medicineSearch, fetchUsers, users, medicines, pagination, prescriptions, state, submit, prescription, submitPrescription, fetchPrescriptionDetail } from '../services/logictics/prescription.edit'
+import { debouncedMedicine, fetch, fetchMedicines, medicineSearch, medicines, pagination, 
+  prescriptions, state, submit, prescription, submitPrescription, fetchPrescriptionDetail, 
+  debouncedTreatment, fetchPatients, fetchTreatments, 
+  debouncedPatient,
+  searchPatient,
+  patients,
+  searchTreatment,
+  treatments} from '../services/logictics/prescription.edit'
 
 const route = useRoute()
 
@@ -103,7 +127,8 @@ onMounted(async () => {
   await fetch(String(route.params.id))
   await fetchPrescriptionDetail(String(route.params.id))
   await fetchMedicines()
-  await fetchUsers(String(route.query.email || ''))
+  await fetchPatients(String(route.query.email || ''))
+  await fetchTreatments(String(route.query.treatment||''))
 })
 
 </script>

@@ -56,6 +56,19 @@
           </div>
         </template>
       </FormGroup>
+      <FormGroup :has-error="[
+        Boolean(errorFields?.recordId?.length),
+      ]">
+        <template #heading>
+          {{ $t('form.healthrecord') }}
+        </template>
+        <template #content>
+          <FormRadio @update:search="debouncedRecord" v-model:id="state.recordId" v-model:search="searchRecord"
+            :list="records" v-bind="{ pagination, paginationOptions }">
+            {{ $t('form.select_healthrecord') }}
+          </FormRadio>
+        </template>
+      </FormGroup>
     </FormItem>
     <FormItem>
       <PublishView v-model="state.status" :pass="pass" />
@@ -89,7 +102,7 @@ import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
 import FormTextarea from '@/modules/admin-template/components/Form.textarea.vue'
 
-import { debouncedPatient, activities, fetch, fetchActivities, fetchPatients,fetchDetails, pagination, patients, searchPatient, state, submit, removeFromDetail, details, activity, addToDetails, selectedDetails, fetchedDetail, activityTitle } from '../services/logictics/treatment.edit'
+import { debouncedPatient, activities, fetch, fetchActivities, fetchPatients,fetchDetails, pagination, patients, searchPatient, state, submit, removeFromDetail, details, activity, addToDetails, selectedDetails, fetchedDetail, activityTitle, debouncedRecord, searchRecord, records, fetchRecords } from '../services/logictics/treatment.edit'
 import { paginationOptions, rules } from '../services/data/treatment'
 import { useRoute } from 'vue-router'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
@@ -109,7 +122,8 @@ const minDate = (index:number) => {
 }
 
 onMounted(async() => {
-  await fetchPatients(String(route.query.email || ''))
+  await fetchPatients('')
+  await fetchRecords('')
   await fetchActivities()
   await fetch(String(route.params.id))
   await fetchDetails(String(route.params.id))

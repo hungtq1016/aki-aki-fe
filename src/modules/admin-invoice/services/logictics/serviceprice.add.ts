@@ -6,8 +6,10 @@ import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TServicePrice, TServicePriceRequest } from '../../models/type'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TServicePriceRequest = {
+  id: v4(),
   label: '',
   price: 0,
   status: StatusEnum.Active

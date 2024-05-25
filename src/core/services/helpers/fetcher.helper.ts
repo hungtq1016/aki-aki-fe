@@ -70,6 +70,7 @@ async function makeRequest<TRequest, TResponse>(
           headers['x-retry'] = 'true'; // Prevent infinite retry loop
           options.headers = header
           const retryResponse = await axios<Response<TResponse>>(options);
+  
           return retryResponse.data;
         }
       } catch (refreshError) {
@@ -79,7 +80,6 @@ async function makeRequest<TRequest, TResponse>(
       }
     } else {
       console.log(i18n.global.t('error.server_error.message'), err);
-      // errorHandling(err.response.data.message, err.response.status);
       throw err;
     }
   }

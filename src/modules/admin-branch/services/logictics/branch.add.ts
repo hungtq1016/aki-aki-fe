@@ -7,8 +7,10 @@ import { successNotification } from '@/core/services/helpers/alert.helper'
 import type { TBranch, TBranchRequest, TBranchType } from '../../models/type'
 import type { Ref } from 'vue'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TBranchRequest = {
+  id: v4(),
   address1: '',
   address2: '',
   phone1: '',

@@ -12,6 +12,7 @@ import UploadAdapter from "@/core/services/classes/UploadFile"
 import { StatusEnum } from "@/core/models/enum"
 
 const init_state: TBlogRequest = {
+    id: v4(),
     title: '',
     content: '',
     videoEmbed: '',

@@ -11,27 +11,37 @@ import type { Ref } from 'vue'
 import type { TUser } from '@/modules/admin-oauth2/models/type'
 import type { TMedicine, TPrescription, TPrescriptionDetailRequest, TPrescriptionRequest } from '../../models/type'
 import type { TPagination, TPaginationResponse } from '@/core/models/type'
+import type { TTreatmentPlant } from '@/modules/admin-treatment/models/type'
+import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TPrescriptionDetailRequest = {
+  id: v4(),
   prescriptionId: '-1',
   usage: '',
   medicineId: '-1',
   quantity: 1,
 }
 
-const init_presciption: TPrescriptionRequest = {
+const init_prescription: TPrescriptionRequest = {
   doctorId: '-1',
-  patientId: '-1'
+  patientId: '-1',
+  treatmentId: '-1',
+  id: v4(),
+  status: StatusEnum.Accepted
 }
 
 export const state = ref<TPrescriptionDetailRequest>({ ...init_state })
-export const presciption = ref<TPrescriptionRequest>({ ...init_presciption })
+export const prescription = ref<TPrescriptionRequest>({ ...init_prescription })
 
-export const medicines: Ref<TMedicine[]> = ref([])
-export const users: Ref<TUser[]> = ref([])
 export const prescriptions: Ref<TPrescriptionDetailRequest[]> = ref([])
 
-export const emailSearch: Ref<string> = ref('')
+export const patients: Ref<TUser[]> = ref([])
+export const searchPatient: Ref<string> = ref('')
+
+export const treatments: Ref<TTreatmentPlant[]> = ref([])
+export const searchTreatment: Ref<string> = ref('')
+
+export const medicines: Ref<TMedicine[]> = ref([])
 export const medicineSearch: Ref<string> = ref('')
 
 export const medicinePagination: Ref<TPagination> = ref({} as TPagination)
@@ -51,18 +61,43 @@ export const fetchMedicines = async () => {
   })
 }
 
-export const fetchUsers = async (value: string): Promise<void> => {
-  emailSearch.value = value
-  const options = { ...paginationOptions.value, value: emailSearch.value }
+export const fetchPatients = async (value: string): Promise<void> => {
+  searchPatient.value = value
+  const options = { ...paginationOptions.value, value: searchPatient.value }
 
   get<TPaginationResponse<TUser>>(`/api/users/role/customer/search`, options).then((response) => {
     if (response?.data) {
       const { data, ...page } = response.data
-      users.value = data
+      patients.value = data
       userPagination.value = page
     }
   })
 }
+
+export const fetchTreatments = async (value: string): Promise<void> => {
+  searchTreatment.value = value
+  const options = { ...paginationOptions.value, value: searchTreatment.value }
+
+  get<TPaginationResponse<TTreatmentPlant>>(`/api/treatmentplants/page`, options).then((response) => {
+    if (response?.data) {
+      const { data, ...page } = response.data
+      treatments.value = data
+      userPagination.value = page
+    }
+  })
+}
+
+export const debouncedPatient = useDebounceFn(async () => {
+  await fetchPatients(searchTreatment.value)
+}, 600, { maxWait: 5000 })
+
+export const debouncedTreatment = useDebounceFn(async () => {
+  await fetchTreatments(searchTreatment.value)
+}, 600, { maxWait: 5000 })
+
+export const debouncedMedicine = useDebounceFn(async () => {
+  await fetchMedicines()
+}, 600, { maxWait: 5000 })
 
 export const submit = () => {
   const medicine = medicines.value?.find((item) => item.id === state.value.medicineId)
@@ -75,17 +110,16 @@ export const submit = () => {
 }
 
 export const submitPrescription = async (doctorId: string) => {
-  const id = v4()
+  const { id } = prescription.value
   const payload = {
-      ...presciption.value,
-      id: id,
+      ...prescription.value,
       doctorId
   }
   
   await post<TPrescriptionRequest, TPrescription>('/api/prescriptions', payload).then(response => {
     if (response?.data) {
       successNotification(response.message)
-      resetObject(presciption, init_presciption)
+      resetObject(prescription, init_prescription)
     }
   })
 
@@ -94,11 +128,3 @@ export const submitPrescription = async (doctorId: string) => {
     await post<TPrescriptionRequest, TPrescription>('/api/prescriptiondetails', data)
   })
 }
-
-export const debouncedMedicine = useDebounceFn(async () => {
-  await fetchMedicines()
-}, 600, { maxWait: 5000 })
-
-export const debouncedUser = useDebounceFn(async () => {
-  await fetchUsers(emailSearch.value || '')
-}, 600, { maxWait: 5000 })

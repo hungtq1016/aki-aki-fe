@@ -10,6 +10,7 @@ import type { TTagRequest, TTag } from '../../models/type'
 import { StatusEnum } from '@/core/models/enum'
 
 const init_state: TTagRequest = {
+  id: v4(),
   title: '',
   slug: '',
   status: StatusEnum.Active

@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <FormLayout :submit="submit">
+  <FormLayout :submit="handleSubmit">
     <FormItem>
       <FormGroup :has-error="[
           Boolean(errorFields?.patientId?.length),
@@ -10,12 +10,12 @@
           {{ $t('form.heading') }}
         </template>
         <template #content>
-          <FormRadio @update:search="debouncedCustomers" v-model:id="state.patientId" v-model:search="customerSearch"
-            :list="customers" :pagination="customerPagination" v-bind="{ paginationOptions }">
+          <FormRadio @update:search="debouncedPatients" v-model:id="state.patientId" v-model:search="searchPatient"
+            :list="patients" :pagination="paginationPatient" v-bind="{ paginationOptions }">
             {{ $t('form.select_patient') }}
           </FormRadio>
-          <FormRadio @update:search="debouncedNurses" v-model:id="state.nurseId" v-model:search="nurseSearch"
-            :list="nurses" v-bind="{ paginationOptions }" :pagination="nursePagination">
+          <FormRadio @update:search="debouncedNurses" v-model:id="state.nurseId" v-model:search="searchNurse"
+            :list="nurses" :pagination="paginationNurse" v-bind="{ paginationOptions }">
             {{ $t('form.select_nurse') }}
           </FormRadio>
         </template>
@@ -24,7 +24,8 @@
     <FormItem>
       <PublishView v-model="state.status" :pass="pass" />
       <FormGroup :has-error="[
-          Boolean(errorFields?.healthRecordId?.length)
+          Boolean(errorFields?.healthRecordId?.length),
+          Boolean(errorFields?.prescriptionId?.length)
         ]">
         <template #heading>
           {{ $t('form.heading') }}
@@ -40,11 +41,10 @@
               {{ $t('form.tax') }}
             </FormInput>
           </div>
-          <FormSelect v-model="state.healthRecordId" :list="healthRecords"
-            :has-error="Boolean(errorFields?.healthRecordId?.length)"
-            :placeholder="$t('form.place_holder.health_record_id')">
-            {{ $t('form.health_record') }}
-          </FormSelect>
+          <FormRadio @update:search="debouncedPrescriptions" v-model:id="state.prescriptionId" v-model:search="searchPrescription"
+            :list="nurses"  :pagination="paginationPrescription" v-bind="{ paginationOptions }">
+            {{ $t('form.select_prescription') }}
+          </FormRadio>
           <FormCheckbox :list="servicePrices" v-model="selectedServices">
             {{ $t('form.service_price') }}
           </FormCheckbox>
@@ -61,20 +61,27 @@ import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs'
 import PublishView from '@/modules/admin-template/views/PublishView.vue'
 import FormItem from '@/modules/admin-template/components/Form.item.vue'
 import FormLayout from '@/modules/admin-template/components/Form.layout.vue'
-import FormSelect from '@/modules/admin-template/components/Form.select.vue'
 import FormGroup from '@/modules/admin-template/components/Form.group.vue'
 
-import { customerPagination, customers, debouncedCustomers, customerSearch, state, submit, debouncedNurses, nurseSearch, nurses, nursePagination, fetchCustomers, fetchServicePrices, fetchNurses, healthRecords, selectedServices, servicePrices } from '../services/logictics/invoice.add'
+import { debouncedPatients, state, submit, debouncedNurses, nurses, fetchPatients, fetchServicePrices, fetchNurses, selectedServices, servicePrices, fetchPrescriptions, searchPatient, patients, paginationPatient, searchNurse, paginationNurse, debouncedPrescriptions, searchPrescription, paginationPrescription } from '../services/logictics/invoice.add'
 import { paginationOptions, rules } from '../services/data/invoice'
 import FormRadio from '@/modules/admin-template/components/Form.radio.vue'
 import FormCheckbox from '@/modules/admin-template/components/Form.checkbox.vue'
 import FormInput from '@/modules/admin-template/components/Form.input.vue'
+import { useRoute } from 'vue-router'
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
+const route = useRoute()
+
+const handleSubmit = async() => {
+  await submit()
+  
+}
 
 onMounted(async() => {
-  await fetchCustomers()
-  await fetchNurses()
+  await fetchPatients(String(route.params.email || ''))
+  await fetchNurses('')
+  await fetchPrescriptions(String(route.params.prescription || ''))
   await fetchServicePrices()
 })
 </script>

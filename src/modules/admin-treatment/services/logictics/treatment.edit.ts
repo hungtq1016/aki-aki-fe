@@ -12,6 +12,7 @@ import { paginationOptions } from '../data/treatment'
 import { useDebounceFn } from '@vueuse/core'
 import { v4 } from 'uuid'
 import { StatusEnum } from '@/core/models/enum'
+import type { TRecord } from '@/modules/admin-medicine/models/type'
 
 export const state = ref<TTreatmentPlantResponse>({} as TTreatmentPlantResponse)
 
@@ -23,6 +24,8 @@ export const pagination: Ref<TPagination> = ref({} as TPagination)
 export const activity = ref('')
 export const details = ref<TActivity[]>([])
 export const selectedDetails = ref<TTreatmentDetailRequest[]>([])
+export const records: Ref<TRecord[]> = ref([])
+export const searchRecord: Ref<string> = ref('')
 
 export const fetch = async (id: string): Promise<void> => {
 
@@ -55,19 +58,6 @@ export const removeFromDetail = (index: number) => {
   }
 }
 
-export const fetchPatients = async (value?: string) => {
-  searchPatient.value = value || ''
-  const options = { ...paginationOptions.value, value: searchPatient.value }
-
-  await get<TPaginationResponse<TUser>>(`/api/users/role/customer/search`, options).then((response) => {
-    if (response?.data) {
-      const { data, ...page } = response.data
-      patients.value = data
-      pagination.value = page
-    }
-  })
-}
-
 export const fetchActivities = async () => {
   await get<TActivity[]>(`/api/activities`).then((response) => {
     if (response?.data) {
@@ -86,8 +76,38 @@ export const fetchDetails = async (id: string) => {
   })
 }
 
+export const fetchPatients = async (value: string) => {
+  searchPatient.value = value 
+  const options = { ...paginationOptions.value, value: searchPatient.value }
+
+  await get<TPaginationResponse<TUser>>(`/api/users/role/customer/search`, options).then((response) => {
+      if (response?.data) {
+          const { data, ...page } = response.data
+          patients.value = data
+          pagination.value = page
+      }
+  })
+}
+
+export const fetchRecords = async (value: string) => {
+  searchRecord.value = value 
+  const options = { ...paginationOptions.value, value: searchRecord.value }
+
+  await get<TPaginationResponse<TRecord>>(`/api/healthrecords/page`, options).then((response) => {
+      if (response?.data) {
+          const { data, ...page } = response.data
+          records.value = data
+          pagination.value = page
+      }
+  })
+}
+
 export const debouncedPatient = useDebounceFn(async () => {
-  await fetchPatients()
+  await fetchPatients(searchPatient.value)
+}, 600, { maxWait: 5000 })
+
+export const debouncedRecord = useDebounceFn(async () => {
+  await fetchPatients(searchRecord.value)
 }, 600, { maxWait: 5000 })
 
 export const submit = async () => {

@@ -8,7 +8,8 @@
         Boolean(errorFields?.height?.length),
         Boolean(errorFields?.weight?.length),
         Boolean(errorFields?.bloodPressure?.length),
-        Boolean(errorFields?.heartBeat?.length)
+        Boolean(errorFields?.heartBeat?.length),
+        Boolean(errorFields?.scheduleId?.length)
       ]">
         <template #heading>
           {{ $t('form.heading') }}
@@ -147,7 +148,9 @@ import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.v
 import FormInput from '@/modules/admin-template/components/Form.input.vue';
 import FormSelect from '@/modules/admin-template/components/Form.select.vue';
 
-import { anamnesis, selectedAnamnesis, pagination, state, submit, otherAnamnesis, fetch, debouncedDoctor, debouncedPatient, debouncedSchedule, doctors, patients, schedules, searchDoctor, searchPatient, searchSchedule, fetchPatients, fetchDoctors, fetchSchedule  } from '../services/logictics/record.edit';
+import { anamnesis, selectedAnamnesis, pagination, state, submit, otherAnamnesis, fetch, 
+  debouncedDoctor, debouncedPatient, debouncedSchedule, doctors, patients, schedules, searchDoctor, 
+  searchPatient, searchSchedule, fetchPatients, fetchDoctors, fetchSchedule  } from '../services/logictics/record.edit';
 import { paginationOptions } from '../services/data/record';
 import { rules } from '@/modules/admin-medicine/services/data/record';
 
@@ -163,10 +166,10 @@ const handleSubmit = async () => {
 }
 
 onMounted(async () => {
-  await fetchPatients()
-  await fetchDoctors()
+  await fetchPatients('')
+  await fetchDoctors('')
   await fetch(String(route.params.id))
-  await fetchSchedule()
+  await fetchSchedule('')
 })
 
 </script>

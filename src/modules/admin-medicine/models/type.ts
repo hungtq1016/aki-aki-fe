@@ -32,11 +32,13 @@ export type TPrescriptionDetailRequest = TRequest & {
 export type TPrescriptionRequest = TRequest & {
   doctorId: string
   patientId: string
+  treatmentId: string
 }
 
 export type TPrescription = TEntity & {
   doctorId: string
   patientId: string
+  treatmentId: string
 }
 
 export type TPrescriptionResponse = TEntity & {

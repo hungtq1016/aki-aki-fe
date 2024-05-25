@@ -7,8 +7,10 @@ import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TMedicine, TMedicineRequest } from '../../models/type'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TMedicineRequest = {
+  id: v4(),
   title: '',
   slug: '',
   brand: '',

@@ -90,5 +90,10 @@ export const rules: Rules = {
     type: 'string',
     min: 5,
     required: true
+  },
+  scheduleId: {
+    type: 'string',
+    min: 5,
+    required: true
   }
 }

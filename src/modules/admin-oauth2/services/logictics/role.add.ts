@@ -6,8 +6,10 @@ import { resetObject } from '@/core/services/utils/util.object'
 
 import type { TRole, TRoleRequest } from '../../models/type'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TRoleRequest = {
+  id: v4(),
   note: '',
   name: '',
   status: StatusEnum.Active

@@ -7,8 +7,10 @@ import { slugify } from '@/core/services/utils/util.string'
 
 import type { TGroupService, TGroupServiceRequest } from '../../models/type'
 import { StatusEnum } from '@/core/models/enum'
+import { v4 } from 'uuid'
 
 const init_state: TGroupServiceRequest = {
+  id: v4(),
   label: '',
   slug: '',
   status: StatusEnum.Active
