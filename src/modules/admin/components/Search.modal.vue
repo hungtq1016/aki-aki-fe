@@ -38,13 +38,20 @@
                     {{ $t(indexName.name) }}
                   </DialogTitle>
                   <ul class="bg-white divide-y-[1px] divide-gray-500 w-full mt-2 ">
-                    <li v-for="item in updatedData" :key="item._id"
+                    <div v-if="updatedData.length === 0">Not found</div>
+                    <template v-else>
+                      <li v-for="item in updatedData" :key="item._id"
                       class="px-2 py-1 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900">
                       <a href="#" class="justify-between flex">
-                        <span v-html="item._source?.name?.toLowerCase().replace(search, `<b>${search}</b>`)"></span>
+                        <span v-if="item._source.fullName" v-html="item._source?.fullName?.toLowerCase().replace(search, `<b>${search}</b>`)"></span>
+                        <span v-if="item._source.title" v-html="item._source?.title?.toLowerCase().replace(search, `<b>${search}</b>`)"></span>
+                        <span v-if="item._source.name" v-html="item._source?.name?.toLowerCase().replace(search, `<b>${search}</b>`)"></span>
+                        <span v-if="item._source.label" v-html="item._source?.label?.toLowerCase().replace(search, `<b>${search}</b>`)"></span>
                         <RouterLink :to="`${indexName.route}/${item._id}` || '/admin'" class="capitalize text-sky-700">{{ item._index }}</RouterLink>
                       </a>
                     </li>
+                    </template>
+                    
                   </ul>
                 </div>
               </div>
@@ -116,6 +123,7 @@ watch(() => search.value, () => {
 })
 
 const fetch = async () => {
+  data.value = []
   const username = import.meta.env.VITE_ELASTICSEARCH_USERNAME;
   const password = import.meta.env.VITE_ELASTICSEARCH_PASSWORD;
 
