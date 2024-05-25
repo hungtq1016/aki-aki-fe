@@ -128,7 +128,7 @@ const handleSubmit = async () => {
 }
 
 onMounted(async () => {
-  await fetchMedicines()
+  await fetchMedicines('')
   await fetchPatients(String(route.query.email || ''))
   await fetchTreatments(String(route.query.treatment||''))
 })

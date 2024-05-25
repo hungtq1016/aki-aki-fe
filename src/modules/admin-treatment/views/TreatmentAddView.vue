@@ -63,7 +63,6 @@
           {{ $t('form.healthrecord') }}
         </template>
         <template #content>
-          <div>{{records}}</div>
           <FormRadio @update:search="debouncedRecord" v-model:id="state.recordId" v-model:search="searchRecord"
             :list="records" v-bind="{ pagination, paginationOptions }">
             {{ $t('form.select_healthrecord') }}

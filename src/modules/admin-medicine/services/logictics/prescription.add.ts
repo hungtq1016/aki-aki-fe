@@ -48,11 +48,11 @@ export const medicinePagination: Ref<TPagination> = ref({} as TPagination)
 export const userPagination: Ref<TPagination> = ref({} as TPagination)
 export const pagination = ref<TPagination>({ ...init_pagination })
 
-export const fetchMedicines = async () => {
+export const fetchMedicines = async (value: string) => {
+  searchPatient.value = value
+  const options = { ...paginationOptions.value, search: medicineSearch.value }
 
-  const options = { ...paginationOptions.value, value: medicineSearch.value }
-
-  get<TPaginationResponse<TMedicine>>(`/api/medicines/search`, options).then((response) => {
+  get<TPaginationResponse<TMedicine>>(`/api/medicines/page`, options).then((response) => {
     if (response?.data) {
       const { data, ...page } = response.data
       medicines.value = data
@@ -96,7 +96,7 @@ export const debouncedTreatment = useDebounceFn(async () => {
 }, 600, { maxWait: 5000 })
 
 export const debouncedMedicine = useDebounceFn(async () => {
-  await fetchMedicines()
+  await fetchMedicines('')
 }, 600, { maxWait: 5000 })
 
 export const submit = () => {

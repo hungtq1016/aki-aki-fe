@@ -21,12 +21,12 @@
           <div
             class="flex justify-between px-4 py-2 bg-gray-100 peer-checked:bg-cerulean-100 dark:peer-checked:!bg-slate-950 dark:bg-zinc-950">
             <div class="flex gap-x-1 items-center text-gray-950 text-sm font-semibold dark:text-gray-50">
-              {{ data.email || data.title }}
+              {{ data.email || data.title || data.title || data.id  }}
             </div>
           </div>
           <div
             class="border-t border-gray-100 bg-gray-50 px-4 dark:border-zinc-900 py-2 text-xs text-gray-600 peer-checked:bg-cerulean-50 dark:bg-zinc-800 dark:text-gray-300 dark:peer-checked:!bg-slate-900">
-            {{ data.phoneNumber || data.brand }}
+            {{ data.phoneNumber || data.brand || data.doctorId || data.description }}
           </div>
         </div>
       </label>
