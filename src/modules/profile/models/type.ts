@@ -77,8 +77,8 @@ export type TRecordResponse = TEntity & {
   patientId: string;
   patient: TUserResponse;
   doctorId: string;
+  treatmentId: string;
   doctor: TUserResponse;
-  invoices: TInvoiceResponse[];
 }
 
 export type TRecordRequest = TRequest & {

@@ -63,13 +63,10 @@
                         <p class="text-gray-700">{{ state?.doctor?.fullName }}</p>
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">{{$t('content.invoices')}}</label>
-                        <p v-for="item in state.invoices" :key="item.id"
-                        class="text-gray-700 flex items-center gap-x-1">
-                            <ChevronRightIcon class="w-3 h-3 text-gray-600"/>
-                            <router-link :to="`/profile/invoice/${item.id}`">
-                                {{ item.id }}
-                            </router-link>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">{{$t('content.treatment')}}</label>
+                        <p class="text-gray-700 flex items-center gap-x-1">
+                            <ChevronRightIcon class="w-3 h-3 text-gray-600"/> 
+                            <router-link :to="`/profile/treatment/${state.treatmentId}`"> {{ state.treatmentId }} </router-link> 
                         </p>
                     </div>
                 </div>
