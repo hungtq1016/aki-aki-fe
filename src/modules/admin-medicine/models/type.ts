@@ -59,7 +59,9 @@ export type TRecord = TEntity & {
   heartBeat: number;
   anamnesis: string;
   diagnosis: string;
-  userId: string;
+  patientId: string;
+  doctorId: string;
+  scheduleId: string;
 }
 
 export type TRecordRequest = TRequest & {
@@ -68,6 +70,7 @@ export type TRecordRequest = TRequest & {
   address: string;
   height: number;
   weight: number;
+  scheduleId: string;
   bloodPressure: number;
   temperature: number;
   heartBeat: number;

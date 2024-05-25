@@ -98,8 +98,8 @@
       <template #expand="item" v-if="expandComponent">
         <expandComponent v-bind="{ item, route }" />
       </template>
-      <template #item-createHR="{ id }">
-        <RouterLink :to="`/admin/healthrecords/add?schedule=${id}`">{{ $t('table.create_record') }}</RouterLink>
+      <template #item-createHR="{ id, email }">
+        <RouterLink :to="`/admin/healthrecords/add?schedule=${id}&email=${email}`">{{ $t('table.create_record') }}</RouterLink>
       </template>
     </EasyDataTable>
 

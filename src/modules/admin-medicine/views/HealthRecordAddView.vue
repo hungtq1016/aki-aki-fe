@@ -104,6 +104,10 @@
             :placeholder="$t('form.place_holder.other_anamnesis')">
             {{ $t('form.other_anamnesis') }}
           </FormTextarea>
+          <FormRadio @update:search="debouncedSchedule" v-model:id="state.scheduleId" v-model:search="searchSchedule" :list="schedules"
+            v-bind="{ pagination, paginationOptions }">
+            {{ $t('form.select_schedule') }}
+          </FormRadio>
         </template>
       </FormGroup>
     </FormItem>
@@ -143,7 +147,9 @@ import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.v
 import FormInput from '@/modules/admin-template/components/Form.input.vue';
 import FormSelect from '@/modules/admin-template/components/Form.select.vue';
 
-import { anamnesis, selectedAnamnesis, pagination, state, submit, otherAnamnesis, fetchPatients, patients, doctors, debouncedDoctor, debouncedPatient, searchPatient, searchDoctor, fetchDoctors } from '../services/logictics/record.add';
+import { anamnesis, selectedAnamnesis, pagination, state, submit, otherAnamnesis, fetchPatients, 
+  patients, doctors, debouncedDoctor, debouncedPatient, searchPatient, searchDoctor, fetchDoctors, debouncedSchedule, searchSchedule, schedules, 
+  fetchSchedule} from '../services/logictics/record.add';
 import { paginationOptions } from '../services/data/record';
 import { rules } from '@/modules/admin-medicine/services/data/record';
 
@@ -154,14 +160,14 @@ const { pass, errorFields } = useAsyncValidator(state, rules)
 
 const handleSubmit = async () => {
   const findPatients = patients.value.find(patient => patient.id === state.value.patientId)
-
-  await router.push('/admin/prescriptions/add?email='+ findPatients?.email)
+  await router.push('/admin/treatmentplants/add?email='+ findPatients?.email)
   await submit()
 }
 
 onMounted(async () => {
   await fetchPatients(String(route.query.email || ''))
-  await fetchDoctors(String(route.query.email || ''))
+  await fetchDoctors('')
+  await fetchSchedule(String(route.query.schedule || ''))
 })
 
 </script>

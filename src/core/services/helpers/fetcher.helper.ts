@@ -9,13 +9,17 @@ import { urlBuilder } from '@/core/services/utils/util.url'
 
 import type { AxiosRequestConfig } from 'axios'
 import type { Response, TTokenResponse } from '@/core/models/type'
-import { errorHandling } from './error.helper'
 async function refreshToken() {
+  const { readAuthAsync, updateAuthAsync } = useAuthInfo();
+
   try {
-    const response = await axios.post('/api/authenticate/refresh-token', {
-      // Include any necessary payload like current refresh token
-    });
-    return response.data;
+    const token = await readAuthAsync()
+    const response = await post<any,TTokenResponse>('/api/authenticate/refresh-token', token);
+    if (response?.data) {
+      await updateAuthAsync(response.data); 
+
+    }
+    return response?.data;
   } catch (error) {
     console.error('Error refreshing token:', error);
     throw error;
@@ -30,7 +34,7 @@ async function makeRequest<TRequest, TResponse>(
   queryParams?: any
 ): Promise<Response<TResponse> | undefined> {
   const url: string = urlBuilder(path, queryParams);
-  const { readAuthAsync, updateAuthAsync } = useAuthInfo();
+  const { readAuthAsync } = useAuthInfo();
   const token: TTokenResponse | undefined = await readAuthAsync();
 
   const headers: Record<string, string> = {
@@ -58,15 +62,16 @@ async function makeRequest<TRequest, TResponse>(
     const response = await axios<Response<TResponse>>(options);
     return response.data;
   } catch (err: any) {
-    if (err.response.status === 401 && headers['x-retry'] ) {
+    if (err.response.status == 401) {
       try {
         const newToken = await refreshToken();
-        await updateAuthAsync(newToken); // Save the new token
-        headers['Authorization'] = 'Bearer ' + newToken.accessToken;
-        headers['x-retry'] = 'true'; // Prevent infinite retry loop
-        options.headers = header
-        const retryResponse = await axios<Response<TResponse>>(options);
-        return retryResponse.data;
+        if (newToken) {
+          headers['Authorization'] = 'Bearer ' + newToken.accessToken;
+          headers['x-retry'] = 'true'; // Prevent infinite retry loop
+          options.headers = header
+          const retryResponse = await axios<Response<TResponse>>(options);
+          return retryResponse.data;
+        }
       } catch (refreshError) {
         console.error('Token refresh failed:', refreshError);
 

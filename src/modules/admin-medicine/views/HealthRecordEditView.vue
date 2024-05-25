@@ -1,5 +1,5 @@
 <template>
-  <FormLayout :submit="submit">
+  <FormLayout :submit="handleSubmit">
     <FormItem>
       <FormGroup :has-error="[
         Boolean(errorFields?.birthDay?.length),
@@ -104,6 +104,10 @@
             :placeholder="$t('form.place_holder.other_anamnesis')">
             {{ $t('form.other_anamnesis') }}
           </FormTextarea>
+          <FormRadio @update:search="debouncedSchedule" v-model:id="state.scheduleId" v-model:search="searchSchedule" :list="schedules"
+            v-bind="{ pagination, paginationOptions }">
+            {{ $t('form.select_schedule') }}
+          </FormRadio>
         </template>
       </FormGroup>
     </FormItem>
@@ -114,10 +118,14 @@
           {{ $t('form.information') }}
         </template>
         <template #content>
-          <FormRadio @update:search="debouncedFn" v-model:id="state.userId" v-model:search="search" :list="users"
+          <FormRadio @update:search="debouncedPatient" v-model:id="state.patientId" v-model:search="searchPatient" :list="patients"
             v-bind="{ pagination, paginationOptions }">
             {{ $t('form.select_patient') }}
-            </FormRadio>
+          </FormRadio>
+          <FormRadio @update:search="debouncedDoctor" v-model:id="state.doctorId" v-model:search="searchDoctor" :list="doctors"
+            v-bind="{ pagination, paginationOptions }">
+            {{ $t('form.select_doctor') }}
+          </FormRadio>
         </template>
       </FormGroup>
     </FormItem>
@@ -127,7 +135,7 @@
 <script setup lang="ts">
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs';
 import { onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 import FormGroup from '@/modules/admin-template/components/Form.group.vue';
 import FormItem from '@/modules/admin-template/components/Form.item.vue';
@@ -139,17 +147,26 @@ import FormInputSlot from '@/modules/admin-template/components/Form.input.slot.v
 import FormInput from '@/modules/admin-template/components/Form.input.vue';
 import FormSelect from '@/modules/admin-template/components/Form.select.vue';
 
-import { anamnesis, debouncedFn, fetchUsers, selectedAnamnesis, pagination, search, state, submit, users, otherAnamnesis, fetch } from '../services/logictics/record.edit';
+import { anamnesis, selectedAnamnesis, pagination, state, submit, otherAnamnesis, fetch, debouncedDoctor, debouncedPatient, debouncedSchedule, doctors, patients, schedules, searchDoctor, searchPatient, searchSchedule, fetchPatients, fetchDoctors, fetchSchedule  } from '../services/logictics/record.edit';
 import { paginationOptions } from '../services/data/record';
 import { rules } from '@/modules/admin-medicine/services/data/record';
 
 const route = useRoute()
+const router = useRouter()
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 
+const handleSubmit = async () => {
+  const findPatients = patients.value.find(patient => patient.id === state.value.patientId)
+  await router.push('/admin/treatmentplants/add?email='+ findPatients?.email)
+  await submit()
+}
+
 onMounted(async () => {
-  await fetchUsers(String(route.query.email || ''))
+  await fetchPatients()
+  await fetchDoctors()
   await fetch(String(route.params.id))
+  await fetchSchedule()
 })
 
 </script>

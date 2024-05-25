@@ -12,12 +12,16 @@ import type { AxiosRequestConfig } from 'axios'
 import type { Response, TTokenResponse } from '@/core/models/type'
 
 async function refreshToken() {
-  const { updateAuthAsync } = useAuthInfo();
+  const { readAuthAsync, updateAuthAsync } = useAuthInfo();
+
   try {
-    const response = await axios.post<any,Response<TTokenResponse>>('/api/authenticate/refresh-token', {
-      // Include any necessary payload like current refresh token
-    });
-    return response.data;
+    const token = await readAuthAsync()
+    const response = await post<any,TTokenResponse>('/api/authenticate/refresh-token', token);
+    if (response?.data) {
+      await updateAuthAsync(response.data); 
+
+    }
+    return response?.data;
   } catch (error) {
     console.error('Error refreshing token:', error);
     throw error;
@@ -60,24 +64,24 @@ async function makeRequest<TRequest, TResponse>(
     const response = await axios<Response<TResponse>>(options);
     return response.data;
   } catch (err: any) {
-    if (err.response.status === 401 && headers['x-retry'] ) {
+    if (err.response.status == 401) {
       try {
         const newToken = await refreshToken();
-        await updateAuthAsync(newToken); // Save the new token
-        headers['Authorization'] = 'Bearer ' + newToken.accessToken;
-        headers['x-retry'] = 'true'; // Prevent infinite retry loop
-        options.headers = header
-        const retryResponse = await axios<Response<TResponse>>(options);
-        return retryResponse.data;
+        if (newToken) {
+          headers['Authorization'] = 'Bearer ' + newToken.accessToken;
+          headers['x-retry'] = 'true'; // Prevent infinite retry loop
+          options.headers = header
+          const retryResponse = await axios<Response<TResponse>>(options);
+          return retryResponse.data;
+        }
       } catch (refreshError) {
         console.error('Token refresh failed:', refreshError);
-        // Optional: Redirect to login or handle refresh token failure
-  
+
         throw refreshError;
       }
     } else {
       console.log(i18n.global.t('error.server_error.message'), err);
-      errorHandling(err.response.data.message, err.response.status);
+      // errorHandling(err.response.data.message, err.response.status);
       throw err;
     }
   }

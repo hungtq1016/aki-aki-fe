@@ -12,6 +12,7 @@ import type { TUser } from "@/modules/admin-oauth2/models/type"
 import type { Ref } from "vue"
 import type { TRecord, TRecordRequest } from '../../models/type'
 import { StatusEnum } from '@/core/models/enum'
+import type { TSchedule } from '@/modules/admin-schedule/models/type'
 
 const init_state: TRecordRequest = {
     status: StatusEnum.Active,
@@ -20,6 +21,7 @@ const init_state: TRecordRequest = {
     address: '',
     height: 160,
     weight: 60,
+    scheduleId:'',
     bloodPressure: 120,
     temperature: 37,
     heartBeat: 80,
@@ -35,13 +37,15 @@ export const otherAnamnesis: Ref<string> = ref('')
 export const anamnesis = ['Tăng huyết áp', 'Viêm gan', 'Đái tháo đường','Động kinh','Hạ huyết áp','Đau đầu']
 export const doctors: Ref<TUser[]> = ref([])
 export const patients: Ref<TUser[]> = ref([])
+export const schedules: Ref<TSchedule[]> = ref([])
 export const searchPatient: Ref<string> = ref('')
+export const searchSchedule: Ref<string> = ref('')
 export const searchDoctor: Ref<string> = ref('')
 export const pagination: Ref<TPagination> = ref({} as TPagination)
 
 export const fetchPatients = async (value?: string) => {
-    searchPatient.value = value || ''
-    const options = { ...paginationOptions.value, value: searchPatient.value }
+  
+    const options = { ...paginationOptions.value, value: value || searchPatient.value }
 
     get<TPaginationResponse<TUser>>(`/api/users/role/customer/search`, options).then((response) => {
         if (response?.data) {
@@ -50,16 +54,30 @@ export const fetchPatients = async (value?: string) => {
             pagination.value = page
         }
     })
+    
 }
 
 export const fetchDoctors = async (value?: string) => {
-    searchDoctor.value = value || ''
-    const options = { ...paginationOptions.value, value: searchDoctor.value }
+    
+    const options = { ...paginationOptions.value, value: value || searchDoctor.value }
 
     get<TPaginationResponse<TUser>>(`/api/users/role/doctor/search`, options).then((response) => {
         if (response?.data) {
             const { data, ...page } = response.data
             doctors.value = data
+            pagination.value = page
+        }   
+    })
+}
+
+export const fetchSchedule = async (value?: string) => {
+    
+    const options = { ...paginationOptions.value, search: value || searchSchedule.value }
+
+    get<TPaginationResponse<TSchedule>>(`/api/schedules/page`, options).then((response) => {
+        if (response?.data) {
+            const { data, ...page } = response.data
+            schedules.value = data
             pagination.value = page
         }
     })
@@ -71,6 +89,10 @@ export const debouncedPatient = useDebounceFn(async () => {
 
 export const debouncedDoctor = useDebounceFn(async () => {
     await fetchPatients()
+}, 600, { maxWait: 5000 })
+
+export const debouncedSchedule = useDebounceFn(async () => {
+    await fetchSchedule()
 }, 600, { maxWait: 5000 })
 
 export const submit = async () => {
