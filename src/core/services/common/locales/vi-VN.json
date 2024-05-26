@@ -478,6 +478,17 @@
     "videoEmbed": "Nhúng video",
     "weight": "Cân nặng",
     "date":"Ngày",
-    "time": "Thời gian"
+    "time": "Thời gian",
+    "currentday": "Hôm nay",
+    "lastday": "Hôm qua",
+    "lastweek": "Tuần trước",
+    "currentweek": "Tuần này",
+    "lastmonth":"Tháng trước",
+    "currentmonth": "tháng này",
+    "lastquarter": "Quý trước",
+    "currentquarter": "Quý này",
+    "lastyear":"Năm trước",
+    "currentyear":"Năm nay",
+    "all":"Tất cả"
   }
 }

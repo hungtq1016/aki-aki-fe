@@ -473,6 +473,17 @@
     "videoEmbed": "Video embed",
     "weight": "Weight",
     "date": "Date",
-    "time": "Time"
+    "time": "Time",
+    "currentday": "Today",
+    "lastday": "Yesterday",
+    "lastweek": "Last week",
+    "currentweek": "This week",
+    "lastmonth":"Last month",
+    "currentmonth": "This month",
+    "lastquarter": "Last quarter",
+    "currentquarter": "Current quarter",
+    "lastyear":"Last year",
+    "currentyear":"This year",
+    "all":"All"
   }
 }
