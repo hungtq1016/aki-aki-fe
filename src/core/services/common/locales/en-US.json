@@ -78,7 +78,10 @@
     "go_to_schedule": "Go to schedule",
     "permissions":"Permission",
     "members":"Members",
-    "edit":"Edit"
+    "edit":"Edit",
+    "doctor":"Doctor",
+    "treatment":"Treatment"
+
   },
   "error": {
     "not_found": {
@@ -160,6 +163,11 @@
     "src":"Source",
     "answer":"Answer",
     "permssions":"Permission",
+    "select_schedule":"Select Schedule",
+    "treatment":"Treatment",
+    "select_prescription":"Select Prescription",
+    "healthrecord":"Health Record",
+    "select_healthrecord":"Select health record",
     "place_holder": {
       "health_record_id": "Select record id",
       "chat": "Go chatting!",

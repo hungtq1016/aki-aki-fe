@@ -75,7 +75,12 @@
     "specialist": "Chuyên gia",
     "support": "Hỗ trợ",
     "doctor_ai": "Tư vấn",
-    "go_to_schedule": "Đi đến lịch hẹn"
+    "go_to_schedule": "Đi đến lịch hẹn",  
+    "edit":"Chỉnh sửa",
+    "permissions":"Quyền hạn",
+    "members":"Thành viên",
+    "doctor":"Bác sĩ phụ trách",
+    "treatment":"Kế hoạch điều trị"
   },
   "error": {
     "not_found": {
@@ -154,12 +159,17 @@
     "select_treatment":"Chọn hoạt động",
     "patient":"Bệnh nhân",
     "default_title":"Tiêu đề mặt định",
-    "question":"Question",
+    "question":"Câu hỏi",
     "src":"Nguồn",
     "answer":"Câu trả lời",
     "permssions":"Phân quyền",
     "members":"Thành viên",
     "edit":"Chỉnh sửa",
+    "treatment":"Kế hoạch điều trị",
+    "select_prescription":"Chọn toa thuốc",
+    "select_schedule":"Chọn lịch",
+    "healthrecord":"Hồ sơ bệnh án",
+    "select_healthrecord":"Chọn hồ sơ bệnh án",
     "place_holder": {
       "treatment":"Vui lòng chọn kế hoạch",
       "health_record_id":"Vui lòng chọn bệnh án",
