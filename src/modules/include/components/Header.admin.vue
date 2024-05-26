@@ -16,11 +16,13 @@ import HeaderAdminItem from './Header.admin.item.vue'
 import { hasPermission } from '@/core/services/hooks/usePermission'
 
 const isAdmin = ref<boolean>(false)
+
 onMounted(async()=>{
   await hasPermission("admin").then(response=>{
+    console.log(response)
     isAdmin.value = response
-
   })
   
 })
+
 </script>

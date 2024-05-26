@@ -15,9 +15,50 @@ export const state = ref<CurrentOutput>({ ...init_state });
 export const timeperiod = ref('currentday');
 
 export const categories = [
-  'lastday', 'currentday', 'lastweek', 'currentweek', 
-  'lastmonth', 'currentmonth', 'lastquarter', 'currentquarter', 
-  'lastyear', 'currentyear', 'all'
+  {
+      value: 'lastday',
+      label: 'table.lastday'
+  },
+  {
+      value: 'currentday',
+      label: 'table.currentday'
+  },
+  {
+      value: 'lastweek',
+      label: 'table.lastweek'
+  },
+  {
+      value: 'currentweek',
+      label: 'table.currentweek'
+  },
+  {
+      value: 'lastmonth',
+      label: 'table.lastmonth'
+  },
+  {
+      value: 'currentmonth',
+      label: 'table.currentmonth'
+  },
+  {
+      value: 'lastquarter',
+      label: 'table.lastquarter'
+  },
+  {
+      value: 'currentquarter',
+      label: 'table.currentquarter'
+  },
+  {
+      value: 'lastyear',
+      label: 'table.lastyear'
+  },
+  {
+      value: 'currentyear',
+      label: 'table.currentyear'
+  },
+  {
+      value: 'all',
+      label: 'table.all'
+  }
 ];
 
 const endpoints = [

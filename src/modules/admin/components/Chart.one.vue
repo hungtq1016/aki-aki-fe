@@ -26,7 +26,7 @@ onMounted(async () => {
           </span>
           <div class="w-full">
             <p class="font-semibold text-cerulean-600">Hóa đơn</p>
-            <p class="text-sm font-medium">last {{ timeperiod }}</p>
+            <p class="text-sm font-medium">{{ $t(`table.last${timeperiod}`) }}</p>
           </div>
         </div>
         <div class="flex min-w-[190px]">
@@ -37,7 +37,7 @@ onMounted(async () => {
           </span>
           <div class="w-full">
             <p class="font-semibold text-cerulean-300">Hóa đơn</p>
-            <p class="text-sm font-medium">current {{ timeperiod }}</p>
+            <p class="text-sm font-medium">{{ $t(`table.current${timeperiod}`) }}</p>
           </div>
         </div>
       </div>

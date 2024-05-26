@@ -26,8 +26,8 @@ onMounted(async()=>{
           <select v-model="timeperiod" @change="fetch"
             class="relative z-20 inline-flex bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
           >
-            <option v-for="category in categories" :key="category"
-            :value="category">{{category}}</option>
+            <option v-for="category in categories" :key="category.value"
+            :value="category.value">{{$t(category.label)}}</option>
           </select>
         </div>
       </div>

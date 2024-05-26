@@ -32,6 +32,7 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2">{{$t('content.weight')}}</label>
                         <p class="text-gray-700">{{ state.weight }}</p>
                     </div>
+                    
                 </div>
                 <div>
                     <div class="mb-4">
@@ -66,7 +67,7 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2">{{$t('content.treatment')}}</label>
                         <p class="text-gray-700 flex items-center gap-x-1">
                             <ChevronRightIcon class="w-3 h-3 text-gray-600"/> 
-                            <router-link :to="`/profile/treatment/${state.treatmentId}`"> {{ state.treatmentId }} </router-link> 
+                            <router-link :to="`/profile/treatment/${state?.treatment?.id}`"> {{ state?.treatment?.id }} </router-link> 
                         </p>
                     </div>
                 </div>

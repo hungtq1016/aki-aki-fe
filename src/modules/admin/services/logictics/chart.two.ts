@@ -14,7 +14,24 @@ export const state = ref<TOutputFormat>({
 
 export const timeperiod = ref('week');
 
-export const categories = ['week','month','quarter','year']
+export const categories = [
+    {
+        value: 'week',
+        label: 'table.week'
+    },
+    {
+        value: 'month',
+        label: 'table.month'
+    },
+    {
+        value: 'quarter',
+        label: 'table.quarter'
+    },
+    {
+        value: 'year',
+        label: 'table.year'
+    }
+];
 
 export const fetch = async () => {
     await get<TInputFormat>('/api/invoices/compare-total',{timeperiod: timeperiod.value}).then(response => {

@@ -8,7 +8,7 @@
       <select v-model="stat.default" @change="fetch"
         class="relative z-20 inline-flex bg-transparent py-1 text-sm font-medium outline-none">
         <option v-for="option in options" :key="option.value"
-        :value="option.value">{{option.label}}</option>
+        :value="option.value">{{$t(option.label)}}</option>
       </select>
     </div>
     <div class="mt-4 flex items-end justify-between">
@@ -52,47 +52,47 @@ const props = defineProps<{
 const options = [
     {
         value: 'lastday',
-        label: 'Yesterday'
+        label: 'table.lastday'
     },
     {
         value: 'currentday',
-        label: 'Today'
+        label: 'table.currentday'
     },
     {
         value: 'lastweek',
-        label: 'Last week'
+        label: 'table.lastweek'
     },
     {
         value: 'currentweek',
-        label: 'Current week'
+        label: 'table.currentweek'
     },
     {
         value: 'lastmonth',
-        label: 'Last month'
+        label: 'table.lastmonth'
     },
     {
         value: 'currentmonth',
-        label: 'Current month'
+        label: 'table.currentmonth'
     },
     {
         value: 'lastquarter',
-        label: 'Last quarter'
+        label: 'table.lastquarter'
     },
     {
         value: 'currentquarter',
-        label: 'Current quarter'
+        label: 'table.currentquarter'
     },
     {
         value: 'lastyear',
-        label: 'Last year'
+        label: 'table.lastyear'
     },
     {
         value: 'currentyear',
-        label: 'Current year'
+        label: 'table.currentyear'
     },
     {
         value: 'all',
-        label: 'All'
+        label: 'table.all'
     }
 ];
 

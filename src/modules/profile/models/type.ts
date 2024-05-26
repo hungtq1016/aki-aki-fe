@@ -1,5 +1,6 @@
 import type { TEntity, TRequest } from '@/core/models/type'
 import type { TInvoiceDetailResponse } from '@/modules/admin-invoice/models/type'
+import type { TTreatmentPlant } from '@/modules/admin-treatment/models/type'
 import type { TUser, TUserResponse } from '@/modules/admin-user/models/type'
 
 export type TMedicine = TEntity & {
@@ -77,8 +78,9 @@ export type TRecordResponse = TEntity & {
   patientId: string;
   patient: TUserResponse;
   doctorId: string;
-  treatmentId: string;
+  scheduleId: string;
   doctor: TUserResponse;
+  treatment?: TTreatmentPlant
 }
 
 export type TRecordRequest = TRequest & {
