@@ -95,9 +95,10 @@
       <template #item-delete="{ id }">
         <button @click="remove(id)"><TrashIcon class="w-5 h-5" /></button>
       </template>
-      <template #expand="item" v-if="expandComponent">
+      <template #item-print="item" v-if="expandComponent">
         <expandComponent v-bind="{ item, route }" />
       </template>
+
       <template #item-createHR="{ id, email }">
         <RouterLink 
         class="bg-cerulean-50 text-cerulean-600 px-2 py-1 rounded"

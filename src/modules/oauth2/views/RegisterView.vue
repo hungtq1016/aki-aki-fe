@@ -54,12 +54,13 @@
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator.mjs';
 import AuthForm from '../components/Auth.form.vue';
 import AuthInput from '../components/Auth.input.vue';
-import { rules, state, submit } from '../services/logictics/register';
+import { fetchUserRole, rules, state, submit, submitGroup } from '../services/logictics/register';
 import { useUserStore } from '@/core/stores/user';
 import { successNotification } from '@/core/services/helpers/alert.helper';
 import { i18n } from '@/core/services/base/translation';
 import { useRouter } from 'vue-router';
 import { enforceFormat, formatToPhone } from '@/core/services/utils/util.number';
+import { onMounted } from 'vue';
 
 const { pass, errorFields } = useAsyncValidator(state, rules)
 
@@ -73,9 +74,16 @@ const submitLogin = async (): Promise<void> => {
   if (response) {
     successNotification(i18n.global.t('message.register_success'))
     toggleLogin(true)
-    await fetchUser()
+    fetchUser().then(async response =>{
+      await submitGroup(String(response?.id))
+    })
+  
     router.push('/')
   }
 }
+
+onMounted(async()=>{
+  await fetchUserRole()
+})
 
 </script>

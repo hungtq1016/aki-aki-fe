@@ -11,10 +11,11 @@ export const useUserStore = defineStore('user', () => {
   const user: Ref<TUser> = ref({} as TUser)
   const isLogin: Ref<boolean> = ref(false)
   const router = useRouter()
-  const fetchUser = async (): Promise<void> => {
+  const fetchUser = async (): Promise<void | TUser> => {
     const data = await get<TUser>('/api/authenticate/user')
     if (data?.data) {
       updateData(data.data)
+      return data.data
     }
   }
 

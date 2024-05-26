@@ -22,6 +22,9 @@ export default {
 
     extend: {
       colors: colors,
+      screens: {
+        'print': {'raw': 'print'},
+      }
     },
     spacing:spacing,
   },

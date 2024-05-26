@@ -14,6 +14,7 @@ export const headers: Header[] = [
   { text: 'table.status', value: 'status' },
   { text: 'table.createdAt', value: 'createdAt' },
   { text: 'table.updatedAt', value: 'updatedAt' },
+  { text: 'table.print', value: 'print' },
   { text: 'table.action', value: 'action' }
 ]
 

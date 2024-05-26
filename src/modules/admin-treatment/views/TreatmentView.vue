@@ -4,6 +4,7 @@
       v-bind:="{ headers, items, pagination, paginationOptions, fetch }"
       route="treatmentplants"
       key="treatmentplants"
+      :expand-component="TreatmentPrint"
     />
   </div>
 </template>
@@ -13,6 +14,7 @@ import { onMounted } from 'vue'
 import { paginationOptions, headers } from '../services/data/treatment'
 import { pagination, items, fetch } from '../services/logictics/treatment'
 import TableView from '@/modules/admin/views/TableView.vue'
+import TreatmentPrint from '../components/Treatment.print.vue'
 
 onMounted(async () => {
   await fetch()
